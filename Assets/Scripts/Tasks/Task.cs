@@ -7,17 +7,9 @@ using UnityEngine;
 public class Task : MonoBehaviour
 {
     public Guid ownerId;
+    public int taskId;
     public string text;
     public int cost;
     public string place;
     public int times;
-
-    public void CopyTask(Task task)
-    {
-        task.ownerId = ownerId;
-        task.text = text;
-        task.cost = cost;
-        task.place = place;
-        task.times = times;
-    }
 }

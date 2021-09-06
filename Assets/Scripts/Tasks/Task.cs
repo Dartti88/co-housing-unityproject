@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Task
+public class Task : MonoBehaviour
 {
     public Guid ownerId;
     public string text;

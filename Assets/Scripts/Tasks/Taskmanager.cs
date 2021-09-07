@@ -88,4 +88,57 @@ public class Taskmanager : MonoBehaviour
     {
         RemoveTaskFromList(timesPressed);   
     }
+
+
+
+
+
+
+    // Create new task and add it to the Task List, retuns true if successful, false if not
+    public bool CreateTask(int taskCost, string taskText, string taskPlace, int taskTimes)
+    {
+        Task task = new Task
+        {
+            ownerId = Guid.NewGuid(),   //Placeholder until profiles are implemented
+            taskId = 0,                 //Placehlder, replace int with Guid?
+            cost = taskCost,
+            text = taskText,
+            place = taskPlace,
+            times = taskTimes
+        };
+
+        //TODO: Add check for validity of task on client and server
+
+        //TODO: Add task to list and sync with server
+
+        return true;
+    }
+
+    public bool ModifyTask(int taskId, int taskCost, string taskText, string taskPlace, int taskTimes)
+    {
+        //Placeholder
+        Task task = new Task();
+
+        //TODO: Get task from list by taskId
+
+        /*  
+        //Check that the user is the owner of the task  
+        if (task.ownerId != user.GetID)
+            return false;
+        */
+
+        //Overwrite old data with new
+        (task.cost, task.text, task.place, task.times) = 
+            (taskCost, taskText, taskPlace, taskTimes);
+
+        //TODO: Add check for validity of task on client and server & update it
+
+        return true;
+
+    }
+
+
+
+
+
 }

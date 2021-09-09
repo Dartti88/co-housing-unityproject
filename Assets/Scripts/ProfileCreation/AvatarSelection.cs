@@ -7,17 +7,22 @@ public class AvatarSelection : MonoBehaviour
 {
     [SerializeField] RawImage avatarImage;
     [SerializeField] Texture[] avatarImages;
+    public ProfileHandler pHandler;
 
     int imageIndex;
     void Start()
     {
-        imageIndex = 0;
+        if (pHandler != null)
+            imageIndex = pHandler.GetUserProfile().avatarID;
+        else
+            imageIndex = 0;
         ChangeImage();
     }
 
     void ChangeImage()
     {
         avatarImage.texture = avatarImages[imageIndex];
+        pHandler.ChangeAvatarID(imageIndex);
     }
 
     public void LeftButton()

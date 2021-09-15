@@ -7,7 +7,7 @@ using UnityEngine;
 public class Task : MonoBehaviour
 {
     public Guid ownerId;
-    public int taskId;
+    public Guid taskId;
     public string text;
     public int cost;
     public string place;

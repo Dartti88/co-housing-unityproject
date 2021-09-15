@@ -2,91 +2,96 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Taskmanager : MonoBehaviour
 {
     //For testing
-    public int timesPressed;
-    public Task testTask;
+    public GameObject testTask0;
+    public GameObject testTask1;
+    public GameObject testTask2;
+    public GameObject testTask3;
+    public Dictionary<Guid, GameObject> testTaskList;
 
     public GameObject taskObjTemplate;
     GameObject currentTaskObject;
-    public GameObject listObject;
+    public GameObject listParent;
 
-    public Dictionary<int, GameObject> taskList;
+    public Dictionary<Guid, GameObject> taskList;
     // Start is called before the first frame update
     void Start()
     {
-        taskList = new Dictionary<int, GameObject>();
+        //Format the taskList
+        taskList = new Dictionary<Guid, GameObject>();
+
+        //Placeholder
+        testTaskList = new Dictionary<Guid, GameObject>();
+        testTaskList.Add(Guid.NewGuid(), testTask0);
+        testTaskList.Add(Guid.NewGuid(), testTask1);
+        testTaskList.Add(Guid.NewGuid(), testTask2);
+        testTaskList.Add(Guid.NewGuid(), testTask3);
     }
 
-    // Update is called once per frame
-    void Update()
+    //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
+    public void DisplayTasks()
     {
-        
+        //Empties the current list
+        for(int i = 0; i<listParent.transform.childCount; i++)
+        {
+            Destroy(listParent.transform.GetChild(i).gameObject);
+        }
+
+        //Instantiates all the task objects from the list
+        foreach(GameObject obj in taskList.Values)
+        {
+            //Debug.Log("Task ID: " + obj.GetComponent<Task>().taskId);
+            Instantiate(obj, listParent.transform,true);
+        }
     }
 
-    //Unpacks the given task and adds it to the list
-    GameObject UnpackAndListTask(string json)
+    //Loads new tasks from server. Called by server.
+    public void LoadTasks(Dictionary<Guid, GameObject> updatedTaskList)
     {
-        //Original instantiation
-        //GameObject newTaskObj = Instantiate(taskObjTemplate,listObject.transform);
-        
-        //Placeholder for testing
-        GameObject newTaskObj = Instantiate(taskObjTemplate,new Vector3(listObject.transform.position.x, listObject.transform.position.y-timesPressed*101, listObject.transform.position.z), Quaternion.identity,listObject.transform);
-        timesPressed++;
-        newTaskObj.GetComponent<Task>().taskId = timesPressed;
-        //Placeholder ends
-
-
-        Task newTask = newTaskObj.GetComponent<Task>();
-        JsonUtility.FromJsonOverwrite(json, newTask);
-        return newTaskObj;
+        taskList = new Dictionary<Guid, GameObject>(updatedTaskList);
+        DisplayTasks();
     }
 
-    //Packs the given task into a json file
-    string PackTask(Task task)
+    public void AddTask(GameObject newTask /*Add object here*/)
     {
-        string json = JsonUtility.ToJson(task);
-        return json;
+        //TODO: Ask from server if ok to add
+        taskList.Add(newTask.GetComponent<Task>().taskId, newTask);
+        DisplayTasks();
     }
-
-    GameObject RemoveTaskFromList(int taskId)
+    
+    public void RemoveTask(Guid taskId)
     {
-        GameObject tempObj;
-        GameObject taskObj;
-        taskList.TryGetValue(taskId, out tempObj);
-        taskList.Remove(taskId);
-        taskObj = tempObj;
-        Destroy(tempObj);
-        
-        //Placeholder for testing
-        if(timesPressed>0)timesPressed--;
-        //Placeholder ends
-
-        return taskObj;
+        //bool test = taskList.Remove(taskId);
+        //Debug.Log("Removed??" + test);
+        DisplayTasks();
     }
+    
 
-    void TakeTaskFromList()
-    {
-
-    }
-
-    void UpdateList()
+    void CompleteTask(Guid taskId, string profileId)
     {
 
     }
 
     public void TestAddButton()
     {
-        string json = PackTask(testTask);
-        currentTaskObject = UnpackAndListTask(json);
-        taskList.Add(timesPressed, currentTaskObject);
+        GameObject newTask = taskObjTemplate;
+        newTask.GetComponent<Task>().taskId = Guid.NewGuid();
+        AddTask(newTask);
     }
 
     public void TestRemoveButton()
     {
-        RemoveTaskFromList(timesPressed);   
+        RemoveTask(taskList.First().Key);
+    }
+
+    public void TestUpdateButton()
+    {
+        Debug.Log("TestTaskList length: " + testTaskList.Count);
+        LoadTasks(testTaskList);
     }
 
 
@@ -100,7 +105,7 @@ public class Taskmanager : MonoBehaviour
         Task task = new Task
         {
             ownerId = Guid.NewGuid(),   //Placeholder until profiles are implemented
-            taskId = 0,                 //Placehlder, replace int with Guid?
+            taskId = Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
             text = taskText,
             place = taskPlace,

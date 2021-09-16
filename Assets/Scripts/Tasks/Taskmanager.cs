@@ -7,29 +7,30 @@ using System.Linq;
 public class Taskmanager : MonoBehaviour
 {
     //For testing
-    public GameObject testTask0;
-    public GameObject testTask1;
-    public GameObject testTask2;
-    public GameObject testTask3;
-    public Dictionary<Guid, GameObject> testTaskList;
+    public int testId = 0;
+    public Task testTask0;
+    public Task testTask1;
+    public Task testTask2;
+    public Task testTask3;
+    public Dictionary<int, Task> testTaskList;
 
     public GameObject taskObjTemplate;
     GameObject currentTaskObject;
     public GameObject listParent;
 
-    public Dictionary<Guid, GameObject> taskList;
+    public Dictionary<int, Task> taskList;
     // Start is called before the first frame update
     void Start()
     {
         //Format the taskList
-        taskList = new Dictionary<Guid, GameObject>();
+        taskList = new Dictionary<int, Task>();
 
-        //Placeholder
-        testTaskList = new Dictionary<Guid, GameObject>();
-        testTaskList.Add(Guid.NewGuid(), testTask0);
-        testTaskList.Add(Guid.NewGuid(), testTask1);
-        testTaskList.Add(Guid.NewGuid(), testTask2);
-        testTaskList.Add(Guid.NewGuid(), testTask3);
+        //Placeholder, used for the update method
+        testTaskList = new Dictionary<int, Task>();
+        testTaskList.Add(testTask0.id, testTask0);
+        testTaskList.Add(testTask1.id, testTask1);
+        testTaskList.Add(testTask2.id, testTask2);
+        testTaskList.Add(testTask3.id, testTask3);
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
@@ -40,52 +41,58 @@ public class Taskmanager : MonoBehaviour
         {
             Destroy(listParent.transform.GetChild(i).gameObject);
         }
-
         //Instantiates all the task objects from the list
-        foreach(GameObject obj in taskList.Values)
+        foreach (Task task in taskList.Values)
         {
             //Debug.Log("Task ID: " + obj.GetComponent<Task>().taskId);
-            Instantiate(obj, listParent.transform,true);
+            GameObject taskObj = Instantiate(taskObjTemplate, listParent.transform, true);
+            ReplaceTaskComponent(taskObj, task);
+
+            
         }
     }
 
     //Loads new tasks from server. Called by server.
-    public void LoadTasks(Dictionary<Guid, GameObject> updatedTaskList)
+    public void LoadTasks(Dictionary<int, Task> updatedTaskList)
     {
-        taskList = new Dictionary<Guid, GameObject>(updatedTaskList);
+        taskList = new Dictionary<int, Task>(updatedTaskList);
+        Debug.Log("New task list length: " + taskList.Count());
         DisplayTasks();
     }
 
-    public void AddTask(GameObject newTask /*Add object here*/)
+    public void AddTask(Task newTask /*Add object here*/)
     {
         //TODO: Ask from server if ok to add
-        taskList.Add(newTask.GetComponent<Task>().taskId, newTask);
+        taskList.Add(newTask.id, newTask);
         DisplayTasks();
     }
     
-    public void RemoveTask(Guid taskId)
+    public void RemoveTask(int taskId)
     {
-        //bool test = taskList.Remove(taskId);
-        //Debug.Log("Removed??" + test);
-        DisplayTasks();
+        if(taskList.Count > 0)
+        {
+            bool test = taskList.Remove(taskId);
+            Debug.Log("Removed??" + test);
+            DisplayTasks();
+            return;
+        }
+        Debug.Log("Tried to remove an object from an empty list");
     }
     
 
-    void CompleteTask(Guid taskId, string profileId)
+    void CompleteTask(int taskId, string profileId)
     {
 
     }
 
     public void TestAddButton()
     {
-        GameObject newTask = taskObjTemplate;
-        newTask.GetComponent<Task>().taskId = Guid.NewGuid();
-        AddTask(newTask);
+        CreateTask(0, "asd", 100, 1);
     }
 
     public void TestRemoveButton()
     {
-        RemoveTask(taskList.First().Key);
+        if(taskList.Count > 0) RemoveTask(taskList.First().Key);
     }
 
     public void TestUpdateButton()
@@ -94,32 +101,60 @@ public class Taskmanager : MonoBehaviour
         LoadTasks(testTaskList);
     }
 
+    //Placeholder function for a running int ID
+    public int newId()
+    {
+        testId++;
+        return testId;
+    }
 
 
+    public Task CopyTask(Task origTask)
+    {
+        Task newTask = new Task
+        {
+            creatorId = origTask.creatorId,
+            id = origTask.id,
+            cost = origTask.cost,
+            description = origTask.description,
+            targetId = origTask.targetId,
+            quantity = origTask.quantity
+        };
+        return newTask;
+    }
 
-
+    public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
+    {
+        Task origTask = origTaskObj.GetComponent<Task>();
+        origTask.creatorId = newTask.creatorId;
+        origTask.id = newTask.id;
+        origTask.cost = newTask.cost;
+        origTask.description = newTask.description;
+        origTask.targetId = newTask.targetId;
+        origTask.quantity = newTask.quantity;
+    }
 
     // Create new task and add it to the Task List, retuns true if successful, false if not
-    public bool CreateTask(int taskCost, string taskText, string taskPlace, int taskTimes)
+    public bool CreateTask(int taskCost, string taskText, int taskPlace, int taskTimes)
     {
         Task task = new Task
         {
-            ownerId = Guid.NewGuid(),   //Placeholder until profiles are implemented
-            taskId = Guid.NewGuid(),                 //Placehlder, replace int with Guid?
+            creatorId = "test",//Guid.NewGuid(),   //Placeholder until profiles are implemented
+            id = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
-            text = taskText,
-            place = taskPlace,
-            times = taskTimes
+            description = taskText,
+            targetId = taskPlace,
+            quantity = taskTimes
         };
 
         //TODO: Add check for validity of task on client and server
 
         //TODO: Add task to list and sync with server
-
+        AddTask(task);
         return true;
     }
 
-    public bool ModifyTask(int taskId, int taskCost, string taskText, string taskPlace, int taskTimes)
+    public bool ModifyTask(int taskId, int taskCost, string taskText, int taskPlace, int taskTimes)
     {
         //Placeholder
         Task task = new Task();
@@ -133,7 +168,7 @@ public class Taskmanager : MonoBehaviour
         */
 
         //Overwrite old data with new
-        (task.cost, task.text, task.place, task.times) = 
+        (task.cost, task.description, task.targetId, task.quantity) = 
             (taskCost, taskText, taskPlace, taskTimes);
 
         //TODO: Add check for validity of task on client and server & update it

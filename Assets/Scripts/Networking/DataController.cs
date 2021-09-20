@@ -5,10 +5,26 @@ using UnityEngine;
 
 public class DataController : MonoBehaviour
 {
-    public Dictionary<string, Task> task_list = new Dictionary<string, Task>();
+    private static DataController _instance;
+
+    public static DataController Instance {  get { return _instance; } }
+
+    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
     //public Dictionary<string, Item> item_list = new Dictionary<string, Item>();
     public Dictionary<string, Profile> profile_list = new Dictionary<string, Profile>();
 
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
     void Start()
     {
         

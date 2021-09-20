@@ -23,7 +23,7 @@ public class Taskmanager : MonoBehaviour
     void Start()
     {
         //Format the taskList
-        taskList = new Dictionary<int, Task>();
+        taskList = DataController.Instance.task_list;
 
         //Placeholder, used for the update method
         testTaskList = new Dictionary<int, Task>();

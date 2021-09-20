@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DataController : MonoBehaviour
 {
-    public Dictionary<string, Task> task_list = new Dictionary<string, Task>();
+    public TaskList task_list = new Dictionary<string, Task>();
     //public Dictionary<string, Item> item_list = new Dictionary<string, Item>();
     public Dictionary<string, Profile> profile_list = new Dictionary<string, Profile>();
 

@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
+
 
 public class Taskmanager : MonoBehaviour
 {
@@ -178,7 +179,84 @@ public class Taskmanager : MonoBehaviour
     }
 
 
+    public enum ListSearchType
+    {
+        exact,
+        includeLarger,
+        includeSmaller
+    }
+
+    public List<Task> GetFilteredList(string searchTerm = null, int? cost = null, ListSearchType listSearchType = ListSearchType.exact)
+    {
+
+        //Placeholder declaration, replace with actual list of all tasks
+        List<Task> tasks = new List<Task>();
+
+        //Temporary list for 
+        List<Task> tmp  = new List<Task>();
 
 
+        if(!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            tmp = tasks.Where(task => task.description.Contains(searchTerm)).ToList();
+        }
+        if (cost != null)
+        {
+            switch (listSearchType)
+            {
+                case ListSearchType.exact:
+                    tmp.Concat(tasks.Where(task => task.cost == cost).ToList());
+                    break;
+                case ListSearchType.includeLarger:
+                    tmp.Concat(tasks.Where(task => task.cost >= cost).ToList());
+                    break;
+                case ListSearchType.includeSmaller:
+                    tmp.Concat(tasks.Where(task => task.cost <= cost).ToList());
+                    break;
+            }
+        }
+        return tmp;
+    }
 
+    public enum SortType
+    {
+        CostLowest,
+        CostHighest,
+        QuantityLowest,
+        QuantityHighest
+    }
+
+    // Sorts the list given as a reference
+    public void SortList(ref List<Task> list, SortType sortType, SortType? optionalType = null)
+    {
+        // Helper function to get the float value to sort by 
+        Func<Task, SortType?, float> getSortVal = (Task task, SortType? sort) =>
+        {
+            if (sort is null) { return 0f; }
+            if (sort == SortType.CostHighest || sort == SortType.CostHighest) { return task.cost; } else { return task.quantity; }
+        };
+
+        if (sortType == SortType.CostLowest || sortType == SortType.QuantityLowest)
+        {
+            if (optionalType == SortType.CostLowest || optionalType == SortType.QuantityLowest)
+            {
+                list = list.OrderBy(task => getSortVal(task, sortType)).ThenBy(task => getSortVal(task, optionalType)).ToList();
+            }
+            else
+            {
+                list = list.OrderBy(task => getSortVal(task, sortType)).ThenByDescending(task => getSortVal(task, optionalType)).ToList();
+            }
+        }
+        else
+        {
+            if (optionalType == SortType.CostLowest || optionalType == SortType.QuantityLowest)
+            {
+                list = list.OrderByDescending(task => getSortVal(task, sortType)).ThenBy(task => getSortVal(task, optionalType)).ToList();
+            }
+            else
+            {
+                list = list.OrderByDescending(task => getSortVal(task, sortType)).ThenByDescending(task => getSortVal(task, optionalType)).ToList();
+            }
+        }
+    }
 }

@@ -22,7 +22,7 @@ public class ProfileHandler : MonoBehaviour
 
     public void ChangeName(TextMeshProUGUI text)
     {
-        userProfile.name = text.text;
+        userProfile.displayName = text.text;
     }
 
     public void ChangeAvatarID(int avatarID)

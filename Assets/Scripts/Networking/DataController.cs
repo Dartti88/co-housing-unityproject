@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 public class DataController : MonoBehaviour
 {
     private static DataController _instance;
 
+    [Serializable]
+    public class ProfilesContainer
+    {
+        public Profile[] profiles;
+    }
+    public ProfilesContainer profile_list = new ProfilesContainer();
+
+
     public static DataController Instance {  get { return _instance; } }
 
     public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
-    //public Dictionary<string, Item> item_list = new Dictionary<string, Item>();
-    public Dictionary<string, Profile> profile_list = new Dictionary<string, Profile>();
-
+    
 
     private void Awake()
     {

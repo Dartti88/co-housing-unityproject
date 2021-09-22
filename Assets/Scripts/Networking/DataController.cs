@@ -15,11 +15,9 @@ public class DataController : MonoBehaviour
     {
         public Profile[] profiles;
     }
+
     public ProfilesContainer profile_list = new ProfilesContainer();
-
-
     public static DataController Instance {  get { return _instance; } }
-
     public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
     
 
@@ -43,6 +41,7 @@ public class DataController : MonoBehaviour
     {
 
     }
+
 
     public void LoadTasks(TaskList task_list)
     {
@@ -76,6 +75,11 @@ public class DataController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Ask server to remove Task from TaskList. Archive. Add reward to profile.
+    /// </summary>
+    /// <param displayName="task"></param>
+    /// <param displayName="profile_id"></param>
     public void CompleteTask(Task task, int profile_id)
     {
 

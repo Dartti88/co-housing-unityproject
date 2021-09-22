@@ -5,7 +5,7 @@ using System;
 
 public class DataController : MonoBehaviour
 {
-    public TaskList task_list = new TaskList();
+    //public TaskList task_list = new TaskList();
     //public ItemList item_list = new ItemList();
     //public ProfileList profile_list = new ProfileList();
     private static DataController _instance;

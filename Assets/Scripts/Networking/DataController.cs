@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class DataController : MonoBehaviour
 {
-    public TaskList task_list = new Dictionary<string, Task>();
+    public TaskList task_list = new TaskList();
+    //public ItemList item_list = new ItemList();
+    //public ProfileList profile_list = new ProfileList();
     private static DataController _instance;
 
-    public static DataController Instance {  get { return _instance; } }
-
-    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
-    //public Dictionary<string, Item> item_list = new Dictionary<string, Item>();
+    public static DataController Instance { get { return _instance; } }
+    //public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
+    public Dictionary<string, Item> item_list = new Dictionary<string, Item>();
     public Dictionary<string, Profile> profile_list = new Dictionary<string, Profile>();
 
 
@@ -28,59 +29,58 @@ public class DataController : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
-    }
-    /*
-    public TaskList LoadTasks(TaskList task_list)
-    {
-        return null;
-    }
-    public ItemList LoadObjects(ItemList item_list)
-    {
-        return null;
-    }
-    public ProfileList LoadProfiles(ProfileList profile_list)
-    {
-        return null;
-    }
-    public Task AddTask(Task task, [Item])
-    {
-        return null;
-    }
-   
-    public Task AddTask(Task task, Item item)
-    {
-        return null;
-    }
-     */
-    public Task RemoveTask(Task task)
-    {
-        return null;
-    }
-    /*
-    public Item AddItem(Item item)
-    {
-        return null;
-    }
-    */
-    public Task CompleteTask(Task task, int profile_id)
-    {
-        return null;
+
     }
 
-    public Profile AddProfile(Profile profile)
+    public void LoadTasks(TaskList task_list)
     {
-        return null;
+
+    }
+    public void LoadObjects(/*ItemList item_list*/)
+    {
+
+    }
+    public void LoadProfiles(/*ProfileList profile_list*/)
+    {
+
+    }
+    public void AddTask(Task task)
+    {
+
     }
 
-    public Profile UpdateProfile(Profile profile)
+    public void AddTask(Task task, Item item)
     {
-        return null;
+
     }
 
+    public void RemoveTask(Task task)
+    {
+
+    }
+
+    public void AddItem(Item item)
+    {
+
+    }
+
+    public void CompleteTask(Task task, int profile_id)
+    {
+
+    }
+
+    public void AddProfile(Profile profile)
+    {
+
+    }
+
+    public void UpdateProfile(Profile profile)
+    {
+
+    }
 }

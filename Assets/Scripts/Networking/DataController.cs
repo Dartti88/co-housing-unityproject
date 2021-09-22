@@ -5,7 +5,10 @@ using System;
 
 public class DataController : MonoBehaviour
 {
-    //public TaskList task_list = new Dictionary<string, Task>(); // <- eihän tämmönen oo laillista:D ?
+
+    //public TaskList task_list = new TaskList();
+    //public ItemList item_list = new ItemList();
+    
     private static DataController _instance;
 
     [Serializable]
@@ -13,11 +16,9 @@ public class DataController : MonoBehaviour
     {
         public Profile[] profiles;
     }
+
     public ProfilesContainer profile_list = new ProfilesContainer();
-
-
     public static DataController Instance {  get { return _instance; } }
-
     public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
     
 
@@ -34,59 +35,64 @@ public class DataController : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
-    }
-    /*
-    public TaskList LoadTasks(TaskList task_list)
-    {
-        return null;
-    }
-    public ItemList LoadObjects(ItemList item_list)
-    {
-        return null;
-    }
-    public ProfileList LoadProfiles(ProfileList profile_list)
-    {
-        return null;
-    }
-    public Task AddTask(Task task, [Item])
-    {
-        return null;
-    }
-   
-    public Task AddTask(Task task, Item item)
-    {
-        return null;
-    }
-     */
-    public Task RemoveTask(Task task)
-    {
-        return null;
-    }
-    /*
-    public Item AddItem(Item item)
-    {
-        return null;
-    }
-    */
-    public Task CompleteTask(Task task, int profile_id)
-    {
-        return null;
+
     }
 
-    public Profile AddProfile(Profile profile)
+
+    public void LoadTasks(TaskList task_list)
     {
-        return null;
+
+    }
+    public void LoadObjects(/*ItemList item_list*/)
+    {
+
+    }
+    public void LoadProfiles(/*ProfileList profile_list*/)
+    {
+
+    }
+    public void AddTask(Task task)
+    {
+
     }
 
-    public Profile UpdateProfile(Profile profile)
+    public void AddTask(Task task, Item item)
     {
-        return null;
+
     }
 
+    public void RemoveTask(Task task)
+    {
+
+    }
+
+    public void AddItem(Item item)
+    {
+
+    }
+
+    /// <summary>
+    /// Ask server to remove Task from TaskList. Archive. Add reward to profile.
+    /// </summary>
+    /// <param displayName="task"></param>
+    /// <param displayName="profile_id"></param>
+    public void CompleteTask(Task task, int profile_id)
+    {
+
+    }
+
+    public void AddProfile(Profile profile)
+    {
+
+    }
+
+    public void UpdateProfile(Profile profile)
+    {
+
+    }
 }

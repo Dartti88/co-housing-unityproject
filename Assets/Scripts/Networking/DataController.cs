@@ -5,6 +5,7 @@ using System;
 
 public class DataController : MonoBehaviour
 {
+    public TaskList task_list = new Dictionary<string, Task>();
     private static DataController _instance;
 
     [Serializable]

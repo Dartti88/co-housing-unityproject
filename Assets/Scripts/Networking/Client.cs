@@ -6,43 +6,24 @@ using System;
 
 
 
-
-public abstract class DatabaseEntry
-{
-    public bool RequestInProgress { get; protected set; } = false;
-    public bool IsAvailable { get; protected set; } = false;
-    public abstract void Init();
-    public abstract void SetString(int index, string data);
-}
-
-public class ProfileDataTest : DatabaseEntry
-{
-    public string[] data_str;
-
-    public override void Init()
-    {
-        data_str = new string[1];
-        RequestInProgress = true;
-        IsAvailable = false;
-    }
-
-    public override void SetString(int index, string data)
-    {
-        data_str[index] = data;
-        RequestInProgress = false;
-        IsAvailable = true;
-    }
-
-    public string GetUsername()
-    {
-        return data_str[0];
-    }
-}
-
-
 public class Client : MonoBehaviour
 {
+    public static Client Instance { get; private set; }
+    
     Profile newTestProfile;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +38,7 @@ public class Client : MonoBehaviour
     {
         if (exec)
         {
-            BeginRequest_GetAllProfiles();
+            //BeginRequest_GetAllProfiles();
             //BeginRequest_AddNewProfile(newTestProfile);
             //BeginRequest_ValidatePassword("TestUser", "1234");
             exec = false;
@@ -65,39 +46,56 @@ public class Client : MonoBehaviour
     }
 
 
-    public void BeginRequest_GetAllProfiles()
+    public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {
         UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_Profiles, "application/json");
-        StartCoroutine(SendWebRequest(req, UpdateProfilesFromDatabase));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfilesFromDatabase));
     }
 
-    public void BeginRequest_AddNewProfile(Profile newProfile)
+    public void BeginRequest_AddNewProfile(Profile newProfile, System.Action<string> onCompletionCallback)
     {
+        if (newProfile.userName.Length <= 0)
+        {
+            Debug.Log("ERROR: BeginRequest_AddNewProfile(Profile newProfile, System.Action<string> onCompletionCallback)\n>>userName was empty");
+            return;
+        }
+        else if (newProfile.displayName.Length <= 0)
+        {
+            Debug.Log("ERROR: BeginRequest_AddNewProfile(Profile newProfile, System.Action<string> onCompletionCallback)\n>>displayName was empty");
+            return;
+        }
+        else if (newProfile.password.Length <= 0)
+        {
+            Debug.Log("ERROR: BeginRequest_AddNewProfile(Profile newProfile, System.Action<string> onCompletionCallback)\n>>password was empty");
+            return;
+        }
+
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
         form.Add(new MultipartFormDataSection("key_userName", "\"" + newProfile.userName + "\""));
         form.Add(new MultipartFormDataSection("key_displayName", "\"" + newProfile.displayName + "\""));
-        form.Add(new MultipartFormDataSection("key_password", "\"" + newProfile.password + "\""));
         
         form.Add(new MultipartFormDataSection("key_apartmentID", newProfile.apartmentID.ToString()));
         form.Add(new MultipartFormDataSection("key_communityID", newProfile.communityID.ToString()));
         form.Add(new MultipartFormDataSection("key_avatarID", newProfile.avatarID.ToString()));
-        
+
+        form.Add(new MultipartFormDataSection("key_password", "\"" + newProfile.password + "\""));
+
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CreateNewProfile, form);
-        StartCoroutine(SendWebRequest(req, NotifyOn_AddedNewProfileComplete));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AddedNewProfileComplete));
     }
 
-    public void BeginRequest_ValidatePassword(string username, string password)
+    public void BeginRequest_ValidatePassword(string username, string password, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
         form.Add(new MultipartFormDataSection("key_userName", "\"" + username + "\""));
         form.Add(new MultipartFormDataSection("key_password", "\"" + password + "\""));
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_ValidatePassword, form);
-        StartCoroutine(SendWebRequest(req, NotifyOn_PasswordValidationComplete));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
     }
 
 
-    IEnumerator SendWebRequest(UnityWebRequest req, System.Action<UnityWebRequest> onCompletionCallback)
+    IEnumerator SendWebRequest(UnityWebRequest req, System.Action<string> onCompletionCallback, System.Action<UnityWebRequest> internalCallback)
     {
         Debug.Log("Sending web request to the server...");
 
@@ -107,12 +105,16 @@ public class Client : MonoBehaviour
             Debug.Log(req.error);
         else
         {
-            onCompletionCallback(req);
+            if(internalCallback != null)
+                internalCallback.Invoke(req);
+
+            if(onCompletionCallback != null)
+                onCompletionCallback.Invoke(req.downloadHandler.text);
         }
     }
 
 
-    void UpdateProfilesFromDatabase(UnityWebRequest req)
+    void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
 
@@ -139,14 +141,14 @@ public class Client : MonoBehaviour
     }
 
     // This is called when server responds to post new profile request
-    void NotifyOn_AddedNewProfileComplete(UnityWebRequest req)
+    void Internal_OnCompletion_AddedNewProfileComplete(UnityWebRequest req)
     {
-        Debug.Log("Server >> " + req.downloadHandler.text);
+        Debug.Log("Internal_OnCompletion_AddedNewProfileComplete(UnityWebRequest req)");
     }
 
-    void NotifyOn_PasswordValidationComplete(UnityWebRequest req)
+    void Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)
     {
-        Debug.Log("Server >> " + req.downloadHandler.text);
+        Debug.Log("Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)");
     }
 
     /*

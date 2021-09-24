@@ -15,7 +15,8 @@ public class TestObj : MonoBehaviour
     {}
     
     void Update()
-    {}
+    {
+}
 
 
     public void OnClick_CreateNewUser()
@@ -30,9 +31,10 @@ public class TestObj : MonoBehaviour
             3, 0, Profile.ProfileType.Guest, 
             DateTime.Now
         );
-
+        
         Client.Instance.BeginRequest_AddNewProfile(newProfile, OnCreateProfileRequestComplete);
     }
+
     void OnCreateProfileRequestComplete(string response)
     {
         if (response == "Success")
@@ -46,6 +48,7 @@ public class TestObj : MonoBehaviour
     {
         string userName = input_userName.text;
         string password = input_password.text;
+
         Client.Instance.BeginRequest_ValidatePassword(userName, password, OnLogInRequestComplete);
     }
     void OnLogInRequestComplete(string response)

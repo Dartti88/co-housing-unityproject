@@ -412,7 +412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 399422071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450f901a7ea93bf459e877b2f0eca7ca, type: 3}
+  m_Script: {fileID: 11500000, guid: a14477c136c0ca545b36d7fc625fea5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &399422073
@@ -1773,7 +1773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2065287083}
         m_TargetAssemblyTypeName: TestObj, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: OnClick_CreateNewUser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -28,7 +28,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, Profile.ProfileType.Guest, DateTime.Now);
+        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, 0, Profile.ProfileType.Guest, DateTime.Now);
     }
 
     
@@ -117,27 +117,7 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
-
-        DataController.ProfilesContainer profileList = DataController.Instance.profile_list;
-        profileList = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
-
-        foreach (Profile p in profileList.profiles)
-        {
-            Debug.Log("====================================================\n");
-            Debug.Log(p.id);
-            Debug.Log(p.userName);
-            Debug.Log(p.password);
-            Debug.Log(p.apartmentID);
-            Debug.Log(p.communityID);
-            Debug.Log(p.displayName);
-            Debug.Log(p.avatarID);
-            Debug.Log(p.credits);
-            Debug.Log(p.socialScore);
-            Debug.Log(p.profileType);
-            Debug.Log(p.creationDate);
-            Debug.Log(p.description);
-            Debug.Log("====================================================\n");
-        }
+        DataController.Instance.profile_list = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
     }
 
     // This is called when server responds to post new profile request

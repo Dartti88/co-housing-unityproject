@@ -12,6 +12,15 @@ public class Client : MonoBehaviour
     
     Profile newTestProfile;
 
+    [Serializable]
+    public class ProfilesContainer
+    {
+        public Profile[] profiles;
+    }
+
+    public ProfilesContainer profile_list = new ProfilesContainer();
+    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -117,27 +126,7 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
-
-        DataController.ProfilesContainer profileList = DataController.Instance.profile_list;
-        profileList = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
-
-        foreach (Profile p in profileList.profiles)
-        {
-            Debug.Log("====================================================\n");
-            Debug.Log(p.id);
-            Debug.Log(p.userName);
-            Debug.Log(p.password);
-            Debug.Log(p.apartmentID);
-            Debug.Log(p.communityID);
-            Debug.Log(p.displayName);
-            Debug.Log(p.avatarID);
-            Debug.Log(p.credits);
-            Debug.Log(p.socialScore);
-            Debug.Log(p.profileType);
-            Debug.Log(p.creationDate);
-            Debug.Log(p.description);
-            Debug.Log("====================================================\n");
-        }
+        profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
     }
 
     // This is called when server responds to post new profile request

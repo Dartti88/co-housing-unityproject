@@ -27,7 +27,7 @@ public class ProfileUIController : MonoBehaviour
         
         //straight up copied this from profile-team, not in use atm though
         if (pHandler != null)
-            imageIndex = pHandler.GetUserProfile().avatarID;
+            imageIndex = pHandler.userProfile.avatarID;
         else
             imageIndex = 0;
         ChangeImage();

@@ -37,7 +37,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, Profile.ProfileType.Guest, DateTime.Now);
+        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, 0, Profile.ProfileType.Guest, DateTime.Now);
     }
 
     

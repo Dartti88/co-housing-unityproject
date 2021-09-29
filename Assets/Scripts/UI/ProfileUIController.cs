@@ -7,23 +7,24 @@ using UnityEngine.UI;
 public class ProfileUIController : MonoBehaviour
 {
     public ProfileHandler pHandler;
+
     public Image profileBackground;
     public Image profileChangeCanvas;
     public Button closeProfileBtn;
     public Image profilePics; //this is the grid
     public Image currentProfilePic;
-    public Image[] profileImages;
     public GameObject ProfilePicture;
+
     public InputField profileName;
     public InputField profileDescription;
     public Text nameText;
     public Text descriptionText;
-    int imageIndex;
 
     public void Start()
     {
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
+<<<<<<< Updated upstream
         
         //straight up copied this from profile-team, not in use atm though
         if (pHandler != null)
@@ -31,12 +32,10 @@ public class ProfileUIController : MonoBehaviour
         else
             imageIndex = 0;
         ChangeImage();
+=======
+>>>>>>> Stashed changes
     }
 
-    void ChangeImage(){
-        //currentProfilePic.texture = profileImages[imageIndex];
-        //pHandler.ChangeAvatarID(imageIndex);
-    }
 
     public void CloseProfileCanvas(){
         if(profileBackground.gameObject.activeSelf == true)
@@ -57,8 +56,9 @@ public class ProfileUIController : MonoBehaviour
     }
 
     public void ConfirmChangesToServer(){
-        Debug.Log(currentProfilePic.sprite);
+        //
         //here the function to send all info to server
+        //
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.sprite.name);
         Debug.Log(index + " index");
@@ -67,6 +67,19 @@ public class ProfileUIController : MonoBehaviour
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
 
 
+        //CURRENTLY FUCKS SHIT UP IF LEFT EMPTY. WHY
+        if (nameText.text.Length > 0)
+        {
+            nameText.text = profileName.text;
+            nameText.text = nameText.text.Substring(0, 1).ToUpper() + nameText.text.Substring(1).ToLower();
+        }
+        if (descriptionText.text.Length > 0)
+        {
+            descriptionText.text = profileDescription.text;
+            descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
+        }
+
+        //TODO error messages if no name or description
 
         profileChangeCanvas.gameObject.SetActive(false);
     }
@@ -78,7 +91,5 @@ public class ProfileUIController : MonoBehaviour
     public void OpenProfileChoosingS(){
         profilePics.gameObject.SetActive(true);
     }
-
-    //TODO input fields
 
 }

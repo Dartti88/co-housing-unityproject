@@ -9,7 +9,7 @@ public class Task : MonoBehaviour
     //Distinct ID for the task
     public int id;
     //The ID of the creator
-    public string creatorId;
+    public int creatorId;
     //The target objects ID where the task is located
     public int targetId;
     //The displayed text with the task description

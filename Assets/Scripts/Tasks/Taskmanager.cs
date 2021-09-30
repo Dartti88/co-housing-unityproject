@@ -140,7 +140,7 @@ public class Taskmanager : MonoBehaviour
     {
         Task task = new Task
         {
-            creatorId = "test",//Guid.NewGuid(),   //Placeholder until profiles are implemented
+            creatorId = 1,// täl hetkellä id:t on int : aiempi-> "test",//Guid.NewGuid(),   //Placeholder until profiles are implemented
             id = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
             description = taskText,

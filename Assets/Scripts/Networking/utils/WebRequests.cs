@@ -6,10 +6,18 @@ using UnityEngine.Networking;
 public class WebRequests
 {
     public const string URL_test = "https://gcdata.000webhostapp.com/DatabaseTest.php";
-
+    
     public const string URL_GET_Profiles = "https://gcdata.000webhostapp.com/GetProfiles.php";
     public const string URL_POST_CreateNewProfile = "https://gcdata.000webhostapp.com/AddNewProfileTEST.php";
     public const string URL_POST_ValidatePassword = "https://gcdata.000webhostapp.com/ValidatePassword.php";
+
+    public const string URL_POST_CreateNewTask = "https://gcdata.000webhostapp.com/AddNewTask.php";
+    public const string URL_GET_AvailableTasks = "https://gcdata.000webhostapp.com/GetAvailableTasks.php";
+    public const string URL_POST_GetAcceptedTasks = "https://gcdata.000webhostapp.com/GetAcceptedTasks.php";
+
+    public const string URL_POST_AcceptTask = "https://gcdata.000webhostapp.com/AcceptTask.php";
+    public const string URL_POST_CompleteTask = "https://gcdata.000webhostapp.com/CompleteTask.php";
+
 
 
     public static UnityWebRequest CreateWebRequest_GET(string url, string contentType = "text/plain")

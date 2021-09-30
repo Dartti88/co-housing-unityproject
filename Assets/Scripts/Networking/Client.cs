@@ -31,21 +31,24 @@ public class Client : MonoBehaviour
         newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, Profile.ProfileType.Guest, DateTime.Now);
     }
 
-    
     bool exec = true;
     // Update is called once per frame
     void Update()
     {
         if (exec)
         {
-            //BeginRequest_GetAllProfiles();
+            // profileID = 1 -> username = TestUser, displayName = Jorma
+            //BeginRequest_CompleteTask(1, 8, null);
+            //BeginRequest_AcceptTask(1, 9, null);
+            BeginRequest_GetAcceptedTasks(1, null);
+            //BeginRequest_GetAllProfiles(null);
             //BeginRequest_AddNewProfile(newTestProfile);
             //BeginRequest_ValidatePassword("TestUser", "1234");
             exec = false;
         }
     }
 
-
+    // PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF
     public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {
         UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_Profiles, "application/json");
@@ -95,49 +98,81 @@ public class Client : MonoBehaviour
     }
 
 
-    IEnumerator SendWebRequest(UnityWebRequest req, System.Action<string> onCompletionCallback, System.Action<UnityWebRequest> internalCallback)
+    // PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF
+    public void BeginRequest_GetAvailableTasks(System.Action<string> onCompletionCallback)
     {
-        Debug.Log("Sending web request to the server...");
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_AvailableTasks, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateAvailableTasksFromDatabase));
+    }
+    public void BeginRequest_GetAcceptedTasks(int profileID, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetAcceptedTasks, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateAcceptedTasksFromDatabase));
+    }
 
-        yield return req.SendWebRequest();
-
-        if (req.result == UnityWebRequest.Result.ConnectionError)
-            Debug.Log(req.error);
-        else
+    public void BeginRequest_AddNewTask(Task task, System.Action<string> onCompletionCallback)
+    {
+        if (task.description.Length <= 0)
         {
-            if(internalCallback != null)
-                internalCallback.Invoke(req);
-
-            if(onCompletionCallback != null)
-                onCompletionCallback.Invoke(req.downloadHandler.text);
+            Debug.Log("ERROR: BeginRequest_AddNewTask(Task task, System.Action<string> onCompletionCallback)\n>>Task description was empty");
+            return;
         }
+
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorId.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetId.ToString() + "\""));
+
+        form.Add(new MultipartFormDataSection("key_cost", "\"" + task.cost.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_quantity", "\"" + task.quantity.ToString() + "\""));
+
+        // Make the date be in sql format (YYYY-MM-DD)
+        string y = task.expireDate.Year.ToString();
+        string m = task.expireDate.Month.ToString();
+        string d = task.expireDate.Day.ToString();
+        if (m.Length == 1)
+            m = '0' + m;
+        if (d.Length == 1)
+            d = '0' + d;
+        
+        form.Add(new MultipartFormDataSection("key_expirationDate", "\"" + y + m + d + "\""));
+
+        form.Add(new MultipartFormDataSection("key_description", "\"" + task.description + "\""));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CreateNewTask, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AddedNewProfileComplete));
+    }
+
+    public void BeginRequest_AcceptTask(int profileID, int taskID, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_taskID", "\"" + taskID.ToString() + "\""));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_AcceptTask, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AcceptTaskComplete));
+    }
+
+    public void BeginRequest_CompleteTask(int profileID, int taskID, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_taskID", "\"" + taskID.ToString() + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CompleteTask, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CompleteTaskComplete));
     }
 
 
+    // ALL INTERNAL FUNCS ->
+
+    // INTERNAL PROFILES STUFF ------------------------- INTERNAL PROFILES STUFF ------------------------- INTERNAL PROFILES STUFF
     void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
-
-        DataController.ProfilesContainer profileList = DataController.Instance.profile_list;
-        profileList = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
-
-        foreach (Profile p in profileList.profiles)
-        {
-            Debug.Log("====================================================\n");
-            Debug.Log(p.id);
-            Debug.Log(p.userName);
-            Debug.Log(p.password);
-            Debug.Log(p.apartmentID);
-            Debug.Log(p.communityID);
-            Debug.Log(p.displayName);
-            Debug.Log(p.avatarID);
-            Debug.Log(p.credits);
-            Debug.Log(p.socialScore);
-            Debug.Log(p.profileType);
-            Debug.Log(p.creationDate);
-            Debug.Log(p.description);
-            Debug.Log("====================================================\n");
-        }
+        DataController.Instance.profile_list = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
     }
 
     // This is called when server responds to post new profile request
@@ -151,21 +186,67 @@ public class Client : MonoBehaviour
         Debug.Log("Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)");
     }
 
-    /*
-    async Task<UnityWebRequestAsyncOperation> GetFromDatabaseAsync()
+    // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
+    [Serializable]
+    class TempTask
+    { 
+        public int taskID;
+        public int creatorID;
+        public int targetID;
+        public float cost;
+        public int quantity;
+        public int acceptedQuantity;
+        public string creationDate;
+        public string expirationDate;
+        public string description;
+    }
+    [Serializable]
+    class TempTaskList
     {
-        Debug.Log("Getting data from server...");
+        public TempTask[] tasks;
+    }
+    void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req) // !!!! NOT READY YET !!!!
+    {
+        string json = "{\"tasks\": " + req.downloadHandler.text + "}";
+        TempTaskList tempTaskList = JsonUtility.FromJson<TempTaskList>(json);
+    }
+    void Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req) // !!!! NOT READY YET !!!!
+    {
+        string json = "{\"tasks\": " + req.downloadHandler.text + "}";
+        TempTaskList tempTaskList = JsonUtility.FromJson<TempTaskList>(json);
+        Debug.Log("Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req)");
+    }
+    void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)");
+    }
 
-        //Task<int> asyncTask = DoGetDatabaseAsync();
-        Task<UnityWebRequestAsyncOperation> asyncTask = new Task<UnityWebRequestAsyncOperation>(() =>
+    void Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // COMMON ->
+    IEnumerator SendWebRequest(UnityWebRequest req, System.Action<string> onCompletionCallback, System.Action<UnityWebRequest> internalCallback)
+    {
+        Debug.Log("Sending web request to the server...");
+
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError)
+            Debug.Log(req.error);
+        else
         {
-            UnityWebRequest testRequest = WebRequests.CreateWebRequest(WebRequests.URL_test);
-            return testRequest.SendWebRequest();
-        });
-        asyncTask.Start();
-        
+            if (internalCallback != null)
+                internalCallback.Invoke(req);
 
-        return await asyncTask;
-    }*/
-
+            if (onCompletionCallback != null)
+                onCompletionCallback.Invoke(req.downloadHandler.text);
+        }
+    }
 }

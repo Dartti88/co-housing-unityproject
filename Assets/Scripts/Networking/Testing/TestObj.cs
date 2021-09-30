@@ -58,4 +58,32 @@ public class TestObj : MonoBehaviour
         else
             Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);
     }
+
+
+    public void OnClick_CreateNewTask()
+    {
+        GameObject testTaskObj = new GameObject("TestTask");
+        Task testTaskComponent = testTaskObj.AddComponent<Task>();
+        testTaskComponent.cost = 2;
+        testTaskComponent.quantity = 1;
+        testTaskComponent.targetId = 13;
+        testTaskComponent.creatorId = 7;
+        testTaskComponent.expireDate = new DateTime(2100, 1, 1);
+        testTaskComponent.description = "Third test task";
+
+        Client.Instance.BeginRequest_AddNewTask(testTaskComponent, OnCreateNewTaskComplete);
+    }
+    void OnCreateNewTaskComplete(string response)
+    {
+        Debug.Log("Create new task request was completed: Server response >> " + response);
+    }
+
+    public void OnClick_GetAvailableTasks()
+    {
+        Client.Instance.BeginRequest_GetAvailableTasks(OnGetAvailableTasksComplete);
+    }
+    void OnGetAvailableTasksComplete(string response)
+    {
+        Debug.Log("Available tasks fetched successfully");
+    }
 }

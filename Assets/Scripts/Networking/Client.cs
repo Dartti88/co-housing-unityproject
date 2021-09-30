@@ -19,7 +19,7 @@ public class Client : MonoBehaviour
     }
 
     public ProfilesContainer profile_list = new ProfilesContainer();
-    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
+    public Dictionary<int, Task> taskList = new Dictionary<int, Task>();
 
     private void Awake()
     {

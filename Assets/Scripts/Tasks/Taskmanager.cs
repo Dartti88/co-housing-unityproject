@@ -24,14 +24,14 @@ public class Taskmanager : MonoBehaviour
     void Start()
     {
         //Format the taskList
-        taskList = Client.Instance.task_list;
+        taskList = Client.Instance.taskList;
 
         //Placeholder, used for the update method
-        testTaskList = new Dictionary<int, Task>();
-        testTaskList.Add(testTask0.id, testTask0);
-        testTaskList.Add(testTask1.id, testTask1);
-        testTaskList.Add(testTask2.id, testTask2);
-        testTaskList.Add(testTask3.id, testTask3);
+        //testTaskList = new Dictionary<int, Task>();
+        taskList.Add(testTask0.id, testTask0);
+        taskList.Add(testTask1.id, testTask1);
+        taskList.Add(testTask2.id, testTask2);
+        taskList.Add(testTask3.id, testTask3);
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server

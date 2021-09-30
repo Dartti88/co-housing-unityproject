@@ -1151,6 +1151,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517866504}
   m_CullTransparentMesh: 1
+--- !u!1 &1566562752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2327496601227751931, guid: 60a3bc450d381c54289c5606ececf52a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2044277204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978820412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1209,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2327496600254226080, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496600254226080, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496600491375348, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1323,6 +1339,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496601101273901, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601101273901, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1336,7 +1362,7 @@ PrefabInstance:
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -47.48992
+      value: -47.66346
       objectReference: {fileID: 0}
     - target: {fileID: 2327496601280504998, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
@@ -1348,14 +1374,48 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496601280504998, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377338992, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377339005, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -194.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377339005, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.8909912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a3bc450d381c54289c5606ececf52a, type: 3}
---- !u!1 &2044277205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2327496600684575041, guid: 60a3bc450d381c54289c5606ececf52a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2044277204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7588507250342554887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,7 +1463,7 @@ PrefabInstance:
         type: 3}
       propertyPath: taskContainer
       value: 
-      objectReference: {fileID: 2044277205}
+      objectReference: {fileID: 1566562752}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: taskObjTemplate

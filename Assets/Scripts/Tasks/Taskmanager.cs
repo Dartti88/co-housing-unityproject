@@ -66,6 +66,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(taskList.Count > 0)
         {
+            taskList.Remove(taskId);
             DisplayTasks();
             return;
         }

@@ -7,49 +7,44 @@ using UnityEngine;
 
 public class Taskmanager : MonoBehaviour
 {
-    //For testing
-    public int testId = 0;
-    public Task testTask0;
-    public Task testTask1;
-    public Task testTask2;
-    public Task testTask3;
-    public Dictionary<int, Task> testTaskList;
+    public GameObject taskContainer;
+    public GameObject taskElementPrefab;
 
-    public GameObject taskObjTemplate;
-    GameObject currentTaskObject;
-    public GameObject listParent;
+    //For testing
+    int testId = 0;
+
 
     public Dictionary<int, Task> taskList;
     // Start is called before the first frame update
     void Start()
     {
-        //Format the taskList
-        taskList = Client.Instance.taskList;
-
-        //Placeholder, used for the update method
-        //testTaskList = new Dictionary<int, Task>();
-        taskList.Add(testTask0.id, testTask0);
-        taskList.Add(testTask1.id, testTask1);
-        taskList.Add(testTask2.id, testTask2);
-        taskList.Add(testTask3.id, testTask3);
+        //Format the local taskList
+        taskList = Client.Instance.task_list;
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks()
     {
         //Empties the current list
-        for(int i = 0; i<listParent.transform.childCount; i++)
+        for(int i = 0; i<taskContainer.transform.childCount; i++)
         {
-            Destroy(listParent.transform.GetChild(i).gameObject);
+            Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
         //Instantiates all the task objects from the list
         foreach (Task task in taskList.Values)
         {
-            //Debug.Log("Task ID: " + obj.GetComponent<Task>().taskId);
-            GameObject taskObj = Instantiate(taskObjTemplate, listParent.transform, true);
-            ReplaceTaskComponent(taskObj, task);
+            GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
+            newTaskElement.transform.SetParent(taskContainer.transform, false);
+            newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
+                task.id,
+                task.creatorId,
+                task.taskName,
+                task.description,
+                task.cost,
+                task.points,
+                task.quantity,
+                task.date);
 
-            
         }
     }
 
@@ -58,7 +53,6 @@ public class Taskmanager : MonoBehaviour
     {
         taskList = new Dictionary<int, Task>(updatedTaskList);
         Debug.Log("New task list length: " + taskList.Count());
-        DisplayTasks();
     }
 
     public void AddTask(Task newTask /*Add object here*/)
@@ -72,8 +66,6 @@ public class Taskmanager : MonoBehaviour
     {
         if(taskList.Count > 0)
         {
-            bool test = taskList.Remove(taskId);
-            Debug.Log("Removed??" + test);
             DisplayTasks();
             return;
         }
@@ -94,12 +86,6 @@ public class Taskmanager : MonoBehaviour
     public void TestRemoveButton()
     {
         if(taskList.Count > 0) RemoveTask(taskList.First().Key);
-    }
-
-    public void TestUpdateButton()
-    {
-        Debug.Log("TestTaskList length: " + testTaskList.Count);
-        LoadTasks(testTaskList);
     }
 
     //Placeholder function for a running int ID
@@ -124,6 +110,8 @@ public class Taskmanager : MonoBehaviour
         return newTask;
     }
 
+
+    //Probably obsolete version of formatting the new task
     public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
     {
         Task origTask = origTaskObj.GetComponent<Task>();

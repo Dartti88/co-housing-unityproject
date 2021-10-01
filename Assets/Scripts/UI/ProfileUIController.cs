@@ -12,7 +12,7 @@ public class ProfileUIController : MonoBehaviour
     public Image profileChangeCanvas;
     public Button closeProfileBtn;
     public Image profilePics; //this is the grid
-    public Image currentProfilePic;
+    public GameObject currentProfilePic;
     public GameObject ProfilePicture;
 
     public InputField profileName;
@@ -42,7 +42,8 @@ public class ProfileUIController : MonoBehaviour
 
     public void ChangeProfileInfo(){
         profileChangeCanvas.gameObject.SetActive(true);
-        //currentProfilePic = ProfilePicture.gameObject.GetComponent<Image>();
+        Image actual = ProfilePicture.gameObject.GetComponent<Image>();
+        currentProfilePic.gameObject.GetComponent<Image>().sprite = actual.sprite;
     }
 
     public void ConfirmChangesToServer(){
@@ -50,26 +51,33 @@ public class ProfileUIController : MonoBehaviour
         //here the function to send all info to server
         //
         //use the index to know which pic+avatar prefab pack to use and send info to server!
-        int index = int.Parse(currentProfilePic.sprite.name);
+        int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
         Debug.Log(index + " index");
 
-        Image im = currentProfilePic;
+        Image im = currentProfilePic.gameObject.GetComponent<Image>();
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
 
 
-        //CURRENTLY FUCKS SHIT UP IF LEFT EMPTY. WHY
-        if (nameText.text.Length > 0)
+        if (profileName.text.Length == 0)
         {
-            nameText.text = profileName.text;
-            nameText.text = nameText.text.Substring(0, 1).ToUpper() + nameText.text.Substring(1).ToLower();
+            nameText.text = "Test";
         }
-        if (descriptionText.text.Length > 0)
+        else if (profileName.text.Length > 0)
         {
+            profileName.text = profileName.text.Substring(0, 1).ToUpper() + profileName.text.Substring(1).ToLower();
+            nameText.text = profileName.text;
+            
+        }
+       if (profileDescription.text.Length == 0)
+       {
+            descriptionText.text = "Test";
+       }
+       else if (profileDescription.text.Length > 0)
+       {
             descriptionText.text = profileDescription.text;
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
-        }
+       }
 
-        //TODO error messages if no name or description
 
         profileChangeCanvas.gameObject.SetActive(false);
     }

@@ -11,6 +11,7 @@ public class ProfileHandler : MonoBehaviour
     private string username;
     private string password;
     private string passwordRepeat;
+    public ProfileUIController profUIController;
     private void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -62,6 +63,7 @@ public class ProfileHandler : MonoBehaviour
 
     public void Register()
     {
+        profUIController.ChangeProfileInfo();
         if (password == passwordRepeat && password != "")
             userProfile = new Profile(username, password, true);
     }

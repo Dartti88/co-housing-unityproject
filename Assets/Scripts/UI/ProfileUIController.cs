@@ -24,6 +24,7 @@ public class ProfileUIController : MonoBehaviour
     {
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
+        nameText.text = pHandler.GetUserProfile().userName;
     }
 
 
@@ -66,6 +67,9 @@ public class ProfileUIController : MonoBehaviour
         {
             profileName.text = profileName.text.Substring(0, 1).ToUpper() + profileName.text.Substring(1).ToLower();
             nameText.text = profileName.text;
+            
+            //KYSY PROFIILILTA VOIKO VAIHTAA
+            //pHandler.ChangeName(nameText);
             
         }
        if (profileDescription.text.Length == 0)

@@ -267,9 +267,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 72573794}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6d5c1523c57d3054ea8cf70f6b4c6aca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -420,12 +420,12 @@ RectTransform:
   - {fileID: 1252284088}
   - {fileID: 72573790}
   m_Father: {fileID: 155460782}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.06}
   m_AnchorMax: {x: 0.78, y: 0.94}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 9.200077, y: 102.36789}
+  m_SizeDelta: {x: 9.200077, y: 53.439377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &115550437
 MonoBehaviour:
@@ -611,6 +611,7 @@ RectTransform:
   - {fileID: 504125536}
   - {fileID: 222128169}
   - {fileID: 1857708553}
+  - {fileID: 1194840173}
   - {fileID: 2081707479}
   - {fileID: 719284013}
   - {fileID: 115550436}
@@ -1315,19 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ecc408adc98814bb48100d31709751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userProfile:
-    id: 0
-    userName: 
-    displayName: 
-    password: 
-    apartmentID: 0
-    communityID: 0
-    avatarID: 0
-    credits: 0
-    socialScore: 0
-    profileType: 0
-    creationDate: 
-    description: 
+  LogInScreen: {fileID: 0}
 --- !u!4 &544111371
 Transform:
   m_ObjectHideFlags: 0
@@ -1615,9 +1604,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 667369985}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1647,7 +1636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3c75472ebafcdad43b1b91d523681645, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1855,7 +1844,7 @@ RectTransform:
   m_Children:
   - {fileID: 1867679362}
   m_Father: {fileID: 155460782}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.043, y: 0.03}
   m_AnchorMax: {x: 0.23500001, y: 0.13}
@@ -2166,7 +2155,6 @@ GameObject:
   - component: {fileID: 739597730}
   - component: {fileID: 739597731}
   - component: {fileID: 739597734}
-  - component: {fileID: 739597733}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -2237,9 +2225,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 739597734}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2269,7 +2257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5d81d00ebb4c8054a847746b8d32d676, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ef3e4cf509968d4b807efe4212bc2b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2287,21 +2275,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739597728}
   m_CullTransparentMesh: 1
---- !u!114 &739597733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739597728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a901be85ed9a94a84b4abf0cd1d9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentProfilePic: {fileID: 2081707480}
-  thisButton: {fileID: 739597728}
-  ProfilePics: {fileID: 115550435}
 --- !u!114 &739597734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2315,7 +2288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentProfilePic: {fileID: 2081707480}
-  thisButton: {fileID: 0}
+  thisButton: {fileID: 739597728}
   ProfilePics: {fileID: 115550435}
 --- !u!1 &773362185 stripped
 GameObject:
@@ -2491,9 +2464,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024997}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 909956545}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2523,7 +2496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e2f3f07b4c033b04a8344030dcf8794a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35112683195cf2747b3c5e1bec181599, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3151,9 +3124,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1154313723}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3183,7 +3156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8512901f2fd813b45aff7c0fbf97da35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5584246bd42807742be8ca6440241f9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3483,6 +3456,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176014195}
   m_CullTransparentMesh: 1
+--- !u!1 &1194840172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1194840173}
+  - component: {fileID: 1194840175}
+  - component: {fileID: 1194840174}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1194840173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194840172}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 155460782}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.067781255, y: 0.18333757}
+  m_AnchorMax: {x: 0.42870313, y: 0.8235261}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1194840174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194840172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8867924, g: 0.8742435, b: 0.8742435, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1194840175
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194840172}
+  m_CullTransparentMesh: 1
 --- !u!1 &1223635691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,9 +3773,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1245961690}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3757,7 +3805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5c482e015370d7c4786d2c018ad6015c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3873,9 +3921,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1252284092}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3905,7 +3953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ddb6856e26be2fa48836bab5b49df20f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3951,7 +3999,6 @@ GameObject:
   - component: {fileID: 1279139969}
   - component: {fileID: 1279139970}
   - component: {fileID: 1279139972}
-  - component: {fileID: 1279139973}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -4054,7 +4101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 969f3ab4d8b14cf4db4c8c1240a07426, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5acbbadb6f5c9664983a3b0490c3cf55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4073,21 +4120,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1279139967}
   m_CullTransparentMesh: 1
 --- !u!114 &1279139972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279139967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a901be85ed9a94a84b4abf0cd1d9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentProfilePic: {fileID: 2081707480}
-  thisButton: {fileID: 1279139967}
-  ProfilePics: {fileID: 115550435}
---- !u!114 &1279139973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4954,7 +4986,7 @@ MonoBehaviour:
   profileChangeCanvas: {fileID: 155460783}
   closeProfileBtn: {fileID: 1633356623}
   profilePics: {fileID: 115550438}
-  currentProfilePic: {fileID: 2081707480}
+  currentProfilePic: {fileID: 2081707478}
   ProfilePicture: {fileID: 1295200927}
   profileName: {fileID: 710707628}
   profileDescription: {fileID: 1154104832}
@@ -5049,9 +5081,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1527926425}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5081,7 +5113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0b00a7011c9f7e146992407538415c24, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5827,9 +5859,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1670534777}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5859,7 +5891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 27cb30dcdabcbee4bb85645f4dfa7c32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6196,7 +6228,6 @@ GameObject:
   - component: {fileID: 1830094801}
   - component: {fileID: 1830094799}
   - component: {fileID: 1830094802}
-  - component: {fileID: 1830094803}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -6243,7 +6274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e28e085b5f3d7964291709e577d269b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4b346572655811418699783abb5dab1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6318,21 +6349,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1830094802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830094797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a901be85ed9a94a84b4abf0cd1d9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentProfilePic: {fileID: 2081707480}
-  thisButton: {fileID: 1830094797}
-  ProfilePics: {fileID: 115550435}
---- !u!114 &1830094803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6430,9 +6446,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1364024999}
-        m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: ChooseProfilePics
+      - m_Target: {fileID: 1835827573}
+        m_TargetAssemblyTypeName: PicChange, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6462,7 +6478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 36e977df0314ade4bb0fdd22bcb3602d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6983,7 +6999,7 @@ RectTransform:
   m_Children:
   - {fileID: 1750266579}
   m_Father: {fileID: 155460782}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24982814, y: 0.5}
   m_AnchorMax: {x: 0.24982814, y: 0.5}
@@ -7646,7 +7662,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 544111370}
         m_TargetAssemblyTypeName: ProfileHandler, Assembly-CSharp
         m_MethodName: Login
         m_Mode: 1
@@ -9316,7 +9332,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 544111370}
         m_TargetAssemblyTypeName: ProfileHandler, Assembly-CSharp
         m_MethodName: Register
         m_Mode: 1

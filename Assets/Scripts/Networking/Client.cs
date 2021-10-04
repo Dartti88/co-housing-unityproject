@@ -54,6 +54,17 @@ public class Client : MonoBehaviour
         }
     }
 
+    public string GetDisplayNameById(int id)
+    {
+        for (int i=0, list_size = profile_list.profiles.Length; i < list_size; ++i)
+            {
+            if (profile_list.profiles[i].id == id)
+                {
+                return profile_list.profiles[i].displayName;
+                }
+            }
+        return null;
+    }
 
     public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {

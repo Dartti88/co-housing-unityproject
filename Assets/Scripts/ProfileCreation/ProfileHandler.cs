@@ -14,11 +14,7 @@ public class ProfileHandler : MonoBehaviour
     public ProfileUIController profUIController;
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll();
-        if (PlayerPrefs.HasKey(Profile.USERNAME_TAG)) //Load if Guid is founded
-            userProfile = new Profile(PlayerPrefs.GetString(Profile.USERNAME_TAG), PlayerPrefs.GetString(Profile.PASSWORD_TAG), false);
-        else
-            LogInScreen.SetActive(true);
+
     }
 
     public void ChangeName(TextMeshProUGUI text)

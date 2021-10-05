@@ -7,49 +7,44 @@ using UnityEngine;
 
 public class Taskmanager : MonoBehaviour
 {
-    //For testing
-    public int testId = 0;
-    public Task testTask0;
-    public Task testTask1;
-    public Task testTask2;
-    public Task testTask3;
-    public Dictionary<int, Task> testTaskList;
+    public GameObject taskContainer;
+    public GameObject taskElementPrefab;
 
-    public GameObject taskObjTemplate;
-    GameObject currentTaskObject;
-    public GameObject listParent;
+    //For testing
+    int testId = 0;
+
 
     public Dictionary<int, Task> taskList;
     // Start is called before the first frame update
     void Start()
     {
-        //Format the taskList
-        taskList = DataController.Instance.task_list;
-
-        //Placeholder, used for the update method
-        testTaskList = new Dictionary<int, Task>();
-        testTaskList.Add(testTask0.id, testTask0);
-        testTaskList.Add(testTask1.id, testTask1);
-        testTaskList.Add(testTask2.id, testTask2);
-        testTaskList.Add(testTask3.id, testTask3);
+        //Format the local taskList
+        taskList = Client.Instance.taskList;
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks()
     {
         //Empties the current list
-        for(int i = 0; i<listParent.transform.childCount; i++)
+        for(int i = 0; i<taskContainer.transform.childCount; i++)
         {
-            Destroy(listParent.transform.GetChild(i).gameObject);
+            Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
         //Instantiates all the task objects from the list
         foreach (Task task in taskList.Values)
         {
-            //Debug.Log("Task ID: " + obj.GetComponent<Task>().taskId);
-            GameObject taskObj = Instantiate(taskObjTemplate, listParent.transform, true);
-            ReplaceTaskComponent(taskObj, task);
+            GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
+            newTaskElement.transform.SetParent(taskContainer.transform, false);
+            newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
+                task.taskID,
+                task.creatorID.ToString(),
+                task.taskName,
+                task.description,
+                task.cost,
+                task.points,
+                task.quantity,
+                task.expirationDate);
 
-            
         }
     }
 
@@ -58,13 +53,12 @@ public class Taskmanager : MonoBehaviour
     {
         taskList = new Dictionary<int, Task>(updatedTaskList);
         Debug.Log("New task list length: " + taskList.Count());
-        DisplayTasks();
     }
 
     public void AddTask(Task newTask /*Add object here*/)
     {
         //TODO: Ask from server if ok to add
-        taskList.Add(newTask.id, newTask);
+        taskList.Add(newTask.taskID, newTask);
         DisplayTasks();
     }
     
@@ -72,8 +66,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(taskList.Count > 0)
         {
-            bool test = taskList.Remove(taskId);
-            Debug.Log("Removed??" + test);
+            taskList.Remove(taskId);
             DisplayTasks();
             return;
         }
@@ -96,12 +89,6 @@ public class Taskmanager : MonoBehaviour
         if(taskList.Count > 0) RemoveTask(taskList.First().Key);
     }
 
-    public void TestUpdateButton()
-    {
-        Debug.Log("TestTaskList length: " + testTaskList.Count);
-        LoadTasks(testTaskList);
-    }
-
     //Placeholder function for a running int ID
     public int newId()
     {
@@ -114,24 +101,26 @@ public class Taskmanager : MonoBehaviour
     {
         Task newTask = new Task
         {
-            creatorId = origTask.creatorId,
-            id = origTask.id,
+            creatorID = origTask.creatorID,
+            taskID = origTask.taskID,
             cost = origTask.cost,
             description = origTask.description,
-            targetId = origTask.targetId,
+            targetID = origTask.targetID,
             quantity = origTask.quantity
         };
         return newTask;
     }
 
+
+    //Probably obsolete version of formatting the new task
     public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
     {
         Task origTask = origTaskObj.GetComponent<Task>();
-        origTask.creatorId = newTask.creatorId;
-        origTask.id = newTask.id;
+        origTask.creatorID = newTask.creatorID;
+        origTask.taskID = newTask.taskID;
         origTask.cost = newTask.cost;
         origTask.description = newTask.description;
-        origTask.targetId = newTask.targetId;
+        origTask.targetID = newTask.targetID;
         origTask.quantity = newTask.quantity;
     }
 
@@ -140,11 +129,11 @@ public class Taskmanager : MonoBehaviour
     {
         Task task = new Task
         {
-            creatorId = "test",//Guid.NewGuid(),   //Placeholder until profiles are implemented
-            id = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
+            creatorID = 0,//Guid.NewGuid(),   //Placeholder until profiles are implemented
+            taskID = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
             description = taskText,
-            targetId = taskPlace,
+            targetID = taskPlace,
             quantity = taskTimes
         };
 
@@ -169,7 +158,7 @@ public class Taskmanager : MonoBehaviour
         */
 
         //Overwrite old data with new
-        (task.cost, task.description, task.targetId, task.quantity) = 
+        (task.cost, task.description, task.targetID, task.quantity) = 
             (taskCost, taskText, taskPlace, taskTimes);
 
         //TODO: Add check for validity of task on client and server & update it

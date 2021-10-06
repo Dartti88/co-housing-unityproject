@@ -51,16 +51,18 @@ public class ProfileHandler : MonoBehaviour
         passwordRepeat = text.text;
     }
 
-    public void Login()
-    {
-        //if(password != "")
-        //    userProfile = new Profile(username, Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password)));
-    }
 
-    public void Register()
-    {
-        profUIController.ChangeProfileInfo();
-        //if (password == passwordRepeat && password != "")
-        //    userProfile = new Profile(username, password, true);
-    }
+
+    //public void Login()
+    //{
+    //    if(password != "")
+    //        userProfile = new Profile(username, Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password)));
+    //}
+
+    //public void Register()
+    //{
+    //    profUIController.ChangeProfileInfo();
+    //    if (password == passwordRepeat && password != "")
+    //        userProfile = new Profile(username, password, true);
+    //}
 }

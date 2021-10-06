@@ -8,6 +8,8 @@ public class ProfileUIController : MonoBehaviour
 {
     public ProfileHandler pHandler;
 
+    public Canvas taskCanvas;
+
     public Image profileBackground;
     public Image profileChangeCanvas;
     public Button closeProfileBtn;
@@ -20,11 +22,18 @@ public class ProfileUIController : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
 
+    public Text taskName;
+    public Text taskDesc;
+    public Text taskReward;
+    public Text taskQuantity;
+    public Text taskDate;
+
     public void Start()
     {
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
+        taskCanvas.gameObject.SetActive(false);
     }
 
 
@@ -98,6 +107,26 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(true);
     }
 
+    public void OpenTaskCreationCanvas()
+    {
+        taskCanvas.gameObject.SetActive(true);
+    }
+
+    public void AddTask()
+    {
+        //probably needs the task controller but for now: 
+        Debug.Log("Task added!");
+        taskCanvas.gameObject.SetActive(false);
+
+
+
+
+        taskName.text = "";
+        taskDesc.text = "";
+        taskReward.text = "";
+        taskQuantity.text = "";
+        taskDate.text = "";
+    }
 
     //TODO write a function to set image from server based on number
 }

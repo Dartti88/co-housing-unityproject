@@ -6,6 +6,7 @@ using System;
 
 public class ProfileHandler : MonoBehaviour
 {
+    public ProfileUIController pUI;
     public GameObject LogInScreen;
     public Profile userProfile;
     private string username;
@@ -64,5 +65,8 @@ public class ProfileHandler : MonoBehaviour
     //    profUIController.ChangeProfileInfo();
     //    if (password == passwordRepeat && password != "")
     //        userProfile = new Profile(username, password, true);
+
+    //    pUI.ChangeProfileInfo();
+
     //}
 }

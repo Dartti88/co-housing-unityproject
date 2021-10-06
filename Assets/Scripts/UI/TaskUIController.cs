@@ -22,7 +22,7 @@ public class TaskUIController : MonoBehaviour
         GetDataFromServer();
 
         // Testifunktio, joka lis‰‰ taskListaan random taskeja; voidaan poistaa
-        //PopulateTaskList();
+        PopulateTaskList();
 
         ShowAllTasks();
 

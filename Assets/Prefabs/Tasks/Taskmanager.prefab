@@ -43,14 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b300da3c9fb845bd045b71405857a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskContainer: {fileID: 0}
-  taskElementPrefab: {fileID: 1008200213684013049, guid: e9d9f7fd993960049aa86787df3d8a21,
+  testTask: {fileID: 0}
+  taskObjTemplate: {fileID: 871588213535005294, guid: 6f4cf325a9d06f9448aa20fa6ed4c33f,
     type: 3}
-  inputFields:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  createTaskButton: {fileID: 0}
+  currentTaskObject: {fileID: 0}
+  listObject: {fileID: 0}
+  taskList: []

@@ -7,6 +7,7 @@ using System;
 
 public class ProfileHandler : MonoBehaviour
 {
+    public ProfileUIController pUI;
     public GameObject LogInScreen;
     public Profile userProfile;
     public ProfileUIController profUIController;
@@ -117,8 +118,27 @@ public class ProfileHandler : MonoBehaviour
         
     }
 
+
+
+    //public void Login()
+    //{
+    //    if(password != "")
+    //        userProfile = new Profile(username, Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password)));
+    //}
+
+    //public void Register()
+    //{
+    //    profUIController.ChangeProfileInfo();
+    //    if (password == passwordRepeat && password != "")
+    //        userProfile = new Profile(username, password, true);
+
+    //    pUI.ChangeProfileInfo();
+
+    //}
+
     public Profile GetUserProfile()
     {
         return userProfile;
     }
+
 }

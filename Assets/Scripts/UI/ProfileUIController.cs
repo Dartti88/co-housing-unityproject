@@ -17,8 +17,6 @@ public class ProfileUIController : MonoBehaviour
     public GameObject currentProfilePic;
     public GameObject ProfilePicture;
 
-    public Button addProfile;
-
     public InputField profileName;
     public InputField profileDescription;
     public Text nameText;
@@ -52,13 +50,11 @@ public class ProfileUIController : MonoBehaviour
         }
     }
 
-    public void ChangeProfileInfo(int num){
+    public void ChangeProfileInfo(){
         profileChangeCanvas.gameObject.SetActive(true);
         Image actual = ProfilePicture.gameObject.GetComponent<Image>();
         currentProfilePic.gameObject.GetComponent<Image>().sprite = actual.sprite;
         profileName.text = pHandler.GetUserProfile().displayName;
-        if (num == 1)
-            addProfile.gameObject.SetActive(true);
     }
 
     public void ConfirmChangesToServer(){
@@ -94,6 +90,9 @@ public class ProfileUIController : MonoBehaviour
             profileName.text = profileName.text.Substring(0, 1).ToUpper() + profileName.text.Substring(1).ToLower();
             nameText.text = profileName.text;
 
+            //KYSY PROFIILILTA VOIKO VAIHTAA
+            //pHandler.ChangeName(nameText);
+
         }
         if (profileDescription.text.Length == 0)
         {
@@ -103,19 +102,7 @@ public class ProfileUIController : MonoBehaviour
         {
             descriptionText.text = profileDescription.text;
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
-
-       }
-
-       //
-        //here the function to send all info to server
-        //
-        //
-        //
-
-        if (addProfile.gameObject.activeSelf == true)
-            addProfile.gameObject.SetActive(false);
-        profileChangeCanvas.gameObject.SetActive(false);
-
+        }
     }
 
     public void CloseProfileInfo(){

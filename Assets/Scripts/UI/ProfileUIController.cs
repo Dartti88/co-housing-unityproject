@@ -45,12 +45,11 @@ public class ProfileUIController : MonoBehaviour
         profileChangeCanvas.gameObject.SetActive(true);
         Image actual = ProfilePicture.gameObject.GetComponent<Image>();
         currentProfilePic.gameObject.GetComponent<Image>().sprite = actual.sprite;
+        profileName.text = pHandler.GetUserProfile().displayName;
     }
 
     public void ConfirmChangesToServer(){
-        //
-        //here the function to send all info to server
-        //
+        
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
         Debug.Log(index + " index");
@@ -61,7 +60,8 @@ public class ProfileUIController : MonoBehaviour
 
         if (profileName.text.Length == 0)
         {
-            nameText.text = "Test";
+            profileName.text = pHandler.GetUserProfile().displayName;
+            nameText.text = pHandler.GetUserProfile().displayName;
         }
         else if (profileName.text.Length > 0)
         {
@@ -74,13 +74,17 @@ public class ProfileUIController : MonoBehaviour
         }
        if (profileDescription.text.Length == 0)
        {
-            descriptionText.text = "Test";
+            descriptionText.text = pHandler.GetUserProfile().description;
        }
        else if (profileDescription.text.Length > 0)
        {
             descriptionText.text = profileDescription.text;
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
        }
+       
+       //
+        //here the function to send all info to server
+        //
 
 
         profileChangeCanvas.gameObject.SetActive(false);
@@ -94,4 +98,6 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(true);
     }
 
+
+    //TODO write a function to set image from server based on number
 }

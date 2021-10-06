@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Taskmanager : MonoBehaviour
@@ -14,11 +13,6 @@ public class Taskmanager : MonoBehaviour
     //For testing
     int testId = 0;
 
-    [SerializeField]
-    private InputField[] inputFields; // in the following order: [taskName, description, cost, quantity, uniqueQuantity, points]
-    [SerializeField]
-    private Button createTaskButton;
-
 
     public Dictionary<int, Task> taskList;
     // Start is called before the first frame update
@@ -26,29 +20,6 @@ public class Taskmanager : MonoBehaviour
     {
         //Format the local taskList
         taskList = Client.Instance.taskList;
-
-        // When the button to create a task is pressed we parse the input from the user to the CreateTask function
-        // TODO: IHAN HELVETIN ISO REWRITE
-        createTaskButton.onClick.AddListener(() => 
-        {
-
-            int cost, place, quantity, uniqueQuantity, points;
-            cost = place = quantity = uniqueQuantity = points = 0;
-
-            if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = int.Parse(inputFields[2].text, System.Globalization.NumberStyles.Integer); }
-            if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
-            if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
-            if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
-
-            CreateTask(cost, 
-                inputFields[1].text, 
-                place ,
-                quantity, 
-                inputFields[0].text,
-                uniqueQuantity,
-                points);
-        });
-
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
@@ -105,11 +76,12 @@ public class Taskmanager : MonoBehaviour
 
     void CompleteTask(int taskId, string profileId)
     {
+
     }
 
     public void TestAddButton()
     {
-        CreateTask(0, "asd", 100, 1, "taskTask", 1, 5);
+        CreateTask(0, "asd", 100, 1);
     }
 
     public void TestRemoveButton()
@@ -153,19 +125,16 @@ public class Taskmanager : MonoBehaviour
     }
 
     // Create new task and add it to the Task List, retuns true if successful, false if not
-    public bool CreateTask(int taskCost, string taskText, int taskPlace, int taskTimes, string taskName, int taskUniqueQ, int points)
+    public bool CreateTask(int taskCost, string taskText, int taskPlace, int taskTimes)
     {
         Task task = new Task
         {
             creatorID = 0,//Guid.NewGuid(),   //Placeholder until profiles are implemented
             taskID = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
-            taskName = taskName,
             description = taskText,
             targetID = taskPlace,
-            quantity = taskTimes,
-            uniqueQuantity = taskUniqueQ,
-            points = points
+            quantity = taskTimes
         };
 
         //TODO: Add check for validity of task on client and server

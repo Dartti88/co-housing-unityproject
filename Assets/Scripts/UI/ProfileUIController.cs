@@ -70,20 +70,7 @@ public class ProfileUIController : MonoBehaviour
         Image im = currentProfilePic.gameObject.GetComponent<Image>();
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
 
-        UpdateProfileCanvas();
-        
-       
-       //
-        //here the function to send all info to server
-        //
 
-
-        profileChangeCanvas.gameObject.SetActive(false);
-    }
-
-    //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
-    public void UpdateProfileCanvas()
-    {
         if (profileName.text.Length == 0)
         {
             profileName.text = pHandler.GetUserProfile().displayName;
@@ -93,17 +80,15 @@ public class ProfileUIController : MonoBehaviour
         {
             profileName.text = profileName.text.Substring(0, 1).ToUpper() + profileName.text.Substring(1).ToLower();
             nameText.text = profileName.text;
-
         }
-        if (profileDescription.text.Length == 0)
-        {
+       if (profileDescription.text.Length == 0)
+       {
             descriptionText.text = pHandler.GetUserProfile().description;
-        }
-        else if (profileDescription.text.Length > 0)
-        {
+       }
+       else if (profileDescription.text.Length > 0)
+       {
             descriptionText.text = profileDescription.text;
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
-
        }
 
        //
@@ -115,7 +100,6 @@ public class ProfileUIController : MonoBehaviour
         if (addProfile.gameObject.activeSelf == true)
             addProfile.gameObject.SetActive(false);
         profileChangeCanvas.gameObject.SetActive(false);
-
     }
 
     public void CloseProfileInfo(){

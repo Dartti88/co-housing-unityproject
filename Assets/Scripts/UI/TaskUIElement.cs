@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TaskUIElement : MonoBehaviour
 {
+    public Taskmanager taskManager;
     private int _taskId;
     private int _taskQuantity;
 
@@ -34,6 +35,7 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
         taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick);
 
         // Green (default)

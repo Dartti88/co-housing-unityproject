@@ -70,7 +70,7 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="points">Social points reward</param>
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
-    public void ShowTaskElement(int taskId, string creatorName, string title, string desc, float reward, float points, int quantity, string expiryDate)
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate)
     {
         // Parametreinä annetaan vain ne tiedot, mitkä näkyvät UI:ssa + ID (jos sitä tarvitaan)
         // Taskia hyväksyessä (TaskOnClick()) tehdään erilaiset tarkistukset serverin kanssa
@@ -88,7 +88,7 @@ public class TaskUIElement : MonoBehaviour
         taskDescriptionText.text = desc;
         taskRewardText.text = reward.ToString(); // täytyy ehkä pyöristää
         taskPointsText.text = points.ToString(); // täytyy ehkä pyöristää
-        taskIssuerText.text = creatorName;
+        taskIssuerText.text = displayName;
         taskQuantityText.text = _taskQuantity.ToString();
     }
 

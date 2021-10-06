@@ -12,6 +12,15 @@ public class Client : MonoBehaviour
     
     Profile newTestProfile;
 
+    [Serializable]
+    public class ProfilesContainer
+    {
+        public Profile[] profiles;
+    }
+
+    public ProfilesContainer profile_list = new ProfilesContainer();
+    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,7 +37,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, Profile.ProfileType.Guest, DateTime.Now);
+        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, 0, Profile.ProfileType.Guest, DateTime.Now);
     }
 
     bool exec = true;
@@ -38,9 +47,12 @@ public class Client : MonoBehaviour
         if (exec)
         {
             // profileID = 1 -> username = TestUser, displayName = Jorma
-            //BeginRequest_CompleteTask(1, 8, null);
-            //BeginRequest_AcceptTask(1, 9, null);
+
+            BeginRequest_CompleteTask(1, 8, null);
+            BeginRequest_AcceptTask(1, 9, null);
             BeginRequest_GetAcceptedTasks(1, null);
+            BeginRequest_GetAvailableTasks(null);
+
             //BeginRequest_GetAllProfiles(null);
             //BeginRequest_AddNewProfile(newTestProfile);
             //BeginRequest_ValidatePassword("TestUser", "1234");
@@ -172,7 +184,7 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
-        DataController.Instance.profile_list = JsonUtility.FromJson<DataController.ProfilesContainer>(json);
+        profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
     }
 
     // This is called when server responds to post new profile request

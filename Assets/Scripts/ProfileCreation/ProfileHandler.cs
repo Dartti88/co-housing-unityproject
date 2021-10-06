@@ -7,7 +7,7 @@ using System;
 public class ProfileHandler : MonoBehaviour
 {
     public GameObject LogInScreen;
-    private Profile userProfile;
+    public Profile userProfile;
     private string username;
     private string password;
     private string passwordRepeat;
@@ -53,14 +53,14 @@ public class ProfileHandler : MonoBehaviour
 
     public void Login()
     {
-        if(password != "")
-            userProfile = new Profile(username, Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password)));
+        //if(password != "")
+        //    userProfile = new Profile(username, Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password)));
     }
 
     public void Register()
     {
         profUIController.ChangeProfileInfo();
-        if (password == passwordRepeat && password != "")
-            userProfile = new Profile(username, password, true);
+        //if (password == passwordRepeat && password != "")
+        //    userProfile = new Profile(username, password, true);
     }
 }

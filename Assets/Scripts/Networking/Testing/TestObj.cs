@@ -8,20 +8,19 @@ using UnityEngine.UI;
 
 public class TestObj : MonoBehaviour
 {
+    public GameObject LoginCanvas;
     public InputField input_userName;
-    public InputField input_displayName;
     public InputField input_password;
     public InputField input_passwordAgain;
     public bool clearPrefs;
 
     string userName;
-    string displayName;
     string password;
     string passwordAgain;
 
     bool profilesWait;
 
-    private void Awake()
+    private void Start()
     {
         if (clearPrefs)
         {
@@ -41,7 +40,6 @@ public class TestObj : MonoBehaviour
     public void OnClick_CreateNewUser()
     {
         userName = input_userName.text;
-        displayName = input_displayName.text;
         password = input_password.text;
         passwordAgain = input_passwordAgain.text;
 
@@ -54,7 +52,7 @@ public class TestObj : MonoBehaviour
 
         Profile newProfile = new Profile(
             1, 2,
-            userName, displayName, password, "Insert description here",
+            userName, "Insert name here", password, "Insert description here",
             3, 0, 0, Profile.ProfileType.Guest,
             DateTime.Now
         );
@@ -83,8 +81,9 @@ public class TestObj : MonoBehaviour
             Debug.Log("Log in was successful");
             PlayerPrefs.SetString(Profile.USERNAME_TAG, userName);
             PlayerPrefs.SetString(Profile.PASSWORD_TAG, password);
-            if (DataController.Instance.profile_list.profiles != null && DataController.Instance.profile_list.profiles.Length > 0)
-                FindObjectOfType<ProfileHandler>().userProfile = DataController.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
+            if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
+                FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
+            LoginCanvas.SetActive(false);
         }
         else
             Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);

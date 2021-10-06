@@ -28,7 +28,7 @@ public class PlayerController : Singleton<PlayerController>
         initialPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        activeAvatar = avatars[0];
+        //activeAvatar = avatars[0];
     }    
 
     // reset player position to starting position

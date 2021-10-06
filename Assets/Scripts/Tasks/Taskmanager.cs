@@ -105,7 +105,6 @@ public class Taskmanager : MonoBehaviour
 
     void CompleteTask(int taskId, string profileId)
     {
-
     }
 
     public void TestAddButton()

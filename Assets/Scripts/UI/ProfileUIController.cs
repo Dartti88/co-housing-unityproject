@@ -36,6 +36,11 @@ public class ProfileUIController : MonoBehaviour
         taskCanvas.gameObject.SetActive(false);
     }
 
+    public void LoadOnLodin()
+    {
+        //this only gets the profile and sets everything up.
+    }
+
     public void CloseProfileCanvas(){
         if(profileBackground.gameObject.activeSelf == true)
         {
@@ -56,14 +61,8 @@ public class ProfileUIController : MonoBehaviour
         profileName.text = pHandler.GetUserProfile().displayName;
     }
 
-    public void ConfirmChangesToServer(){
+    public void ConfirmChangesToServer(int index){
         
-        //use the index to know which pic+avatar prefab pack to use and send info to server!
-        int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
-        Debug.Log(index + " index");
-
-        Image im = currentProfilePic.gameObject.GetComponent<Image>();
-        ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
 
         UpdateProfileCanvas();
         
@@ -73,12 +72,20 @@ public class ProfileUIController : MonoBehaviour
         //
 
 
+        pHandler.userProfile.avatarID = index;
+
         profileChangeCanvas.gameObject.SetActive(false);
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
-    public void UpdateProfileCanvas()
+    public int UpdateProfileCanvas()
     {
+        //use the index to know which pic+avatar prefab pack to use and send info to server!
+        int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
+        Debug.Log(index + " index");
+
+        Image im = currentProfilePic.gameObject.GetComponent<Image>();
+        ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
         if (profileName.text.Length == 0)
         {
             profileName.text = pHandler.GetUserProfile().displayName;
@@ -88,9 +95,6 @@ public class ProfileUIController : MonoBehaviour
         {
             profileName.text = profileName.text.Substring(0, 1).ToUpper() + profileName.text.Substring(1).ToLower();
             nameText.text = profileName.text;
-
-            //KYSY PROFIILILTA VOIKO VAIHTAA
-            //pHandler.ChangeName(nameText);
 
         }
         if (profileDescription.text.Length == 0)
@@ -102,6 +106,12 @@ public class ProfileUIController : MonoBehaviour
             descriptionText.text = profileDescription.text;
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
         }
+
+
+        /////this really should happen in the handler
+
+        //t‰n pit‰‰ returnaa profiili ett‰ toimii profiiliin
+        return index;
     }
 
     public void CloseProfileInfo(){

@@ -67,7 +67,7 @@ public class Client : MonoBehaviour
         {
             // profileID = 1 -> username = TestUser, displayName = Jorma
 
-            BeginRequest_UpdateProfile(testProfile, null);
+            //BeginRequest_UpdateProfile(testProfile, null);
             //BeginRequest_CompleteTask(2, 9, null);
             //BeginRequest_AcceptTask(2, 9, null);
             //BeginRequest_GetAcceptedTasks(1, null);
@@ -76,7 +76,7 @@ public class Client : MonoBehaviour
 
             //BeginRequest_GetAllProfiles(null);
             //BeginRequest_AddNewProfile(newTestProfile);
-            //BeginRequest_ValidatePassword("TestUser", "1234");
+            BeginRequest_ValidatePassword("Joel", "Peruna", Test);
             exec = false;
         }
     }
@@ -91,6 +91,11 @@ public class Client : MonoBehaviour
                 }
             }
         return null;
+    }
+
+    void Test(string a)
+    {
+        Debug.Log("Login TEST: " + a);
     }
     
     // PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF

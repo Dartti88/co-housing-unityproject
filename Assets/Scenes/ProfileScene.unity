@@ -2740,6 +2740,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &476684655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7356859659570015204, guid: 908ecb625ab15fe42bba661396722453,
+    type: 3}
+  m_PrefabInstance: {fileID: 277474439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &504125535
 GameObject:
   m_ObjectHideFlags: 0
@@ -13939,6 +13945,16 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5999200701697412503, guid: 001f75989d6bf744c9f55ea756d88b8e,
+        type: 3}
+      propertyPath: avatars.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999200701697412503, guid: 001f75989d6bf744c9f55ea756d88b8e,
+        type: 3}
+      propertyPath: avatars.Array.data[0]
+      value: 
+      objectReference: {fileID: 476684655}
     - target: {fileID: 6321428300638136893, guid: 001f75989d6bf744c9f55ea756d88b8e,
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

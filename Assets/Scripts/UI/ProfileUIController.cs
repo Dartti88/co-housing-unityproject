@@ -36,7 +36,6 @@ public class ProfileUIController : MonoBehaviour
         taskCanvas.gameObject.SetActive(false);
     }
 
-
     public void CloseProfileCanvas(){
         if(profileBackground.gameObject.activeSelf == true)
         {

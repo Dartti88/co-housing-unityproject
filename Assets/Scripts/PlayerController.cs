@@ -79,12 +79,12 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (agent.remainingDistance < 0.1f && walking)
         {
-            animator.SetBool("walking", false);
+            //animator.SetBool("walking", false);
             walking = false;
         }
         else if (agent.remainingDistance > 0.1f && !walking)
         {
-            animator.SetBool("walking", true);
+            //animator.SetBool("walking", true);
             walking = true;
         }
     }

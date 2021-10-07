@@ -62,7 +62,10 @@ public class ProfileHandler : MonoBehaviour
     void OnCreateProfileRequestComplete(string response)
     {
         if (response == "Success")
+        {
             Debug.Log("New profile was created successfully");
+            Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
+        }
         else
             Debug.Log("Failed to create profile: Response from server >> " + response);
     }

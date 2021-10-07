@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
+using System.Linq;
 
 
 
@@ -10,8 +11,6 @@ public class Client : MonoBehaviour
 {
     public static Client Instance { get; private set; }
     
-    Profile newTestProfile;
-
     [Serializable]
     public class ProfilesContainer
     {
@@ -20,6 +19,7 @@ public class Client : MonoBehaviour
 
     public ProfilesContainer profile_list = new ProfilesContainer();
     public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
+    public Dictionary<int, Task> acceptedTasks_list = new Dictionary<int, Task>();
 
     private void Awake()
     {
@@ -34,10 +34,29 @@ public class Client : MonoBehaviour
         }
     }
 
+    Profile testProfile;
+    Task newTestTask;
+
     // Start is called before the first frame update
     void Start()
     {
-        newTestProfile = new Profile(1, 2, "UnityTestUser", "Uuser", "password", "asd123", 3, 0, 0, Profile.ProfileType.Guest, DateTime.Now);
+        testProfile = new Profile(0, 0, "TestUser", "Jorma", "perse", "This is the first test user test update testing update", 3, 420, 0, Profile.ProfileType.Resident, DateTime.Now);
+        testProfile.id = 1;
+
+        // description changes..
+        // avatarID: 1 => 3
+
+        newTestTask = new Task();
+        newTestTask.taskID = 69;
+        newTestTask.creatorID = 3;
+        newTestTask.taskName = "Another Task";
+        newTestTask.targetID = 2;
+        newTestTask.description = "Testing does task names and points work..";
+        newTestTask.cost = 1;
+        newTestTask.points = 420;
+        newTestTask.quantity = 5;
+        newTestTask.uniqueQuantity = 5;
+        newTestTask.expirationDate = "2025-09-12";
     }
 
     bool exec = true;
@@ -48,10 +67,12 @@ public class Client : MonoBehaviour
         {
             // profileID = 1 -> username = TestUser, displayName = Jorma
 
-            BeginRequest_CompleteTask(1, 8, null);
-            BeginRequest_AcceptTask(1, 9, null);
-            BeginRequest_GetAcceptedTasks(1, null);
-            BeginRequest_GetAvailableTasks(null);
+            BeginRequest_UpdateProfile(testProfile, null);
+            //BeginRequest_CompleteTask(2, 9, null);
+            //BeginRequest_AcceptTask(2, 9, null);
+            //BeginRequest_GetAcceptedTasks(1, null);
+            //BeginRequest_GetAvailableTasks(null);
+            //BeginRequest_AddNewTask(newTestTask, null);
 
             //BeginRequest_GetAllProfiles(null);
             //BeginRequest_AddNewProfile(newTestProfile);
@@ -59,7 +80,19 @@ public class Client : MonoBehaviour
             exec = false;
         }
     }
-
+    
+    public string GetDisplayNameById(int id)
+    {
+        for (int i=0, list_size = profile_list.profiles.Length; i < list_size; ++i)
+            {
+            if (profile_list.profiles[i].id == id)
+                {
+                return profile_list.profiles[i].displayName;
+                }
+            }
+        return null;
+    }
+    
     // PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF
     public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {
@@ -109,6 +142,17 @@ public class Client : MonoBehaviour
         StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
     }
 
+    public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileToUpdate.id.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_password", "\"" + profileToUpdate.password + "\""));
+        form.Add(new MultipartFormDataSection("key_avatarID", "\"" + profileToUpdate.avatarID.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_description", "\"" + profileToUpdate.description + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfile, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileComplete));
+    }
 
     // PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF
     public void BeginRequest_GetAvailableTasks(System.Action<string> onCompletionCallback)
@@ -134,27 +178,22 @@ public class Client : MonoBehaviour
         }
 
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorId.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetId.ToString() + "\""));
-
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorID.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_cost", "\"" + task.cost.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_quantity", "\"" + task.quantity.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_uniqueQuantity", "\"" + task.uniqueQuantity.ToString() + "\""));
 
-        // Make the date be in sql format (YYYY-MM-DD)
-        string y = task.expireDate.Year.ToString();
-        string m = task.expireDate.Month.ToString();
-        string d = task.expireDate.Day.ToString();
-        if (m.Length == 1)
-            m = '0' + m;
-        if (d.Length == 1)
-            d = '0' + d;
-        
-        form.Add(new MultipartFormDataSection("key_expirationDate", "\"" + y + m + d + "\""));
+        // NOTE*: Make the date be in sql format (YYYY-MM-DD)
+        form.Add(new MultipartFormDataSection("key_expirationDate", "\"" + task.expirationDate + "\""));
 
         form.Add(new MultipartFormDataSection("key_description", "\"" + task.description + "\""));
-        
+        form.Add(new MultipartFormDataSection("key_name", "\"" + task.taskName + "\""));
+
+        form.Add(new MultipartFormDataSection("key_points", "\"" + task.points + "\""));
+
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CreateNewTask, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AddedNewProfileComplete));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AddedNewTaskComplete));
     }
 
     public void BeginRequest_AcceptTask(int profileID, int taskID, System.Action<string> onCompletionCallback)
@@ -198,34 +237,26 @@ public class Client : MonoBehaviour
         Debug.Log("Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)");
     }
 
-    // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
-    [Serializable]
-    class TempTask
-    { 
-        public int taskID;
-        public int creatorID;
-        public int targetID;
-        public float cost;
-        public int quantity;
-        public int acceptedQuantity;
-        public string creationDate;
-        public string expirationDate;
-        public string description;
+    void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
-    [Serializable]
+
+    // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
     class TempTaskList
     {
-        public TempTask[] tasks;
+        public Task[] tasks;
     }
-    void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req) // !!!! NOT READY YET !!!!
+    void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        TempTaskList tempTaskList = JsonUtility.FromJson<TempTaskList>(json);
+        task_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.creatorID);
+        Debug.Log("Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)");
     }
-    void Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req) // !!!! NOT READY YET !!!!
+    void Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req) // !!! NOT TESTED YET !!!
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        TempTaskList tempTaskList = JsonUtility.FromJson<TempTaskList>(json);
+        acceptedTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.creatorID);
         Debug.Log("Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req)");
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)

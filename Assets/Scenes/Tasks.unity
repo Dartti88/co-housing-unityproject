@@ -291,6 +291,66 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &166361037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166361039}
+  - component: {fileID: 166361038}
+  - component: {fileID: 166361040}
+  m_Layer: 0
+  m_Name: DataController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166361038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166361037}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322f16c6adbba254b8905e76757a60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile_list:
+    profiles: []
+--- !u!4 &166361039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166361037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.13498, y: 310.14386, z: -640.98737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166361040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166361037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14477c136c0ca545b36d7fc625fea5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile_list:
+    profiles: []
 --- !u!1 &176240413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1211,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517866504}
   m_CullTransparentMesh: 1
+--- !u!1 &1566562752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2327496601227751931, guid: 60a3bc450d381c54289c5606ececf52a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2044277204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978820412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1269,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2327496600254226080, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496600254226080, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496600491375348, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1323,6 +1399,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496601101273901, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601101273901, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1336,7 +1422,7 @@ PrefabInstance:
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -47.48992
+      value: -47.66346
       objectReference: {fileID: 0}
     - target: {fileID: 2327496601280504998, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
@@ -1348,14 +1434,48 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496601280504998, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377338992, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377339005, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -194.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601377339005, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.8909912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a3bc450d381c54289c5606ececf52a, type: 3}
---- !u!1 &2044277205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2327496600684575041, guid: 60a3bc450d381c54289c5606ececf52a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2044277204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7588507250342554887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,7 +1523,7 @@ PrefabInstance:
         type: 3}
       propertyPath: taskContainer
       value: 
-      objectReference: {fileID: 2044277205}
+      objectReference: {fileID: 1566562752}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: taskObjTemplate

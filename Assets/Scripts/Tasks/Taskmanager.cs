@@ -36,14 +36,14 @@ public class Taskmanager : MonoBehaviour
             GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
             newTaskElement.transform.SetParent(taskContainer.transform, false);
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
-                task.id,
-                "!TEMP!: Enter displayName here",
+                task.taskID,
+                Client.Instance.GetDisplayNameById(task.creatorID),
                 task.taskName,
                 task.description,
                 task.cost,
                 task.points,
                 task.quantity,
-                task.date);
+                task.expirationDate);
 
         }
     }
@@ -58,7 +58,7 @@ public class Taskmanager : MonoBehaviour
     public void AddTask(Task newTask /*Add object here*/)
     {
         //TODO: Ask from server if ok to add
-        taskList.Add(newTask.id, newTask);
+        taskList.Add(newTask.taskID, newTask);
         DisplayTasks();
     }
     
@@ -66,6 +66,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(taskList.Count > 0)
         {
+            taskList.Remove(taskId);
             DisplayTasks();
             return;
         }
@@ -100,11 +101,11 @@ public class Taskmanager : MonoBehaviour
     {
         Task newTask = new Task
         {
-            creatorId = origTask.creatorId,
-            id = origTask.id,
+            creatorID = origTask.creatorID,
+            taskID = origTask.taskID,
             cost = origTask.cost,
             description = origTask.description,
-            targetId = origTask.targetId,
+            targetID = origTask.targetID,
             quantity = origTask.quantity
         };
         return newTask;
@@ -115,11 +116,11 @@ public class Taskmanager : MonoBehaviour
     public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
     {
         Task origTask = origTaskObj.GetComponent<Task>();
-        origTask.creatorId = newTask.creatorId;
-        origTask.id = newTask.id;
+        origTask.creatorID = newTask.creatorID;
+        origTask.taskID = newTask.taskID;
         origTask.cost = newTask.cost;
         origTask.description = newTask.description;
-        origTask.targetId = newTask.targetId;
+        origTask.targetID = newTask.targetID;
         origTask.quantity = newTask.quantity;
     }
 
@@ -128,11 +129,11 @@ public class Taskmanager : MonoBehaviour
     {
         Task task = new Task
         {
-            creatorId = 1,// täl hetkellä id:t on int : aiempi-> "test",//Guid.NewGuid(),   //Placeholder until profiles are implemented
-            id = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
+            creatorID = 0,//Guid.NewGuid(),   //Placeholder until profiles are implemented
+            taskID = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
             cost = taskCost,
             description = taskText,
-            targetId = taskPlace,
+            targetID = taskPlace,
             quantity = taskTimes
         };
 
@@ -157,7 +158,7 @@ public class Taskmanager : MonoBehaviour
         */
 
         //Overwrite old data with new
-        (task.cost, task.description, task.targetId, task.quantity) = 
+        (task.cost, task.description, task.targetID, task.quantity) = 
             (taskCost, taskText, taskPlace, taskTimes);
 
         //TODO: Add check for validity of task on client and server & update it

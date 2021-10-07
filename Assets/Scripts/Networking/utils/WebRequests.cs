@@ -10,6 +10,7 @@ public class WebRequests
     public const string URL_GET_Profiles = "https://gcdata.000webhostapp.com/GetProfiles.php";
     public const string URL_POST_CreateNewProfile = "https://gcdata.000webhostapp.com/AddNewProfileTEST.php";
     public const string URL_POST_ValidatePassword = "https://gcdata.000webhostapp.com/ValidatePassword.php";
+    public const string URL_POST_UpdateProfile = "https://gcdata.000webhostapp.com/UpdateProfile.php";
 
     public const string URL_POST_CreateNewTask = "https://gcdata.000webhostapp.com/AddNewTask.php";
     public const string URL_GET_AvailableTasks = "https://gcdata.000webhostapp.com/GetAvailableTasks.php";

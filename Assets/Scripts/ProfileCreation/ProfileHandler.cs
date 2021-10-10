@@ -75,7 +75,7 @@ public class ProfileHandler : MonoBehaviour
         userName = input_userName.text;
         password = input_password.text;
         Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
-        profUIController.UpdateProfileCanvas();
+        profUIController.LoadOnLogin();
     }
 
     void OnLogInRequestComplete(string response)
@@ -88,7 +88,7 @@ public class ProfileHandler : MonoBehaviour
             if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
                 FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
             LogInScreen.SetActive(false);
-            profUIController.UpdateProfileCanvas();
+            profUIController.LoadOnLogin();
         }
         else
             Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);

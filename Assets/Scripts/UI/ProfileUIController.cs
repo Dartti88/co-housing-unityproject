@@ -27,6 +27,7 @@ public class ProfileUIController : MonoBehaviour
     public Text taskReward;
     public Text taskQuantity;
     public Text taskDate;
+    public Button CancelTask;
 
     public void Start()
     {
@@ -34,11 +35,18 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
+        CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(CancelTasks);
     }
 
-    public void LoadOnLodin()
+    //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
+    public void LoadOnLogin()
     {
         //this only gets the profile and sets everything up.
+        nameText.text = pHandler.GetUserProfile().displayName;
+        descriptionText.text = pHandler.GetUserProfile().description;
+        ProfilePicture.GetComponent<Image>().sprite.name = pHandler.GetUserProfile().avatarID.ToString();
+
+        //also has to load tasks in the future
     }
 
     public void CloseProfileCanvas(){
@@ -73,11 +81,13 @@ public class ProfileUIController : MonoBehaviour
 
 
         pHandler.userProfile.avatarID = index;
+        pHandler.userProfile.displayName = nameText.text;
+        pHandler.userProfile.description = descriptionText.text;
 
         profileChangeCanvas.gameObject.SetActive(false);
     }
 
-    //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
+    //this one prepares to send all changes to server! could also combine the two ^ but this one should NOT sync on login! instead there's a func for that on the top
     public int UpdateProfileCanvas()
     {
         //use the index to know which pic+avatar prefab pack to use and send info to server!
@@ -107,10 +117,6 @@ public class ProfileUIController : MonoBehaviour
             descriptionText.text = descriptionText.text.Substring(0, 1).ToUpper() + descriptionText.text.Substring(1).ToLower();
         }
 
-
-        /////this really should happen in the handler
-
-        //t‰n pit‰‰ returnaa profiili ett‰ toimii profiiliin
         return index;
     }
 
@@ -141,6 +147,18 @@ public class ProfileUIController : MonoBehaviour
         taskReward.text = "";
         taskQuantity.text = "";
         taskDate.text = "";
+    }
+
+    public void CancelTasks()
+    {
+        taskName.text = "";
+        taskDesc.text = "";
+        taskReward.text = "";
+        taskQuantity.text = "";
+        taskDate.text = "";
+        
+        taskCanvas.gameObject.SetActive(false);
+        Debug.Log("canceled task");
     }
 
     //TODO write a function to set image from server based on number

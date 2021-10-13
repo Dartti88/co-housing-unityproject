@@ -25,6 +25,7 @@ public class TaskUIElement : MonoBehaviour
     public Image taskIssuerImage;
     public Image taskQuantityImage;
     public Image taskButtonImage;
+    public Image taskAvatarImage;
 
     public Button taskAcceptButton;
 
@@ -140,6 +141,7 @@ public class TaskUIElement : MonoBehaviour
         taskIssuerImage.color = colorList[rndCol].fieldColor;
         taskQuantityImage.color = colorList[rndCol].fieldColor;
         taskButtonImage.color = colorList[rndCol].buttonColor;
+        taskAvatarImage.color = colorList[rndCol].backgroundColor;
     }
 }
 

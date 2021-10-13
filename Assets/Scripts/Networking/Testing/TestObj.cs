@@ -23,7 +23,7 @@ public class TestObj : MonoBehaviour
 
     private void Start()
     {
-        if (clearPrefs)
+       /* if (clearPrefs)
         {
             PlayerPrefs.DeleteKey(Profile.USERNAME_TAG);
             PlayerPrefs.DeleteKey(Profile.PASSWORD_TAG);
@@ -35,7 +35,7 @@ public class TestObj : MonoBehaviour
             userName = PlayerPrefs.GetString(Profile.USERNAME_TAG);
             password = PlayerPrefs.GetString(Profile.PASSWORD_TAG);
             Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
-        }
+        }*/
     }
 
     public void OnClick_CreateNewUser()

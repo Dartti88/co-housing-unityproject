@@ -6,6 +6,71 @@ using System;
 using System.Linq;
 
 
+/*
+
+*Kaikki n‰m‰ pyynnˆt ei mene aina ensimm‰isell‰ kerralla l‰pi, koska tuo serveri on paska:D
+V‰lill‰ sielt‰ tulee onCompletionCallback:iin jotakin, miss‰ lukee esim. "access violation 
+or syntax error" ja yleens‰ jossakin kohtaa error koodi 1064, tai joku "server timed out".
+N‰iss‰ tilanteissa mik‰‰n ei yleens‰ ole rikki, vaan tuo pyyntˆ pit‰‰ vain laittaa menem‰‰n uudestaan.
+
+Taskeihin liittyv‰t:
+    BeginRequest_CompleteTask(profileID, taskID, onCompletionCallback);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Merkkaa serverille, ett‰ t‰m‰ profiili on suorittanut taskin
+        *Ei kuitenkaan koske mihink‰‰n paikallisiin listoihin / systeemeihin
+        (*Jos halutaan p‰ivitt‰‰ paikallisia listoja ottamaan t‰m‰n muutoksen huomioon, 
+        pit‰‰ kutsua GetAcceptedTasks, tai GetAvailableTasks, riippuen, mit‰ halutaan tehd‰)
+        
+    BeginRequest_AcceptTask(profileID, taskID, onCompletionCallback);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Merkkaa serverille, ett‰ profiili on hyv‰ksynyt taskin
+        *Ei kuitenkaan koske mihink‰‰n paikallisiin listoihin / systeemeihin
+        (*Jos halutaan p‰ivitt‰‰ paikallisia listoja ottamaan t‰m‰n muutoksen huomioon, 
+        pit‰‰ kutsua GetAcceptedTasks, tai GetAvailableTasks, riippuen, mit‰ halutaan tehd‰)
+    
+    BeginRequest_GetAvailableTasks(onCompletionCallback);
+        *P‰ivitt‰‰ Client.Instance.task_list - dictionaryn
+
+    BeginRequest_GetAcceptedTasks(profileID, onCompletionCallback);
+        *P‰ivitt‰‰ Client.Instance.acceptedTasks_list - dictionaryn
+    
+    BeginRequest_GetCreatedTasks(profileID, onCompletionCallback);
+        *Hakee kaikki t‰m‰n profiilin tekem‰t taskit
+        *P‰ivitt‰‰ Client.Instance.createdTasks_list - dictionaryn
+
+    BeginRequest_AddNewTask(Task, onCompletionCallback);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Lis‰‰ uuden taskin serverille
+        *T‰m‰k‰‰n ei koske mihink‰‰n paikallisiin listoihin / systeemeihin
+        (*Jos halutaan p‰ivitt‰‰ paikallisia listoja ottamaan t‰m‰n muutoksen huomioon, 
+        pit‰‰ kutsua GetAcceptedTasks, tai GetAvailableTasks, riippuen, mit‰ halutaan tehd‰)
+        
+    BeginRequest_RemoveTask(userName, password, taskID, onCompletionCallback)
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Poistaa taskin serverilt‰
+        (*T‰m‰k‰‰n ei koske mihink‰‰n paikallisiin listoihin)
+
+Profiileihin liittyv‰t:
+    BeginRequest_GetAllProfiles(onCompletionCallback);
+        *P‰ivitt‰‰ Client.Instance.profile_list.profiles
+        *HUOM!: tuo Client.Instance.profile_list on ProfilesContainer - objekti, joka pit‰‰ sis‰ll‰‰n taulukon profiileista
+        
+    BeginRequest_AddNewProfile(Profile);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Lis‰‰ uuden profiilin serverille
+        (*Ei koske mihink‰‰n paikalliseen dataan. Pit‰‰ kutsua GetAllProfiles, jos halutaan, ett‰ muutos n‰kyy t‰m‰n j‰lkeen paikallisesti)
+
+    BeginRequest_UpdateProfile(Profile, onCompletionCallback);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *P‰ivitt‰‰ profiilin tietoja serverille.
+        *T‰ll‰ sis‰‰n syˆtett‰v‰ll‰ profiililla on oltava oikea userName ja password, ett‰ t‰m‰ muutos hyv‰ksyt‰‰n serverill‰
+        (*Ei koske mihink‰‰n paikalliseen dataan)
+
+    BeginRequest_ValidatePassword(userName, password, onCompletionCallback);
+        *Palauttaa "Success" - onCompletionCallback:iin, jos onnistuu
+        *Testaa lˆytyykˆ serverilt‰ userName - password matchi‰
+        (*Ei koske mihink‰‰n paikalliseen dataan)
+*/
 
 public class Client : MonoBehaviour
 {
@@ -18,8 +83,10 @@ public class Client : MonoBehaviour
     }
 
     public ProfilesContainer profile_list = new ProfilesContainer();
-    public Dictionary<int, Task> task_list = new Dictionary<int, Task>();
-    public Dictionary<int, Task> acceptedTasks_list = new Dictionary<int, Task>();
+
+    public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
+    public Dictionary<int, Task> acceptedTasks_list =   new Dictionary<int, Task>();
+    public Dictionary<int, Task> createdTasks_list =    new Dictionary<int, Task>();
 
     private void Awake()
     {
@@ -36,19 +103,16 @@ public class Client : MonoBehaviour
 
     Profile testProfile;
     Task newTestTask;
+    Task newTestTask2;
+    Task newTestTask3;
 
     // Start is called before the first frame update
     void Start()
     {
-        testProfile = new Profile(0, 0, "TestUser", "Jorma", "perse", "This is the first test user test update testing update", 3, 420, 0, Profile.ProfileType.Resident, DateTime.Now);
-        testProfile.id = 1;
-
-        // description changes..
-        // avatarID: 1 => 3
-
+        testProfile = new Profile(0, 0, "UnityTestUser", "UrpoPetteri", "1234", "Test user", 1, 0, 0, Profile.ProfileType.Resident, DateTime.Now);
+        
         newTestTask = new Task();
-        newTestTask.taskID = 69;
-        newTestTask.creatorID = 3;
+        newTestTask.creatorID = 22;
         newTestTask.taskName = "Another Task";
         newTestTask.targetID = 2;
         newTestTask.description = "Testing does task names and points work..";
@@ -57,6 +121,29 @@ public class Client : MonoBehaviour
         newTestTask.quantity = 5;
         newTestTask.uniqueQuantity = 5;
         newTestTask.expirationDate = "2025-09-12";
+
+        newTestTask2 = new Task();
+        newTestTask2.creatorID = 22;
+        newTestTask2.taskName = "Testingtask2";
+        newTestTask2.targetID = 2;
+        newTestTask2.description = "Testing GetCreatedTasks.php";
+        newTestTask2.cost = 1;
+        newTestTask2.points = 1;
+        newTestTask2.quantity = 2;
+        newTestTask2.uniqueQuantity = 0;
+        newTestTask2.expirationDate = "2025-09-12";
+
+        newTestTask3 = new Task();
+        newTestTask3.creatorID = 23;
+        newTestTask3.taskName = "Testingtask3";
+        newTestTask3.targetID = 2;
+        newTestTask3.description = "Testing GetCreatedTasks.php part 2";
+        newTestTask3.cost = 1;
+        newTestTask3.points = 1;
+        newTestTask3.quantity = 1;
+        newTestTask3.uniqueQuantity = 0;
+        newTestTask3.expirationDate = "2025-09-12";
+
     }
 
     bool exec = true;
@@ -65,18 +152,13 @@ public class Client : MonoBehaviour
     {
         if (exec)
         {
-            // profileID = 1 -> username = TestUser, displayName = Jorma
 
-            //BeginRequest_UpdateProfile(testProfile, null);
-            //BeginRequest_CompleteTask(2, 9, null);
-            //BeginRequest_AcceptTask(2, 9, null);
-            //BeginRequest_GetAcceptedTasks(1, null);
-            //BeginRequest_GetAvailableTasks(null);
-            //BeginRequest_AddNewTask(newTestTask, null);
+            //BeginRequest_AddNewTask(newTestTask3, null);
+            //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
-            //BeginRequest_GetAllProfiles(null);
-            //BeginRequest_AddNewProfile(newTestProfile);
-            BeginRequest_ValidatePassword("Joel", "Peruna", Test);
+            BeginRequest_GetCreatedTasks(22, null);
+
+
             exec = false;
         }
     }
@@ -165,6 +247,7 @@ public class Client : MonoBehaviour
         UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_AvailableTasks, "application/json");
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateAvailableTasksFromDatabase));
     }
+
     public void BeginRequest_GetAcceptedTasks(int profileID, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
@@ -172,6 +255,15 @@ public class Client : MonoBehaviour
         
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetAcceptedTasks, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateAcceptedTasksFromDatabase));
+    }
+
+    public void BeginRequest_GetCreatedTasks(int profileID, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetCreatedTasks, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateCreatedTasksFromDatabase));
     }
 
     public void BeginRequest_AddNewTask(Task task, System.Action<string> onCompletionCallback)
@@ -199,6 +291,17 @@ public class Client : MonoBehaviour
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CreateNewTask, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_AddedNewTaskComplete));
+    }
+
+    public void BeginRequest_RemoveTask(string creatorUserName, string creatorPassword, int toRemoveTaskID, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_userName", "\"" + creatorUserName + "\""));
+        form.Add(new MultipartFormDataSection("key_password", "\"" + creatorPassword + "\""));
+        form.Add(new MultipartFormDataSection("key_taskID", "\"" + toRemoveTaskID.ToString() + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_RemoveTask, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_RemovedTaskComplete));
     }
 
     public void BeginRequest_AcceptTask(int profileID, int taskID, System.Action<string> onCompletionCallback)
@@ -255,20 +358,35 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        task_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.creatorID);
+        task_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
         Debug.Log("Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)");
     }
     void Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req) // !!! NOT TESTED YET !!!
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        acceptedTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.creatorID);
+        acceptedTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
         Debug.Log("Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req)");
+    }
+    void Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)
+    {
+        string json = "{\"tasks\": " + req.downloadHandler.text + "}";
+        createdTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
+        Debug.Log("Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)\n"+req.downloadHandler.text);
+
+        Debug.Log("\nCreated tasks list:");
+        foreach (KeyValuePair<int, Task> t in createdTasks_list)
+        {
+            Debug.Log("taskID : " + t.Key.ToString() + " Creator : " + t.Value.creatorID.ToString());
+        }
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)");
     }
-
+    void Internal_OnCompletion_RemovedTaskComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_RemovedTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
     void Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);

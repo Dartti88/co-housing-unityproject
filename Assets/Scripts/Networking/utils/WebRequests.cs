@@ -13,8 +13,10 @@ public class WebRequests
     public const string URL_POST_UpdateProfile = "https://gcdata.000webhostapp.com/UpdateProfile.php";
 
     public const string URL_POST_CreateNewTask = "https://gcdata.000webhostapp.com/AddNewTask.php";
+    public const string URL_POST_RemoveTask = "https://gcdata.000webhostapp.com/RemoveTask.php";
     public const string URL_GET_AvailableTasks = "https://gcdata.000webhostapp.com/GetAvailableTasks.php";
     public const string URL_POST_GetAcceptedTasks = "https://gcdata.000webhostapp.com/GetAcceptedTasks.php";
+    public const string URL_POST_GetCreatedTasks= "https://gcdata.000webhostapp.com/GetCreatedTasks.php";
 
     public const string URL_POST_AcceptTask = "https://gcdata.000webhostapp.com/AcceptTask.php";
     public const string URL_POST_CompleteTask = "https://gcdata.000webhostapp.com/CompleteTask.php";

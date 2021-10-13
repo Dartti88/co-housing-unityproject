@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ProfileUIController : MonoBehaviour
 {
     public ProfileHandler pHandler;
+    private PlayerController playerController;
 
     public Canvas taskCanvas;
 
@@ -16,6 +17,7 @@ public class ProfileUIController : MonoBehaviour
     public Image profilePics; //this is the grid
     public GameObject currentProfilePic;
     public GameObject ProfilePicture;
+    public Image[] profilePictures;
 
     public InputField profileName;
     public InputField profileDescription;
@@ -36,6 +38,8 @@ public class ProfileUIController : MonoBehaviour
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
         CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(CancelTasks);
+        playerController = PlayerController.Instance;
+
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
@@ -44,8 +48,16 @@ public class ProfileUIController : MonoBehaviour
         //this only gets the profile and sets everything up.
         nameText.text = pHandler.GetUserProfile().displayName;
         descriptionText.text = pHandler.GetUserProfile().description;
-        ProfilePicture.GetComponent<Image>().sprite.name = pHandler.GetUserProfile().avatarID.ToString();
+        for(int i = 0; i < 12; i++)
+        {
+            if (i == pHandler.GetUserProfile().avatarID)
+            {
+                ProfilePicture.GetComponent<Image>().sprite = profilePictures[i].sprite;
+                break;
+            }
+            else Debug.Log("avatarID not 0-11 ");
 
+        }
         //also has to load tasks in the future
     }
 
@@ -93,6 +105,7 @@ public class ProfileUIController : MonoBehaviour
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
         Debug.Log(index + " index");
+        AvatarButtonOnClick(index);
 
         Image im = currentProfilePic.gameObject.GetComponent<Image>();
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
@@ -151,15 +164,19 @@ public class ProfileUIController : MonoBehaviour
 
     public void CancelTasks()
     {
-        taskName.text = "";
-        taskDesc.text = "";
-        taskReward.text = "";
-        taskQuantity.text = "";
-        taskDate.text = "";
+        taskName.text = "  ";
+        taskDesc.text = "  ";
+        taskReward.text = "  ";
+        taskQuantity.text = "  ";
+        taskDate.text = "  ";
         
         taskCanvas.gameObject.SetActive(false);
         Debug.Log("canceled task");
     }
 
+    private void AvatarButtonOnClick(int i)
+    {
+        playerController.ChangePlayerAvatar(i);
+    }
     //TODO write a function to set image from server based on number
 }

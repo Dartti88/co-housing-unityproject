@@ -25,6 +25,7 @@ public class TaskUIElement : MonoBehaviour
     public Image taskIssuerImage;
     public Image taskQuantityImage;
     public Image taskButtonImage;
+    public Image taskAvatarImage;
 
     public Button taskAcceptButton;
 
@@ -35,9 +36,21 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
-        taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+        //taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
+        taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick); 
 
+        // NEW COLORS (Order: Title, background, field, button
+        // Red
+        colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
+        // Orange
+        colorList.Add(new ColorSchemer(new Color32(244, 185, 147, 255), new Color32(230, 169, 128, 255), new Color32(244, 185, 147, 255), new Color32(212, 152, 112, 255)));
+        // Green
+        colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
+        // Turquoise
+        colorList.Add(new ColorSchemer(new Color32(95, 194, 155, 255), new Color32(79, 171, 136, 255), new Color32(95, 194, 155, 255), new Color32(68, 150, 119, 255)));
+
+
+        /* OLD COLORS
         // Green (default)
         colorList.Add(new ColorSchemer(new Color32(116, 204, 74, 255), new Color32(92, 180, 50, 255), new Color32(76, 156, 39, 255), new Color32(31, 115, 0, 255)));
         // Red
@@ -54,6 +67,7 @@ public class TaskUIElement : MonoBehaviour
         colorList.Add(new ColorSchemer(new Color32(74, 204, 188, 255), new Color32(50, 180, 165, 255), new Color32(39, 156, 148, 255), new Color32(0, 115, 109, 255)));
         // Pink
         colorList.Add(new ColorSchemer(new Color32(217, 103, 157, 255), new Color32(192, 74, 137, 255), new Color32(176, 46, 119, 255), new Color32(135, 22, 86, 255)));
+        */
 
         // TESTI: Random väriteema taskille, voi ottaa pois käytöstä
         // Jos haluaa jättää lopulliseen, täytyisi väriteema ehkä lähettää serverille, jotta se on aina sama per task?
@@ -127,6 +141,7 @@ public class TaskUIElement : MonoBehaviour
         taskIssuerImage.color = colorList[rndCol].fieldColor;
         taskQuantityImage.color = colorList[rndCol].fieldColor;
         taskButtonImage.color = colorList[rndCol].buttonColor;
+        taskAvatarImage.color = colorList[rndCol].backgroundColor;
     }
 }
 

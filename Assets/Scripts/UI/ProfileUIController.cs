@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ProfileUIController : MonoBehaviour
 {
     public ProfileHandler pHandler;
+    private PlayerController playerController;
 
     public Canvas taskCanvas;
 
@@ -37,7 +38,8 @@ public class ProfileUIController : MonoBehaviour
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
         CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(CancelTasks);
-        
+        playerController = PlayerController.Instance;
+
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
@@ -103,6 +105,7 @@ public class ProfileUIController : MonoBehaviour
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
         Debug.Log(index + " index");
+        AvatarButtonOnClick(index);
 
         Image im = currentProfilePic.gameObject.GetComponent<Image>();
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
@@ -171,5 +174,9 @@ public class ProfileUIController : MonoBehaviour
         Debug.Log("canceled task");
     }
 
+    private void AvatarButtonOnClick(int i)
+    {
+        playerController.ChangePlayerAvatar(i);
+    }
     //TODO write a function to set image from server based on number
 }

@@ -40,13 +40,13 @@ public class TaskUIElement : MonoBehaviour
 
         // NEW COLORS (Order: Title, background, field, button
         // Red
-        colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(246, 136, 129, 255)));
+        colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
         // Orange
-        colorList.Add(new ColorSchemer(new Color32(244, 185, 147, 255), new Color32(230, 169, 128, 255), new Color32(244, 185, 147, 255), new Color32(244, 185, 147, 255)));
+        colorList.Add(new ColorSchemer(new Color32(244, 185, 147, 255), new Color32(230, 169, 128, 255), new Color32(244, 185, 147, 255), new Color32(212, 152, 112, 255)));
         // Green
-        colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(171, 196, 131, 255)));
+        colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
         // Turquoise
-        colorList.Add(new ColorSchemer(new Color32(95, 194, 155, 255), new Color32(79, 171, 136, 255), new Color32(95, 194, 155, 255), new Color32(95, 194, 155, 255)));
+        colorList.Add(new ColorSchemer(new Color32(95, 194, 155, 255), new Color32(79, 171, 136, 255), new Color32(95, 194, 155, 255), new Color32(68, 150, 119, 255)));
 
 
         /* OLD COLORS

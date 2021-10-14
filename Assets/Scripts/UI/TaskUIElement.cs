@@ -36,18 +36,18 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        //taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
+        taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
         taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick); 
 
         // NEW COLORS (Order: Title, background, field, button
         // Red
         colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
         // Orange
-        colorList.Add(new ColorSchemer(new Color32(244, 185, 147, 255), new Color32(230, 169, 128, 255), new Color32(244, 185, 147, 255), new Color32(212, 152, 112, 255)));
+        colorList.Add(new ColorSchemer(new Color32(251, 187, 141, 255), new Color32(236, 167, 117, 255), new Color32(251, 187, 141, 255), new Color32(218, 148, 97, 255)));
         // Green
         colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
         // Turquoise
-        colorList.Add(new ColorSchemer(new Color32(95, 194, 155, 255), new Color32(79, 171, 136, 255), new Color32(95, 194, 155, 255), new Color32(68, 150, 119, 255)));
+        colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
 
 
         /* OLD COLORS
@@ -100,7 +100,7 @@ public class TaskUIElement : MonoBehaviour
         _taskQuantity = quantity;
 
         taskTitleText.text = title;
-        taskExpiryText.text = "Expires   " + expiryDate;
+        taskExpiryText.text = "Expires\n" + expiryDate;
         taskDescriptionText.text = desc;
         taskRewardText.text = reward.ToString(); // täytyy ehkä pyöristää
         taskPointsText.text = points.ToString(); // täytyy ehkä pyöristää

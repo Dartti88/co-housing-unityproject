@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: -40
-    m_Right: 0
+    m_Right: -15
     m_Top: -10
     m_Bottom: -10
   m_ChildAlignment: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: -1
+  m_MinWidth: 145
   m_MinHeight: -1
   m_PreferredWidth: 145
   m_PreferredHeight: -1
@@ -518,7 +518,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expires    12.11.2021
+  m_Text: 'Expires
+
+    12.11.2021'
 --- !u!114 &3624169475571325034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 280
+  m_MinWidth: 250
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -859,10 +861,10 @@ RectTransform:
   m_Father: {fileID: 8069896272675244342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -33}
+  m_SizeDelta: {x: 180, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069896271694258635
 CanvasRenderer:
@@ -1197,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32acda4ecb03bd34c80f9c2335fffd12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8422d59f8f99a2e4fb930901651573ff, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1266,8 +1268,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 15
-    m_Bottom: 15
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -1462,10 +1464,10 @@ RectTransform:
   m_Father: {fileID: 8069896272675244342}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 750, y: -33}
+  m_SizeDelta: {x: 1110, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069896272048059548
 CanvasRenderer:
@@ -2031,7 +2033,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 750
+  m_PreferredWidth: 780
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -2070,10 +2072,10 @@ RectTransform:
   m_Father: {fileID: 8069896273113925548}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 715, y: -343.48276}
+  m_SizeDelta: {x: 1350, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069896272279915756
 CanvasRenderer:
@@ -2882,10 +2884,10 @@ RectTransform:
   m_Father: {fileID: 8069896272279915759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 675, y: -33}
+  m_SizeDelta: {x: 1350, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069896272675244339
 CanvasRenderer:
@@ -3207,10 +3209,10 @@ RectTransform:
   m_Father: {fileID: 8069896272048059616}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 535, y: -33}
+  m_SizeDelta: {x: 1070, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069896273085168547
 CanvasRenderer:
@@ -3351,7 +3353,7 @@ MonoBehaviour:
     m_Left: 40
     m_Right: 40
     m_Top: 10
-    m_Bottom: 40
+    m_Bottom: 35
   m_ChildAlignment: 0
   m_Spacing: 10
   m_ChildForceExpandWidth: 1

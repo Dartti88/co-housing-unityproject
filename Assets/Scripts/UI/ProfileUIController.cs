@@ -155,11 +155,11 @@ public class ProfileUIController : MonoBehaviour
 
 
 
-        taskName.text = "";
-        taskDesc.text = "";
-        taskReward.text = "";
-        taskQuantity.text = "";
-        taskDate.text = "";
+        //taskName.text = "";
+        //taskDesc.text = "";
+        //taskReward.text = "";
+        //taskQuantity.text = "";
+        //taskDate.text = "";
     }
 
     public void CancelTasks()

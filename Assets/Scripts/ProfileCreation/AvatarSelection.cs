@@ -7,13 +7,14 @@ public class AvatarSelection : MonoBehaviour
 {
     [SerializeField] RawImage avatarImage;
     [SerializeField] Texture[] avatarImages;
-    public ProfileHandler pHandler;
+    ProfileHandler pHandler;
 
     int imageIndex;
     void Start()
     {
-        if (pHandler != null)
-            imageIndex = pHandler.GetUserProfile().avatarID;
+        pHandler = FindObjectOfType<ProfileHandler>();
+        if (pHandler != null && pHandler.userProfile != null)
+            imageIndex = pHandler.userProfile.avatarID;
         else
             imageIndex = 0;
         ChangeImage();

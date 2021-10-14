@@ -100,7 +100,7 @@ public class TaskUIElement : MonoBehaviour
         _taskQuantity = quantity;
 
         taskTitleText.text = title;
-        taskExpiryText.text = "Expires\n" + expiryDate;
+        taskExpiryText.text = "Expires on\n" + expiryDate;
         taskDescriptionText.text = desc;
         taskRewardText.text = reward.ToString(); // täytyy ehkä pyöristää
         taskPointsText.text = points.ToString(); // täytyy ehkä pyöristää

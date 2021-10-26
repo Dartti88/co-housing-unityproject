@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TaskUIElement : MonoBehaviour
 {
     public Taskmanager taskManager;
+    public ProfileHandler profileHandler;
     private int _taskId;
     private int _taskQuantity;
 
@@ -36,6 +37,7 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        profileHandler = FindObjectOfType<ProfileHandler>();
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
         taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick); 
 
@@ -96,7 +98,7 @@ public class TaskUIElement : MonoBehaviour
         //          Tarvittaessa t‰ytyy lis‰t‰ muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
         //          Ei viel‰ tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
 
-        //_taskId = taskId;
+        _taskId = taskId;
         _taskQuantity = quantity;
 
         taskTitleText.text = title;
@@ -113,6 +115,10 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void TaskOnClick()
     {
+        if(taskManager)
+        {
+            taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+        }
         // PUUTTUU: Serverin kanssa kommunikointi. 
         // T‰ytyy tarkistaa, ett‰ kukaan muu ei ole ottanut taskia samaan aikaan
         // tai l‰hett‰‰ tieto serverille, ett‰ yksi task on otettu (jos useampi samasta on saatavilla)

@@ -86,7 +86,8 @@ public class ProfileHandler : MonoBehaviour
             PlayerPrefs.SetString(Profile.USERNAME_TAG, userName);
             PlayerPrefs.SetString(Profile.PASSWORD_TAG, password);
             if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
-                FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
+                userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
+            userProfile.password = password;
             LogInScreen.SetActive(false);
             profUIController.LoadOnLogin();
         }
@@ -118,7 +119,7 @@ public class ProfileHandler : MonoBehaviour
 
     public void SaveProfileChanges()
     {
-        
+        Client.Instance.BeginRequest_UpdateProfile(userProfile, null);
     }
 
     public Profile GetUserProfile()

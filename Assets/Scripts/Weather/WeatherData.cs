@@ -5,12 +5,26 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+enum weather
+{
+	clear_sky,
+	few_clouds,
+	scattered_clouds,
+	broken_clouds,
+	shower_rain,
+	rain,
+	thunderstorm,
+	snow,
+	mist
+}
+
 public class WeatherData : MonoBehaviour
 {
+
 	private float timer=0;
 	public float minutesBetweenUpdate;
 	public WeatherInfo Info;
-	//https://home.openweathermap.org/
+	//https://home.openweathermap.org/ 3418d745d339c19425544cbbe6756565
 	public string API_key;
 
 	private bool locationInitialized;
@@ -21,6 +35,7 @@ public class WeatherData : MonoBehaviour
 	public LocationService locationService;
 
 	private string location;
+	public int current_weather_int;
 
 	[SerializeField] private string current_weather;
 
@@ -73,6 +88,37 @@ public class WeatherData : MonoBehaviour
 		Info = JsonUtility.FromJson<WeatherInfo>(www.downloadHandler.text);
 		currentWeatherText.text = "Current weather: " + Info.weather[0].main + ", " + Info.weather[0].description.ToString();// + ", " + Info.weather[0].icon;
 		current_weather = Info.weather[0].description;
+
+		switch (current_weather)
+		{
+			case "clear sky":
+				current_weather_int = (int)weather.clear_sky;
+				break;
+			case "few clouds":
+				current_weather_int = (int)weather.few_clouds;
+				break;
+			case "scattered clouds":
+				current_weather_int = (int)weather.scattered_clouds;
+				break;
+			case "broken clouds":
+				current_weather_int = (int)weather.broken_clouds;
+				break;
+			case "shower rain":
+				current_weather_int = (int)weather.shower_rain;
+				break;
+			case "rain":
+				current_weather_int = (int)weather.rain;
+				break;
+			case "thunderstorm":
+				current_weather_int = (int)weather.thunderstorm;
+				break;
+			case "snow":
+				current_weather_int = (int)weather.snow;
+				break;
+			case "mist":
+				current_weather_int = (int)weather.mist;
+				break;
+		}
 	}
 }
 /*

@@ -109,6 +109,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         testProfile = new Profile(0, 0, "UnityTestUser", "UrpoPetteri", "1234", "Test user", 1, 0, 0, Profile.ProfileType.Resident, DateTime.Now);
         
         newTestTask = new Task();
@@ -143,7 +144,7 @@ public class Client : MonoBehaviour
         newTestTask3.quantity = 1;
         newTestTask3.uniqueQuantity = 0;
         newTestTask3.expirationDate = "2025-09-12";
-
+        */
     }
 
     bool exec = true;
@@ -156,7 +157,7 @@ public class Client : MonoBehaviour
             //BeginRequest_AddNewTask(newTestTask3, null);
             //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
-            BeginRequest_GetCreatedTasks(22, null);
+            //BeginRequest_GetCreatedTasks(22, null);
 
 
             exec = false;
@@ -167,7 +168,7 @@ public class Client : MonoBehaviour
     {
         for (int i=0, list_size = profile_list.profiles.Length; i < list_size; ++i)
             {
-            if (profile_list.profiles[i].id == id)
+            if (profile_list.profiles[i].profileID == id)
                 {
                 return profile_list.profiles[i].displayName;
                 }
@@ -232,7 +233,7 @@ public class Client : MonoBehaviour
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileToUpdate.id.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileToUpdate.profileID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_password", "\"" + profileToUpdate.password + "\""));
         form.Add(new MultipartFormDataSection("key_avatarID", "\"" + profileToUpdate.avatarID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_description", "\"" + profileToUpdate.description + "\""));

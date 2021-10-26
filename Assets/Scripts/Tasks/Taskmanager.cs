@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ public class Taskmanager : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
 
-            //TODO: remove task funktionaalisuus, linkitä nappiin
+            //TODO: remove task funktionaalisuus, linkitï¿½ nappiin
             //TODO: create task ottaa profiilista ID:n
 
             CreateTask(
@@ -65,6 +65,7 @@ public class Taskmanager : MonoBehaviour
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks()
     {
+        LoadTasks();
         //Empties the current list
         for(int i = 0; i<taskContainer.transform.childCount; i++)
         {
@@ -89,9 +90,10 @@ public class Taskmanager : MonoBehaviour
     }
 
     //Loads new tasks from server. Called by server.
-    public void LoadTasks(Dictionary<int, Task> updatedTaskList)
+    public void LoadTasks()
     {
-        taskList = new Dictionary<int, Task>(updatedTaskList);
+        Client.Instance.BeginRequest_GetAvailableTasks(null);
+        taskList = Client.Instance.task_list;
         Debug.Log("New task list length: " + taskList.Count());
     }
 
@@ -110,9 +112,16 @@ public class Taskmanager : MonoBehaviour
         DisplayTasks();
     }
     
-
-    void CompleteTask(int taskId, string profileId)
+    public void AcceptTask(int taskId, int profileId)
     {
+        Task acceptedTask = taskList[taskId];
+        Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
+        RemoveTask(taskId);
+    }
+
+    void CompleteTask(int taskId, int profileId)
+    {
+        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
     }
 
     public void TestAddButton()

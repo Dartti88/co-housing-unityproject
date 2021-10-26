@@ -15,6 +15,7 @@ public class Taskmanager : MonoBehaviour
     int testId = 0;
 
     [SerializeField]
+    [NamedArrayAttribute(new string[] { "cost", "place", "quantity", "uniqueQuantity", "points", "expirationDate" })]
     private InputField[] inputFields; // in the following order: [taskName, description, cost, quantity, uniqueQuantity, points]
     [SerializeField]
     private Button createTaskButton;
@@ -279,4 +280,13 @@ public class Taskmanager : MonoBehaviour
             }
         }
     }
+
+
 }
+
+public class NamedArrayAttribute : PropertyAttribute
+{
+    public readonly string[] names;
+    public NamedArrayAttribute(string[] names) { this.names = names; }
+}
+

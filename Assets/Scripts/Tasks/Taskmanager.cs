@@ -61,7 +61,7 @@ public class Taskmanager : MonoBehaviour
         });
 
         //Get the users ID
-        userID = profileObject.GetComponent<ProfileHandler>().userProfile.id;
+        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
     }
 
     private void Update()

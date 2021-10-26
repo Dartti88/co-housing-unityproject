@@ -14,7 +14,7 @@ public class Profile
     public static string USERNAME_TAG = "Username";
     public static string PASSWORD_TAG = "Password";
 
-    public int      id;
+    public int      profileID;
     public string   userName;
     public string   displayName;
     public string   password;

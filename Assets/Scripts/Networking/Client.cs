@@ -167,7 +167,7 @@ public class Client : MonoBehaviour
     {
         for (int i=0, list_size = profile_list.profiles.Length; i < list_size; ++i)
             {
-            if (profile_list.profiles[i].id == id)
+            if (profile_list.profiles[i].profileID == id)
                 {
                 return profile_list.profiles[i].displayName;
                 }
@@ -232,7 +232,7 @@ public class Client : MonoBehaviour
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileToUpdate.id.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileToUpdate.profileID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_password", "\"" + profileToUpdate.password + "\""));
         form.Add(new MultipartFormDataSection("key_avatarID", "\"" + profileToUpdate.avatarID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_description", "\"" + profileToUpdate.description + "\""));

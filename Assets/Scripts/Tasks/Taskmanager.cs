@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,11 @@ public class Taskmanager : MonoBehaviour
 
     //For testing
     int testId = 0;
+    
+    [SerializeField]
+    private GameObject profileObject;
+
+    private int userID;
 
     [SerializeField]
     [NamedArrayAttribute(new string[] { "cost", "place", "quantity", "uniqueQuantity", "points", "expirationDate" })]
@@ -28,33 +33,40 @@ public class Taskmanager : MonoBehaviour
         //Format the local taskList
         taskList = Client.Instance.task_list;
 
-        // When the button to create a task is pressed we parse the input from the user to the CreateTask function
-        // TODO: IHAN HELVETIN ISO REWRITE
+        //When the button to create a task is pressed we parse the input from the user to the CreateTask function
         createTaskButton.onClick.AddListener(() => 
         {
-
-            int cost, place, quantity, uniqueQuantity, points;
-            cost = place = quantity = uniqueQuantity = points = 0;
-
+            //Set the default values for creating the task
+            int cost, quantity, uniqueQuantity, points, target;
+            cost = quantity = uniqueQuantity = points = target = 0;
+            //Check if the variable is empty and then parse the value from the input
             if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = int.Parse(inputFields[2].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
 
-            CreateTask(cost, 
+            //TODO: remove task funktionaalisuus, linkit� nappiin
+            //TODO: create task ottaa profiilista ID:n
+
+            CreateTask(
+                inputFields[0].text, 
                 inputFields[1].text, 
-                place ,
-                quantity, 
-                inputFields[0].text,
+                cost,
+                quantity,
                 uniqueQuantity,
-                points);
+                points,
+                target,
+                inputFields[6].text);
         });
-        
+
+        //Get the users ID
+        userID = profileObject.GetComponent<Profile>().id;
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks()
     {
+        LoadTasks();
         //Empties the current list
         for(int i = 0; i<taskContainer.transform.childCount; i++)
         {
@@ -79,9 +91,10 @@ public class Taskmanager : MonoBehaviour
     }
 
     //Loads new tasks from server. Called by server.
-    public void LoadTasks(Dictionary<int, Task> updatedTaskList)
+    public void LoadTasks()
     {
-        taskList = new Dictionary<int, Task>(updatedTaskList);
+        Client.Instance.BeginRequest_GetAvailableTasks(null);
+        taskList = Client.Instance.task_list;
         Debug.Log("New task list length: " + taskList.Count());
     }
 
@@ -94,23 +107,27 @@ public class Taskmanager : MonoBehaviour
     
     public void RemoveTask(int taskId)
     {
-        if(taskList.Count > 0)
-        {
-            taskList.Remove(taskId);
-            DisplayTasks();
-            return;
-        }
-        Debug.Log("Tried to remove an object from an empty list");
+        if(!taskList.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
+        if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
+        taskList.Remove(taskId);
+        DisplayTasks();
     }
     
-
-    void CompleteTask(int taskId, string profileId)
+    public void AcceptTask(int taskId, int profileId)
     {
+        Task acceptedTask = taskList[taskId];
+        Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
+        RemoveTask(taskId);
+    }
+
+    void CompleteTask(int taskId, int profileId)
+    {
+        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
     }
 
     public void TestAddButton()
     {
-        CreateTask(0, "asd", 100, 1, "taskTask", 1, 5);
+        CreateTask("taskTask", "asd", 100, 1, 1, 5, 0, "");
     }
 
     public void TestRemoveButton()
@@ -153,20 +170,22 @@ public class Taskmanager : MonoBehaviour
         origTask.quantity = newTask.quantity;
     }
 
+    
     // Create new task and add it to the Task List, retuns true if successful, false if not
-    public bool CreateTask(int taskCost, string taskText, int taskPlace, int taskTimes, string taskName, int taskUniqueQ, int points)
+    public bool CreateTask(string taskName, string taskText, int taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
-        Task task = new Task
-        {
-            creatorID = 0,//Guid.NewGuid(),   //Placeholder until profiles are implemented
-            taskID = newId(),//Guid.NewGuid(),                 //Placehlder, replace int with Guid?
+        Task task = new Task() { 
+            creatorID = userID,                      //Placeholder until profiles are implemented
+            taskID = newId(),
             cost = taskCost,
             taskName = taskName,
             description = taskText,
-            targetID = taskPlace,
-            quantity = taskTimes,
+            targetID = taskTarget,
+            quantity = taskQuantity,
             uniqueQuantity = taskUniqueQ,
-            points = points
+            points = taskPoints,
+            creationDate = "",                  // FORMAT?
+            expirationDate = taskExpireDate
         };
 
         //TODO: Add check for validity of task on client and server
@@ -176,27 +195,33 @@ public class Taskmanager : MonoBehaviour
         return true;
     }
 
-    public bool ModifyTask(int taskId, int taskCost, string taskText, int taskPlace, int taskTimes)
+    //-----------------------------TARPEELLINEN?------------------------------------------------------
+
+    public bool ModifyTask(int taskId, float? taskCost = null, string taskText = null, int? taskQuantity = null, int? taskUniqueQ = null, int? taskPoints = null, int? taskTarget = null, string taskExpireDate = null)
     {
-        //Placeholder
-        Task task = new Task();
-
-        //TODO: Get task from list by taskId
-
-        /*  
-        //Check that the user is the owner of the task  
-        if (task.ownerId != user.GetID)
+        // Get the task
+        if (!taskList.TryGetValue(taskId, out Task task))
+        {
+            Debug.LogWarning("Task ID not valid!");
             return false;
-        */
+        }
+
+        //Check that the user is the owner of the task  
+        if (task.creatorID != userID)
+            return false;
 
         //Overwrite old data with new
-        (task.cost, task.description, task.targetID, task.quantity) = 
-            (taskCost, taskText, taskPlace, taskTimes);
+        if (taskCost != null) { task.cost = (float)taskCost; }
+        if (taskQuantity != null) { task.quantity = (int)taskQuantity; }
+        if (taskUniqueQ != null) { task.quantity = (int)taskUniqueQ; }
+        if (taskPoints != null) { task.points = (int)taskPoints; }
+        if (taskTarget != null) { task.targetID = (int)taskTarget; }
+        if (string.IsNullOrWhiteSpace(taskText)) { task.description = taskText; }
+        if (string.IsNullOrWhiteSpace(taskExpireDate)) { task.expirationDate = taskExpireDate; }
 
         //TODO: Add check for validity of task on client and server & update it
 
         return true;
-
     }
 
 
@@ -211,7 +236,7 @@ public class Taskmanager : MonoBehaviour
     {
 
         //Placeholder declaration, replace with actual list of all tasks
-        List<Task> tasks = new List<Task>();
+        List<Task> tasks = taskList.Values.ToList();
 
         //Temporary list for 
         List<Task> tmp  = new List<Task>();

@@ -70,11 +70,11 @@ public class Taskmanager : MonoBehaviour
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
-    public void DisplayTasks()
+    public void DisplayTasks(string emptystr)
     {
-        LoadTasks();
+        taskList = Client.Instance.task_list;
         //Empties the current list
-        for(int i = 0; i<taskContainer.transform.childCount; i++)
+        for (int i = 0; i<taskContainer.transform.childCount; i++)
         {
             Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
@@ -97,18 +97,18 @@ public class Taskmanager : MonoBehaviour
     }
 
     //Loads new tasks from server. Called by server.
-    public void LoadTasks()
+    public void LoadTasks(string callbackstring)
     {
-        Client.Instance.BeginRequest_GetAvailableTasks(null);
-        taskList = Client.Instance.task_list;
+        Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+        
         Debug.Log("New task list length: " + taskList.Count());
     }
 
     public void AddTask(Task newTask /*Add object here*/)
     {
-        //TODO: Ask from server if ok to add
-        taskList.Add(newTask.taskID, newTask);
-        DisplayTasks();
+        if (newTask.quantity != 0) newTask.quantity = 1;
+        Client.Instance.BeginRequest_AddNewTask(newTask, LoadTasks);
+        //taskList.Add(newTask.taskID, newTask);
     }
     
     public void RemoveTask(int taskId)
@@ -116,7 +116,7 @@ public class Taskmanager : MonoBehaviour
         if(!taskList.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
         taskList.Remove(taskId);
-        DisplayTasks();
+        LoadTasks("empty");
     }
     
     public void AcceptTask(int taskId, int profileId)
@@ -131,7 +131,6 @@ public class Taskmanager : MonoBehaviour
         {
             taskList.Remove(taskId);
         }
-        DisplayTasks();
     }
 
     void CompleteTask(int taskId, int profileId)
@@ -324,7 +323,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(!firstUpdateDone)
         {
-            DisplayTasks();
+            //LoadTasks("empty");
             firstUpdateDone = true;
         }
     }

@@ -36,7 +36,7 @@ public class TaskUIElement : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        profileHandler = GameObject.Find("ProfileHandler").GetComponent<ProfileHandler>();
+        profileHandler = FindObjectOfType<ProfileHandler>();
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
         taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick);
 

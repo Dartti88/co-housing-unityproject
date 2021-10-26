@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    bool firstUpdateDone = false;
     public GameObject taskContainer;
     public GameObject taskElementPrefab;
 
@@ -60,7 +61,12 @@ public class Taskmanager : MonoBehaviour
         });
 
         //Get the users ID
-        userID = profileObject.GetComponent<Profile>().id;
+        userID = profileObject.GetComponent<ProfileHandler>().userProfile.id;
+    }
+
+    private void Update()
+    {
+        ExecuteOnFirstUpdate();   
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
@@ -117,7 +123,8 @@ public class Taskmanager : MonoBehaviour
     {
         Task acceptedTask = taskList[taskId];
         Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
-        RemoveTask(taskId);
+        taskList.Remove(taskId);
+        DisplayTasks();
     }
 
     void CompleteTask(int taskId, int profileId)
@@ -303,6 +310,15 @@ public class Taskmanager : MonoBehaviour
             {
                 list = list.OrderByDescending(task => getSortVal(task, sortType)).ThenByDescending(task => getSortVal(task, optionalType)).ToList();
             }
+        }
+    }
+
+    void ExecuteOnFirstUpdate()
+    {
+        if(!firstUpdateDone)
+        {
+            DisplayTasks();
+            firstUpdateDone = true;
         }
     }
 

@@ -21,7 +21,7 @@ public class Taskmanager : MonoBehaviour
     private int userID;
 
     [SerializeField]
-    [NamedArrayAttribute(new string[] { "cost", "place", "quantity", "uniqueQuantity", "points", "expirationDate" })]
+    [NamedArrayAttribute(new string[] { "name", "description", "cost", "quantity", "uniqueQuantity", "points", "expiry" })]
     private InputField[] inputFields; // in the following order: [taskName, description, cost, quantity, uniqueQuantity, points]
     [SerializeField]
     private Button createTaskButton;
@@ -123,7 +123,14 @@ public class Taskmanager : MonoBehaviour
     {
         Task acceptedTask = taskList[taskId];
         Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
-        taskList.Remove(taskId);
+        if(acceptedTask.quantity>1)
+        {
+            acceptedTask.quantity--;
+        }
+        else
+        {
+            taskList.Remove(taskId);
+        }
         DisplayTasks();
     }
 

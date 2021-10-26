@@ -109,6 +109,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         testProfile = new Profile(0, 0, "UnityTestUser", "UrpoPetteri", "1234", "Test user", 1, 0, 0, Profile.ProfileType.Resident, DateTime.Now);
         
         newTestTask = new Task();
@@ -143,7 +144,7 @@ public class Client : MonoBehaviour
         newTestTask3.quantity = 1;
         newTestTask3.uniqueQuantity = 0;
         newTestTask3.expirationDate = "2025-09-12";
-
+        */
     }
 
     bool exec = true;
@@ -156,7 +157,7 @@ public class Client : MonoBehaviour
             //BeginRequest_AddNewTask(newTestTask3, null);
             //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
-            BeginRequest_GetCreatedTasks(22, null);
+            //BeginRequest_GetCreatedTasks(22, null);
 
 
             exec = false;

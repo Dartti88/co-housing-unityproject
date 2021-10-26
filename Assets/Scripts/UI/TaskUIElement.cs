@@ -103,7 +103,7 @@ public class TaskUIElement : MonoBehaviour
     {
         if(taskManager)
         {
-            taskManager.AcceptTask(_taskId, profileHandler.userProfile.id);
+            taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
         // Täytyy tarkistaa, että kukaan muu ei ole ottanut taskia samaan aikaan

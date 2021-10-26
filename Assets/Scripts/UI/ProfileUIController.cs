@@ -82,18 +82,14 @@ public class ProfileUIController : MonoBehaviour
         profileName.text = pHandler.GetUserProfile().displayName;
     }
 
-    public void ConfirmChangesToServer(int index){
+    public void ConfirmChangesToServer(){
         
 
-        UpdateProfileCanvas();
+        int index = UpdateProfileCanvas();
         
-       
-       //
-        //here the function to send all info to server
-        //
-
 
         pHandler.userProfile.avatarID = index;
+        Debug.Log(pHandler.userProfile.avatarID);
         pHandler.userProfile.displayName = nameText.text;
         pHandler.userProfile.description = descriptionText.text;
         pHandler.SaveProfileChanges();
@@ -106,7 +102,6 @@ public class ProfileUIController : MonoBehaviour
     {
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
-        Debug.Log(index + " index");
         AvatarButtonOnClick(index);
 
         Image im = currentProfilePic.gameObject.GetComponent<Image>();
@@ -180,5 +175,5 @@ public class ProfileUIController : MonoBehaviour
     {
         playerController.ChangePlayerAvatar(i);
     }
-    //TODO write a function to set image from server based on number
+    
 }

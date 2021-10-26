@@ -53,6 +53,7 @@ public class ProfileUIController : MonoBehaviour
             if (i == pHandler.GetUserProfile().avatarID)
             {
                 ProfilePicture.GetComponent<Image>().sprite = profilePictures[i].sprite;
+                playerController.ChangePlayerAvatar(i);
                 break;
             }
             else Debug.Log("avatarID not 0-11 ");
@@ -100,7 +101,7 @@ public class ProfileUIController : MonoBehaviour
         profileChangeCanvas.gameObject.SetActive(false);
     }
 
-    //this one prepares to send all changes to server! could also combine the two ^ but this one should NOT sync on login! instead there's a func for that on the top
+    //this one PREPARES to send all changes to server! could also combine the two ^ but this one should NOT sync on login! instead there's a func for that on the top
     public int UpdateProfileCanvas()
     {
         //use the index to know which pic+avatar prefab pack to use and send info to server!

@@ -83,6 +83,7 @@ public class ProfileUIController : MonoBehaviour
         pHandler.userProfile.avatarID = index;
         pHandler.userProfile.displayName = nameText.text;
         pHandler.userProfile.description = descriptionText.text;
+        pHandler.SaveProfileChanges();
 
         profileChangeCanvas.gameObject.SetActive(false);
     }

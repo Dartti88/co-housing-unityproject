@@ -1662,6 +1662,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
+      propertyPath: profileObject
+      value: 
+      objectReference: {fileID: 544111369}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
       propertyPath: taskContainer
       value: 
       objectReference: {fileID: 2011258112}
@@ -1670,6 +1675,11 @@ PrefabInstance:
       propertyPath: createTaskButton
       value: 
       objectReference: {fileID: 1412151607}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: inputFields.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: inputFields.Array.data[0]
@@ -1700,6 +1710,11 @@ PrefabInstance:
       propertyPath: inputFields.Array.data[5]
       value: 
       objectReference: {fileID: 1175298025}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: inputFields.Array.data[6]
+      value: 
+      objectReference: {fileID: 783518443}
     - target: {fileID: 1473148185962257631, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: m_RootOrder
@@ -1773,6 +1788,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 204842576}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &204842578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+    type: 3}
+  m_PrefabInstance: {fileID: 204842576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204842577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b300da3c9fb845bd045b71405857a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &222128168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &232392004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3095,7 +3122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInScreen: {fileID: 232392003}
   userProfile:
-    id: 0
+    profileID: 0
     userName: 
     displayName: 
     password: 
@@ -5391,6 +5418,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 204842578}
+        m_TargetAssemblyTypeName: Taskmanager, Assembly-CSharp
+        m_MethodName: LoadTasks
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: empty
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &819588873

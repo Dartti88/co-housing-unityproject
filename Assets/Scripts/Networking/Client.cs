@@ -156,8 +156,9 @@ public class Client : MonoBehaviour
             //BeginRequest_AddNewTask(newTestTask3, null);
             //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
-            BeginRequest_GetCreatedTasks(22, null);
+            //BeginRequest_GetCreatedTasks(22, null);
 
+            BeginRequest_GetAvailableTasks(null);
 
             exec = false;
         }

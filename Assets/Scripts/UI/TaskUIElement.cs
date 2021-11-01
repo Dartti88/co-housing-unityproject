@@ -11,7 +11,6 @@ public class TaskUIElement : MonoBehaviour
     public ProfileHandler profileHandler;
     private int _taskId;
     private int _taskQuantity;
-
     public Text taskTitleText;
     public Text taskExpiryText;
     public Text taskDescriptionText;

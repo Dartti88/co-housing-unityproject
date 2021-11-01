@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
-    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list
+    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list
     public int chosenTaskList;
     bool firstUpdateDone = false;
     public GameObject taskContainer;
+    public GameObject taskElementPrefab;
     public GameObject availableTaskElementPrefab;
     public GameObject acceptedTaskElementPrefab;
     public GameObject createdTaskElementPrefab;
@@ -34,6 +35,7 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> taskList;
     public Dictionary<int, Task> acceptedTasks_list;
     public Dictionary<int, Task> createdTasks_list;
+    public Dictionary<int, Task> availableTasks_list;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,8 +66,7 @@ public class Taskmanager : MonoBehaviour
                 expiryDate);
         });
 
-        //Get the users ID
-        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
+        
     }
 
     private void Update()
@@ -79,13 +80,14 @@ public class Taskmanager : MonoBehaviour
         taskList = Client.Instance.task_list;
         acceptedTasks_list = Client.Instance.acceptedTasks_list;
         createdTasks_list = Client.Instance.createdTasks_list;
+        GetAvailableTasks();
         //Empties the current list
         for (int i = 0; i<taskContainer.transform.childCount; i++)
         {
             Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
         Dictionary<int, Task> tempList = taskList;
-        GameObject tempPrefab = availableTaskElementPrefab;
+        GameObject tempPrefab = taskElementPrefab;
         if (chosenTaskList==1)
         {
             tempPrefab = acceptedTaskElementPrefab;
@@ -95,6 +97,11 @@ public class Taskmanager : MonoBehaviour
         {
             tempPrefab = createdTaskElementPrefab;
             tempList = createdTasks_list;
+        }
+        else if(chosenTaskList==3)
+        {
+            tempPrefab = availableTaskElementPrefab;
+            tempList = availableTasks_list;
         }
 
         //Instantiates all the task objects from the list
@@ -118,6 +125,9 @@ public class Taskmanager : MonoBehaviour
     //Loads new tasks from server. Called by server.
     public void LoadTasks(string callbackstring)
     {
+        //Get the users ID
+        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
+        Debug.Log("userID = " + userID);
         switch (callbackstring)
         {
             case "accepted":
@@ -127,7 +137,7 @@ public class Taskmanager : MonoBehaviour
                 chosenTaskList = 2;
                 break;
             default:
-                chosenTaskList = 0;
+                chosenTaskList = 3;
                 break;
         }
         Client.Instance.BeginRequest_GetAcceptedTasks(userID, null);
@@ -140,7 +150,8 @@ public class Taskmanager : MonoBehaviour
 
     public void AddTask(Task newTask /*Add object here*/)
     {
-        if (newTask.quantity != 0) newTask.quantity = 1;
+        
+        if (newTask.quantity == 0) newTask.quantity = 1;
         Client.Instance.BeginRequest_AddNewTask(newTask, LoadTasks);
         //taskList.Add(newTask.taskID, newTask);
     }
@@ -167,6 +178,16 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
+    public void GetAvailableTasks()
+    {
+        Dictionary<int, Task> tempList = new Dictionary<int, Task>();
+        foreach(Task task in taskList.Values)
+        {
+            Debug.Log("Getting available tasks for profileID " + userID);
+            if (task.creatorID != userID) tempList.Add(task.taskID, task);
+        }
+        availableTasks_list = tempList;
+    }
     public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
@@ -221,6 +242,8 @@ public class Taskmanager : MonoBehaviour
     // Create new task and add it to the Task List, retuns true if successful, false if not
     public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
+        //Get the users ID
+        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
         Task task = new Task() { 
             creatorID = userID,                      //Placeholder until profiles are implemented
             taskID = newId(),

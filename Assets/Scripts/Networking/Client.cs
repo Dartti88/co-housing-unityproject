@@ -366,6 +366,7 @@ public class Client : MonoBehaviour
         }
         catch (Exception e)
         {
+            task_list = new Dictionary<int, Task>(); // init to empty list if not found
             Debug.Log("No available tasks found!");
         }
         Debug.Log("Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)");
@@ -380,6 +381,7 @@ public class Client : MonoBehaviour
         }
         catch (Exception e)
         {
+            acceptedTasks_list = new Dictionary<int, Task>(); // init to empty list if not found
             Debug.Log("No accepted tasks found!");
         }
         Debug.Log("Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req)");
@@ -393,6 +395,7 @@ public class Client : MonoBehaviour
         }
         catch (Exception e)
         {
+            createdTasks_list = new Dictionary<int, Task>(); // init to empty list if not found
             Debug.Log("No created tasks found!");
         }
         Debug.Log("Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)\n"+req.downloadHandler.text);

@@ -51,7 +51,8 @@ public class Taskmanager : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
-
+            string expiryDate = "0000-00-00";
+            if (inputFields[6].text != "") expiryDate = inputFields[6].text;
             CreateTask(
                 inputFields[0].text, 
                 inputFields[1].text, 
@@ -60,7 +61,7 @@ public class Taskmanager : MonoBehaviour
                 uniqueQuantity,
                 points,
                 target,
-                inputFields[6].text);
+                expiryDate);
         });
 
         //Get the users ID

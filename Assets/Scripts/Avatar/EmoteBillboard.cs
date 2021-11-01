@@ -8,14 +8,19 @@ public class EmoteBillboard : MonoBehaviour
 	private Transform spriteTransform;
 	public bool alignNotLook = true;
 
-	public List<Sprite> emoteList = new List<Sprite>();
+	public Animator animator;
+	private static readonly int hashEmoteTrigger = Animator.StringToHash("EmoteTrigger");
+	private bool showPlaying = false;
 
-	void Start()
+	public List<Sprite> emoteList = new List<Sprite>();
+	public List<GameObject> particleSystems = new List<GameObject>();
+
+	private void Start()
 	{
 		InitializeEmote();
 	}
 
-	void LateUpdate()
+    private void LateUpdate()
 	{
 		if (alignNotLook)
 			spriteTransform.forward = cameraTransform.forward;
@@ -23,24 +28,25 @@ public class EmoteBillboard : MonoBehaviour
 			spriteTransform.LookAt(cameraTransform, Vector3.up);
 	}
 
-    //private void OnEnable()
-    //{
-    //    InitializeEmote();
-    //}
-
     public void UseEmote(int i)
     {
+		if(showPlaying) { return; }
+
 		gameObject.GetComponent<SpriteRenderer>().sprite = emoteList[i];
 		gameObject.SetActive(true);
 
-		StartCoroutine(ShowEmote(i));
+		animator.SetTrigger(hashEmoteTrigger);
+
+		particleSystems[i].GetComponent<ParticleSystem>().Play();
+
+		showPlaying = true;
     }
 
-	IEnumerator ShowEmote (int i) 
-	{
-		yield return new WaitForSeconds(2.5f);
+	public void HideEmote()
+    {
+		animator.SetTrigger(hashEmoteTrigger);
 
-		gameObject.SetActive(false);
+		showPlaying = false;
 	}
 
 	private void InitializeEmote()

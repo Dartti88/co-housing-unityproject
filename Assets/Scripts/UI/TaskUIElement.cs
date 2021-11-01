@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TaskUIElement : MonoBehaviour
 {
+    //0=availabe, 1=accepted, 2=created
+    public int taskState;
     public Taskmanager taskManager;
     public ProfileHandler profileHandler;
     private int _taskId;
@@ -117,7 +119,19 @@ public class TaskUIElement : MonoBehaviour
     {
         if(taskManager)
         {
-            taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+            switch(taskState)
+            {
+                case 0:
+                    taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+                    break;
+                case 1:
+                    taskManager.CompleteTask(_taskId, profileHandler.userProfile.profileID);
+                    break;
+                case 2:
+                    taskManager.RemoveTask(_taskId);
+                    break;
+            }
+            
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
         // Täytyy tarkistaa, että kukaan muu ei ole ottanut taskia samaan aikaan

@@ -8,9 +8,13 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list
+    public int chosenTaskList;
     bool firstUpdateDone = false;
     public GameObject taskContainer;
-    public GameObject taskElementPrefab;
+    public GameObject availableTaskElementPrefab;
+    public GameObject acceptedTaskElementPrefab;
+    public GameObject createdTaskElementPrefab;
 
     //For testing
     int testId = 0;
@@ -28,6 +32,8 @@ public class Taskmanager : MonoBehaviour
 
 
     public Dictionary<int, Task> taskList;
+    public Dictionary<int, Task> acceptedTasks_list;
+    public Dictionary<int, Task> createdTasks_list;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,15 +76,30 @@ public class Taskmanager : MonoBehaviour
     public void DisplayTasks(string emptystr)
     {
         taskList = Client.Instance.task_list;
+        acceptedTasks_list = Client.Instance.acceptedTasks_list;
+        createdTasks_list = Client.Instance.createdTasks_list;
         //Empties the current list
         for (int i = 0; i<taskContainer.transform.childCount; i++)
         {
             Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
-        //Instantiates all the task objects from the list
-        foreach (Task task in taskList.Values)
+        Dictionary<int, Task> tempList = taskList;
+        GameObject tempPrefab = availableTaskElementPrefab;
+        if (chosenTaskList==1)
         {
-            GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
+            tempPrefab = acceptedTaskElementPrefab;
+            tempList = acceptedTasks_list;
+        }
+        else if(chosenTaskList==2)
+        {
+            tempPrefab = createdTaskElementPrefab;
+            tempList = createdTasks_list;
+        }
+
+        //Instantiates all the task objects from the list
+        foreach (Task task in tempList.Values)
+        {
+            GameObject newTaskElement = Instantiate(tempPrefab, tempPrefab.transform.position, tempPrefab.transform.rotation);
             newTaskElement.transform.SetParent(taskContainer.transform, false);
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
                 task.taskID,
@@ -96,7 +117,22 @@ public class Taskmanager : MonoBehaviour
     //Loads new tasks from server. Called by server.
     public void LoadTasks(string callbackstring)
     {
+        switch (callbackstring)
+        {
+            case "accepted":
+                chosenTaskList = 1;
+                break;
+            case "created":
+                chosenTaskList = 2;
+                break;
+            default:
+                chosenTaskList = 0;
+                break;
+        }
+        Client.Instance.BeginRequest_GetAcceptedTasks(userID, null);
+        Client.Instance.BeginRequest_GetCreatedTasks(userID, null);
         Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+        
         
         Debug.Log("New task list length: " + taskList.Count());
     }
@@ -130,7 +166,7 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
-    void CompleteTask(int taskId, int profileId)
+    public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
     }

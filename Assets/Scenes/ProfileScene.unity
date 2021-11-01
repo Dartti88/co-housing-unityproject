@@ -1763,6 +1763,23 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
+      propertyPath: inputFields.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: createdTaskElementPrefab
+      value: 
+      objectReference: {fileID: 1008200213684013049, guid: 58f9d6a129accfc4bb9ac9a8a5b5bda6,
+        type: 3}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: acceptedTaskElementPrefab
+      value: 
+      objectReference: {fileID: 1008200213684013049, guid: ef00a94045d8d54418bb8ddc337e52cb,
+        type: 3}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
       propertyPath: inputFields.Array.data[0]
       value: 
       objectReference: {fileID: 836849738}
@@ -1795,7 +1812,13 @@ PrefabInstance:
         type: 3}
       propertyPath: inputFields.Array.data[6]
       value: 
-      objectReference: {fileID: 783518443}
+      objectReference: {fileID: 1175298025}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: availableTaskElementPrefab
+      value: 
+      objectReference: {fileID: 1008200213684013049, guid: e9d9f7fd993960049aa86787df3d8a21,
+        type: 3}
     - target: {fileID: 1473148185962257631, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: m_RootOrder
@@ -1869,6 +1892,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 204842576}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &204842578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+    type: 3}
+  m_PrefabInstance: {fileID: 204842576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204842577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b300da3c9fb845bd045b71405857a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &215782150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3873,7 +3908,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 619869352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 184675286}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 819588871}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1669309716}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 204842578}
+        m_TargetAssemblyTypeName: Taskmanager, Assembly-CSharp
+        m_MethodName: LoadTasks
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: accepted
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &619869352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10765,7 +10848,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1522010084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 184675286}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 819588871}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1669309716}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 204842578}
+        m_TargetAssemblyTypeName: Taskmanager, Assembly-CSharp
+        m_MethodName: LoadTasks
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: created
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1522010084
 MonoBehaviour:
   m_ObjectHideFlags: 0

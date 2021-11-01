@@ -359,26 +359,42 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        task_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
+        try
+        {
+            task_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No available tasks found!");
+        }
         Debug.Log("Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)");
     }
     void Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req) // !!! NOT TESTED YET !!!
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        acceptedTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
+
+        try
+        {
+            acceptedTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No accepted tasks found!");
+        }
         Debug.Log("Internal_OnCompletion_UpdateAcceptedTasksFromDatabase(UnityWebRequest req)");
     }
     void Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
-        createdTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
-        Debug.Log("Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)\n"+req.downloadHandler.text);
-
-        Debug.Log("\nCreated tasks list:");
-        foreach (KeyValuePair<int, Task> t in createdTasks_list)
+        try
         {
-            Debug.Log("taskID : " + t.Key.ToString() + " Creator : " + t.Value.creatorID.ToString());
+            createdTasks_list = JsonUtility.FromJson<TempTaskList>(json).tasks.ToDictionary(t => t.taskID);
         }
+        catch (Exception e)
+        {
+            Debug.Log("No created tasks found!");
+        }
+        Debug.Log("Internal_OnCompletion_UpdateCreatedTasksFromDatabase(UnityWebRequest req)\n"+req.downloadHandler.text);
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
     {

@@ -133,7 +133,7 @@ public class Client : MonoBehaviour
         newTestTask2.quantity = 2;
         newTestTask2.uniqueQuantity = 0;
         newTestTask2.expirationDate = "2025-09-12";
-        */
+        
 
         newTestTask3 = new Task();
         newTestTask3.creatorID = 23;
@@ -145,7 +145,7 @@ public class Client : MonoBehaviour
         newTestTask3.quantity = 1;
         newTestTask3.uniqueQuantity = 0;
         newTestTask3.expirationDate = "2025-09-12";
-        
+        */
     }
 
     bool exec = true;
@@ -155,7 +155,7 @@ public class Client : MonoBehaviour
         if (exec)
         {
 
-            BeginRequest_AddNewTask(newTestTask3, null);
+            //BeginRequest_AddNewTask(newTestTask3, null);
             //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
             //BeginRequest_GetCreatedTasks(22, null);

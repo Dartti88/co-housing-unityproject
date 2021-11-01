@@ -38,16 +38,13 @@ public class Taskmanager : MonoBehaviour
         createTaskButton.onClick.AddListener(() => 
         {
             //Set the default values for creating the task
-            int cost, quantity, uniqueQuantity, points, target;
+            int quantity, uniqueQuantity, points, target; float cost;
             cost = quantity = uniqueQuantity = points = target = 0;
             //Check if the variable is empty and then parse the value from the input
-            if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = int.Parse(inputFields[2].text, System.Globalization.NumberStyles.Integer); }
+            if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float); }
             if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
-
-            //TODO: remove task funktionaalisuus, linkit� nappiin
-            //TODO: create task ottaa profiilista ID:n
 
             CreateTask(
                 inputFields[0].text, 
@@ -185,7 +182,7 @@ public class Taskmanager : MonoBehaviour
 
     
     // Create new task and add it to the Task List, retuns true if successful, false if not
-    public bool CreateTask(string taskName, string taskText, int taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
+    public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
         Task task = new Task() { 
             creatorID = userID,                      //Placeholder until profiles are implemented

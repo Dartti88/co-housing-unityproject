@@ -119,6 +119,17 @@ public class TaskUIElement : MonoBehaviour
     }
 
     /// <summary>
+    /// Called when the delete button is clicked.
+    /// </summary>
+    public void TaskOnDelete()
+    {
+        if (taskManager)
+        {
+            taskManager.RemoveTask(_taskId);
+        }
+    }
+
+    /// <summary>
     /// Gives a random color scheme to the task element.
     /// </summary>
     private void RandomizeColor(int rndCol)

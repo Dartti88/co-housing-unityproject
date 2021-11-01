@@ -18,6 +18,7 @@ public class TaskUIElement : MonoBehaviour
     public Text taskPointsText;
     public Text taskIssuerText;
     public Text taskQuantityText;
+    public Text taskButtonText;
 
     public Image taskTitleImage;
     public Image taskBackgroundImage;

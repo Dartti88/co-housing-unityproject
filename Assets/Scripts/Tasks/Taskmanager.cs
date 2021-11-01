@@ -12,11 +12,13 @@ public class Taskmanager : MonoBehaviour
     public int chosenTaskList;
     bool firstUpdateDone = false;
     public GameObject taskContainer;
+    public GameObject loadingOverlay;
     public GameObject taskElementPrefab;
     public GameObject availableTaskElementPrefab;
     public GameObject acceptedTaskElementPrefab;
     public GameObject createdTaskElementPrefab;
 
+    public ProfileHandler profileHandler;
     //For testing
     int testId = 0;
     
@@ -39,6 +41,7 @@ public class Taskmanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        profileHandler = FindObjectOfType<ProfileHandler>();
         //Format the local taskList
         taskList = Client.Instance.task_list;
 
@@ -138,29 +141,48 @@ public class Taskmanager : MonoBehaviour
             }
 
         }
+        LoadingOverlay();
     }
 
     //Loads new tasks from server. Called by server.
     public void LoadTasks(string callbackstring)
     {
+        LoadingOverlay();
         //Get the users ID
-        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
+        userID = profileHandler.userProfile.profileID;
         Debug.Log("userID = " + userID);
         switch (callbackstring)
         {
             case "accepted":
                 chosenTaskList = 1;
+                Client.Instance.BeginRequest_GetAcceptedTasks(userID, DisplayTasks);
                 break;
             case "created":
                 chosenTaskList = 2;
+                Client.Instance.BeginRequest_GetCreatedTasks(userID, DisplayTasks);
+                break;
+            case "available":
+                chosenTaskList = 3;
+                Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                 break;
             default:
-                chosenTaskList = 3;
+                switch(chosenTaskList)
+                {
+                    case 1:
+                        Client.Instance.BeginRequest_GetAcceptedTasks(userID, DisplayTasks);
+                        break;
+                    case 2:
+                        Client.Instance.BeginRequest_GetCreatedTasks(userID, DisplayTasks);
+                        break;
+                    case 3:
+                        Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+                        break;
+                }
                 break;
         }
-        Client.Instance.BeginRequest_GetAcceptedTasks(userID, null);
-        Client.Instance.BeginRequest_GetCreatedTasks(userID, null);
-        Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+        
+        
+        
         
         
         Debug.Log("New task list length: " + taskList.Count());
@@ -176,10 +198,10 @@ public class Taskmanager : MonoBehaviour
     
     public void RemoveTask(int taskId)
     {
-        if(!taskList.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
+        userID = profileHandler.userProfile.profileID;
+        if(!createdTasks_list.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
-        taskList.Remove(taskId);
-        LoadTasks("empty");
+        Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
     
     public void AcceptTask(int taskId, int profileId)
@@ -208,7 +230,7 @@ public class Taskmanager : MonoBehaviour
     }
     public void CompleteTask(int taskId, int profileId)
     {
-        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
+        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
     }
 
     public void TestAddButton()
@@ -229,21 +251,6 @@ public class Taskmanager : MonoBehaviour
     }
 
 
-    public Task CopyTask(Task origTask)
-    {
-        Task newTask = new Task
-        {
-            creatorID = origTask.creatorID,
-            taskID = origTask.taskID,
-            cost = origTask.cost,
-            description = origTask.description,
-            targetID = origTask.targetID,
-            quantity = origTask.quantity
-        };
-        return newTask;
-    }
-
-
     //Probably obsolete version of formatting the new task
     public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
     {
@@ -261,7 +268,7 @@ public class Taskmanager : MonoBehaviour
     public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
         //Get the users ID
-        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
+        userID = profileHandler.userProfile.profileID;
         Task task = new Task() { 
             creatorID = userID,                      //Placeholder until profiles are implemented
             taskID = newId(),
@@ -403,6 +410,21 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
+    public void LoadingOverlay()
+    {
+        if(loadingOverlay != null)
+        {
+            switch (loadingOverlay.activeSelf)
+            {
+                case true:
+                    loadingOverlay.SetActive(false);
+                    break;
+                case false:
+                    loadingOverlay.SetActive(true);
+                    break;
+            }
+        }
+    }
 
 }
 

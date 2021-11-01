@@ -1752,6 +1752,11 @@ PrefabInstance:
       objectReference: {fileID: 2011258112}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
+      propertyPath: loadingOverlay
+      value: 
+      objectReference: {fileID: 2011258113}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
       propertyPath: createTaskButton
       value: 
       objectReference: {fileID: 1412151607}
@@ -6314,7 +6319,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: empty
+          m_StringArgument: available
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &819588873
@@ -14825,6 +14830,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129985599533805974, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 129985599533805974, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496600684575041, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_Name
@@ -14935,11 +14950,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a3bc450d381c54289c5606ececf52a, type: 3}
 --- !u!1 &2011258112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2327496601227751931, guid: 60a3bc450d381c54289c5606ececf52a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2011258111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2011258113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4643221832728038671, guid: 60a3bc450d381c54289c5606ececf52a,
     type: 3}
   m_PrefabInstance: {fileID: 2011258111}
   m_PrefabAsset: {fileID: 0}

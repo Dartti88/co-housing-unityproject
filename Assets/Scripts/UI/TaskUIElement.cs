@@ -123,12 +123,22 @@ public class TaskUIElement : MonoBehaviour
             {
                 case 0:
                     taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+                    
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
                     break;
                 case 1:
                     taskManager.CompleteTask(_taskId, profileHandler.userProfile.profileID);
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
                     break;
                 case 2:
                     taskManager.RemoveTask(_taskId);
+                    Destroy(gameObject);
                     break;
             }
             
@@ -140,10 +150,7 @@ public class TaskUIElement : MonoBehaviour
         // _taskId-muuttujaa voi käyttää ehkä tässä hyödyksi?
 
         // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alaspäin ja task katoaa kun quantity = 0
-        _taskQuantity -= 1;
-
-        if(_taskQuantity < 1) { Destroy(gameObject); }
-        else { taskQuantityText.text = _taskQuantity.ToString(); }
+        
     }
 
     /// <summary>

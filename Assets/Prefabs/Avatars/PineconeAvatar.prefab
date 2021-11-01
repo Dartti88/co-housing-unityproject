@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -105,13 +105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -120,25 +120,6 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
---- !u!95 &25408500584146405
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8991706787975576533}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f9b284844c6d5e4bb0e16b56d8f01dc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &25408501254174352
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,13 +165,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -244,13 +225,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -259,6 +240,61 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
+--- !u!1 &5316201387938338257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5316201387938338258}
+  - component: {fileID: 5316201387938338259}
+  m_Layer: 13
+  m_Name: PineconeAvatar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5316201387938338258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316201387938338257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 25408501461887549}
+  - {fileID: 25408500512548767}
+  - {fileID: 25408500498948531}
+  - {fileID: 25408501254174353}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5316201387938338259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316201387938338257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d202e7d9d695ef498b1bc68c8c4df6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarBotRight: {fileID: 25408501461887548}
+  avatarBotLeft: {fileID: 25408500512548766}
+  avatarTopLeft: {fileID: 25408500498948530}
+  avatarTopRight: {fileID: 25408501254174352}
+  avatarDirection: 0
+  updateDelayAmount: 0.3
+  rotateAvatarDelay: 0.15
+  fullPictureFront: {fileID: 21300000, guid: 36e977df0314ade4bb0fdd22bcb3602d, type: 3}
 --- !u!95 &25408501620617817
 Animator:
   serializedVersion: 3
@@ -316,61 +352,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &5316201387938338257
-GameObject:
+--- !u!95 &25408500584146405
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5316201387938338258}
-  - component: {fileID: 5316201387938338259}
-  m_Layer: 13
-  m_Name: PineconeAvatar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5316201387938338258
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5316201387938338257}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 25408501461887549}
-  - {fileID: 25408500512548767}
-  - {fileID: 25408500498948531}
-  - {fileID: 25408501254174353}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5316201387938338259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5316201387938338257}
+  m_GameObject: {fileID: 8991706787975576533}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d202e7d9d695ef498b1bc68c8c4df6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatarBotRight: {fileID: 25408501461887548}
-  avatarBotLeft: {fileID: 25408500512548766}
-  avatarTopLeft: {fileID: 25408500498948530}
-  avatarTopRight: {fileID: 25408501254174352}
-  avatarDirection: 0
-  updateDelayAmount: 0.3
-  rotateAvatarDelay: 0.15
-  fullPictureFront: {fileID: 21300000, guid: 36e977df0314ade4bb0fdd22bcb3602d, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f9b284844c6d5e4bb0e16b56d8f01dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &25408501633293554
 PrefabInstance:
   m_ObjectHideFlags: 0

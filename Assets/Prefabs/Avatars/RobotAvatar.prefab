@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &974935356038891355
 Transform:
   m_ObjectHideFlags: 0
@@ -55,6 +55,82 @@ MonoBehaviour:
   updateDelayAmount: 0.3
   rotateAvatarDelay: 0.15
   fullPictureFront: {fileID: 21300000, guid: ddb6856e26be2fa48836bab5b49df20f, type: 3}
+--- !u!95 &6603701061950386191
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404261782669066804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e85579601c838604d824367bec4493b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &6603701061590699950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404261782832846399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e85579601c838604d824367bec4493b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &6603701062867140075
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384706211408786870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 155caf98f20c76543ac8738e78a4665b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &6603701061943804039
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384706211649447324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 155caf98f20c76543ac8738e78a4665b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6603701061070509530
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,13 +176,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -160,13 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -175,63 +251,6 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
---- !u!95 &6603701061590699950
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4404261782832846399}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e85579601c838604d824367bec4493b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &6603701061943804039
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384706211649447324}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 155caf98f20c76543ac8738e78a4665b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &6603701061950386191
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4404261782669066804}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e85579601c838604d824367bec4493b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6603701062579082955
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,13 +296,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -292,25 +311,6 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
---- !u!95 &6603701062867140075
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384706211408786870}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 155caf98f20c76543ac8738e78a4665b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6603701062955175765
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,13 +356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4

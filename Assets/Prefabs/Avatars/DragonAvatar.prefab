@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &7231662688023208510
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435396910009212982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9393b46b9d721184f8333afc739c09bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &7231662687368705673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435396910811396774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9393b46b9d721184f8333afc739c09bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5375037240383993408
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,7 +54,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5375037240383993409
 Transform:
   m_ObjectHideFlags: 0
@@ -100,13 +138,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -115,25 +153,6 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
---- !u!95 &7231662686938767158
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8263656027780809961}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa7fb7a5403f29142bce36e7bc6f1549, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7231662687062304816
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,13 +198,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -239,13 +258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: -50
-  frontRotateY: -130
+  frontRotateY: -135
   rightRotateX: -50
-  rightRotateY: 130
+  rightRotateY: 135
   backRotateX: -50
-  backRotateY: 50
+  backRotateY: 45
   leftRotateX: -50
-  leftRotateY: -50
+  leftRotateY: -45
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -254,25 +273,6 @@ MonoBehaviour:
   backPositionZ: 0.4
   leftPositionX: -0.4
   leftPositionZ: 0.4
---- !u!95 &7231662687368705673
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435396910811396774}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9393b46b9d721184f8333afc739c09bb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7231662687596269537
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,13 +318,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontRotateX: 50
-  frontRotateY: 50
+  frontRotateY: 45
   rightRotateX: 50
-  rightRotateY: -50
+  rightRotateY: -45
   backRotateX: 50
-  backRotateY: -130
+  backRotateY: -135
   leftRotateX: 50
-  leftRotateY: 130
+  leftRotateY: 135
   frontPositionX: -0.4
   frontPositionZ: -0.4
   rightPositionX: 0.4
@@ -352,17 +352,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &7231662688023208510
+--- !u!95 &7231662686938767158
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435396910009212982}
+  m_GameObject: {fileID: 8263656027780809961}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9393b46b9d721184f8333afc739c09bb, type: 2}
+  m_Controller: {fileID: 9100000, guid: aa7fb7a5403f29142bce36e7bc6f1549, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

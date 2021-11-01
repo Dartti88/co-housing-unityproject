@@ -77,6 +77,7 @@ public class Taskmanager : MonoBehaviour
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks(string emptystr)
     {
+        int tempTaskState = 0; // default
         taskList = Client.Instance.task_list;
         acceptedTasks_list = Client.Instance.acceptedTasks_list;
         createdTasks_list = Client.Instance.createdTasks_list;
@@ -92,16 +93,19 @@ public class Taskmanager : MonoBehaviour
         {
             tempPrefab = acceptedTaskElementPrefab;
             tempList = acceptedTasks_list;
+            tempTaskState = 1;
         }
         else if(chosenTaskList==2)
         {
             tempPrefab = createdTaskElementPrefab;
             tempList = createdTasks_list;
+            tempTaskState = 2;
         }
         else if(chosenTaskList==3)
         {
             tempPrefab = availableTaskElementPrefab;
             tempList = availableTasks_list;
+            tempTaskState = 0;
         }
 
         //Instantiates all the task objects from the list
@@ -118,6 +122,20 @@ public class Taskmanager : MonoBehaviour
                 task.points,
                 task.quantity,
                 task.expirationDate);
+            newTaskElement.GetComponent<TaskUIElement>().taskState = tempTaskState;
+
+            switch (tempTaskState)
+            {
+                case 0:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Accept Task";
+                        break;
+                case 1:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Complete Task";
+                        break;
+                case 2:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
+                    break;
+            }
 
         }
     }

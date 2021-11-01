@@ -133,18 +133,19 @@ public class Client : MonoBehaviour
         newTestTask2.quantity = 2;
         newTestTask2.uniqueQuantity = 0;
         newTestTask2.expirationDate = "2025-09-12";
+        */
 
         newTestTask3 = new Task();
         newTestTask3.creatorID = 23;
-        newTestTask3.taskName = "Testingtask3";
-        newTestTask3.targetID = 2;
-        newTestTask3.description = "Testing GetCreatedTasks.php part 2";
+        newTestTask3.taskName = "TESTINGTESTINGASD123";
+        newTestTask3.targetID = 0;
+        newTestTask3.description = "tesging";
         newTestTask3.cost = 1;
         newTestTask3.points = 1;
         newTestTask3.quantity = 1;
         newTestTask3.uniqueQuantity = 0;
         newTestTask3.expirationDate = "2025-09-12";
-        */
+        
     }
 
     bool exec = true;
@@ -154,12 +155,12 @@ public class Client : MonoBehaviour
         if (exec)
         {
 
-            //BeginRequest_AddNewTask(newTestTask3, null);
+            BeginRequest_AddNewTask(newTestTask3, null);
             //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
 
             //BeginRequest_GetCreatedTasks(22, null);
 
-            BeginRequest_GetAvailableTasks(null);
+            //BeginRequest_GetAvailableTasks(null);
 
             exec = false;
         }

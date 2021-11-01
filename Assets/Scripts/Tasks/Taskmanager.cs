@@ -116,6 +116,22 @@ public class Taskmanager : MonoBehaviour
         {
             GameObject newTaskElement = Instantiate(tempPrefab, tempPrefab.transform.position, tempPrefab.transform.rotation);
             newTaskElement.transform.SetParent(taskContainer.transform, false);
+
+            newTaskElement.GetComponent<TaskUIElement>().taskState = tempTaskState;
+            int quantity = task.quantity;
+            switch (tempTaskState)
+            {
+                case 0:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Accept Task";
+                    break;
+                case 1:
+                    quantity = task.acceptedQuantity;
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Complete Task";
+                    break;
+                case 2:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
+                    break;
+            }
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
                 task.taskID,
                 Client.Instance.GetDisplayNameById(task.creatorID),
@@ -123,22 +139,9 @@ public class Taskmanager : MonoBehaviour
                 task.description,
                 task.cost,
                 task.points,
-                task.quantity,
+                quantity,
                 task.expirationDate);
-            newTaskElement.GetComponent<TaskUIElement>().taskState = tempTaskState;
-
-            switch (tempTaskState)
-            {
-                case 0:
-                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Accept Task";
-                        break;
-                case 1:
-                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Complete Task";
-                        break;
-                case 2:
-                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
-                    break;
-            }
+            
 
         }
         LoadingOverlay();

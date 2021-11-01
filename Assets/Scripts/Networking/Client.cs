@@ -237,6 +237,7 @@ public class Client : MonoBehaviour
         form.Add(new MultipartFormDataSection("key_password", "\"" + profileToUpdate.password + "\""));
         form.Add(new MultipartFormDataSection("key_avatarID", "\"" + profileToUpdate.avatarID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_description", "\"" + profileToUpdate.description + "\""));
+        form.Add(new MultipartFormDataSection("key_displayName", "\"" + profileToUpdate.displayName + "\""));
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfile, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileComplete));

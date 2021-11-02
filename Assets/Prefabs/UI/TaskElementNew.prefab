@@ -1411,7 +1411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9effbb9d9f9f3b4ea7738384eab2691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskState: 0
   taskManager: {fileID: 0}
+  profileHandler: {fileID: 0}
   taskTitleText: {fileID: 8069896272225075621}
   taskExpiryText: {fileID: 8069896271158071060}
   taskDescriptionText: {fileID: 8069896272657997770}
@@ -1419,6 +1421,7 @@ MonoBehaviour:
   taskPointsText: {fileID: 8069896272510375494}
   taskIssuerText: {fileID: 3820475551444363749}
   taskQuantityText: {fileID: 8069896272145415650}
+  taskButtonText: {fileID: 8069896272080913154}
   taskTitleImage: {fileID: 8069896271788969588}
   taskBackgroundImage: {fileID: 8069896273113925546}
   taskDescImage: {fileID: 8069896272342320942}

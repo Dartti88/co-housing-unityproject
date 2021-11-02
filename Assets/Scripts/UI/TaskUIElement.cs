@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class TaskUIElement : MonoBehaviour
 {
+    //0=availabe, 1=accepted, 2=created
+    public int taskState;
     public Taskmanager taskManager;
     public ProfileHandler profileHandler;
     private int _taskId;
     private int _taskQuantity;
-
     public Text taskTitleText;
     public Text taskExpiryText;
     public Text taskDescriptionText;
@@ -17,6 +18,7 @@ public class TaskUIElement : MonoBehaviour
     public Text taskPointsText;
     public Text taskIssuerText;
     public Text taskQuantityText;
+    public Text taskButtonText;
 
     public Image taskTitleImage;
     public Image taskBackgroundImage;
@@ -97,6 +99,10 @@ public class TaskUIElement : MonoBehaviour
         //          (esim. taskin tekijän nimi tulee profiilista? ja date on nyt vain string testinä)
         //          Tarvittaessa täytyy lisätä muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
         //          Ei vielä tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
+        if(expiryDate.Equals("0000-00-00"))
+        {
+            expiryDate = "Never";
+        }
 
         _taskId = taskId;
         _taskQuantity = quantity;
@@ -117,7 +123,29 @@ public class TaskUIElement : MonoBehaviour
     {
         if(taskManager)
         {
-            taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+            switch(taskState)
+            {
+                case 0:
+                    taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+                    
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
+                    break;
+                case 1:
+                    taskManager.CompleteTask(_taskId, profileHandler.userProfile.profileID);
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
+                    break;
+                case 2:
+                    taskManager.RemoveTask(_taskId);
+                    Destroy(gameObject);
+                    break;
+            }
+            
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
         // Täytyy tarkistaa, että kukaan muu ei ole ottanut taskia samaan aikaan
@@ -126,10 +154,7 @@ public class TaskUIElement : MonoBehaviour
         // _taskId-muuttujaa voi käyttää ehkä tässä hyödyksi?
 
         // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alaspäin ja task katoaa kun quantity = 0
-        _taskQuantity -= 1;
-
-        if(_taskQuantity < 1) { Destroy(gameObject); }
-        else { taskQuantityText.text = _taskQuantity.ToString(); }
+        
     }
 
     /// <summary>

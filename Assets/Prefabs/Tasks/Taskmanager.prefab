@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1184336019625664824}
   m_Layer: 0
   m_Name: Taskmanager
-  m_TagString: Untagged
+  m_TagString: Taskmanager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,10 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b300da3c9fb845bd045b71405857a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chosenTaskList: 0
   taskContainer: {fileID: 0}
-  taskElementPrefab: {fileID: 1008200213684013049, guid: e9d9f7fd993960049aa86787df3d8a21,
+  availableTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
     type: 3}
+  acceptedTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
+    type: 3}
+  createdTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
+    type: 3}
+  profileObject: {fileID: 0}
   inputFields:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

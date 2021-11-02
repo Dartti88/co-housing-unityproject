@@ -6,24 +6,35 @@ using UnityEngine.UI;
 public class TextureChangeTest : MonoBehaviour
 {
     [SerializeField]
-    private GameObject change;
+    public GameObject obj;
 
     [SerializeField]
-    private Texture[] textures;
+    private Texture[] texturesKoivu;
 
     private Renderer rend;
 
-    private int textureIndex;
+    public int currentTexture;
+
+    public int currentSeason;
 
     private void Start()
     {
-        rend = change.GetComponent<Renderer>();
+        rend = obj.GetComponent<Renderer>();
         gameObject.GetComponent<Button>().onClick.AddListener(ChangeTexture);
+
     }
 
     private void ChangeTexture()
     {
-        textureIndex = Random.Range(0, textures.Length);
-        rend.material.mainTexture = textures[textureIndex];
+        //textureIndex = Random.Range(0, textures.Length);
+        if (currentTexture < 3)
+        {
+            currentTexture++;
+        } else
+        {
+            currentTexture = 0;
+        }
+
+        rend.sharedMaterial.mainTexture = texturesKoivu[currentTexture];
     }
 }

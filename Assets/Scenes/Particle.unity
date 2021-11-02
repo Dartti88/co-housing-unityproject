@@ -5904,14 +5904,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4402150750184d9ed53230f29de1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
+  obj: {fileID: 6857079262788809401}
   texturesKoivu:
   - {fileID: 2800000, guid: a5083b9969cf6e7469804bc45bb78ad7, type: 3}
-  - {fileID: 2800000, guid: 95825f17f8ae04349b1f88569084dc9b, type: 3}
+  - {fileID: 2800000, guid: ab2f5097198545c48bd61de02b2f93e0, type: 3}
   - {fileID: 2800000, guid: 8d05141f5b883a348bd8bda7f758093b, type: 3}
   - {fileID: 2800000, guid: 61c65b8b0be698f4a8dbff31d0400ef8, type: 3}
   currentTexture: 0
-  currentSeason: 0
 --- !u!114 &896635654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6320,14 +6319,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4402150750184d9ed53230f29de1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
+  obj: {fileID: 2357197843292243070}
   texturesKoivu:
   - {fileID: 2800000, guid: a5083b9969cf6e7469804bc45bb78ad7, type: 3}
   - {fileID: 2800000, guid: 849e17c2cea392645bafbabc0e749a0b, type: 3}
   - {fileID: 2800000, guid: a7b4dd35ca44c4549b3ed2fbc38ba070, type: 3}
   - {fileID: 2800000, guid: c4b47b6d6522db84ab75911fbfe4c413, type: 3}
   currentTexture: 0
-  currentSeason: 0
 --- !u!114 &1108658159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6583,7 +6581,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &1255543397 stripped
 GameObject:
@@ -6732,12 +6730,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8275ebc56636ffe4eacb102820d2fda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  change: {fileID: 2587064023134978815}
-  texturesKoivu:
-  - {fileID: 2800000, guid: a5083b9969cf6e7469804bc45bb78ad7, type: 3}
-  - {fileID: 2800000, guid: 849e17c2cea392645bafbabc0e749a0b, type: 3}
-  - {fileID: 2800000, guid: de5c6aea51bffb349bedf0ded1ba31db, type: 3}
-  - {fileID: 2800000, guid: c4b47b6d6522db84ab75911fbfe4c413, type: 3}
+  change: {fileID: 6857079262788809401}
+  textures:
+  - {fileID: 2800000, guid: 95825f17f8ae04349b1f88569084dc9b, type: 3}
+  - {fileID: 2800000, guid: ab2f5097198545c48bd61de02b2f93e0, type: 3}
+  - {fileID: 2800000, guid: 8d05141f5b883a348bd8bda7f758093b, type: 3}
+  - {fileID: 2800000, guid: 61c65b8b0be698f4a8dbff31d0400ef8, type: 3}
   currentTexture: 0
   currentSeason: 0
 --- !u!4 &1333169789
@@ -51372,7 +51370,7 @@ Transform:
   - {fileID: 2133998459666940544}
   - {fileID: 6916568374547423408}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!23 &5485498107590369946
 MeshRenderer:
@@ -59495,7 +59493,6 @@ GameObject:
   - component: {fileID: 6989782269054554240}
   - component: {fileID: 1967755155964129141}
   - component: {fileID: 4064278446984902395}
-  - component: {fileID: 6857079262788809402}
   m_Layer: 0
   m_Name: Maa
   m_TagString: Untagged
@@ -59503,26 +59500,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6857079262788809402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857079262788809401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8275ebc56636ffe4eacb102820d2fda0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  change: {fileID: 6857079262788809401}
-  texturesKoivu:
-  - {fileID: 2800000, guid: b075c1eeba2db3d4d8fe085e828219a4, type: 3}
-  - {fileID: 2800000, guid: 95825f17f8ae04349b1f88569084dc9b, type: 3}
-  - {fileID: 2800000, guid: 8d05141f5b883a348bd8bda7f758093b, type: 3}
-  - {fileID: 2800000, guid: 61c65b8b0be698f4a8dbff31d0400ef8, type: 3}
-  currentTexture: 0
-  currentSeason: 0
 --- !u!4 &6857208481305966134
 Transform:
   m_ObjectHideFlags: 0

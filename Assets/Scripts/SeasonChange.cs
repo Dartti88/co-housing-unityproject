@@ -16,7 +16,7 @@ public class SeasonChange : MonoBehaviour
     private GameObject change;
 
     [SerializeField]
-    private Texture[] texturesKoivu;
+    private Texture[] textures;
 
     private Renderer rend;
 
@@ -63,23 +63,22 @@ public class SeasonChange : MonoBehaviour
 
     private void ChangeTextureAwake()
     {
-        if (currentSeason == 0)
+        switch (currentSeason)
         {
-            currentTexture = 0;
-        }
-        if (currentSeason == 1)
-        {
-            currentTexture = 1;
-        }
-        if (currentSeason == 2)
-        {
-            currentTexture = 2;
-        }
-        if (currentSeason == 3)
-        {
-            currentTexture = 3;
+            case 0:
+                currentTexture = 0;
+                break;
+            case 1:
+                currentTexture = 1;
+                break;
+            case 2:
+                currentTexture = 2;
+                break;
+            case 3:
+                currentTexture = 3;
+                break;
         }
 
-        rend.sharedMaterial.mainTexture = texturesKoivu[currentTexture];
+        rend.sharedMaterial.mainTexture = textures[currentTexture];
     }
 }

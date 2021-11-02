@@ -15,7 +15,6 @@ public class TextureChangeTest : MonoBehaviour
 
     public int currentTexture;
 
-    public int currentSeason;
 
     private void Start()
     {

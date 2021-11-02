@@ -195,7 +195,7 @@ public class Taskmanager : MonoBehaviour
     {
         
         if (newTask.quantity == 0) newTask.quantity = 1;
-        Client.Instance.BeginRequest_AddNewTask(newTask, LoadTasks);
+        Client.Instance.BeginRequest_AddNewTask(newTask, null);
         //taskList.Add(newTask.taskID, newTask);
     }
     

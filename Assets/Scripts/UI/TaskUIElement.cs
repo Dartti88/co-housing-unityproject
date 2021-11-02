@@ -99,6 +99,10 @@ public class TaskUIElement : MonoBehaviour
         //          (esim. taskin tekijän nimi tulee profiilista? ja date on nyt vain string testinä)
         //          Tarvittaessa täytyy lisätä muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
         //          Ei vielä tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
+        if(expiryDate.Equals("0000-00-00"))
+        {
+            expiryDate = "Never";
+        }
 
         _taskId = taskId;
         _taskQuantity = quantity;

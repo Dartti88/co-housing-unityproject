@@ -8,10 +8,17 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list
+    public int chosenTaskList;
     bool firstUpdateDone = false;
     public GameObject taskContainer;
+    public GameObject loadingOverlay;
     public GameObject taskElementPrefab;
+    public GameObject availableTaskElementPrefab;
+    public GameObject acceptedTaskElementPrefab;
+    public GameObject createdTaskElementPrefab;
 
+    public ProfileHandler profileHandler;
     //For testing
     int testId = 0;
     
@@ -28,9 +35,13 @@ public class Taskmanager : MonoBehaviour
 
 
     public Dictionary<int, Task> taskList;
+    public Dictionary<int, Task> acceptedTasks_list;
+    public Dictionary<int, Task> createdTasks_list;
+    public Dictionary<int, Task> availableTasks_list;
     // Start is called before the first frame update
     void Start()
     {
+        profileHandler = FindObjectOfType<ProfileHandler>();
         //Format the local taskList
         taskList = Client.Instance.task_list;
 
@@ -45,7 +56,8 @@ public class Taskmanager : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
             if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
-
+            string expiryDate = "0000-00-00";
+            if (inputFields[6].text != "") expiryDate = inputFields[6].text;
             CreateTask(
                 inputFields[0].text, 
                 inputFields[1].text, 
@@ -54,11 +66,10 @@ public class Taskmanager : MonoBehaviour
                 uniqueQuantity,
                 points,
                 target,
-                inputFields[6].text);
+                expiryDate);
         });
 
-        //Get the users ID
-        userID = FindObjectOfType<ProfileHandler>().userProfile.profileID;
+        
     }
 
     private void Update()
@@ -69,17 +80,58 @@ public class Taskmanager : MonoBehaviour
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
     public void DisplayTasks(string emptystr)
     {
+        int tempTaskState = 0; // default
         taskList = Client.Instance.task_list;
+        acceptedTasks_list = Client.Instance.acceptedTasks_list;
+        createdTasks_list = Client.Instance.createdTasks_list;
+        GetAvailableTasks();
         //Empties the current list
         for (int i = 0; i<taskContainer.transform.childCount; i++)
         {
             Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
-        //Instantiates all the task objects from the list
-        foreach (Task task in taskList.Values)
+        Dictionary<int, Task> tempList = taskList;
+        GameObject tempPrefab = taskElementPrefab;
+        if (chosenTaskList==1)
         {
-            GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
+            tempPrefab = acceptedTaskElementPrefab;
+            tempList = acceptedTasks_list;
+            tempTaskState = 1;
+        }
+        else if(chosenTaskList==2)
+        {
+            tempPrefab = createdTaskElementPrefab;
+            tempList = createdTasks_list;
+            tempTaskState = 2;
+        }
+        else if(chosenTaskList==3)
+        {
+            tempPrefab = availableTaskElementPrefab;
+            tempList = availableTasks_list;
+            tempTaskState = 0;
+        }
+
+        //Instantiates all the task objects from the list
+        foreach (Task task in tempList.Values)
+        {
+            GameObject newTaskElement = Instantiate(tempPrefab, tempPrefab.transform.position, tempPrefab.transform.rotation);
             newTaskElement.transform.SetParent(taskContainer.transform, false);
+
+            newTaskElement.GetComponent<TaskUIElement>().taskState = tempTaskState;
+            int quantity = task.quantity;
+            switch (tempTaskState)
+            {
+                case 0:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Accept Task";
+                    break;
+                case 1:
+                    quantity = task.acceptedQuantity;
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Complete Task";
+                    break;
+                case 2:
+                    newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
+                    break;
+            }
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
                 task.taskID,
                 Client.Instance.GetDisplayNameById(task.creatorID),
@@ -87,33 +139,72 @@ public class Taskmanager : MonoBehaviour
                 task.description,
                 task.cost,
                 task.points,
-                task.quantity,
+                quantity,
                 task.expirationDate);
+            
 
         }
+        LoadingOverlay();
     }
 
     //Loads new tasks from server. Called by server.
     public void LoadTasks(string callbackstring)
     {
-        Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+        LoadingOverlay();
+        //Get the users ID
+        userID = profileHandler.userProfile.profileID;
+        Debug.Log("userID = " + userID);
+        switch (callbackstring)
+        {
+            case "accepted":
+                chosenTaskList = 1;
+                Client.Instance.BeginRequest_GetAcceptedTasks(userID, DisplayTasks);
+                break;
+            case "created":
+                chosenTaskList = 2;
+                Client.Instance.BeginRequest_GetCreatedTasks(userID, DisplayTasks);
+                break;
+            case "available":
+                chosenTaskList = 3;
+                Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+                break;
+            default:
+                switch(chosenTaskList)
+                {
+                    case 1:
+                        Client.Instance.BeginRequest_GetAcceptedTasks(userID, DisplayTasks);
+                        break;
+                    case 2:
+                        Client.Instance.BeginRequest_GetCreatedTasks(userID, DisplayTasks);
+                        break;
+                    case 3:
+                        Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+                        break;
+                }
+                break;
+        }
+        
+        
+        
+        
         
         Debug.Log("New task list length: " + taskList.Count());
     }
 
     public void AddTask(Task newTask /*Add object here*/)
     {
-        if (newTask.quantity != 0) newTask.quantity = 1;
-        Client.Instance.BeginRequest_AddNewTask(newTask, LoadTasks);
+        
+        if (newTask.quantity == 0) newTask.quantity = 1;
+        Client.Instance.BeginRequest_AddNewTask(newTask, null);
         //taskList.Add(newTask.taskID, newTask);
     }
     
     public void RemoveTask(int taskId)
     {
-        if(!taskList.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
+        userID = profileHandler.userProfile.profileID;
+        if(!createdTasks_list.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
-        taskList.Remove(taskId);
-        LoadTasks("empty");
+        Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
     
     public void AcceptTask(int taskId, int profileId)
@@ -130,9 +221,19 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
-    void CompleteTask(int taskId, int profileId)
+    public void GetAvailableTasks()
     {
-        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, null);
+        Dictionary<int, Task> tempList = new Dictionary<int, Task>();
+        foreach(Task task in taskList.Values)
+        {
+            Debug.Log("Getting available tasks for profileID " + userID);
+            if (task.creatorID != userID) tempList.Add(task.taskID, task);
+        }
+        availableTasks_list = tempList;
+    }
+    public void CompleteTask(int taskId, int profileId)
+    {
+        Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
     }
 
     public void TestAddButton()
@@ -153,21 +254,6 @@ public class Taskmanager : MonoBehaviour
     }
 
 
-    public Task CopyTask(Task origTask)
-    {
-        Task newTask = new Task
-        {
-            creatorID = origTask.creatorID,
-            taskID = origTask.taskID,
-            cost = origTask.cost,
-            description = origTask.description,
-            targetID = origTask.targetID,
-            quantity = origTask.quantity
-        };
-        return newTask;
-    }
-
-
     //Probably obsolete version of formatting the new task
     public void ReplaceTaskComponent(GameObject origTaskObj, Task newTask)
     {
@@ -184,6 +270,8 @@ public class Taskmanager : MonoBehaviour
     // Create new task and add it to the Task List, retuns true if successful, false if not
     public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
+        //Get the users ID
+        userID = profileHandler.userProfile.profileID;
         Task task = new Task() { 
             creatorID = userID,                      //Placeholder until profiles are implemented
             taskID = newId(),
@@ -325,6 +413,21 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
+    public void LoadingOverlay()
+    {
+        if(loadingOverlay != null)
+        {
+            switch (loadingOverlay.activeSelf)
+            {
+                case true:
+                    loadingOverlay.SetActive(false);
+                    break;
+                case false:
+                    loadingOverlay.SetActive(true);
+                    break;
+            }
+        }
+    }
 
 }
 

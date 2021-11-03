@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class TaskUIElement : MonoBehaviour
 {
+    //0=availabe, 1=accepted, 2=created
+    public int taskState;
     public Taskmanager taskManager;
     public ProfileHandler profileHandler;
     private int _taskId;
     private int _taskQuantity;
-
     public Text taskTitleText;
     public Text taskExpiryText;
     public Text taskDescriptionText;
@@ -17,6 +18,7 @@ public class TaskUIElement : MonoBehaviour
     public Text taskPointsText;
     public Text taskIssuerText;
     public Text taskQuantityText;
+    public Text taskButtonText;
 
     public Image taskTitleImage;
     public Image taskBackgroundImage;
@@ -26,6 +28,7 @@ public class TaskUIElement : MonoBehaviour
     public Image taskIssuerImage;
     public Image taskQuantityImage;
     public Image taskButtonImage;
+    public Image taskAvatarImage;
 
     public Button taskAcceptButton;
 
@@ -38,8 +41,20 @@ public class TaskUIElement : MonoBehaviour
     {
         profileHandler = FindObjectOfType<ProfileHandler>();
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
-        taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick);
+        taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick); 
 
+        // NEW COLORS (Order: Title, background, field, button
+        // Red
+        colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
+        // Orange
+        colorList.Add(new ColorSchemer(new Color32(251, 187, 141, 255), new Color32(236, 167, 117, 255), new Color32(251, 187, 141, 255), new Color32(218, 148, 97, 255)));
+        // Green
+        colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
+        // Turquoise
+        colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
+
+
+        /* OLD COLORS
         // Green (default)
         colorList.Add(new ColorSchemer(new Color32(116, 204, 74, 255), new Color32(92, 180, 50, 255), new Color32(76, 156, 39, 255), new Color32(31, 115, 0, 255)));
         // Red
@@ -56,6 +71,7 @@ public class TaskUIElement : MonoBehaviour
         colorList.Add(new ColorSchemer(new Color32(74, 204, 188, 255), new Color32(50, 180, 165, 255), new Color32(39, 156, 148, 255), new Color32(0, 115, 109, 255)));
         // Pink
         colorList.Add(new ColorSchemer(new Color32(217, 103, 157, 255), new Color32(192, 74, 137, 255), new Color32(176, 46, 119, 255), new Color32(135, 22, 86, 255)));
+        */
 
         // TESTI: Random väriteema taskille, voi ottaa pois käytöstä
         // Jos haluaa jättää lopulliseen, täytyisi väriteema ehkä lähettää serverille, jotta se on aina sama per task?
@@ -83,12 +99,16 @@ public class TaskUIElement : MonoBehaviour
         //          (esim. taskin tekijän nimi tulee profiilista? ja date on nyt vain string testinä)
         //          Tarvittaessa täytyy lisätä muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
         //          Ei vielä tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
+        if(expiryDate.Equals("0000-00-00"))
+        {
+            expiryDate = "Never";
+        }
 
         _taskId = taskId;
         _taskQuantity = quantity;
 
         taskTitleText.text = title;
-        taskExpiryText.text = "Expires   " + expiryDate;
+        taskExpiryText.text = "Expires on\n" + expiryDate;
         taskDescriptionText.text = desc;
         taskRewardText.text = reward.ToString(); // täytyy ehkä pyöristää
         taskPointsText.text = points.ToString(); // täytyy ehkä pyöristää
@@ -103,7 +123,29 @@ public class TaskUIElement : MonoBehaviour
     {
         if(taskManager)
         {
-            taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+            switch(taskState)
+            {
+                case 0:
+                    taskManager.AcceptTask(_taskId, profileHandler.userProfile.profileID);
+                    
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
+                    break;
+                case 1:
+                    taskManager.CompleteTask(_taskId, profileHandler.userProfile.profileID);
+                    _taskQuantity -= 1;
+
+                    if (_taskQuantity < 1) { Destroy(gameObject); }
+                    else { taskQuantityText.text = _taskQuantity.ToString(); }
+                    break;
+                case 2:
+                    taskManager.RemoveTask(_taskId);
+                    Destroy(gameObject);
+                    break;
+            }
+            
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
         // Täytyy tarkistaa, että kukaan muu ei ole ottanut taskia samaan aikaan
@@ -112,10 +154,7 @@ public class TaskUIElement : MonoBehaviour
         // _taskId-muuttujaa voi käyttää ehkä tässä hyödyksi?
 
         // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alaspäin ja task katoaa kun quantity = 0
-        _taskQuantity -= 1;
-
-        if(_taskQuantity < 1) { Destroy(gameObject); }
-        else { taskQuantityText.text = _taskQuantity.ToString(); }
+        
     }
 
     /// <summary>
@@ -144,6 +183,7 @@ public class TaskUIElement : MonoBehaviour
         taskIssuerImage.color = colorList[rndCol].fieldColor;
         taskQuantityImage.color = colorList[rndCol].fieldColor;
         taskButtonImage.color = colorList[rndCol].buttonColor;
+        taskAvatarImage.color = colorList[rndCol].backgroundColor;
     }
 }
 

@@ -75,6 +75,7 @@ public class ProfileHandler : MonoBehaviour
         userName = input_userName.text;
         password = input_password.text;
         Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
+        //profUIController.LoadOnLogin();
     }
 
     void OnLogInRequestComplete(string response)

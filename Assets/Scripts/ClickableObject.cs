@@ -15,8 +15,11 @@ public class ClickableObject : MonoBehaviour
 
     public UnityEvent OnClick;
 
+    public ItemGameObject itemGameObject;
+
     private void Start()
     {
+        if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
             var child = GetComponentInChildren<MeshRenderer>();
@@ -37,6 +40,8 @@ public class ClickableObject : MonoBehaviour
     public void Select()
     {
         HouseObjectController.Instance.SetSelectedObject(this);
+        Debug.Log("selected");
+        if (itemGameObject != null) itemGameObject.DisplayItemTasks();
         StartCoroutine(WaitForPlayer());
         ToggleOutline(true);
     }
@@ -55,6 +60,7 @@ public class ClickableObject : MonoBehaviour
     // wait for player to walk close to this object before activating it
     IEnumerator WaitForPlayer()
     {
+        
         while (HouseObjectController.Instance.CurrentSelectedObject == this)
         {
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < 1.5f)

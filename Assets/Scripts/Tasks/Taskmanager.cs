@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
-    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list
+    //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
     public int chosenTaskList;
     bool firstUpdateDone = false;
     public GameObject taskContainer;
@@ -26,6 +26,7 @@ public class Taskmanager : MonoBehaviour
     private GameObject profileObject;
 
     private int userID;
+    public int itemID;
 
     [SerializeField]
     [NamedArrayAttribute(new string[] { "name", "description", "cost", "quantity", "uniqueQuantity", "points", "expiry" })]
@@ -38,6 +39,8 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> acceptedTasks_list;
     public Dictionary<int, Task> createdTasks_list;
     public Dictionary<int, Task> availableTasks_list;
+    public Dictionary<int, Task> itemTasks_list;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +88,7 @@ public class Taskmanager : MonoBehaviour
         acceptedTasks_list = Client.Instance.acceptedTasks_list;
         createdTasks_list = Client.Instance.createdTasks_list;
         GetAvailableTasks();
+
         //Empties the current list
         for (int i = 0; i<taskContainer.transform.childCount; i++)
         {
@@ -108,6 +112,12 @@ public class Taskmanager : MonoBehaviour
         {
             tempPrefab = availableTaskElementPrefab;
             tempList = availableTasks_list;
+            tempTaskState = 0;
+        }
+        else if(chosenTaskList==4)
+        {
+            tempPrefab = availableTaskElementPrefab;
+            tempList = itemTasks_list;
             tempTaskState = 0;
         }
 
@@ -168,6 +178,10 @@ public class Taskmanager : MonoBehaviour
                 chosenTaskList = 3;
                 Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                 break;
+            case "item":
+                chosenTaskList = 4;
+                Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
+                break;
             default:
                 switch(chosenTaskList)
                 {
@@ -178,6 +192,7 @@ public class Taskmanager : MonoBehaviour
                         Client.Instance.BeginRequest_GetCreatedTasks(userID, DisplayTasks);
                         break;
                     case 3:
+                    case 4:
                         Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                         break;
                 }
@@ -191,9 +206,8 @@ public class Taskmanager : MonoBehaviour
         Debug.Log("New task list length: " + taskList.Count());
     }
 
-    public void AddTask(Task newTask /*Add object here*/)
+    public void AddTask(Task newTask)
     {
-        
         if (newTask.quantity == 0) newTask.quantity = 1;
         Client.Instance.BeginRequest_AddNewTask(newTask, null);
         //taskList.Add(newTask.taskID, newTask);
@@ -220,31 +234,31 @@ public class Taskmanager : MonoBehaviour
             taskList.Remove(taskId);
         }
     }
-
     public void GetAvailableTasks()
     {
         Dictionary<int, Task> tempList = new Dictionary<int, Task>();
-        foreach(Task task in taskList.Values)
+        Dictionary<int, Task> tempItemList = new Dictionary<int, Task>();
+
+        foreach (Task task in taskList.Values)
         {
             Debug.Log("Getting available tasks for profileID " + userID);
-            if (task.creatorID != userID) tempList.Add(task.taskID, task);
+            if (task.creatorID != userID)
+            {
+                tempList.Add(task.taskID, task);
+                if(task.targetID == itemID)
+                {
+                    tempItemList.Add(task.taskID, task);
+                }
+            }
         }
         availableTasks_list = tempList;
+        itemTasks_list = tempItemList;
     }
     public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
     }
 
-    public void TestAddButton()
-    {
-        CreateTask("taskTask", "asd", 100, 1, 1, 5, 0, "");
-    }
-
-    public void TestRemoveButton()
-    {
-        if(taskList.Count > 0) RemoveTask(taskList.First().Key);
-    }
 
     //Placeholder function for a running int ID
     public int newId()

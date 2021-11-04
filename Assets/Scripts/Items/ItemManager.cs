@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
-    public int guid;
-    public Vector3 pos;
-    public int model_id;
-    public TaskList task_list;
     // Start is called before the first frame update
     void Start()
     {

@@ -31,8 +31,12 @@ public class ProfileUIController : MonoBehaviour
     public Text taskDate;
     public Button CancelTask;
 
+    public GameObject info;
+
+
     public void Start()
     {
+        info.SetActive(false);
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
@@ -177,7 +181,7 @@ public class ProfileUIController : MonoBehaviour
 
     public void InfoButtonClick()
     {
-        gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        info.SetActive(!info.activeSelf);
     }
     
 }

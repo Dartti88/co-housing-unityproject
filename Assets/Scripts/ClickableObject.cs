@@ -11,6 +11,8 @@ public class ClickableObject : MonoBehaviour
     // 3d object to outline when selected
     public MeshRenderer TargetMesh = null;
 
+    public List<ClickableObject> TargetGroup;
+
     private Outline outline;
 
     public UnityEvent OnClick;
@@ -19,6 +21,7 @@ public class ClickableObject : MonoBehaviour
 
     private void Start()
     {
+        if(!TargetGroup.Contains(this))TargetGroup.Add(this);
         if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
@@ -27,7 +30,9 @@ public class ClickableObject : MonoBehaviour
         }
         else
         {
+
             outline = TargetMesh.gameObject.AddComponent<Outline>();
+
         }
         // add outline and hide it
         outline.OutlineWidth = 6;
@@ -39,17 +44,28 @@ public class ClickableObject : MonoBehaviour
     // object was clicked, select it and enable outline
     public void Select()
     {
-        HouseObjectController.Instance.SetSelectedObject(this);
+        HouseObjectController.Instance.SetSelectedObject(TargetGroup);
         Debug.Log("selected");
-        if (itemGameObject != null) itemGameObject.DisplayItemTasks();
+        if (itemGameObject != null) itemGameObject.ChooseItem();
         StartCoroutine(WaitForPlayer());
-        ToggleOutline(true);
+        ToggleGroupOutline(true);
     }
 
     // another object is clicked or this unselected for some other reason
     public void Unselect()
     {
-        ToggleOutline(false);
+        ToggleGroupOutline(false);
+    }
+
+    private void ToggleGroupOutline(bool state)
+    {
+        if (TargetGroup != null)
+        {
+            foreach (ClickableObject obj in TargetGroup)
+            {
+                obj.ToggleOutline(state);
+            }
+        }
     }
 
     private void ToggleOutline(bool state)
@@ -60,8 +76,8 @@ public class ClickableObject : MonoBehaviour
     // wait for player to walk close to this object before activating it
     IEnumerator WaitForPlayer()
     {
-        
-        while (HouseObjectController.Instance.CurrentSelectedObject == this)
+
+        while (HouseObjectController.Instance.CurrentSelectedObject == TargetGroup)
         {
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < 1.5f)
             {

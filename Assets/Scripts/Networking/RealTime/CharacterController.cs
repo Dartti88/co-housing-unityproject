@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 // singleton controller for controlling the player character
-public class PlayerController : Singleton<PlayerController>
+public class CharacterController : MonoBehaviour
 {
     // List of avatars
     public List<GameObject> avatars = new List<GameObject>();
@@ -23,12 +23,17 @@ public class PlayerController : Singleton<PlayerController>
     private Vector3 initialPosition;
 
     // run once when scene is loaded
-    void Start()
+    public void Init(int avatarID)
     {
         initialPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         activeAvatar = avatars[0];
+        // Need to init all avatars, since "Start" -func may not happen..
+        foreach (GameObject avatarObj in avatars)
+            avatarObj.GetComponent<CharacterAvatarController>().Init(0);
+
+        ChangePlayerAvatar(avatarID);
     }    
 
     // reset player position to starting position
@@ -43,7 +48,6 @@ public class PlayerController : Singleton<PlayerController>
     public void SetGoal(Vector3 goal)
     {
         agent.SetDestination(goal);
-        Client.Instance.BeginRequest_SendCharacterDestination(Client.Instance.profileHandler.GetComponent<ProfileHandler>().userProfile.profileID, goal, null);
     }
 
     public Vector3 GetNextPosition()
@@ -59,7 +63,7 @@ public class PlayerController : Singleton<PlayerController>
     public void ChangePlayerAvatar(int i)
     {
         // Save the direction the character is facing
-        int dir = (int)activeAvatar.GetComponent<AvatarController>().avatarDirection;
+        int dir = (int)activeAvatar.GetComponent<CharacterAvatarController>().avatarDirection;
 
         // Hide other avatars
         foreach (GameObject a in avatars)
@@ -69,7 +73,7 @@ public class PlayerController : Singleton<PlayerController>
 
         // Set the new avatar active
         avatars[i].SetActive(true);
-        avatars[i].GetComponent<AvatarController>().InitializeAvatar(dir);
+        avatars[i].GetComponent<CharacterAvatarController>().Init(dir);
 
         // Update animator
         animator = GetComponentInChildren<Animator>();

@@ -146,7 +146,6 @@ public class ProfileUIController : MonoBehaviour
     public void AddTask()
     {
         //probably needs the task controller but for now: 
-        Debug.Log("Task added!");
         taskCanvas.gameObject.SetActive(false);
 
 
@@ -174,6 +173,11 @@ public class ProfileUIController : MonoBehaviour
     private void AvatarButtonOnClick(int i)
     {
         playerController.ChangePlayerAvatar(i);
+    }
+
+    public void InfoButtonClick()
+    {
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
     }
     
 }

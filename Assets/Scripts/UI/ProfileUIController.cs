@@ -31,8 +31,12 @@ public class ProfileUIController : MonoBehaviour
     public Text taskDate;
     public Button CancelTask;
 
+    public GameObject info;
+
+
     public void Start()
     {
+        info.SetActive(false);
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
@@ -146,7 +150,6 @@ public class ProfileUIController : MonoBehaviour
     public void AddTask()
     {
         //probably needs the task controller but for now: 
-        Debug.Log("Task added!");
         taskCanvas.gameObject.SetActive(false);
 
 
@@ -174,6 +177,11 @@ public class ProfileUIController : MonoBehaviour
     private void AvatarButtonOnClick(int i)
     {
         playerController.ChangePlayerAvatar(i);
+    }
+
+    public void InfoButtonClick()
+    {
+        info.SetActive(!info.activeSelf);
     }
     
 }

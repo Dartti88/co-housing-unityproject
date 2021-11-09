@@ -22,6 +22,7 @@ public class ProfileHandler : MonoBehaviour
 
     private void Start()
     {
+        LogInScreen.gameObject.SetActive(true);
         if (clearPrefs)
         {
             PlayerPrefs.DeleteKey(Profile.USERNAME_TAG);

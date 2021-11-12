@@ -53,7 +53,8 @@ public class Taskmanager : MonoBehaviour
         {
             //Set the default values for creating the task
             int quantity, uniqueQuantity, points, target; float cost;
-            cost = quantity = uniqueQuantity = points = target = 0;
+            cost = quantity = uniqueQuantity = points =  0;
+            target = itemID;
             //Check if the variable is empty and then parse the value from the input
             if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float); }
             if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
@@ -150,7 +151,8 @@ public class Taskmanager : MonoBehaviour
                 task.cost,
                 task.points,
                 quantity,
-                task.expirationDate);
+                task.expirationDate,
+                task.creatorID);
             
 
         }

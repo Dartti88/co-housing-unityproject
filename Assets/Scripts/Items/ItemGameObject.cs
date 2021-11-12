@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemGameObject : MonoBehaviour
 {
     [SerializeField]
-    private int _itemID;
-
+    public int _itemID;
+    public string groupName;
+    public string location;
     //List of the tasks on the item
     public Dictionary<int, Task> itemTasks;
+    private InputField itemText;
 
-
+    [HideInInspector]
     public Taskmanager taskManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(GameObject.FindWithTag("ItemText") != null) itemText = GameObject.FindWithTag("ItemText").GetComponent<InputField>();
+        if (groupName == "") groupName = this.name;
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
     }
 
@@ -25,8 +30,9 @@ public class ItemGameObject : MonoBehaviour
         
     }
 
-    public void DisplayItemTasks()
+    public void ChooseItem()
     {
+        itemText.text = groupName;
         taskManager.itemID = _itemID;
     }
 }

@@ -17,7 +17,7 @@ public class Taskmanager : MonoBehaviour
     public GameObject availableTaskElementPrefab;
     public GameObject acceptedTaskElementPrefab;
     public GameObject createdTaskElementPrefab;
-
+    public GameObject addTaskUI;
     public ProfileHandler profileHandler;
     //For testing
     int testId = 0;
@@ -424,7 +424,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(!firstUpdateDone)
         {
-            //LoadTasks("empty");
+            addTaskUI.gameObject.SetActive(false);
             firstUpdateDone = true;
         }
     }

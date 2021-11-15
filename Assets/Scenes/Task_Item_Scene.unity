@@ -786,6 +786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 40
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &68127985 stripped
 GameObject:
@@ -806,7 +808,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 32
-  groupName: 
+  groupName: Table set
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &72573789
 GameObject:
@@ -1099,6 +1103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 5
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &115550435
 GameObject:
@@ -1326,6 +1332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 21
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &145101012 stripped
 GameObject:
@@ -1347,6 +1355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 35
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &149071446
 GameObject:
@@ -1757,6 +1767,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 306519992}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &184675289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 25
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &190533216 stripped
 GameObject:
@@ -1880,6 +1904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 18
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1001 &204842576
 PrefabInstance:
@@ -1888,6 +1914,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: addTaskUI
+      value: 
+      objectReference: {fileID: 349616491}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: profileObject
@@ -2121,6 +2152,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 184675286}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 819588871}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &205809606
 MonoBehaviour:
@@ -2399,7 +2454,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1116118915}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2737,6 +2792,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: item
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 184675286}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 819588871}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &306519995
 MonoBehaviour:
@@ -3502,6 +3581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 39
   groupName: Sofa
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &349616491
 GameObject:
@@ -4000,6 +4081,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 241}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &530298589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530298590}
+  - component: {fileID: 530298592}
+  - component: {fileID: 530298591}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &530298590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530298589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1116118915}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &530298591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530298589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &530298592
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530298589}
+  m_CullTransparentMesh: 1
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,6 +4336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 12
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &544111369
 GameObject:
@@ -4263,6 +4421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 22
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &564124648 stripped
 GameObject:
@@ -4284,6 +4444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 10
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &579787137
 GameObject:
@@ -4505,6 +4667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 11
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &597445087
 GameObject:
@@ -4544,7 +4708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597445089
@@ -5973,7 +6137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 32
-  groupName: 
+  groupName: Table set
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &719284012
 GameObject:
@@ -6689,6 +6855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 9
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &777822506
 GameObject:
@@ -6903,6 +7071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 6
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &791240891
 GameObject:
@@ -6988,6 +7158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 3
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &796035666
 GameObject:
@@ -7152,6 +7324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 13
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &818612574
 GameObject:
@@ -7383,6 +7557,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: available
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 306519992}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 205809604}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &819588873
 MonoBehaviour:
@@ -7857,6 +8055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 17
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &878766234 stripped
 GameObject:
@@ -7878,6 +8078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 19
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &901841102
 GameObject:
@@ -9095,6 +9297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 2
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1010635734
 GameObject:
@@ -9354,6 +9558,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 14
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!114 &1055382083 stripped
 MonoBehaviour:
@@ -9466,6 +9672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 27
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1106444506
 GameObject:
@@ -9566,6 +9774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 17
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1116118911
 GameObject:
@@ -9585,7 +9795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1116118912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9645,7 +9855,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1116118915
 RectTransform:
@@ -9658,6 +9868,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 530298590}
   - {fileID: 1324055529}
   - {fileID: 275889880}
   m_Father: {fileID: 0}
@@ -11958,6 +12169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 20
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1295200927
 GameObject:
@@ -12121,13 +12334,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324055528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1886936421}
   m_Father: {fileID: 1116118915}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.66, y: 0.18}
   m_AnchorMax: {x: 0.82, y: 0.27}
@@ -12240,7 +12453,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1669309716}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12248,7 +12461,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1659928946}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -12261,6 +12474,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1116118911}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1324055531
 MonoBehaviour:
@@ -12276,7 +12501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.5905558, g: 0.9339623, b: 0.15419187, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12320,6 +12545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 33
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1364024997
 GameObject:
@@ -12419,7 +12646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 32
-  groupName: 
+  groupName: Table set
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1375444696
 GameObject:
@@ -12532,6 +12761,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 24
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1401235935
 GameObject:
@@ -13763,6 +13994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 23
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1527926420
 GameObject:
@@ -15029,7 +15262,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 32
-  groupName: 
+  groupName: Table set
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1659587496
 GameObject:
@@ -15387,6 +15622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 8
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1673285465 stripped
 GameObject:
@@ -15408,6 +15645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 26
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1681416187
 GameObject:
@@ -15788,7 +16027,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 32
-  groupName: 
+  groupName: Table set
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1747628601
 GameObject:
@@ -16019,6 +16260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 39
   groupName: Sofa
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!114 &1770978377 stripped
 MonoBehaviour:
@@ -16279,6 +16522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 4
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1835827568
 GameObject:
@@ -16973,6 +17218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 1
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1925466960 stripped
 GameObject:
@@ -16994,6 +17241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 15
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1936300413 stripped
 GameObject:
@@ -17015,6 +17264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 36
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1939623782
 GameObject:
@@ -17115,6 +17366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 39
   groupName: Sofa
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &1947690728
 GameObject:
@@ -17452,6 +17705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasTaskUI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2327496600684575041, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2327496600684575045, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -17560,12 +17818,27 @@ PrefabInstance:
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1395.2001
       objectReference: {fileID: 0}
     - target: {fileID: 2327496601227751928, guid: 60a3bc450d381c54289c5606ececf52a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327496601780470102, guid: 60a3bc450d381c54289c5606ececf52a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a3bc450d381c54289c5606ececf52a, type: 3}
@@ -17755,6 +18028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 7
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &2081707478
 GameObject:
@@ -17852,6 +18127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemID: 34
   groupName: 
+  location: 
+  itemText: {fileID: 0}
   taskManager: {fileID: 0}
 --- !u!1 &2095515359
 GameObject:
@@ -19148,6 +19425,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: RayLayers.m_Bits

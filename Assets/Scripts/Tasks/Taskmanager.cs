@@ -202,9 +202,7 @@ public class Taskmanager : MonoBehaviour
         }
         
         
-        
-        
-        
+
         Debug.Log("New task list length: " + taskList.Count());
     }
 
@@ -222,12 +220,25 @@ public class Taskmanager : MonoBehaviour
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
         Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
+
+    public void AddSocialPoints(int amount)
+    {   
+        int current_level = profileHandler.userProfile.GetProfileLevel();
+        profileHandler.userProfile.socialScore += amount;
+        int new_level = profileHandler.userProfile.GetProfileLevel();
+
+        if (new_level > current_level)
+        {
+            //ToDo - Trigger levelup event
+        }
+    }
     
     public void AcceptTask(int taskId, int profileId)
     {
         Task acceptedTask = taskList[taskId];
         Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
-        if(acceptedTask.quantity>1)
+
+        if (acceptedTask.quantity>1)
         {
             acceptedTask.quantity--;
         }
@@ -259,6 +270,7 @@ public class Taskmanager : MonoBehaviour
     public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
+        AddSocialPoints((int)Mathf.Ceil(taskList[taskId].points/* / acceptedTask.max_quanity*/));
     }
 
 

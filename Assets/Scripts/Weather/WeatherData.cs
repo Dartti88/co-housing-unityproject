@@ -21,7 +21,11 @@ enum weather
 enum weather_particle_effect
 {
     rain,
-    mist
+    mist,
+    heavy_rain,
+    thunder_strom,
+    snow
+
 }
 
 public class WeatherData : MonoBehaviour
@@ -45,6 +49,8 @@ public class WeatherData : MonoBehaviour
 
     public int overwrite_weather = -1;
 
+
+    [NamedArrayAttribute(new string[] { "rain", "mist", "heavy_rain", "thunder_strom", "snow"})]
     public GameObject[] particle_effects;
 
     [SerializeField] private string current_weather;

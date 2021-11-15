@@ -53,7 +53,6 @@ public class GameController : Singleton<GameController>
             {
                 if (Input.GetMouseButtonDown(0))
                     touchStartedOnUI = true;
-
                 return;
             }
             // dont move if UI was clicked
@@ -84,8 +83,12 @@ public class GameController : Singleton<GameController>
         // if one touch and not over UI elements
         if (Input.touchCount == 1)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (IsPointerOverUIObject())
+            {
+                if (Input.GetMouseButtonDown(0))
+                    touchStartedOnUI = true;
                 return;
+            }
 
             Touch touch = Input.GetTouch(0);
                 // if touch moved, move camera

@@ -11,6 +11,7 @@ public class ItemGameObject : MonoBehaviour
     public string location;
     //List of the tasks on the item
     public Dictionary<int, Task> itemTasks;
+    [SerializeField]
     private InputField itemText;
 
     [HideInInspector]
@@ -19,7 +20,8 @@ public class ItemGameObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.FindWithTag("ItemText") != null) itemText = GameObject.FindWithTag("ItemText").GetComponent<InputField>();
+        if (GameObject.FindWithTag("ItemText") != null) itemText = GameObject.FindWithTag("ItemText").GetComponent<InputField>();
+        else Debug.Log("error");
         if (groupName == "") groupName = this.name;
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
     }
@@ -27,7 +29,6 @@ public class ItemGameObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void ChooseItem()

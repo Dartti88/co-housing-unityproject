@@ -9,9 +9,8 @@ public class ProfileUIController : MonoBehaviour
     public ProfileHandler pHandler;
     private PlayerController playerController;
 
-    public Canvas taskCanvas;
-
-    public Image profileBackground;
+    //profile
+    public Image profileBackground; 
     public Image profileChangeCanvas;
     public Button closeProfileBtn;
     public Image profilePics; //this is the grid
@@ -23,15 +22,18 @@ public class ProfileUIController : MonoBehaviour
     public InputField profileDescription;
     public Text nameText;
     public Text descriptionText;
-
-    public Text taskName;
-    public Text taskDesc;
-    public Text taskReward;
-    public Text taskQuantity;
-    public Text taskDate;
+    
+    //tasks
     public Button CancelTask;
-
+    public Button addTask;
+    public Canvas taskCanvas;
+    
+    //info
     public GameObject info;
+    
+    //level
+    public Slider slider; 
+    public Button level; //also has image
 
 
     public void Start()
@@ -41,7 +43,9 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
-        CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(CancelTasks);
+        CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
+        addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
+        level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
 
     }
@@ -63,7 +67,6 @@ public class ProfileUIController : MonoBehaviour
             else Debug.Log("avatarID not 0-11 ");
 
         }
-        //also has to load tasks in the future
     }
 
     public void CloseProfileCanvas(){
@@ -84,6 +87,7 @@ public class ProfileUIController : MonoBehaviour
         Image actual = ProfilePicture.gameObject.GetComponent<Image>();
         currentProfilePic.gameObject.GetComponent<Image>().sprite = actual.sprite;
         profileName.text = pHandler.GetUserProfile().displayName;
+        profileDescription.text = pHandler.GetUserProfile().description;
     }
 
     public void ConfirmChangesToServer(){
@@ -106,7 +110,9 @@ public class ProfileUIController : MonoBehaviour
     {
         //use the index to know which pic+avatar prefab pack to use and send info to server!
         int index = int.Parse(currentProfilePic.gameObject.GetComponent<Image>().sprite.name);
-        AvatarButtonOnClick(index);
+        int i = index;
+        Debug.Log(i);
+        AvatarButtonOnClick(i);
 
         Image im = currentProfilePic.gameObject.GetComponent<Image>();
         ProfilePicture.gameObject.GetComponent<Image>().sprite = im.sprite;
@@ -147,31 +153,9 @@ public class ProfileUIController : MonoBehaviour
         taskCanvas.gameObject.SetActive(true);
     }
 
-    public void AddTask()
+    public void OpenAddTask()
     {
-        //probably needs the task controller but for now: 
-        taskCanvas.gameObject.SetActive(false);
-
-
-
-
-        //taskName.text = "";
-        //taskDesc.text = "";
-        //taskReward.text = "";
-        //taskQuantity.text = "";
-        //taskDate.text = "";
-    }
-
-    public void CancelTasks()
-    {
-        taskName.text = "  ";
-        taskDesc.text = "  ";
-        taskReward.text = "  ";
-        taskQuantity.text = "  ";
-        taskDate.text = "  ";
-        
-        taskCanvas.gameObject.SetActive(false);
-        Debug.Log("canceled task");
+        taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
     }
 
     private void AvatarButtonOnClick(int i)
@@ -182,6 +166,15 @@ public class ProfileUIController : MonoBehaviour
     public void InfoButtonClick()
     {
         info.SetActive(!info.activeSelf);
+    }
+
+    public void LevelSlider()
+    {
+        //so this has to check max and current exp from server / use another func to set them up probably
+        slider.maxValue = 100;
+        slider.value = 50;
+        Debug.Log(slider.value);
+        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
     }
     
 }

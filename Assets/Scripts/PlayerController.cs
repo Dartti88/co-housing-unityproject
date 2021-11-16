@@ -43,7 +43,6 @@ public class PlayerController : Singleton<PlayerController>
     public void SetGoal(Vector3 goal)
     {
         agent.SetDestination(goal);
-        Client.Instance.BeginRequest_SendCharacterDestination(Client.Instance.profileHandler.GetComponent<ProfileHandler>().userProfile.profileID, goal, null);
     }
 
     public Vector3 GetNextPosition()

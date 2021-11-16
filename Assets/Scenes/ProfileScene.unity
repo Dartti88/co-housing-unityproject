@@ -1820,7 +1820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de6f68c5798b3a438e8a803a7700632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSelectedObject: {fileID: 0}
+  CurrentSelectedObject:
+  - {fileID: 0}
 --- !u!1001 &204842576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1828,6 +1829,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: addTaskUI
+      value: 
+      objectReference: {fileID: 83290505254323387, guid: da821bce4b0ad8f45912d15b5f8559f0,
+        type: 3}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: profileObject
@@ -1848,6 +1855,12 @@ PrefabInstance:
       propertyPath: createTaskButton
       value: 
       objectReference: {fileID: 1412151607}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
+      propertyPath: taskElementPrefab
+      value: 
+      objectReference: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
+        type: 3}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
       propertyPath: inputFields.Array.data[0]
@@ -2953,6 +2966,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile_list:
     profiles: []
+  networkPlayerPrefab: {fileID: 0}
+  localPlayerObj: {fileID: 0}
+  profileHandler: {fileID: 0}
+  isLoggedIn: 0
 --- !u!4 &334296272
 Transform:
   m_ObjectHideFlags: 0

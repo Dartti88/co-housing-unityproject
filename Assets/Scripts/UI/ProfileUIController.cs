@@ -22,6 +22,7 @@ public class ProfileUIController : MonoBehaviour
     public InputField profileDescription;
     public Text nameText;
     public Text descriptionText;
+    public Text credits;
     
     //tasks
     public Button CancelTask;
@@ -56,6 +57,8 @@ public class ProfileUIController : MonoBehaviour
         //this only gets the profile and sets everything up.
         nameText.text = pHandler.GetUserProfile().displayName;
         descriptionText.text = pHandler.GetUserProfile().description;
+        credits.text = pHandler.GetUserProfile().credits.ToString();
+        UpdateCredits();
         for(int i = 0; i < 12; i++)
         {
             if (i == pHandler.GetUserProfile().avatarID)
@@ -70,16 +73,7 @@ public class ProfileUIController : MonoBehaviour
     }
 
     public void CloseProfileCanvas(){
-        if(profileBackground.gameObject.activeSelf == true)
-        {
-            profileBackground.gameObject.SetActive(false);
-            closeProfileBtn.gameObject.GetComponent<Image>().color = Color.green;
-        }
-        else if (profileBackground.gameObject.activeSelf == false)
-        {
-            profileBackground.gameObject.SetActive(true);
-            closeProfileBtn.gameObject.GetComponent<Image>().color = Color.red;
-        }
+        profileBackground.gameObject.SetActive(!profileBackground.gameObject.activeSelf);
     }
 
     public void ChangeProfileInfo(){
@@ -177,4 +171,8 @@ public class ProfileUIController : MonoBehaviour
         slider.gameObject.SetActive(!slider.gameObject.activeSelf);
     }
     
+    public void UpdateCredits()
+    {
+        credits.text = pHandler.GetUserProfile().credits.ToString();
+    }
 }

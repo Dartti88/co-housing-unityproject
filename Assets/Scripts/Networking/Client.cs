@@ -75,10 +75,7 @@ Profiileihin liittyvät:
 public class Client : MonoBehaviour
 {
     public static Client Instance { get; private set; }
-
-    // This is used for the "pseudo-real time communications hacking" thing
-    private RealTimeController realTimeController;
-
+    
     [Serializable]
     public class ProfilesContainer
     {
@@ -91,20 +88,11 @@ public class Client : MonoBehaviour
     public Dictionary<int, Task> acceptedTasks_list =   new Dictionary<int, Task>();
     public Dictionary<int, Task> createdTasks_list =    new Dictionary<int, Task>();
 
-    // Prefab for all the other players except for the local player (Need this to spawn other players)
-    public GameObject networkPlayerPrefab;
-    
-    public GameObject localPlayerObj;
-    public GameObject profileHandler;
-
-    public bool isLoggedIn = false;
-
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            realTimeController = new RealTimeController(localPlayerObj, profileHandler);
             DontDestroyOnLoad(Instance);
         }
         else
@@ -145,13 +133,12 @@ public class Client : MonoBehaviour
         newTestTask2.quantity = 2;
         newTestTask2.uniqueQuantity = 0;
         newTestTask2.expirationDate = "2025-09-12";
-        
 
         newTestTask3 = new Task();
         newTestTask3.creatorID = 23;
-        newTestTask3.taskName = "TESTINGTESTINGASD123";
-        newTestTask3.targetID = 0;
-        newTestTask3.description = "tesging";
+        newTestTask3.taskName = "Testingtask3";
+        newTestTask3.targetID = 2;
+        newTestTask3.description = "Testing GetCreatedTasks.php part 2";
         newTestTask3.cost = 1;
         newTestTask3.points = 1;
         newTestTask3.quantity = 1;
@@ -160,28 +147,20 @@ public class Client : MonoBehaviour
         */
     }
 
-    bool triggerSpawning = true;
+    bool exec = true;
     // Update is called once per frame
     void Update()
     {
-        if (isLoggedIn)
+        if (exec)
         {
-            // Spawn all other players
-            // *Has to wait until all profiles has been loaded from the server..
-            // *Maybe a bit dangerous atm.. 
-            if (triggerSpawning && profile_list.profiles.Length > 0)
-            {
-                realTimeController.BeginSpawnOtherPlayers();
-                triggerSpawning = false;
-            }
-            else
-            {
-                // Update all destinations/movements
 
-                // These both happen at certain intervals, NOT CONSTANT UPDATING!
-                realTimeController.UpdateCharacterDestinations();
-                //realTimeController.SendCharacterDestination();
-            }
+            //BeginRequest_AddNewTask(newTestTask3, null);
+            //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
+
+            //BeginRequest_GetCreatedTasks(22, null);
+
+
+            exec = false;
         }
     }
     
@@ -248,7 +227,7 @@ public class Client : MonoBehaviour
         form.Add(new MultipartFormDataSection("key_password", "\"" + password + "\""));
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_ValidatePassword, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_ValidatePasswordComplete));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
     }
 
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
@@ -347,42 +326,6 @@ public class Client : MonoBehaviour
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CompleteTaskComplete));
     }
 
-    // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
-    public void BeginRequest_GetCharacterDestinations(System.Action<string> onCompletionCallback)
-    {
-        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetCharacterDestinations, "application/json");
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetCharacterDestinations));
-    }
-
-    public void BeginRequest_SendCharacterDestination(int profileID, Vector3 destination, System.Action<string> onCompletionCallback)
-    {
-        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
-
-
-        string destX_str = destination.x.ToString().Replace(',', '.');
-        string destY_str = destination.y.ToString().Replace(',', '.');
-        string destZ_str = destination.z.ToString().Replace(',', '.');
-        
-        form.Add(new MultipartFormDataSection("key_x", "\"" + destX_str + "\""));
-        form.Add(new MultipartFormDataSection("key_y", "\"" + destY_str + "\""));
-        form.Add(new MultipartFormDataSection("key_z", "\"" + destZ_str + "\""));
-
-        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SendCharacterDestination, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_SendCharacterDestination));
-    }
-
-    // PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF
-    public void BeginRequest_SubmitChatMessage(string displayName, string message, System.Action<string> onCompletionCallback)
-    {
-        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_displayName", "\"" + displayName + "\""));
-        form.Add(new MultipartFormDataSection("key_message", "\"" + message + "\""));
-        
-        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SubmitChatMessage, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
-    }
-
 
     // ALL INTERNAL FUNCS ->
 
@@ -398,15 +341,10 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Internal_OnCompletion_AddedNewProfileComplete(UnityWebRequest req)");
     }
+
     void Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)");
-    }
-    // *QUITE DUMB ATM! This happens when logging in or reqistering new user, so we use this to determine, is client logged in successfully..
-    void Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)
-    {
-        Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
-        isLoggedIn = req.downloadHandler.text == "Success";
     }
 
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
@@ -415,7 +353,10 @@ public class Client : MonoBehaviour
     }
 
     // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
-    class TempTaskList { public Task[] tasks; }
+    class TempTaskList
+    {
+        public Task[] tasks;
+    }
     void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
@@ -475,26 +416,6 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
-    }
-
-    // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
-    void Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)
-    {
-        string json = "{\"destinations\": " + req.downloadHandler.text + "}";
-        try
-        {
-            realTimeController.destinationsContainer = JsonUtility.FromJson<CharacterDestinationsContainer>(json);
-        }
-        catch (Exception e)
-        {
-            realTimeController.destinationsContainer = new CharacterDestinationsContainer(); // init to empty list if not found
-            Debug.Log("No available character destinations found!");
-        }
-        Debug.Log("Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)");
-    }
-    void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
-    {
-        Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 
     // COMMON ->

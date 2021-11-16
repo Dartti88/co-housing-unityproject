@@ -53,6 +53,7 @@ public class GameController : Singleton<GameController>
             {
                 if (Input.GetMouseButtonDown(0))
                     touchStartedOnUI = true;
+
                 return;
             }
             // dont move if UI was clicked
@@ -67,7 +68,7 @@ public class GameController : Singleton<GameController>
 
         else if (Input.GetMouseButtonUp(0))
         {
-
+            touchStartedOnUI = false;
             if (currentTouchTime > TouchTimeThreshold)
             {
                 currentTouchTime = 0.0f;
@@ -83,12 +84,8 @@ public class GameController : Singleton<GameController>
         // if one touch and not over UI elements
         if (Input.touchCount == 1)
         {
-            if (IsPointerOverUIObject())
-            {
-                if (Input.GetMouseButtonDown(0))
-                    touchStartedOnUI = true;
+            if (EventSystem.current.IsPointerOverGameObject())
                 return;
-            }
 
             Touch touch = Input.GetTouch(0);
                 // if touch moved, move camera
@@ -110,11 +107,8 @@ public class GameController : Singleton<GameController>
                 // player input
 #endif
 
-                if (touchStartedOnUI) // dont move if UI was clicked
-                {
-                    touchStartedOnUI = false;
+                if (IsPointerOverUIObject()) // dont move if UI was clicked
                     return;
-                }
 
                 HouseObjectController.Instance.UnselectCurrent();
 
@@ -148,7 +142,7 @@ public class GameController : Singleton<GameController>
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        Debug.Log(results.Count > 0);
+        //Debug.Log(results.Count > 0);
         return results.Count > 0;
     }
 

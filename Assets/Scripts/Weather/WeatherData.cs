@@ -21,11 +21,7 @@ enum weather
 enum weather_particle_effect
 {
     rain,
-    mist,
-    heavy_rain,
-    thunder_strom,
-    snow
-
+    mist
 }
 
 public class WeatherData : MonoBehaviour
@@ -49,8 +45,6 @@ public class WeatherData : MonoBehaviour
 
     public int overwrite_weather = -1;
 
-
-    [NamedArrayAttribute(new string[] { "rain", "mist", "heavy_rain", "thunder_strom", "snow"})]
     public GameObject[] particle_effects;
 
     [SerializeField] private string current_weather;
@@ -60,7 +54,7 @@ public class WeatherData : MonoBehaviour
         location = "api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + API_key;
         latitude = locationService.latitude;
         longitude = locationService.longitude;
-        //Debug.Log(latitude + " - " + longitude);
+        Debug.Log(latitude + " - " + longitude);
 
         if (latitude == 0 && longitude == 0)
         {
@@ -177,10 +171,9 @@ public class WeatherData : MonoBehaviour
                 particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.thunderstorm:
-                particle_effects[(int)weather_particle_effect.thunder_strom].GetComponent<ParticleSystem>().Play();
+                particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.snow:
-                particle_effects[(int)weather_particle_effect.snow].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.mist:
                 particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();

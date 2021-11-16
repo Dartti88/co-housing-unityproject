@@ -10,6 +10,7 @@ public class TaskUIElement : MonoBehaviour
     public Taskmanager taskManager;
     public ProfileHandler profileHandler;
     private int _taskId;
+    private int _creatorId;
     private int _taskQuantity;
     public Text taskTitleText;
     public Text taskExpiryText;
@@ -90,7 +91,7 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="points">Social points reward</param>
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
-    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate)
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int creatorID=0)
     {
         // Parametrein‰ annetaan vain ne tiedot, mitk‰ n‰kyv‰t UI:ssa + ID (jos sit‰ tarvitaan)
         // Taskia hyv‰ksyess‰ (TaskOnClick()) tehd‰‰n erilaiset tarkistukset serverin kanssa
@@ -105,6 +106,7 @@ public class TaskUIElement : MonoBehaviour
         }
 
         _taskId = taskId;
+        _creatorId = creatorID;
         _taskQuantity = quantity;
 
         taskTitleText.text = title;

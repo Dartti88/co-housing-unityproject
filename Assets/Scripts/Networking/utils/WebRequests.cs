@@ -21,6 +21,12 @@ public class WebRequests
     public const string URL_POST_AcceptTask = "https://gcdata.000webhostapp.com/AcceptTask.php";
     public const string URL_POST_CompleteTask = "https://gcdata.000webhostapp.com/CompleteTask.php";
 
+    public const string URL_GET_GetCharacterDestinations = "https://gcdata.000webhostapp.com/GetCharacterDestinations.php";
+    public const string URL_POST_SendCharacterDestination = "https://gcdata.000webhostapp.com/SendCharacterDestination.php";
+
+    public const string URL_GET_GetChatMessages = "https://gcdata.000webhostapp.com/GetChatMessages.php";
+    public const string URL_POST_SubmitChatMessage = "https://gcdata.000webhostapp.com/SubmitChatMessage.php";
+
 
 
     public static UnityWebRequest CreateWebRequest_GET(string url, string contentType = "text/plain")

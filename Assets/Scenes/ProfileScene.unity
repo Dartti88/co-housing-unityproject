@@ -717,10 +717,10 @@ RectTransform:
   m_Father: {fileID: 328118085}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1123.95, y: -1302.005}
-  m_SizeDelta: {x: 2247.9, y: 773.33}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2247.9, y: 627.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61767664
 MonoBehaviour:
@@ -759,12 +759,11 @@ MonoBehaviour:
     credits and emotes. Information \n\ton all of these can be found by scrolling
     down. Other players can't see your username.\n\n\tAfter registering you can change
     your character by tapping \"Change Profile\" or your profile pic, \n    name
-    or desciption \n\n\tChanging the profile\n\t\t\xB7 After tapping \"Change Profile\"
-    a new window with a picture and two fields show up\n\t\t\xB7 Tap the picture
-    and you can change your profile picture to one of twelve images. Changing \n\t\t  
-    the picture also changes your avatar (the character you move)\n\t\t\xB7 Your
-    name can be a maximum 20 characters and your description a maximum of 240 characters\n\t\t\xB7
-    Tap \"Confirm Changes\" to save your changes"
+    or desciption \n\n\tChanging the profile\n\t\t\xB7 Tap the picture and you can
+    change your profile picture to one of twelve images. Changing \n\t\t   the picture
+    also changes your avatar (the character you move)\n\t\t\xB7 Your name can be
+    a maximum 20 characters and your description a maximum of 144 characters\n\t\t\xB7
+    Tap \"Confirm Changes\" to save your changes and cancel to return without saving"
 --- !u!222 &61767665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1304,7 +1303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &155460782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8163,8 +8162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 506, y: -308}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 550.2, y: -332}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901841104
 MonoBehaviour:
@@ -8199,14 +8198,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 32b0758a4c9cb4a4794a0b52c28d486f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9683,7 +9682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Weather and Environment
+  m_Text: Environment and Weather
 --- !u!222 &1146319614
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9727,10 +9726,10 @@ RectTransform:
   m_Father: {fileID: 222128169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.61, y: 0.3568763}
+  m_AnchorMin: {x: 0.6221308, y: 0.44725925}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 177.5, y: 0}
-  m_SizeDelta: {x: 345, y: 0}
+  m_AnchoredPosition: {x: 173.5, y: 0}
+  m_SizeDelta: {x: 353, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154104832
 MonoBehaviour:
@@ -10571,7 +10570,7 @@ RectTransform:
   m_AnchorMin: {x: 0.067781255, y: 0.18333757}
   m_AnchorMax: {x: 0.42870313, y: 0.8235261}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 36.04, y: 38.12854}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194840174
 MonoBehaviour:
@@ -11022,10 +11021,10 @@ RectTransform:
   m_Father: {fileID: 1154104831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.17541006}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -7.5}
-  m_SizeDelta: {x: -20, y: -15}
+  m_AnchoredPosition: {x: 10, y: -68.5}
+  m_SizeDelta: {x: -20, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223635693
 MonoBehaviour:
@@ -12471,9 +12470,8 @@ RectTransform:
   m_Children:
   - {fileID: 1395000675}
   - {fileID: 1480793817}
-  - {fileID: 471365598861484270}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16010,10 +16008,10 @@ RectTransform:
   m_Father: {fileID: 1154104831}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.17541006}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -7.5}
-  m_SizeDelta: {x: -20, y: -15}
+  m_AnchoredPosition: {x: 10, y: -68.5}
+  m_SizeDelta: {x: -20, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696510134
 MonoBehaviour:
@@ -18518,7 +18516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'short description  short description short description   '
+  m_Text: short description short description short description
 --- !u!222 &2021482502
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18597,9 +18595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Weather\r\nApp syncs with Saukkolas local weather conditions pics of different
-    weather\r\nEnvironment\r\nI\u2019m stuck! -boohoo, we can\u2019t help pic of
-    sorry\r\nModelled exactly after saukkolas land pic of saukkola"
+  m_Text: "\tThe "
 --- !u!222 &2044296970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18791,9 +18787,9 @@ RectTransform:
   m_Father: {fileID: 1194840173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480, y: -480}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081707480
@@ -19389,21 +19385,21 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471365598861484258}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.765625, y: 0.765625, z: 0.765625}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 7931447928859683543}
   - {fileID: 819588875}
   - {fileID: 184675287}
-  m_Father: {fileID: 1360212251}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 980, y: 551.25}
-  m_SizeDelta: {x: 2560, y: 1440}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!223 &471365598861484271
 Canvas:
   m_ObjectHideFlags: 0
@@ -20660,6 +20656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: World
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988073230946271627, guid: 001f75989d6bf744c9f55ea756d88b8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2273322685902728790, guid: 001f75989d6bf744c9f55ea756d88b8e,
         type: 3}

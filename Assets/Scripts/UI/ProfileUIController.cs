@@ -44,10 +44,11 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
-        CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
+        profileName.characterLimit = 20;
+        profileDescription.characterLimit = 144;
 
     }
 
@@ -150,6 +151,10 @@ public class ProfileUIController : MonoBehaviour
     public void OpenAddTask()
     {
         taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
+    }
+    public void CloseAddTask()
+    {
+        taskCanvas.gameObject.SetActive(false);
     }
 
     private void AvatarButtonOnClick(int i)

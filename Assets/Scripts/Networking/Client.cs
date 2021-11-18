@@ -85,6 +85,7 @@ public class Client : MonoBehaviour
         public Profile[] profiles;
     }
 
+    
     public ProfilesContainer profile_list = new ProfilesContainer();
 
     public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
@@ -96,6 +97,7 @@ public class Client : MonoBehaviour
     
     public GameObject localPlayerObj;
     public GameObject profileHandler;
+    public Chat chat;
 
     public bool isLoggedIn = false;
 
@@ -372,6 +374,22 @@ public class Client : MonoBehaviour
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_SendCharacterDestination));
     }
 
+    // PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF
+    public void BeginRequest_SubmitChatMessage(string displayName, string message, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_displayName", "\"" + displayName + "\""));
+        form.Add(new MultipartFormDataSection("key_message", "\"" + message + "\""));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SubmitChatMessage, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
+    }
+    public void BeginRequest_GetChatMessages(System.Action<string> onCompletionCallback)
+    {
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetChatMessages, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetChatMessages));
+    }
+
     // ALL INTERNAL FUNCS ->
 
     // INTERNAL PROFILES STUFF ------------------------- INTERNAL PROFILES STUFF ------------------------- INTERNAL PROFILES STUFF
@@ -483,6 +501,18 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF
+    void Internal_OnCompletion_GetChatMessages(UnityWebRequest req)
+    {
+        //Debug.Log("Internal_OnCompletion_GetChatMessages(UnityWebRequest req)");
+        string json = "{\"messages\": " + req.downloadHandler.text + "}";
+        if (req.downloadHandler.text.Length > 0)
+        {
+            chat.messagesContainer = JsonUtility.FromJson<ChatMessagesContainer>(json);
+            chat.UpdateChatBoxMessages();
+        }
     }
 
     // COMMON ->

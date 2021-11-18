@@ -19,7 +19,6 @@ public class Cell : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
     TicTacToe manager;
 
-    // Start is called before the first frame update
     void Start()
     {
         manager = transform.parent.parent.GetComponent<TicTacToe>();
@@ -34,25 +33,36 @@ public class Cell : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void ChangeState(CellState state)
+    public void ChangeState(CellState state)
     {
         cellState = state;
-        transform.GetChild(((int)cellState-1)).gameObject.SetActive(true);
+        if(state != CellState.empty)
+        {
+            transform.GetChild(((int)cellState - 1)).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
 
+    void CheckForWin()
+    {
         if (manager.IsWin())
         {
             manager.SetWin(true);
             manager.HighlightWin();
             manager.InvokeReset();
+            return;
         }
-
+        else if (manager.IsDraw())
+        {
+            manager.InvokeReset();
+            return;
+        }
         manager.ChangeTurn();
+        // SendBoardStateToServer()
     }
 
     public CellState GetState()
@@ -64,10 +74,20 @@ public class Cell : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     {
         if(manager.GameIsRunning() && cellState == CellState.empty)
         {
-            if (manager.GetTurn() == CellState.cross)
+            if (manager.GetTurn() == CellState.cross && manager.GetPLayerNumber() == 0)
+            {
                 ChangeState(CellState.nought);
-            else if (manager.GetTurn() == CellState.nought)
+                CheckForWin();
+                manager.SetPlayerNumber(manager.GetPLayerNumber() == 0 ? 1 : 0);
+            }
+
+            else if (manager.GetTurn() == CellState.nought && manager.GetPLayerNumber() == 1)
+            {
                 ChangeState(CellState.cross);
+                CheckForWin();
+                manager.SetPlayerNumber(manager.GetPLayerNumber() == 0 ? 1 : 0);
+            }
+
         }
     }
 

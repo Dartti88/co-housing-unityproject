@@ -94,7 +94,6 @@ public class Client : MonoBehaviour
 
     // Prefab for all the other players except for the local player (Need this to spawn other players)
     public GameObject profileHandler;
-    public Chat chat;
 
     public bool isLoggedIn = false;
 
@@ -473,12 +472,6 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_GetChatMessages(UnityWebRequest req)
     {
         //Debug.Log("Internal_OnCompletion_GetChatMessages(UnityWebRequest req)");
-        string json = "{\"messages\": " + req.downloadHandler.text + "}";
-        if (req.downloadHandler.text.Length > 0)
-        {
-            chat.messagesContainer = JsonUtility.FromJson<ChatMessagesContainer>(json);
-            chat.UpdateChatBoxMessages();
-        }
     }
 
     // COMMON ->

@@ -34,7 +34,6 @@ public class ProfileUIController : MonoBehaviour
     public void Start()
     {
         pHandler = FindObjectOfType<ProfileHandler>();
-        info.SetActive(false);
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;

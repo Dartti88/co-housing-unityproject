@@ -22,6 +22,7 @@ public class ProfileUIController : MonoBehaviour
     public InputField profileDescription;
     public Text nameText;
     public Text descriptionText;
+    public Text credits;
     
     //tasks
     public Button CancelTask;
@@ -43,10 +44,11 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
         taskCanvas.gameObject.SetActive(false);
-        CancelTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
+        profileName.characterLimit = 20;
+        profileDescription.characterLimit = 144;
 
     }
 
@@ -56,6 +58,8 @@ public class ProfileUIController : MonoBehaviour
         //this only gets the profile and sets everything up.
         nameText.text = pHandler.GetUserProfile().displayName;
         descriptionText.text = pHandler.GetUserProfile().description;
+        credits.text = pHandler.GetUserProfile().credits.ToString();
+        UpdateCredits();
         for(int i = 0; i < 12; i++)
         {
             if (i == pHandler.GetUserProfile().avatarID)
@@ -70,16 +74,7 @@ public class ProfileUIController : MonoBehaviour
     }
 
     public void CloseProfileCanvas(){
-        if(profileBackground.gameObject.activeSelf == true)
-        {
-            profileBackground.gameObject.SetActive(false);
-            closeProfileBtn.gameObject.GetComponent<Image>().color = Color.green;
-        }
-        else if (profileBackground.gameObject.activeSelf == false)
-        {
-            profileBackground.gameObject.SetActive(true);
-            closeProfileBtn.gameObject.GetComponent<Image>().color = Color.red;
-        }
+        profileBackground.gameObject.SetActive(!profileBackground.gameObject.activeSelf);
     }
 
     public void ChangeProfileInfo(){
@@ -157,6 +152,10 @@ public class ProfileUIController : MonoBehaviour
     {
         taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
     }
+    public void CloseAddTask()
+    {
+        taskCanvas.gameObject.SetActive(false);
+    }
 
     private void AvatarButtonOnClick(int i)
     {
@@ -177,4 +176,8 @@ public class ProfileUIController : MonoBehaviour
         slider.gameObject.SetActive(!slider.gameObject.activeSelf);
     }
     
+    public void UpdateCredits()
+    {
+        credits.text = pHandler.GetUserProfile().credits.ToString();
+    }
 }

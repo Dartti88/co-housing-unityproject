@@ -18,9 +18,12 @@ public class PlayerController : Singleton<PlayerController>
     private bool walking = false;
 
     // character animator
-    private Animator animator;
+    public Animator animator;
 
     private Vector3 initialPosition;
+
+    private Vector3 previousPosition;
+    public float currentSpeed;
 
     // run once when scene is loaded
     void Start()
@@ -78,6 +81,12 @@ public class PlayerController : Singleton<PlayerController>
     // run every frame of the game
     private void Update()
     {
+        Vector3 curMove = transform.position - previousPosition;
+        currentSpeed = curMove.magnitude / Time.deltaTime;
+        previousPosition = transform.position;
+
+        animator.speed = Mathf.Clamp(currentSpeed, 0, 1);
+
         if (agent.remainingDistance < 0.1f && walking)
         {
             //animator.SetBool("walking", false);
@@ -87,6 +96,8 @@ public class PlayerController : Singleton<PlayerController>
         {
             //animator.SetBool("walking", true);
             walking = true;
+           
+
         }
     }
 }

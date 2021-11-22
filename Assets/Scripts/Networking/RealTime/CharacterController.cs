@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 // singleton controller for controlling the player character
 public class CharacterController : MonoBehaviour
@@ -47,7 +48,7 @@ public class CharacterController : MonoBehaviour
     // set goal position for pathfinding
     public void SetGoal(Vector3 goal)
     {
-        agent.SetDestination(goal);
+        if(agent.isOnNavMesh) agent.SetDestination(goal);
     }
 
     public Vector3 GetNextPosition()
@@ -82,15 +83,29 @@ public class CharacterController : MonoBehaviour
     // run every frame of the game
     private void Update()
     {
-        if (agent.remainingDistance < 0.1f && walking)
+        if(agent.isOnNavMesh)
         {
-            //animator.SetBool("walking", false);
-            walking = false;
+            if (agent.remainingDistance < 0.1f && walking)
+            {
+                //animator.SetBool("walking", false);
+                walking = false;
+            }
+            else if (agent.remainingDistance > 0.1f && !walking)
+            {
+                //animator.SetBool("walking", true);
+                walking = true;
+            }
         }
-        else if (agent.remainingDistance > 0.1f && !walking)
-        {
-            //animator.SetBool("walking", true);
-            walking = true;
-        }
+        
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        Debug.Log(results.Count > 0);
+        return results.Count > 0;
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
     public int chosenTaskList;
     bool firstUpdateDone = false;
@@ -17,7 +18,7 @@ public class Taskmanager : MonoBehaviour
     public GameObject availableTaskElementPrefab;
     public GameObject acceptedTaskElementPrefab;
     public GameObject createdTaskElementPrefab;
-
+    public GameObject addTaskUI;
     public ProfileHandler profileHandler;
     //For testing
     int testId = 0;
@@ -202,9 +203,7 @@ public class Taskmanager : MonoBehaviour
         }
         
         
-        
-        
-        
+
         Debug.Log("New task list length: " + taskList.Count());
     }
 
@@ -222,12 +221,25 @@ public class Taskmanager : MonoBehaviour
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
         Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
+
+    public void AddSocialPoints(int amount)
+    {   
+        int current_level = profileHandler.userProfile.GetProfileLevel();
+        profileHandler.userProfile.socialScore += amount;
+        int new_level = profileHandler.userProfile.GetProfileLevel();
+
+        if (new_level > current_level)
+        {
+            //ToDo - Trigger levelup event
+        }
+    }
     
     public void AcceptTask(int taskId, int profileId)
     {
         Task acceptedTask = taskList[taskId];
         Client.Instance.BeginRequest_AcceptTask(profileId, taskId, null);
-        if(acceptedTask.quantity>1)
+
+        if (acceptedTask.quantity>1)
         {
             acceptedTask.quantity--;
         }
@@ -259,6 +271,7 @@ public class Taskmanager : MonoBehaviour
     public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
+        AddSocialPoints((int)Mathf.Ceil(taskList[taskId].points/* / acceptedTask.max_quanity*/));
     }
 
 
@@ -288,6 +301,13 @@ public class Taskmanager : MonoBehaviour
     {
         //Get the users ID
         userID = profileHandler.userProfile.profileID;
+
+        if(DebugAdd)
+        {
+            userID = 999;
+            DebugAdd = false;
+        }
+
         Task task = new Task() { 
             creatorID = userID,                      //Placeholder until profiles are implemented
             taskID = newId(),
@@ -309,6 +329,18 @@ public class Taskmanager : MonoBehaviour
         return true;
     }
 
+    public void DebugButtonPressed()
+    {
+        if(DebugAdd)
+        {
+            DebugAdd = false;
+        }
+        else
+        {
+            DebugAdd = true;
+        }
+        
+    }
     //-----------------------------TARPEELLINEN?------------------------------------------------------
 
     public bool ModifyTask(int taskId, float? taskCost = null, string taskText = null, int? taskQuantity = null, int? taskUniqueQ = null, int? taskPoints = null, int? taskTarget = null, string taskExpireDate = null)
@@ -424,7 +456,7 @@ public class Taskmanager : MonoBehaviour
     {
         if(!firstUpdateDone)
         {
-            //LoadTasks("empty");
+            addTaskUI.gameObject.SetActive(false);
             firstUpdateDone = true;
         }
     }

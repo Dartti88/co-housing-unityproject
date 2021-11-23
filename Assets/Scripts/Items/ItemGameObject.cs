@@ -36,4 +36,10 @@ public class ItemGameObject : MonoBehaviour
         itemText.text = groupName;
         taskManager.itemID = _itemID;
     }
+
+    public void UnchooseItem()
+    {
+        itemText.text = "";
+        taskManager.UnselectItem();
+    }
 }

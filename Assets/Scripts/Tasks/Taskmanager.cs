@@ -319,7 +319,10 @@ public class Taskmanager : MonoBehaviour
         origTask.quantity = newTask.quantity;
     }
 
-    
+    public void UnselectItem()
+    {
+        itemID = taskboard._itemID;
+    }
     // Create new task and add it to the Task List, retuns true if successful, false if not
     public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {

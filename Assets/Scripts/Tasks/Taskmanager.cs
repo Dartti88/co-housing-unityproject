@@ -20,6 +20,7 @@ public class Taskmanager : MonoBehaviour
     public GameObject createdTaskElementPrefab;
     public GameObject addTaskUI;
     public ProfileHandler profileHandler;
+    public LevelManager level_manager;
     //For testing
     int testId = 0;
     
@@ -224,9 +225,11 @@ public class Taskmanager : MonoBehaviour
 
     public void AddSocialPoints(int amount)
     {   
-        int current_level = profileHandler.userProfile.GetProfileLevel();
+        int current_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
         profileHandler.userProfile.socialScore += amount;
-        int new_level = profileHandler.userProfile.GetProfileLevel();
+        int new_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
+
+        level_manager.UpdateLevels();
 
         if (new_level > current_level)
         {

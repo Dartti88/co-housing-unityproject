@@ -81,11 +81,27 @@ public class PlayerController : Singleton<PlayerController>
     // run every frame of the game
     private void Update()
     {
-        Vector3 curMove = transform.position - previousPosition;
-        currentSpeed = curMove.magnitude / Time.deltaTime;
-        previousPosition = transform.position;
 
-        animator.speed = Mathf.Clamp(currentSpeed, 0, 1);
+        //Animation speed slowing
+        if(!animator.GetBool("always move"))
+        {
+            Vector3 curMove = transform.position - previousPosition;
+            currentSpeed = curMove.magnitude / Time.deltaTime;
+            previousPosition = transform.position;
+
+            AnimatorStateInfo animState = animator.GetCurrentAnimatorStateInfo(0);
+            float currentTime = animState.normalizedTime % 1;
+            Debug.Log(currentTime);
+            if (currentTime <= 0.1f && currentSpeed <= 0.1f)
+            {
+                animator.speed = 0;
+            }
+            else
+            {
+                animator.speed = 1;//Mathf.Clamp(currentSpeed, 0.5f, 1);
+            }
+        }
+
 
         if (agent.remainingDistance < 0.1f && walking)
         {

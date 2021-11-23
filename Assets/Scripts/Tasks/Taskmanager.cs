@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    public ItemGameObject taskboard;
     public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
     public int chosenTaskList;
@@ -58,7 +59,7 @@ public class Taskmanager : MonoBehaviour
             //Set the default values for creating the task
             int quantity, uniqueQuantity, points;
             float cost = quantity = uniqueQuantity = points = 0;
-            int target = itemID;
+            int target = taskboard._itemID;
             string description = DefaultTaskDescription;
             string expiryDate = "0000-00-00";
 
@@ -324,11 +325,10 @@ public class Taskmanager : MonoBehaviour
     {
         //Get the users ID
         userID = profileHandler.userProfile.profileID;
-
+        taskTarget = itemID;
         if(DebugAdd)
         {
             userID = 999;
-            DebugAdd = false;
         }
 
         Task task = new Task() { 

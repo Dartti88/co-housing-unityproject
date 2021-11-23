@@ -63,7 +63,7 @@ public class Profile
         //Send profile changes to server
     }
 
-    public int GetProfileLevel()
+    public int[] GetProfileLevel()
     {
         int level = 1;
         int i = 100;
@@ -72,33 +72,9 @@ public class Profile
             level++;
             i *= 2;
         }
-
-        switch (level)
-        {
-            case 1: //ToDo - Change Level Icon
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
-                break;
-            case 9:
-                break;
-            default:
-                break;
-        }
-
+        int[] array_return = { level, i };
         Debug.Log("Level: " + level + "- Scores: " + socialScore);
-        return level;
+        return array_return;
     }
 
 

@@ -102,10 +102,33 @@ public class LevelManager : MonoBehaviour
                 {
                     if (child_2.name == "Slider")
                     {
-                        //Set Current progress
-                        child_2.GetComponent<Slider>().value = 100;
+                        //Set Current progress to slider
+                        child_2.GetComponent<Slider>().value = userProfile.socialScore;
                         child_2.GetComponent<Slider>().minValue = 0;
                         child_2.GetComponent<Slider>().maxValue = level[(int)level_data.next_level];
+                        child_2.gameObject.SetActive(!child_2.gameObject.activeSelf);
+
+                        foreach (Transform child_3 in child_2.transform)
+                        {
+                            if (child_3.name == "currentExp")
+                            {
+                                //Set Current progress to slider text
+                                child_3.GetComponent<Text>().text = userProfile.socialScore.ToString();
+                             }
+
+                            if (child_3.name == "targetExp")
+                            {
+                                //Set Current progress to slider text
+                                child_3.GetComponent<Text>().text = level[(int)level_data.next_level].ToString();
+                            }
+
+                            if (child_3.name == "progress_text")
+                            {
+                                //Set Current progress to slider text
+                                child_3.GetComponent<Text>().text = userProfile.socialScore.ToString() + "/" + level[(int)level_data.next_level].ToString();
+                            }
+                            
+                        }
                     }
                 }
             }

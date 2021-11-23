@@ -170,8 +170,8 @@ public class ProfileUIController : MonoBehaviour
     public void LevelSlider()
     {
         //so this has to check max and current exp from server / use another func to set them up probably
-        slider.maxValue = 100;
-        slider.value = 50;
+        //slider.maxValue = 100;
+        //slider.value = 50;
         Debug.Log(slider.value);
         slider.gameObject.SetActive(!slider.gameObject.activeSelf);
     }

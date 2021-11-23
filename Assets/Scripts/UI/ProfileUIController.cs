@@ -35,6 +35,7 @@ public class ProfileUIController : MonoBehaviour
     //level
     public Slider slider; 
     public Button level; //also has image
+    public LevelManager level_manager;
 
 
     public void Start()
@@ -172,8 +173,9 @@ public class ProfileUIController : MonoBehaviour
         //so this has to check max and current exp from server / use another func to set them up probably
         //slider.maxValue = 100;
         //slider.value = 50;
-        Debug.Log(slider.value);
-        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
+        //Debug.Log(slider.value);
+        //slider.gameObject.SetActive(!slider.gameObject.activeSelf);
+        level_manager.UpdateLevels();
     }
     
     public void UpdateCredits()

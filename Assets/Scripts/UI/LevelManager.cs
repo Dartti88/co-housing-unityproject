@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public int[] level = { 0, 0 };
     public Sprite[] sprites;
     private Sprite new_sprite;
+    float timer = 0;
     private string[] level_texts =
         {
         "Loading..."         ,
@@ -31,10 +32,54 @@ public class LevelManager : MonoBehaviour
         "Mythical Moose"
         };
 
+    private Image image;
+    private Slider slider;
+    private Text level_text;
+    private Text progress_text;
+
     // Start is called before the first frame update
     void Start()
     {
+        foreach (Transform child in transform)
+        {
+            //LEVEL IMAGE & SLIDER
+            if (child.name == "level")
+            {
+                //Set image
+                image = child.GetComponent<Image>();
 
+                //SLIDER
+                foreach (Transform child_2 in child.transform)
+                {
+                    if (child_2.name == "Slider")
+                    {
+                        //Set Current progress to slider
+                        slider = child_2.GetComponent<Slider>();
+
+                        foreach (Transform child_3 in child_2.transform)
+                        {
+                            if (child_3.name == "progress_text")
+                            {
+                                //Set Current progress to slider text
+                                progress_text = child_3.GetComponent<Text>();
+                            }
+                        }
+                    }
+                }
+            }
+
+            //LEVEL TEXT
+            if (child.name == "Name")
+            {
+                foreach (Transform child_2 in child.transform)
+                {
+                    if (child_2.name == "levelText")
+                    {
+                        level_text = child_2.GetComponent<Text>();
+                    }
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -80,6 +125,35 @@ public class LevelManager : MonoBehaviour
             }
             */
         }
+        else if (timer<=0)
+        {
+           
+
+            if (slider.GetComponent<RectTransform>().rect.width > 0)
+            {
+                //slider.GetComponent<RectTransform>().rect.width;
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width - 1);
+            }
+            else
+            {
+                slider.gameObject.SetActive(false);
+            }
+
+            if (slider.GetComponent<RectTransform>().rect.width > 75)
+            {
+                progress_text.text = "";
+            }
+            
+        }
+        else
+        {
+            if (slider.GetComponent<RectTransform>().rect.width < 200)
+            {
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+1);
+            }
+            timer -= Time.deltaTime;
+        }
+            
     }
 
     public void UpdateLevels()
@@ -88,7 +162,15 @@ public class LevelManager : MonoBehaviour
         level = userProfile.GetProfileLevel();
         new_sprite = sprites[level[(int)level_data.level]];
 
-        //image = transform.FindChild("level");
+        image.sprite = new_sprite;
+        slider.value = userProfile.socialScore;
+        slider.minValue = 0;
+        slider.maxValue = level[(int)level_data.next_level];
+        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
+        progress_text.text = userProfile.socialScore.ToString() + "/" + level[(int)level_data.next_level].ToString();
+        level_text.text = level_texts[level[(int)level_data.level]];
+        timer = 7;
+        /*
         foreach (Transform child in transform)
         {
             //LEVEL IMAGE & SLIDER
@@ -145,5 +227,6 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

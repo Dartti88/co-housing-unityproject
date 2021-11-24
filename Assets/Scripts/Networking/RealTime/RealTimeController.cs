@@ -16,8 +16,9 @@ public class CharacterDestination
 [Serializable]
 public class CharacterDestinationsContainer { public CharacterDestination[] destinations; }
 
-public class RealTimeController
+public class RealTimeController : MonoBehaviour
 {
+    public GameObject networkPlayerPrefab;
     public CharacterDestinationsContainer destinationsContainer = new CharacterDestinationsContainer();
 
     // Contains all other logged in players excluding the local user
@@ -32,14 +33,19 @@ public class RealTimeController
     bool othersSpawned = false;
 
     ProfileHandler profileHandler;
-    GameObject localPlayer;
+    public GameObject localPlayer;
     NavMeshAgent localNavMeshAgent;
 
-    public RealTimeController(GameObject localPlayerObj, GameObject profileHandlerObj)
+    private void Start()
     {
-        localPlayer = localPlayerObj;
-        profileHandler = profileHandlerObj.GetComponent<ProfileHandler>();
+        profileHandler = FindObjectOfType<ProfileHandler>();
         localNavMeshAgent = localPlayer.GetComponent<NavMeshAgent>();
+        BeginSpawnOtherPlayers();
+    }
+
+    private void Update()
+    {
+        UpdateCharacterDestinations();
     }
 
     // Updates every local character's pathfinding destination from the server
@@ -85,6 +91,7 @@ public class RealTimeController
     // Spawns all other players depending on whos in the "CharacterDestinations" - table
     void OnCompletion_InitAllPlayers(string response)
     {
+        UpdateDestinations(response);
         otherPlayers = new Dictionary<int, GameObject>();
 
         foreach (CharacterDestination cd in destinationsContainer.destinations)
@@ -98,7 +105,7 @@ public class RealTimeController
             {
                 if (cd.profileID == p.profileID)
                 {
-                    GameObject spawnedPlayer = GameObject.Instantiate(Client.Instance.networkPlayerPrefab, Client.Instance.transform);
+                    GameObject spawnedPlayer = GameObject.Instantiate(networkPlayerPrefab, Client.Instance.transform);
                     spawnedPlayer.GetComponent<CharacterController>().Init(p.avatarID);
                     otherPlayers.Add(cd.profileID, spawnedPlayer);
                     break;
@@ -114,7 +121,8 @@ public class RealTimeController
 
     void UpdateOthersDestinations(string serverResponse)
     {
-        foreach(CharacterDestination cd in destinationsContainer.destinations)
+        UpdateDestinations(serverResponse);
+        foreach (CharacterDestination cd in destinationsContainer.destinations)
         {
             // Skip local player's profile
             if (cd.profileID == profileHandler.userProfile.profileID)
@@ -124,6 +132,20 @@ public class RealTimeController
                 otherPlayers[cd.profileID].GetComponent<CharacterController>().SetGoal(new Vector3(cd.x, cd.y, cd.z));
             else
                 Debug.Log("WARNING! @UpdateOthersDestinations(string) : Tried to access invalid key in 'otherPlayers' - dictionary");
+        }
+    }
+
+    void UpdateDestinations(string response)
+    {
+        string json = "{\"destinations\": " + response + "}";
+        try
+        {
+            destinationsContainer = JsonUtility.FromJson<CharacterDestinationsContainer>(json);
+        }
+        catch (Exception e)
+        {
+            destinationsContainer = new CharacterDestinationsContainer(); // init to empty list if not found
+            Debug.Log("No available character destinations found!");
         }
     }
 }

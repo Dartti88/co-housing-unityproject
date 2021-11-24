@@ -83,7 +83,7 @@ public class Chat : MonoBehaviour
             if (updateCooldown <= 0)
             {
                 updateCooldown = maxUpdateCooldown;
-                Client.Instance.BeginRequest_GetChatMessages(null);
+                Client.Instance.BeginRequest_GetChatMessages(OnCompletion_GetChatMessages);
                 Debug.Log("Chat update triggered...");
             }
             else
@@ -100,8 +100,17 @@ public class Chat : MonoBehaviour
         }
     }
 
-    
-    
+    void OnCompletion_GetChatMessages(string response)
+    {
+        string json = "{\"messages\": " + response + "}";
+        if (response.Length > 0)
+        {
+            messagesContainer = JsonUtility.FromJson<ChatMessagesContainer>(json);
+            UpdateChatBoxMessages();
+        }
+    }
+
+
 
     // When submitting "directly" from input field
     public void SubmitMessage(string message)

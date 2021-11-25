@@ -277,8 +277,8 @@ public class Client : MonoBehaviour
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
         form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetID.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_cost", "\"" + task.cost.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_quantity", "\"" + task.quantity.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_cost", task.cost.ToString())); // If adding "\"" -> we actually get double double quotes in php.. like: ""key_name""
+        form.Add(new MultipartFormDataSection("key_quantity", task.quantity.ToString()));
         form.Add(new MultipartFormDataSection("key_uniqueQuantity", "\"" + task.uniqueQuantity.ToString() + "\""));
 
         // NOTE*: Make the date be in sql format (YYYY-MM-DD)
@@ -442,7 +442,7 @@ public class Client : MonoBehaviour
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)");
+        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
     void Internal_OnCompletion_RemovedTaskComplete(UnityWebRequest req)
     {

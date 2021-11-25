@@ -174,6 +174,11 @@ public class Client : MonoBehaviour
         return null;
     }
 
+    public int GetIDByDisplayName(string displayName)
+    {
+        return Array.Find(profile_list.profiles, e => e.displayName == displayName).profileID;
+    }
+
     void Test(string a)
     {
         Debug.Log("Login TEST: " + a);

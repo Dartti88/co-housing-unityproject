@@ -41,7 +41,21 @@ public class Chat : MonoBehaviour
     // This is true for one frame -> if added so many messages, we need to scroll to the bottom, to view the latest ones
     bool forceScrolling = false;
 
-    // Start is called before the first frame update
+    // True, if this is the first chat update (blocks triggering old emotes, etc)
+    bool initialUpdate = true;
+
+    RealTimeController realTimeController;
+    Dictionary<string, System.Action<int, string>> commands;
+    const string command_funcIdentifier = "func_";
+
+    private void Awake()
+    {
+        realTimeController = FindObjectOfType<RealTimeController>();
+        commands = new Dictionary<string, System.Action<int, string>>();
+        commands.Add("emote", Command_Emote);
+        
+    }
+
     void Start()
     {
         rect_chatBoxContent = obj_chatBoxContent.GetComponent<RectTransform>();
@@ -176,7 +190,7 @@ public class Chat : MonoBehaviour
 
         messageCount = 0;
     }
-    // Updates all text in the whole chat box (fucking inefficient and dumb..)
+    // Updates only the newest messages to the chat box
     public void UpdateChatBoxMessages()
     {
         // Preceed only if we detect new messages in the "possibly updated" messagesContainer..
@@ -185,14 +199,59 @@ public class Chat : MonoBehaviour
             Debug.Log("Chat update rejected by client!");
             return;
         }
+        
+        //ResetChatMessageBox();
 
-        ResetChatMessageBox();
-
-        foreach (ChatMessage m in messagesContainer.messages)
+        // Add only the newest messages
+        for (int i = objs_messages.Count; i < messagesContainer.messages.Length; ++i)
         {
+            // This statement prevents old messages from displaying
+            if (initialUpdate)
+            {
+                objs_messages.Add(null);
+                continue;
+            }
+            ChatMessage m = messagesContainer.messages[i];
             AddMessageToChatBox(m.displayName, m.message);
+
+            if (m.message.Contains(command_funcIdentifier))
+                ParseAndExecuteCommandMessage(m.displayName, m.message);
         }
 
         forceScrolling = true;
+        initialUpdate = false;
+    }
+
+
+    void ParseAndExecuteCommandMessage(string displayName, string message)
+    {
+        int profileID = Client.Instance.GetIDByDisplayName(displayName);
+        // parse command name
+        int start_commandName = message.IndexOf(command_funcIdentifier, 0) + command_funcIdentifier.Length;
+        int end_commandName = message.IndexOf("(", start_commandName);    
+        string commandName = message.Substring(start_commandName, end_commandName - start_commandName);
+
+        // parse command parameters
+        int end_params = message.IndexOf(")", end_commandName);
+        string parameters = message.Substring(end_commandName + 1, (end_params - end_commandName) - 1);
+
+        commands[commandName](profileID, parameters);
+    }
+
+    void Command_Emote(int profileID, string parameters)
+    {
+        // Currently this can be used only for non local users!
+        //  -> ignore, if local profileID
+        if (profileID == profileHandler.userProfile.profileID)
+            return;
+
+        // make sure the params are correct
+        if (parameters.Contains(","))
+        {
+            Debug.Log("ERROR >> Chat commands @Command_Emote : invalid parameters");
+            return;
+        }
+        int emoteID = Int32.Parse(parameters);
+        realTimeController.TriggerEmote(profileID, emoteID);
     }
 }

@@ -148,4 +148,16 @@ public class RealTimeController : MonoBehaviour
             Debug.Log("No available character destinations found!");
         }
     }
+
+    // JUST FOR TESTING EMOTE TRIGGERING
+    public void TriggerEmote(int profileID, int emoteID)
+    {
+        GameObject obj = otherPlayers[profileID].transform.Find("Emotecontainer").transform.Find("EmotePicture").gameObject;
+        if (obj)
+        {
+            obj.SetActive(true);
+            EmoteBillboard component = obj.GetComponent<EmoteBillboard>();
+            component.UseEmote(emoteID);
+        }
+    }
 }

@@ -132,6 +132,7 @@ public class Taskmanager : MonoBehaviour
                     newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
                     break;
             }
+
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
                 task.taskID,
                 Client.Instance.GetDisplayNameById(task.creatorID),
@@ -140,8 +141,9 @@ public class Taskmanager : MonoBehaviour
                 task.cost,
                 task.points,
                 quantity,
-                task.expirationDate);
-            
+                task.expirationDate,
+                0);
+                
 
         }
         LoadingOverlay();

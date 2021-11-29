@@ -20,6 +20,8 @@ public class TaskUIElement : MonoBehaviour
     public Text taskQuantityText;
     public Text taskButtonText;
 
+    public Image taskAvatarPicture;
+
     public Image taskTitleImage;
     public Image taskBackgroundImage;
     public Image taskDescImage;
@@ -32,6 +34,7 @@ public class TaskUIElement : MonoBehaviour
 
     public Button taskAcceptButton;
 
+    public List<Sprite> avatarList = new List<Sprite>();
     public List<ColorSchemer> colorList = new List<ColorSchemer>();
 
     /// <summary>
@@ -53,28 +56,7 @@ public class TaskUIElement : MonoBehaviour
         // Turquoise
         colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
 
-
-        /* OLD COLORS
-        // Green (default)
-        colorList.Add(new ColorSchemer(new Color32(116, 204, 74, 255), new Color32(92, 180, 50, 255), new Color32(76, 156, 39, 255), new Color32(31, 115, 0, 255)));
-        // Red
-        colorList.Add(new ColorSchemer(new Color32(219, 79, 75, 255), new Color32(180, 55, 50, 255), new Color32(156, 39, 42, 255), new Color32(149, 19, 16, 255)));
-        // Blue
-        colorList.Add(new ColorSchemer(new Color32(90, 168, 204, 255), new Color32(50, 148, 180, 255), new Color32(39, 114, 156, 255), new Color32(15, 84, 135, 255)));
-        // Purple
-        colorList.Add(new ColorSchemer(new Color32(184, 110, 236, 255), new Color32(157, 72, 192, 255), new Color32(140, 47, 180, 255), new Color32(101, 26, 140, 255)));
-        // Yellow
-        colorList.Add(new ColorSchemer(new Color32(255, 200, 54, 255), new Color32(229, 175, 10, 255), new Color32(212, 154, 0, 255), new Color32(188, 129, 17, 255)));
-        // Orange
-        colorList.Add(new ColorSchemer(new Color32(238, 154, 39, 255), new Color32(209, 122, 31, 255), new Color32(192, 96, 26, 255), new Color32(166, 75, 12, 255)));
-        // Turquoise
-        colorList.Add(new ColorSchemer(new Color32(74, 204, 188, 255), new Color32(50, 180, 165, 255), new Color32(39, 156, 148, 255), new Color32(0, 115, 109, 255)));
-        // Pink
-        colorList.Add(new ColorSchemer(new Color32(217, 103, 157, 255), new Color32(192, 74, 137, 255), new Color32(176, 46, 119, 255), new Color32(135, 22, 86, 255)));
-        */
-
         // TESTI: Random väriteema taskille, voi ottaa pois käytöstä
-        // Jos haluaa jättää lopulliseen, täytyisi väriteema ehkä lähettää serverille, jotta se on aina sama per task?
         RandomizeColor(Random.Range(0, colorList.Count));
     }
 
@@ -90,7 +72,7 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="points">Social points reward</param>
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
-    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate)
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int avatarID)
     {
         // Parametreinä annetaan vain ne tiedot, mitkä näkyvät UI:ssa + ID (jos sitä tarvitaan)
         // Taskia hyväksyessä (TaskOnClick()) tehdään erilaiset tarkistukset serverin kanssa
@@ -114,6 +96,7 @@ public class TaskUIElement : MonoBehaviour
         taskPointsText.text = points.ToString(); // täytyy ehkä pyöristää
         taskIssuerText.text = displayName;
         taskQuantityText.text = _taskQuantity.ToString();
+        taskAvatarPicture.sprite = avatarList[avatarID];
     }
 
     /// <summary>

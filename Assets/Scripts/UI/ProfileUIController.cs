@@ -51,6 +51,9 @@ public class ProfileUIController : MonoBehaviour
     public Button level; //also has image
     public LevelManager level_manager;
 
+    //logOut
+    public Button btn;
+
 
 
     public void Start()
@@ -63,6 +66,9 @@ public class ProfileUIController : MonoBehaviour
         addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
+
+        btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
+
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
 

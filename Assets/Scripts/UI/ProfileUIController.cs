@@ -16,7 +16,36 @@ public class ProfileUIController : MonoBehaviour
     public Image profilePics; //this is the grid
     public GameObject currentProfilePic;
     public GameObject ProfilePicture;
+    [SerializeField]
+    [NamedArrayAttribute(new string[] {
+        "Dino"      ,
+        "Penguin"   ,
+        "Astronaut" ,
+        "Ghost"     ,
+        "Griffin"   ,
+        "LadyBug"   ,
+        "Cone"      ,
+        "Potato"    ,
+        "Slime"     ,
+        "Sheep"     ,
+        "Robot"     ,
+        "Dragon"    })]
     public Image[] profilePictures;
+    [SerializeField]
+    [NamedArrayAttribute(new string[] {
+        "Loading..."         ,
+        "Common Squirrel"    ,
+        "Fine Stoat"         ,
+        "Silver Fox"         ,
+        "Golden Hare"        ,
+        "Guardian Bear"      ,
+        "Ruby Swan"          ,
+        "Diamond Ringed Seal",
+        "Legendary Lynx"     ,
+        "Divine Snowy Owl"   ,
+        "Mythical Moose",
+        "God Mode"})]
+    public Sprite[] levelPictures;
 
     public InputField profileName;
     public InputField profileDescription;

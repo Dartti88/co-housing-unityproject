@@ -39,20 +39,7 @@ public class LevelManager : MonoBehaviour
     private Text progress_text;
     public ProfileUIController UI_controller;
 
-    //[SerializeField]
-    //[NamedArrayAttribute(new string[] {
-    //    "Loading..."         ,
-    //    "Common Squirrel"    ,
-    //    "Fine Stoat"         ,
-    //    "Silver Fox"         ,
-    //    "Golden Hare"        ,
-    //    "Guardian Bear"      ,
-    //    "Ruby Swan"          ,
-    //    "Diamond Ringed Seal",
-    //    "Legendary Lynx"     ,
-    //    "Divine Snowy Owl"   ,
-    //    "Mythical Moose",
-    //    "God Mode"})]
+
 
     // Start is called before the first frame update
     void Start()
@@ -147,7 +134,7 @@ public class LevelManager : MonoBehaviour
             if (slider.GetComponent<RectTransform>().rect.width > 0)
             {
                 //slider.GetComponent<RectTransform>().rect.width;
-                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width - 1);
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width - 5);
             }
             else
             {
@@ -163,7 +150,7 @@ public class LevelManager : MonoBehaviour
         {
             if (slider.GetComponent<RectTransform>().rect.width < 200)
             {
-                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+1);
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+5);
             }
 
             progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
@@ -201,7 +188,7 @@ public class LevelManager : MonoBehaviour
         int old_level = arr_level[0];
         userProfile = profileHandler.userProfile;
         arr_level = GetProfileLevel();
-        new_sprite = UI_controller.profilePictures[arr_level[(int)level_data.level]].sprite;
+        new_sprite = UI_controller.levelPictures[arr_level[(int)level_data.level]];
 
         image.sprite = new_sprite;
         slider.value = userProfile.socialScore;

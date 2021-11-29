@@ -39,6 +39,21 @@ public class LevelManager : MonoBehaviour
     private Text progress_text;
     public ProfileUIController UI_controller;
 
+    //[SerializeField]
+    //[NamedArrayAttribute(new string[] {
+    //    "Loading..."         ,
+    //    "Common Squirrel"    ,
+    //    "Fine Stoat"         ,
+    //    "Silver Fox"         ,
+    //    "Golden Hare"        ,
+    //    "Guardian Bear"      ,
+    //    "Ruby Swan"          ,
+    //    "Diamond Ringed Seal",
+    //    "Legendary Lynx"     ,
+    //    "Divine Snowy Owl"   ,
+    //    "Mythical Moose",
+    //    "God Mode"})]
+
     // Start is called before the first frame update
     void Start()
     {

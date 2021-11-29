@@ -1919,6 +1919,7 @@ MonoBehaviour:
   profile_list:
     profiles: []
   profileHandler: {fileID: 1508620588}
+  pHandler: {fileID: 0}
   isLoggedIn: 0
 --- !u!4 &1435179697
 Transform:
@@ -2657,7 +2658,7 @@ MonoBehaviour:
   input_userName: {fileID: 1204099381}
   input_password: {fileID: 61305848}
   input_passwordAgain: {fileID: 745453073}
-  clearPrefs: 1
+  clearPrefs: 0
 --- !u!1 &2019051763
 GameObject:
   m_ObjectHideFlags: 0

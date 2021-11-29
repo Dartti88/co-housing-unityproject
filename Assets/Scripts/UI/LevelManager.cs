@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     public ProfileHandler profileHandler;
     private Profile userProfile = null;
     public int[] level = { 0, 0 };
-    public Sprite[] sprites;
+    //public Sprite[] sprites;
     private Sprite new_sprite;
     float timer = 0;
     private string[] level_texts =
@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
     private Slider slider;
     private Text level_text;
     private Text progress_text;
+    public ProfileUIController UI_controller;
 
     // Start is called before the first frame update
     void Start()
@@ -157,16 +158,18 @@ public class LevelManager : MonoBehaviour
     {
         userProfile = profileHandler.userProfile;
         level = userProfile.GetProfileLevel();
-        new_sprite = sprites[level[(int)level_data.level]];
+        new_sprite = UI_controller.profilePictures[level[(int)level_data.level]].sprite;
 
         image.sprite = new_sprite;
         slider.value = userProfile.socialScore;
-        slider.minValue = 0;
+        slider.minValue = (level[(int)level_data.level] <= 1) ? 0 : level[(int)level_data.next_level]/2;
         slider.maxValue = level[(int)level_data.next_level];
         slider.gameObject.SetActive(!slider.gameObject.activeSelf);
         progress_text.text = userProfile.socialScore.ToString() + "/" + level[(int)level_data.next_level].ToString();
         level_text.text = level_texts[level[(int)level_data.level]];
         timer = 7;
+
+        //Debug.Log(userProfile.socialScore.ToString());
         /*
         foreach (Transform child in transform)
         {

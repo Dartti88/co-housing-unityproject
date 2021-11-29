@@ -92,7 +92,7 @@ public class PlayerController : Singleton<PlayerController>
 
             AnimatorStateInfo animState = animator.GetCurrentAnimatorStateInfo(0);
             float currentTime = animState.normalizedTime % 1;
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
             if (currentTime <= 0.1f && currentSpeed <= 0.1f)
             {
                 animator.speed = 0;

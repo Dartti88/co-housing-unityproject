@@ -54,6 +54,7 @@ public class ClickableObject : MonoBehaviour
     // another object is clicked or this unselected for some other reason
     public void Unselect()
     {
+        if (itemGameObject != null) itemGameObject.UnchooseItem();
         ToggleGroupOutline(false);
     }
 

@@ -40,7 +40,7 @@ public class ProfileUIController : MonoBehaviour
 
     public void Start()
     {
-        info.SetActive(false);
+        pHandler = FindObjectOfType<ProfileHandler>();
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
@@ -51,6 +51,7 @@ public class ProfileUIController : MonoBehaviour
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
 
+        LoadOnLogin();
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel

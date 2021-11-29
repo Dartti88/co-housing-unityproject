@@ -77,7 +77,7 @@ public class Client : MonoBehaviour
     public static Client Instance { get; private set; }
 
     // This is used for the "pseudo-real time communications hacking" thing
-    private RealTimeController realTimeController;
+    //private RealTimeController realTimeController;
 
     [Serializable]
     public class ProfilesContainer
@@ -85,6 +85,7 @@ public class Client : MonoBehaviour
         public Profile[] profiles;
     }
 
+    
     public ProfilesContainer profile_list = new ProfilesContainer();
 
     public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
@@ -92,9 +93,6 @@ public class Client : MonoBehaviour
     public Dictionary<int, Task> createdTasks_list =    new Dictionary<int, Task>();
 
     // Prefab for all the other players except for the local player (Need this to spawn other players)
-    public GameObject networkPlayerPrefab;
-    
-    public GameObject localPlayerObj;
     public GameObject profileHandler;
 
     public bool isLoggedIn = false;
@@ -104,7 +102,6 @@ public class Client : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            realTimeController = new RealTimeController(localPlayerObj, profileHandler);
             DontDestroyOnLoad(Instance);
         }
         else
@@ -159,30 +156,10 @@ public class Client : MonoBehaviour
         newTestTask3.expirationDate = "2025-09-12";
         */
     }
-
-    bool triggerSpawning = true;
     // Update is called once per frame
     void Update()
     {
-        if (isLoggedIn)
-        {
-            // Spawn all other players
-            // *Has to wait until all profiles has been loaded from the server..
-            // *Maybe a bit dangerous atm.. 
-            if (triggerSpawning && profile_list.profiles.Length > 0)
-            {
-                realTimeController.BeginSpawnOtherPlayers();
-                triggerSpawning = false;
-            }
-            else
-            {
-                // Update all destinations/movements
 
-                // These both happen at certain intervals, NOT CONSTANT UPDATING!
-                realTimeController.UpdateCharacterDestinations();
-                //realTimeController.SendCharacterDestination();
-            }
-        }
     }
     
     public string GetDisplayNameById(int id)
@@ -195,6 +172,11 @@ public class Client : MonoBehaviour
                 }
             }
         return null;
+    }
+
+    public int GetIDByDisplayName(string displayName)
+    {
+        return Array.Find(profile_list.profiles, e => e.displayName == displayName).profileID;
     }
 
     void Test(string a)
@@ -300,8 +282,8 @@ public class Client : MonoBehaviour
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
         form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetID.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_cost", "\"" + task.cost.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_quantity", "\"" + task.quantity.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_cost", task.cost.ToString())); // If adding "\"" -> we actually get double double quotes in php.. like: ""key_name""
+        form.Add(new MultipartFormDataSection("key_quantity", task.quantity.ToString()));
         form.Add(new MultipartFormDataSection("key_uniqueQuantity", "\"" + task.uniqueQuantity.ToString() + "\""));
 
         // NOTE*: Make the date be in sql format (YYYY-MM-DD)
@@ -382,7 +364,11 @@ public class Client : MonoBehaviour
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SubmitChatMessage, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
     }
-
+    public void BeginRequest_GetChatMessages(System.Action<string> onCompletionCallback)
+    {
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetChatMessages, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetChatMessages));
+    }
 
     // ALL INTERNAL FUNCS ->
 
@@ -461,7 +447,7 @@ public class Client : MonoBehaviour
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)");
+        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
     void Internal_OnCompletion_RemovedTaskComplete(UnityWebRequest req)
     {
@@ -480,21 +466,17 @@ public class Client : MonoBehaviour
     // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
     void Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)
     {
-        string json = "{\"destinations\": " + req.downloadHandler.text + "}";
-        try
-        {
-            realTimeController.destinationsContainer = JsonUtility.FromJson<CharacterDestinationsContainer>(json);
-        }
-        catch (Exception e)
-        {
-            realTimeController.destinationsContainer = new CharacterDestinationsContainer(); // init to empty list if not found
-            Debug.Log("No available character destinations found!");
-        }
         Debug.Log("Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)");
     }
     void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF
+    void Internal_OnCompletion_GetChatMessages(UnityWebRequest req)
+    {
+        //Debug.Log("Internal_OnCompletion_GetChatMessages(UnityWebRequest req)");
     }
 
     // COMMON ->

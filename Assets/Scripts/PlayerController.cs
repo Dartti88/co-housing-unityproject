@@ -18,9 +18,12 @@ public class PlayerController : Singleton<PlayerController>
     private bool walking = false;
 
     // character animator
-    private Animator animator;
+    public Animator animator;
 
     private Vector3 initialPosition;
+
+    private Vector3 previousPosition;
+    public float currentSpeed;
 
     // run once when scene is loaded
     void Start()
@@ -29,6 +32,7 @@ public class PlayerController : Singleton<PlayerController>
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         activeAvatar = avatars[0];
+        animator.logWarnings = false;
     }    
 
     // reset player position to starting position
@@ -78,6 +82,28 @@ public class PlayerController : Singleton<PlayerController>
     // run every frame of the game
     private void Update()
     {
+
+        //Animation speed slowing
+        if(!animator.GetBool("always move"))
+        {
+            Vector3 curMove = transform.position - previousPosition;
+            currentSpeed = curMove.magnitude / Time.deltaTime;
+            previousPosition = transform.position;
+
+            AnimatorStateInfo animState = animator.GetCurrentAnimatorStateInfo(0);
+            float currentTime = animState.normalizedTime % 1;
+            Debug.Log(currentTime);
+            if (currentTime <= 0.1f && currentSpeed <= 0.1f)
+            {
+                animator.speed = 0;
+            }
+            else
+            {
+                animator.speed = 1;//Mathf.Clamp(currentSpeed, 0.5f, 1);
+            }
+        }
+
+
         if (agent.remainingDistance < 0.1f && walking)
         {
             //animator.SetBool("walking", false);
@@ -87,6 +113,8 @@ public class PlayerController : Singleton<PlayerController>
         {
             //animator.SetBool("walking", true);
             walking = true;
+           
+
         }
     }
 }

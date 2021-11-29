@@ -127,8 +127,6 @@ public class LevelManager : MonoBehaviour
         }
         else if (timer<=0)
         {
-           
-
             if (slider.GetComponent<RectTransform>().rect.width > 0)
             {
                 //slider.GetComponent<RectTransform>().rect.width;
@@ -143,7 +141,6 @@ public class LevelManager : MonoBehaviour
             {
                 progress_text.text = "";
             }
-            
         }
         else
         {

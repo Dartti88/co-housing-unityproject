@@ -71,14 +71,6 @@ public class CalendarController : MonoBehaviour
             calendarElement.dayName.text = "";
             calendarElement.date.text = datesShownList[i];
 
-            //foreach (Booking booking in bookingsListPerRoom)
-            //{
-            //    if (datesShownList[i] == booking.date)
-            //    {
-
-            //    }
-            //}
-
             // Add booking times
             AddTimeButtons(roomPanel);
             calendarElement.scrollContent.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 750.0f, 0);
@@ -102,7 +94,7 @@ public class CalendarController : MonoBehaviour
             newTimeButton.transform.SetParent(elementScript.scrollContent.transform, false);
             newTimeButton.transform.GetChild(0).GetComponent<Text>().text = i.ToString() + ":00";
 
-            //if (bookedList[i]) { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = "Booked"; }
+            //if (bookingHelperList[i]._boolBooked) { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = "Booked"; }
             //else { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = ""; }
 
             int startTime = i;
@@ -114,6 +106,7 @@ public class CalendarController : MonoBehaviour
                     startTime.ToString() + ":00 - " + endTime.ToString() + ":00",
                     "2021-1-3",
                     roomsList[selectedRoom].creditPerHour,
+                    roomsList[selectedRoom].size,
                     "-",
                     selectedRoom)); 
             });
@@ -240,6 +233,7 @@ public class CalendarController : MonoBehaviour
         bw.bookingTime.text = bwContainer.bookingTime;
         bw.bookingDate.text = bwContainer.bookingDate;
         bw.bookingCost.text = bwContainer.bookingCost.ToString() + " credits";
+        bw.roomSize.text = bwContainer.roomSize.ToString() + "m²";
         bw.bookerName.text = bwContainer.bookerName;
         bw.roomImage.sprite = roomsList[bwContainer.pictureID].roomPicture;
     }
@@ -321,15 +315,17 @@ public class BWContainer
     public string bookingTime;
     public string bookingDate;
     public float bookingCost;
+    public float roomSize;
     public string bookerName;
     public int pictureID;
 
-    public BWContainer (string roomname, string booktime, string bookdate, float bookingcost, string bookername, int picID)
+    public BWContainer (string roomname, string booktime, string bookdate, float bookingcost, float roomsize, string bookername, int picID)
     {
         roomName = roomname;
         bookingTime = booktime;
         bookingDate = bookdate;
         bookingCost = bookingcost;
+        roomSize = roomsize;
         bookerName = bookername;
         pictureID = picID;
     }

@@ -28,7 +28,8 @@ public class ProfileUIController : MonoBehaviour
         "Diamond Ringed Seal",
         "Legendary Lynx"     ,
         "Divine Snowy Owl"   ,
-        "Mythical Moose" })]
+        "Mythical Moose",
+        "God Mode"})]
     public Image[] profilePictures;
 
     public InputField profileName;

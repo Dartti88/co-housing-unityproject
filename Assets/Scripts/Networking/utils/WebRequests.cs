@@ -11,6 +11,7 @@ public class WebRequests
     public const string URL_POST_CreateNewProfile = "https://gcdata.000webhostapp.com/AddNewProfileTEST.php";
     public const string URL_POST_ValidatePassword = "https://gcdata.000webhostapp.com/ValidatePassword.php";
     public const string URL_POST_UpdateProfile = "https://gcdata.000webhostapp.com/UpdateProfile.php";
+    public const string URL_POST_UpdateLocalProfileData = "https://gcdata.000webhostapp.com/GetProfileData.php";
 
     public const string URL_POST_CreateNewTask = "https://gcdata.000webhostapp.com/AddNewTask.php";
     public const string URL_POST_RemoveTask = "https://gcdata.000webhostapp.com/RemoveTask.php";
@@ -38,7 +39,7 @@ public class WebRequests
         return req;
     }
 
-    public static UnityWebRequest CreateWebRequest_POST_FORM(string url, List<IMultipartFormSection> form)
+    public static UnityWebRequest CreateWebRequest_POST_FORM(string url, List<IMultipartFormSection> form, string contentType = "text/plain")
     {
         UnityWebRequest req = UnityWebRequest.Post(url, form);
         /*req.SetRequestHeader("Content-Type", "multipart/form-data");

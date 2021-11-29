@@ -94,14 +94,19 @@ public class Client : MonoBehaviour
 
     // Prefab for all the other players except for the local player (Need this to spawn other players)
     public GameObject profileHandler;
+    public ProfileHandler pHandler;
 
     public bool isLoggedIn = false;
+
+    const string MESSAGE_ERROR_IDENTIFIER = "Error";
+    const char MESSAGE_CUSTOM_DATA_SEPARATOR = ';';
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            pHandler = profileHandler.GetComponent<ProfileHandler>();
             DontDestroyOnLoad(Instance);
         }
         else
@@ -159,7 +164,10 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            BeginRequest_UpdateLocalProfileData(null);
+        }
     }
     
     public string GetDisplayNameById(int id)
@@ -244,6 +252,17 @@ public class Client : MonoBehaviour
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfile, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileComplete));
+    }
+
+    // Updates currently logged in user's data from server (gets social score(xp), credits, etc to match values from server)
+    // *NOTE! Unlike most of the other "BeginRequests" here, this returns the data from server as plain text, formatted as following(';' as entry separator):
+    //      "credits(float);socialScore(float)"
+    public void BeginRequest_UpdateLocalProfileData(System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", pHandler.userProfile.profileID.ToString()));
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateLocalProfileData, form, "text/plain");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateLocalProfileDataComplete));
     }
 
     // PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF
@@ -398,6 +417,31 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    void Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)
+    {
+        string response = req.downloadHandler.text;
+        // Check, if error..
+        if (response.Contains(MESSAGE_ERROR_IDENTIFIER))
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)\n" + response);
+        }
+        else // If no error..
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)");
+            string[] data = response.Split(MESSAGE_CUSTOM_DATA_SEPARATOR);
+            if (data.Length >= 2)
+            {
+                pHandler.userProfile.credits = float.Parse(data[0]);
+                pHandler.userProfile.socialScore = float.Parse(data[1]);
+            }
+            else
+            {
+                Debug.Log("     ERROR >> invalid data length! Response from server was: " + response);
+            }
+        }
+
     }
 
     // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF

@@ -93,6 +93,7 @@ public class CalendarController : MonoBehaviour
             GameObject newTimeButton = Instantiate(buttonTimePrefab, buttonTimePrefab.transform.position, buttonTimePrefab.transform.rotation);
             newTimeButton.transform.SetParent(elementScript.scrollContent.transform, false);
             newTimeButton.transform.GetChild(0).GetComponent<Text>().text = i.ToString() + ":00";
+            BookingElement bookingElement = newTimeButton.AddComponent<BookingElement>();
 
             //if (bookingHelperList[i]._boolBooked) { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = "Booked"; }
             //else { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = ""; }
@@ -240,6 +241,7 @@ public class CalendarController : MonoBehaviour
 
     private void BookRoom()
     {
+        // huoneen nimi, p‰iv‰m‰‰r‰, tunti
         Debug.Log("Room booked: " + selectedRoom + ", " + roomsList[selectedRoom].roomName);
     }
 

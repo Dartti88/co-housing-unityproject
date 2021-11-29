@@ -142,9 +142,8 @@ public class Taskmanager : MonoBehaviour
                 task.points,
                 quantity,
                 task.expirationDate,
-                0);
+                Array.Find(Client.Instance.profile_list.profiles, e => e.profileID == task.creatorID).avatarID);
                 
-
         }
         LoadingOverlay();
     }

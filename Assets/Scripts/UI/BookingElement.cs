@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BookingElement : MonoBehaviour
 {
-    public int bookingTime;
-    public int roomID;
-
-    public string bookerName;
     public string roomName;
+    public string bookingTime;
+    public string bookingDate;
+    public float bookingCost;
+    public float roomSize;
+    public string bookerName;
+    public int pictureID;
 }

@@ -1836,6 +1836,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
+      propertyPath: taskboard
+      value: 
+      objectReference: {fileID: 1058432670}
+    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
+        type: 3}
       propertyPath: level_manager
       value: 
       objectReference: {fileID: 1542342394}
@@ -3076,6 +3081,7 @@ MonoBehaviour:
   profile_list:
     profiles: []
   profileHandler: {fileID: 544111369}
+  pHandler: {fileID: 0}
   isLoggedIn: 0
 --- !u!4 &334296272
 Transform:
@@ -9419,6 +9425,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013275363}
   m_CullTransparentMesh: 1
+--- !u!1 &1058432668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6378964868490528647, guid: 001f75989d6bf744c9f55ea756d88b8e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1988073230745014930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1058432670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058432668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 0
+  groupName: 
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
 --- !u!1 &1058530034
 GameObject:
   m_ObjectHideFlags: 0
@@ -13364,7 +13393,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1364024999}
         m_TargetAssemblyTypeName: ProfileUIController, Assembly-CSharp
-        m_MethodName: AddTask
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14868,19 +14897,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profileHandler: {fileID: 544111370}
-  level: 
-  sprites:
-  - {fileID: 21300000, guid: 13a08aa89ce051243ae76caae0eafc01, type: 3}
-  - {fileID: 21300000, guid: 13a08aa89ce051243ae76caae0eafc01, type: 3}
-  - {fileID: 21300000, guid: 6cedf78eec5baf445822ab41c980abac, type: 3}
-  - {fileID: 21300000, guid: fd03ab725123c5149b81e073af2cba54, type: 3}
-  - {fileID: 21300000, guid: 32b0758a4c9cb4a4794a0b52c28d486f, type: 3}
-  - {fileID: 21300000, guid: 58195a86fdb804941bee3d6fcaede441, type: 3}
-  - {fileID: 21300000, guid: b18587aaaced982489e9e19fe0b63cc9, type: 3}
-  - {fileID: 21300000, guid: fab648265b1447d479c1d1a869cd9aa3, type: 3}
-  - {fileID: 21300000, guid: 665be96545cc8774394fd799c0e249f0, type: 3}
-  - {fileID: 21300000, guid: f980d29e3e66b4e419a02f8ecf03218b, type: 3}
-  - {fileID: 21300000, guid: 7d14fa6956a37c0469b746fff4ee5918, type: 3}
+  arr_level: 0100000064000000
+  UI_controller: {fileID: 1364024999}
 --- !u!1 &1544656735
 GameObject:
   m_ObjectHideFlags: 0

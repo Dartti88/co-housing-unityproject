@@ -13,8 +13,9 @@ public class LevelManager : MonoBehaviour
 {
     public ProfileHandler profileHandler;
     private Profile userProfile = null;
-    public int[] level = { 0, 0 };
-    public Sprite[] sprites;
+    public int[] arr_level = { 1, 100 };
+    
+    //public Sprite[] sprites;
     private Sprite new_sprite;
     float timer = 0;
     private string[] level_texts =
@@ -36,6 +37,22 @@ public class LevelManager : MonoBehaviour
     private Slider slider;
     private Text level_text;
     private Text progress_text;
+    public ProfileUIController UI_controller;
+
+    //[SerializeField]
+    //[NamedArrayAttribute(new string[] {
+    //    "Loading..."         ,
+    //    "Common Squirrel"    ,
+    //    "Fine Stoat"         ,
+    //    "Silver Fox"         ,
+    //    "Golden Hare"        ,
+    //    "Guardian Bear"      ,
+    //    "Ruby Swan"          ,
+    //    "Diamond Ringed Seal",
+    //    "Legendary Lynx"     ,
+    //    "Divine Snowy Owl"   ,
+    //    "Mythical Moose",
+    //    "God Mode"})]
 
     // Start is called before the first frame update
     void Start()
@@ -148,25 +165,59 @@ public class LevelManager : MonoBehaviour
             {
                 slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+1);
             }
+
+            progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+
             timer -= Time.deltaTime;
         }
             
     }
 
+    public int[] GetProfileLevel()
+    {
+        int level = 1;
+        int i = 100;
+        while (i <= userProfile.socialScore)
+        {
+            level++;
+            i *= 2;
+        }
+        int[] array_return = { level, i };
+        Debug.Log("Level: " + level + "- Scores: " + userProfile.socialScore);
+        return array_return;
+    }
+
+    //public void AddSocialPoints(int amount)
+    //{
+    //    int current_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
+    //    profileHandler.userProfile.socialScore += amount;
+    //    int new_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
+    //
+    //    level_manager.UpdateLevels();
+    //}
+
     public void UpdateLevels()
     {
+        int old_level = arr_level[0];
         userProfile = profileHandler.userProfile;
-        level = userProfile.GetProfileLevel();
-        new_sprite = sprites[level[(int)level_data.level]];
+        arr_level = GetProfileLevel();
+        new_sprite = UI_controller.profilePictures[arr_level[(int)level_data.level]].sprite;
 
         image.sprite = new_sprite;
         slider.value = userProfile.socialScore;
-        slider.minValue = 0;
-        slider.maxValue = level[(int)level_data.next_level];
+        slider.minValue = (arr_level[(int)level_data.level] <= 1) ? 0 : arr_level[(int)level_data.next_level]/2;
+        slider.maxValue = arr_level[(int)level_data.next_level];
         slider.gameObject.SetActive(!slider.gameObject.activeSelf);
-        progress_text.text = userProfile.socialScore.ToString() + "/" + level[(int)level_data.next_level].ToString();
-        level_text.text = level_texts[level[(int)level_data.level]];
+        progress_text.text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+        level_text.text = level_texts[arr_level[(int)level_data.level]];
         timer = 7;
+
+        if (arr_level[(int)level_data.level] > old_level)
+        {
+            //ToDo - Trigger levelup event
+        }
+
+        //Debug.Log(userProfile.socialScore.ToString());
         /*
         foreach (Transform child in transform)
         {

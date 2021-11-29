@@ -63,21 +63,6 @@ public class Profile
         //Send profile changes to server
     }
 
-    public int[] GetProfileLevel()
-    {
-        int level = 1;
-        int i = 100;
-        while (i <= socialScore)
-        {
-            level++;
-            i *= 2;
-        }
-        int[] array_return = { level, i };
-        Debug.Log("Level: " + level + "- Scores: " + socialScore);
-        return array_return;
-    }
-
-
     public enum ProfileType
     {
         Silent,

@@ -237,20 +237,6 @@ public class Taskmanager : MonoBehaviour
         Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
 
-    public void AddSocialPoints(int amount)
-    {   
-        int current_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
-        profileHandler.userProfile.socialScore += amount;
-        int new_level = profileHandler.userProfile.GetProfileLevel()[(int)level_data.level];
-
-        level_manager.UpdateLevels();
-
-        if (new_level > current_level)
-        {
-            //ToDo - Trigger levelup event
-        }
-    }
-    
     public void AcceptTask(int taskId, int profileId)
     {
         Task acceptedTask = taskList[taskId];
@@ -298,7 +284,8 @@ public class Taskmanager : MonoBehaviour
     public void CompleteTask(int taskId, int profileId)
     {
         Client.Instance.BeginRequest_CompleteTask(profileId, taskId, LoadTasks);
-        AddSocialPoints((int)Mathf.Ceil(taskList[taskId].points/* / acceptedTask.max_quanity*/));
+        level_manager.UpdateLevels();
+        //AddSocialPoints((int)Mathf.Ceil(taskList[taskId].points/* / acceptedTask.max_quanity*/));
     }
 
 

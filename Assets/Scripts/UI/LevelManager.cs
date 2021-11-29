@@ -151,10 +151,8 @@ public class LevelManager : MonoBehaviour
                 slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+1);
             }
 
-            //if (slider.GetComponent<RectTransform>().rect.width < 75)
-            {
-                progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : progress_text.text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
-            }
+            progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+
             timer -= Time.deltaTime;
         }
             

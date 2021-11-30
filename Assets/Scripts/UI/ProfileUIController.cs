@@ -77,8 +77,6 @@ public class ProfileUIController : MonoBehaviour
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
-        taskCanvas.gameObject.SetActive(false);
-        addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
 

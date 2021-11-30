@@ -11,11 +11,13 @@ public class DateHelper
     // Default constructor, uses current day to initialize
     public DateHelper()
     {
-        //DateTime birthDate = DateTime.Now.Date;
+        DateTime defaultDate = DateTime.Now.Date;
 
-        //var year = birthDate.Year;
-        //var month = birthDate.Month;
-        //var day = birthDate.Day;
+        _year = defaultDate.Year;
+        _month = defaultDate.Month;
+        _day = defaultDate.Day;
+
+        _originalDateString = GetDateString();
     }
 
     // dateString muodossa yyyy-mm-dd
@@ -50,6 +52,35 @@ public class DateHelper
     public string GetDateString()
     {
         return _year.ToString() + "-" + _month.ToString() + "-" + _day.ToString();
+    }
+
+
+    public string GetSeasonName()
+    {
+        string seasonName = "";
+
+        // 1.3. - 31.5. (maalis - touko)
+        if (_month >= 3 && _month < 6)
+        {
+            seasonName = "spring";
+        }
+        // 1.6. - 31.8. (kesä - elo)
+        else if (_month >= 6 && _month < 9)
+        {
+            seasonName = "summer";
+        }
+        // 1.9. - 30.11 (syys - marras)
+        else if (_month >= 9 && _month < 12)
+        {
+            seasonName = "autumn";
+        }
+        // 1.12. - 28.2. (joulu - helmi)
+        else if (_month >= 12 && _month < 3)
+        {
+            seasonName = "winter";
+        }
+
+        return seasonName;
     }
 
     public string GetOriginalDateString()

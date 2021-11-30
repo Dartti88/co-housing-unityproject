@@ -33,6 +33,8 @@ public class CalendarController : MonoBehaviour
 
     private List<string> datesShownList = new List<string>();
 
+    private Booking currentBooker;
+
     private void Start()
     {
         roomsList = roomsInfo.GetComponentsInChildren<RoomInfo>();
@@ -248,10 +250,16 @@ public class CalendarController : MonoBehaviour
     // Opens the screen to make or view a booking
     private void OpenBookingWindow(BookingElement booking)
     {
-        bookingWindow.SetActive(true);
-
         // TEST USER
         string currentUser = "JJ";
+
+        currentBooker = new Booking(
+            booking.bookingInfo._startingTime,
+            booking.bookingInfo._date,
+            currentUser,
+            booking.bookingInfo._roomID);
+
+        bookingWindow.SetActive(true);
 
         if (booking.booked)
         {
@@ -291,17 +299,26 @@ public class CalendarController : MonoBehaviour
 
     private void BookRoom()
     {
-        // huoneen nimi, p‰iv‰m‰‰r‰, tunti
+        // Aika, p‰iv‰m‰‰r‰, varaajan nimi, huoneen ID
+        bookingsListPerRoom.Add(new Booking(currentBooker._startingTime, currentBooker._date, currentBooker._bookerName, currentBooker._roomID));
+
         Debug.Log("Room booked: " + selectedRoom + ", " + roomsList[selectedRoom].roomName);
+        ShowBookings();
+        bookingWindow.SetActive(false);
     }
 
     private void CancelBooking()
     {
+        // Tehd‰‰n serverin kautta
+
         Debug.Log("Room booking canceled");
+        ShowBookings();
+        bookingWindow.SetActive(false);
     }
 
     private void CloseBooking()
     {
+        ShowBookings();
         bookingWindow.SetActive(false);
     }
 
@@ -329,8 +346,8 @@ public class CalendarController : MonoBehaviour
     {
         for (int i = 0; i < panelAmount; i++)
         {
-            int x = 10 + i;
-            datesShownList.Add("2022-12-" + x.ToString());
+            int x = 23 + i;
+            datesShownList.Add("2021-11-" + x.ToString());
         }
     }
 
@@ -338,16 +355,16 @@ public class CalendarController : MonoBehaviour
     {
         bookingsListPerRoom.Clear();
 
-        bookingsListPerRoom.Add(new Booking(9, "2022-12-10", "JJ", 0));
-        bookingsListPerRoom.Add(new Booking(12, "2022-12-11", "Jds", 0));
-        bookingsListPerRoom.Add(new Booking(11, "2022-12-10", "Jrw", 1));
-        bookingsListPerRoom.Add(new Booking(4, "2022-12-12", "Jn", 2));
-        bookingsListPerRoom.Add(new Booking(22, "2022-12-13", "Jhgj", 0));
-        bookingsListPerRoom.Add(new Booking(10, "2022-12-10", "JJ", 1));
-        bookingsListPerRoom.Add(new Booking(14, "2022-12-11", "Jds", 2));
-        bookingsListPerRoom.Add(new Booking(15, "2022-12-10", "Jrw", 0));
-        bookingsListPerRoom.Add(new Booking(7, "2022-12-12", "Jn", 0));
-        bookingsListPerRoom.Add(new Booking(13, "2022-12-13", "Jhgj", 3));
+        bookingsListPerRoom.Add(new Booking(9, "2021-11-23", "JJ", 0));
+        bookingsListPerRoom.Add(new Booking(12, "2021-11-24", "Jds", 0));
+        bookingsListPerRoom.Add(new Booking(11, "2021-11-25", "Jrw", 1));
+        bookingsListPerRoom.Add(new Booking(4, "2021-11-23", "Jn", 2));
+        bookingsListPerRoom.Add(new Booking(22, "2021-11-23", "Jhgj", 0));
+        bookingsListPerRoom.Add(new Booking(10, "2021-11-24", "JJ", 1));
+        bookingsListPerRoom.Add(new Booking(14, "2021-11-24", "Jds", 2));
+        bookingsListPerRoom.Add(new Booking(15, "2021-11-25", "Jrw", 0));
+        bookingsListPerRoom.Add(new Booking(7, "2021-11-23", "Jn", 0));
+        bookingsListPerRoom.Add(new Booking(13, "2021-11-24", "Jhgj", 3));
     }
 
 }

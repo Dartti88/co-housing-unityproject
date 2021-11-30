@@ -6,12 +6,12 @@ public class DateHelper
     public int _month;
     public int _year;
 
-    public string _dateString;
+    private string _originalDateString;
 
     // dateString muodossa yyyy-mm-dd
     public DateHelper (string dateString)
     {
-        _dateString = dateString;
+        _originalDateString = dateString;
         string[] bits = dateString.Split('-');
         _year = Int32.Parse(bits[0]);
         _month = Int32.Parse(bits[1]);
@@ -27,13 +27,24 @@ public class DateHelper
     // Day name in English
     public string GetDayName()
     {
-        return DateTime.Parse(_dateString).DayOfWeek.ToString();
+        return DateTime.Parse(GetDateString()).DayOfWeek.ToString();
     }
 
     // Short day name
     public string GetShortDayName()
     {
         return GetDayName().Substring(0, 3).ToUpper();
+    }
+
+    // Palauttaa muodossa yyyy-mm-dd
+    public string GetDateString()
+    {
+        return _year.ToString() + "-" + _month.ToString() + "-" + _day.ToString();
+    }
+
+    public string GetOriginalDateString()
+    {
+        return _originalDateString;
     }
 
     public string GetFullMonthName()

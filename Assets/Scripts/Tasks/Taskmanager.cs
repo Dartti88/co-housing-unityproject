@@ -12,6 +12,7 @@ public class Taskmanager : MonoBehaviour
     public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
     public int chosenTaskList;
+    [SerializeField]
     bool firstUpdateDone = false;
     public GameObject taskContainer;
     public GameObject loadingOverlay;

@@ -179,7 +179,7 @@ public class ProfileUIController : MonoBehaviour
         profilePics.gameObject.SetActive(true);
     }
 
-    public void OpenTaskCreationCanvas()
+    /*public void OpenTaskCreationCanvas()
     {
         taskCanvas.gameObject.SetActive(true);
     }
@@ -192,7 +192,7 @@ public class ProfileUIController : MonoBehaviour
     {
         taskCanvas.gameObject.SetActive(false);
     }
-
+    */
     private void AvatarButtonOnClick(int i)
     {
         playerController.ChangePlayerAvatar(i);

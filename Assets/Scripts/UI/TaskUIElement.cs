@@ -21,6 +21,8 @@ public class TaskUIElement : MonoBehaviour
     public Text taskQuantityText;
     public Text taskButtonText;
 
+    public Image taskAvatarPicture;
+
     public Image taskTitleImage;
     public Image taskBackgroundImage;
     public Image taskDescImage;
@@ -33,6 +35,7 @@ public class TaskUIElement : MonoBehaviour
 
     public Button taskAcceptButton;
 
+    public List<Sprite> avatarList = new List<Sprite>();
     public List<ColorSchemer> colorList = new List<ColorSchemer>();
 
     /// <summary>
@@ -54,28 +57,7 @@ public class TaskUIElement : MonoBehaviour
         // Turquoise
         colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
 
-
-        /* OLD COLORS
-        // Green (default)
-        colorList.Add(new ColorSchemer(new Color32(116, 204, 74, 255), new Color32(92, 180, 50, 255), new Color32(76, 156, 39, 255), new Color32(31, 115, 0, 255)));
-        // Red
-        colorList.Add(new ColorSchemer(new Color32(219, 79, 75, 255), new Color32(180, 55, 50, 255), new Color32(156, 39, 42, 255), new Color32(149, 19, 16, 255)));
-        // Blue
-        colorList.Add(new ColorSchemer(new Color32(90, 168, 204, 255), new Color32(50, 148, 180, 255), new Color32(39, 114, 156, 255), new Color32(15, 84, 135, 255)));
-        // Purple
-        colorList.Add(new ColorSchemer(new Color32(184, 110, 236, 255), new Color32(157, 72, 192, 255), new Color32(140, 47, 180, 255), new Color32(101, 26, 140, 255)));
-        // Yellow
-        colorList.Add(new ColorSchemer(new Color32(255, 200, 54, 255), new Color32(229, 175, 10, 255), new Color32(212, 154, 0, 255), new Color32(188, 129, 17, 255)));
-        // Orange
-        colorList.Add(new ColorSchemer(new Color32(238, 154, 39, 255), new Color32(209, 122, 31, 255), new Color32(192, 96, 26, 255), new Color32(166, 75, 12, 255)));
-        // Turquoise
-        colorList.Add(new ColorSchemer(new Color32(74, 204, 188, 255), new Color32(50, 180, 165, 255), new Color32(39, 156, 148, 255), new Color32(0, 115, 109, 255)));
-        // Pink
-        colorList.Add(new ColorSchemer(new Color32(217, 103, 157, 255), new Color32(192, 74, 137, 255), new Color32(176, 46, 119, 255), new Color32(135, 22, 86, 255)));
-        */
-
-        // TESTI: Random v‰riteema taskille, voi ottaa pois k‰ytˆst‰
-        // Jos haluaa j‰tt‰‰ lopulliseen, t‰ytyisi v‰riteema ehk‰ l‰hett‰‰ serverille, jotta se on aina sama per task?
+        // TESTI: Random v√§riteema taskille, voi ottaa pois k√§yt√∂st√§
         RandomizeColor(Random.Range(0, colorList.Count));
     }
 
@@ -91,15 +73,16 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="points">Social points reward</param>
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
-    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int creatorID=0)
-    {
-        // Parametrein‰ annetaan vain ne tiedot, mitk‰ n‰kyv‰t UI:ssa + ID (jos sit‰ tarvitaan)
-        // Taskia hyv‰ksyess‰ (TaskOnClick()) tehd‰‰n erilaiset tarkistukset serverin kanssa
 
-        // PUUTTUU: Osa tarvittavista tiedoista t‰ytyy antaa eri muodossa parametrein‰
-        //          (esim. taskin tekij‰n nimi tulee profiilista? ja date on nyt vain string testin‰)
-        //          Tarvittaessa t‰ytyy lis‰t‰ muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
-        //          Ei viel‰ tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int creatorID=0, int avatarID)
+    {
+        // Parametrein√§ annetaan vain ne tiedot, mitk√§ n√§kyv√§t UI:ssa + ID (jos sit√§ tarvitaan)
+        // Taskia hyv√§ksyess√§ (TaskOnClick()) tehd√§√§n erilaiset tarkistukset serverin kanssa
+
+        // PUUTTUU: Osa tarvittavista tiedoista t√§ytyy antaa eri muodossa parametrein√§
+        //          (esim. taskin tekij√§n nimi tulee profiilista? ja date on nyt vain string testin√§)
+        //          Tarvittaessa t√§ytyy lis√§t√§ muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
+        //          Ei viel√§ tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
         if(expiryDate.Equals("0000-00-00"))
         {
             expiryDate = "Never";
@@ -112,10 +95,11 @@ public class TaskUIElement : MonoBehaviour
         taskTitleText.text = title;
         taskExpiryText.text = "Expires on\n" + expiryDate;
         taskDescriptionText.text = desc;
-        taskRewardText.text = reward.ToString(); // t‰ytyy ehk‰ pyˆrist‰‰
-        taskPointsText.text = points.ToString(); // t‰ytyy ehk‰ pyˆrist‰‰
+        taskRewardText.text = reward.ToString(); // t√§ytyy ehk√§ py√∂rist√§√§
+        taskPointsText.text = points.ToString(); // t√§ytyy ehk√§ py√∂rist√§√§
         taskIssuerText.text = displayName;
         taskQuantityText.text = _taskQuantity.ToString();
+        taskAvatarPicture.sprite = avatarList[avatarID];
     }
 
     /// <summary>
@@ -150,12 +134,12 @@ public class TaskUIElement : MonoBehaviour
             
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
-        // T‰ytyy tarkistaa, ett‰ kukaan muu ei ole ottanut taskia samaan aikaan
-        // tai l‰hett‰‰ tieto serverille, ett‰ yksi task on otettu (jos useampi samasta on saatavilla)
-        // Lis‰ksi pit‰‰ tarkistaa, ettei task ole vanhentunut
-        // _taskId-muuttujaa voi k‰ytt‰‰ ehk‰ t‰ss‰ hyˆdyksi?
+        // T√§ytyy tarkistaa, ett√§ kukaan muu ei ole ottanut taskia samaan aikaan
+        // tai l√§hett√§√§ tieto serverille, ett√§ yksi task on otettu (jos useampi samasta on saatavilla)
+        // Lis√§ksi pit√§√§ tarkistaa, ettei task ole vanhentunut
+        // _taskId-muuttujaa voi k√§ytt√§√§ ehk√§ t√§ss√§ hy√∂dyksi?
 
-        // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alasp‰in ja task katoaa kun quantity = 0
+        // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alasp√§in ja task katoaa kun quantity = 0
         
     }
 

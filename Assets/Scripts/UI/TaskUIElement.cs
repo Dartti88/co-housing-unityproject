@@ -74,7 +74,7 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
 
-    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int creatorID=0, int avatarID)
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int avatarID, int creatorID = 0)
     {
         // Parametreinä annetaan vain ne tiedot, mitkä näkyvät UI:ssa + ID (jos sitä tarvitaan)
         // Taskia hyväksyessä (TaskOnClick()) tehdään erilaiset tarkistukset serverin kanssa

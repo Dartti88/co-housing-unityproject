@@ -68,8 +68,9 @@ public class CalendarController : MonoBehaviour
             CalendarElement calendarElement = roomPanel.GetComponent<CalendarElement>();
 
             // Display dates
-            calendarElement.dayName.text = "";
-            calendarElement.date.text = datesShownList[i];
+            DateHelper dh = new DateHelper(datesShownList[i]);
+            calendarElement.dayName.text = dh.GetShortDayName();
+            calendarElement.date.text = dh.GetNormalDateFormat();
 
             // Add booking times
             AddTimeButtons(roomPanel, datesShownList[i]);
@@ -249,14 +250,37 @@ public class CalendarController : MonoBehaviour
     {
         bookingWindow.SetActive(true);
 
+        // TEST USER
+        string currentUser = "JJ";
+
+        if (booking.booked)
+        {
+            if (booking.bookingInfo._bookerName == currentUser)
+            {
+                bwCancel.gameObject.SetActive(true);
+                bwBook.gameObject.SetActive(false);
+            } else
+            {
+                bwCancel.gameObject.SetActive(false);
+                bwBook.gameObject.SetActive(false);
+            }
+        } 
+        else
+        {
+            bwCancel.gameObject.SetActive(false);
+            bwBook.gameObject.SetActive(true);
+        }
+
         BookingWindow bw = bookingWindow.GetComponent<BookingWindow>();
 
         int startTime = booking.bookingInfo._startingTime;
         int endTime = startTime + 1;
 
+        DateHelper dh = new DateHelper(booking.bookingInfo._date);
+
         bw.roomName.text = roomsList[selectedRoom].roomName;
         bw.bookingTime.text = startTime.ToString() + ":00 - " + endTime.ToString() + ":00";
-        bw.bookingDate.text = booking.bookingInfo._date;
+        bw.bookingDate.text = dh.GetNormalDateFormat();
         bw.bookingCost.text = roomsList[selectedRoom].creditPerHour.ToString() + " credits";
         bw.roomSize.text = roomsList[selectedRoom].size.ToString() + "m²";
         bw.bookerName.text = booking.bookingInfo._bookerName;
@@ -319,6 +343,11 @@ public class CalendarController : MonoBehaviour
         bookingsListPerRoom.Add(new Booking(11, "2022-12-10", "Jrw", 1));
         bookingsListPerRoom.Add(new Booking(4, "2022-12-12", "Jn", 2));
         bookingsListPerRoom.Add(new Booking(22, "2022-12-13", "Jhgj", 0));
+        bookingsListPerRoom.Add(new Booking(10, "2022-12-10", "JJ", 1));
+        bookingsListPerRoom.Add(new Booking(14, "2022-12-11", "Jds", 2));
+        bookingsListPerRoom.Add(new Booking(15, "2022-12-10", "Jrw", 0));
+        bookingsListPerRoom.Add(new Booking(7, "2022-12-12", "Jn", 0));
+        bookingsListPerRoom.Add(new Booking(13, "2022-12-13", "Jhgj", 3));
     }
 
 }

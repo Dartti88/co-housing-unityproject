@@ -8,6 +8,16 @@ public class DateHelper
 
     private string _originalDateString;
 
+    // Default constructor, uses current day to initialize
+    public DateHelper()
+    {
+        //DateTime birthDate = DateTime.Now.Date;
+
+        //var year = birthDate.Year;
+        //var month = birthDate.Month;
+        //var day = birthDate.Day;
+    }
+
     // dateString muodossa yyyy-mm-dd
     public DateHelper (string dateString)
     {

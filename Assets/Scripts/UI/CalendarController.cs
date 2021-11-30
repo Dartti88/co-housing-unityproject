@@ -377,7 +377,6 @@ public class Booking
     public string _bookerName;
     public int _roomID;
 
-
     public Booking(int startTime, string date, string bookerName, int roomID)
     {
         _startingTime = startTime;

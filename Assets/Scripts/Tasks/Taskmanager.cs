@@ -47,6 +47,8 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> availableTasks_list;
     public Dictionary<int, Task> itemTasks_list;
 
+    public GameObject showTasksButton;
+
     // Start is called before the first frame update
     void Start()
     {

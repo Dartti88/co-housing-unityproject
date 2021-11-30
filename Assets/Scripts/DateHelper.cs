@@ -83,6 +83,35 @@ public class DateHelper
         return seasonName;
     }
 
+    // 0 = spring, 1 = summer, 2 = autumn, 3 = winter
+    public int GetSeasonInt()
+    {
+        int seasonInt = -1;
+
+        // 1.3. - 31.5. (maalis - touko)
+        if (_month >= 3 && _month < 6)
+        {
+            seasonInt = 0;
+        }
+        // 1.6. - 31.8. (kesä - elo)
+        else if (_month >= 6 && _month < 9)
+        {
+            seasonInt = 1;
+        }
+        // 1.9. - 30.11 (syys - marras)
+        else if (_month >= 9 && _month < 12)
+        {
+            seasonInt = 2;
+        }
+        // 1.12. - 28.2. (joulu - helmi)
+        else if (_month >= 12 && _month < 3)
+        {
+            seasonInt = 3;
+        }
+
+        return seasonInt;
+    }
+
     public string GetOriginalDateString()
     {
         return _originalDateString;

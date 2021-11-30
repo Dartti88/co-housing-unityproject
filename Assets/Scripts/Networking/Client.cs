@@ -438,7 +438,7 @@ public class Client : MonoBehaviour
 
                 GameObject profile = GameObject.FindGameObjectWithTag("Profile");
                 if (profile != null)
-                    { 
+                    {
                     profile.GetComponent<LevelManager>().UpdateLevels();
                     }
                 else
@@ -509,20 +509,22 @@ public class Client : MonoBehaviour
     }
     void Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)
     {
+        Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
+    {
         GameObject profile = GameObject.FindGameObjectWithTag("Profile");
         if (profile != null)
         {
+            BeginRequest_UpdateLocalProfileData(null);
             profile.GetComponent<LevelManager>().UpdateLevels();
         }
         else
         {
             Debug.Log("ERROR >> Profile not ready for level update");
         }
-        Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
-    }
 
-    void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
-    {
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 

@@ -133,9 +133,11 @@ public class LevelManager : MonoBehaviour
         int i = 100;
         while (i <= userProfile.socialScore)
         {
+            if (level + 1 > 10) { break; }
             level++;
             i *= 2;
         }
+
         int[] array_return = { level, i };
         Debug.Log("Level: " + level + "- Scores: " + userProfile.socialScore);
         return array_return;
@@ -161,10 +163,11 @@ public class LevelManager : MonoBehaviour
         slider.value = userProfile.socialScore;
         slider.minValue = (arr_level[(int)level_data.level] <= 1) ? 0 : arr_level[(int)level_data.next_level]/2;
         slider.maxValue = arr_level[(int)level_data.next_level];
-        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
         slider_text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
         progress_text.text = slider_text;
         level_text.text = level_texts[arr_level[(int)level_data.level]];
+
+        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
         timer = 7;
 
         if (arr_level[(int)level_data.level] > old_level)

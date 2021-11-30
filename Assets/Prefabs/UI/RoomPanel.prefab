@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 5514900498389626511}
   - component: {fileID: 5514900498389626510}
   - component: {fileID: 1989296046475759842}
+  - component: {fileID: 3748691232119344924}
   m_Layer: 5
   m_Name: RoomPanel
   m_TagString: Untagged
@@ -669,6 +670,26 @@ MonoBehaviour:
   dayName: {fileID: 5514900497695158778}
   date: {fileID: 5514900498259505442}
   roomSelectButton: {fileID: 5514900497542495844}
+--- !u!114 &3748691232119344924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5514900498389626504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 240
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5514900498714735105
 GameObject:
   m_ObjectHideFlags: 0

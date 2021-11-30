@@ -48,12 +48,12 @@ public class ClickableObject : MonoBehaviour
     // object was clicked, select it and enable outline
     public void Select()
     {
-        ShowButton();
         HouseObjectController.Instance.SetSelectedObject(TargetGroup);
         Debug.Log("selected");
         if (itemGameObject != null) itemGameObject.ChooseItem();
         StartCoroutine(WaitForPlayer());
         ToggleGroupOutline(true);
+        ShowButton();
     }
 
     // another object is clicked or this unselected for some other reason

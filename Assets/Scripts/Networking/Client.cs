@@ -75,24 +75,38 @@ Profiileihin liittyvät:
 public class Client : MonoBehaviour
 {
     public static Client Instance { get; private set; }
-    
+
+    // This is used for the "pseudo-real time communications hacking" thing
+    //private RealTimeController realTimeController;
+
     [Serializable]
     public class ProfilesContainer
     {
         public Profile[] profiles;
     }
 
+    
     public ProfilesContainer profile_list = new ProfilesContainer();
 
     public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
     public Dictionary<int, Task> acceptedTasks_list =   new Dictionary<int, Task>();
     public Dictionary<int, Task> createdTasks_list =    new Dictionary<int, Task>();
 
+    // Prefab for all the other players except for the local player (Need this to spawn other players)
+    public GameObject profileHandler;
+    public ProfileHandler pHandler;
+
+    public bool isLoggedIn = false;
+
+    const string MESSAGE_ERROR_IDENTIFIER = "Error";
+    const char MESSAGE_CUSTOM_DATA_SEPARATOR = ';';
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            pHandler = profileHandler.GetComponent<ProfileHandler>();
             DontDestroyOnLoad(Instance);
         }
         else
@@ -133,12 +147,13 @@ public class Client : MonoBehaviour
         newTestTask2.quantity = 2;
         newTestTask2.uniqueQuantity = 0;
         newTestTask2.expirationDate = "2025-09-12";
+        
 
         newTestTask3 = new Task();
         newTestTask3.creatorID = 23;
-        newTestTask3.taskName = "Testingtask3";
-        newTestTask3.targetID = 2;
-        newTestTask3.description = "Testing GetCreatedTasks.php part 2";
+        newTestTask3.taskName = "TESTINGTESTINGASD123";
+        newTestTask3.targetID = 0;
+        newTestTask3.description = "tesging";
         newTestTask3.cost = 1;
         newTestTask3.points = 1;
         newTestTask3.quantity = 1;
@@ -146,21 +161,12 @@ public class Client : MonoBehaviour
         newTestTask3.expirationDate = "2025-09-12";
         */
     }
-
-    bool exec = true;
     // Update is called once per frame
     void Update()
     {
-        if (exec)
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-
-            //BeginRequest_AddNewTask(newTestTask3, null);
-            //BeginRequest_RemoveTask("UnityTestUser", "1234", 11, null);
-
-            //BeginRequest_GetCreatedTasks(22, null);
-
-
-            exec = false;
+            BeginRequest_UpdateLocalProfileData(null);
         }
     }
     
@@ -174,6 +180,11 @@ public class Client : MonoBehaviour
                 }
             }
         return null;
+    }
+
+    public int GetIDByDisplayName(string displayName)
+    {
+        return Array.Find(profile_list.profiles, e => e.displayName == displayName).profileID;
     }
 
     void Test(string a)
@@ -227,7 +238,7 @@ public class Client : MonoBehaviour
         form.Add(new MultipartFormDataSection("key_password", "\"" + password + "\""));
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_ValidatePassword, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_ValidatePasswordComplete));
     }
 
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
@@ -241,6 +252,17 @@ public class Client : MonoBehaviour
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfile, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileComplete));
+    }
+
+    // Updates currently logged in user's data from server (gets social score(xp), credits, etc to match values from server)
+    // *NOTE! Unlike most of the other "BeginRequests" here, this returns the data from server as plain text, formatted as following(';' as entry separator):
+    //      "credits(float);socialScore(float)"
+    public void BeginRequest_UpdateLocalProfileData(System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", pHandler.userProfile.profileID.ToString()));
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateLocalProfileData, form, "text/plain");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateLocalProfileDataComplete));
     }
 
     // PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF
@@ -279,8 +301,8 @@ public class Client : MonoBehaviour
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
         form.Add(new MultipartFormDataSection("key_profileID", "\"" + task.creatorID.ToString() + "\""));
         form.Add(new MultipartFormDataSection("key_targetID", "\"" + task.targetID.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_cost", "\"" + task.cost.ToString() + "\""));
-        form.Add(new MultipartFormDataSection("key_quantity", "\"" + task.quantity.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_cost", task.cost.ToString())); // If adding "\"" -> we actually get double double quotes in php.. like: ""key_name""
+        form.Add(new MultipartFormDataSection("key_quantity", task.quantity.ToString()));
         form.Add(new MultipartFormDataSection("key_uniqueQuantity", "\"" + task.uniqueQuantity.ToString() + "\""));
 
         // NOTE*: Make the date be in sql format (YYYY-MM-DD)
@@ -326,6 +348,46 @@ public class Client : MonoBehaviour
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CompleteTaskComplete));
     }
 
+    // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
+    public void BeginRequest_GetCharacterDestinations(System.Action<string> onCompletionCallback)
+    {
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetCharacterDestinations, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetCharacterDestinations));
+    }
+
+    public void BeginRequest_SendCharacterDestination(int profileID, Vector3 destination, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+
+
+        string destX_str = destination.x.ToString().Replace(',', '.');
+        string destY_str = destination.y.ToString().Replace(',', '.');
+        string destZ_str = destination.z.ToString().Replace(',', '.');
+        
+        form.Add(new MultipartFormDataSection("key_x", "\"" + destX_str + "\""));
+        form.Add(new MultipartFormDataSection("key_y", "\"" + destY_str + "\""));
+        form.Add(new MultipartFormDataSection("key_z", "\"" + destZ_str + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SendCharacterDestination, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_SendCharacterDestination));
+    }
+
+    // PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF
+    public void BeginRequest_SubmitChatMessage(string displayName, string message, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_displayName", "\"" + displayName + "\""));
+        form.Add(new MultipartFormDataSection("key_message", "\"" + message + "\""));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SubmitChatMessage, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
+    }
+    public void BeginRequest_GetChatMessages(System.Action<string> onCompletionCallback)
+    {
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetChatMessages, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetChatMessages));
+    }
 
     // ALL INTERNAL FUNCS ->
 
@@ -341,10 +403,15 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Internal_OnCompletion_AddedNewProfileComplete(UnityWebRequest req)");
     }
-
     void Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_PasswordValidationComplete(UnityWebRequest req)");
+    }
+    // *QUITE DUMB ATM! This happens when logging in or reqistering new user, so we use this to determine, is client logged in successfully..
+    void Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
+        isLoggedIn = req.downloadHandler.text == "Success";
     }
 
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
@@ -352,11 +419,43 @@ public class Client : MonoBehaviour
         Debug.Log("Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 
-    // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
-    class TempTaskList
+    void Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)
     {
-        public Task[] tasks;
+        string response = req.downloadHandler.text;
+        // Check, if error..
+        if (response.Contains(MESSAGE_ERROR_IDENTIFIER))
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)\n" + response);
+        }
+        else // If no error..
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)");
+            string[] data = response.Split(MESSAGE_CUSTOM_DATA_SEPARATOR);
+            if (data.Length >= 2)
+            {
+                pHandler.userProfile.credits = float.Parse(data[0]);
+                pHandler.userProfile.socialScore = float.Parse(data[1]);
+
+                GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+                if (profile != null)
+                    {
+                    profile.GetComponent<LevelManager>().UpdateLevels();
+                    }
+                else
+                    {
+                    Debug.Log("ERROR >> Profile not ready for level update");
+                    }
+            }
+            else
+            {
+                Debug.Log("     ERROR >> invalid data length! Response from server was: " + response);
+            }
+        }
+
     }
+
+    // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
+    class TempTaskList { public Task[] tasks; }
     void Internal_OnCompletion_UpdateAvailableTasksFromDatabase(UnityWebRequest req)
     {
         string json = "{\"tasks\": " + req.downloadHandler.text + "}";
@@ -402,7 +501,7 @@ public class Client : MonoBehaviour
     }
     void Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)");
+        Debug.Log("Internal_OnCompletion_AddedNewTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
     void Internal_OnCompletion_RemovedTaskComplete(UnityWebRequest req)
     {
@@ -415,7 +514,34 @@ public class Client : MonoBehaviour
 
     void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
     {
+        GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+        if (profile != null)
+        {
+            BeginRequest_UpdateLocalProfileData(null);
+            profile.GetComponent<LevelManager>().UpdateLevels();
+        }
+        else
+        {
+            Debug.Log("ERROR >> Profile not ready for level update");
+        }
+
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
+    void Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)");
+    }
+    void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF
+    void Internal_OnCompletion_GetChatMessages(UnityWebRequest req)
+    {
+        //Debug.Log("Internal_OnCompletion_GetChatMessages(UnityWebRequest req)");
     }
 
     // COMMON ->

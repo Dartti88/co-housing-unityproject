@@ -10,6 +10,7 @@ public class TaskUIElement : MonoBehaviour
     public Taskmanager taskManager;
     public ProfileHandler profileHandler;
     private int _taskId;
+    private int _creatorId;
     private int _taskQuantity;
     public Text taskTitleText;
     public Text taskExpiryText;
@@ -56,7 +57,7 @@ public class TaskUIElement : MonoBehaviour
         // Turquoise
         colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
 
-        // TESTI: Random v‰riteema taskille, voi ottaa pois k‰ytˆst‰
+        // TESTI: Random v√§riteema taskille, voi ottaa pois k√§yt√∂st√§
         RandomizeColor(Random.Range(0, colorList.Count));
     }
 
@@ -72,28 +73,30 @@ public class TaskUIElement : MonoBehaviour
     /// <param name="points">Social points reward</param>
     /// <param name="quantity">How many of the same task are left</param>
     /// <param name="expiryDate">When the task is going to expire</param>
-    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int avatarID)
-    {
-        // Parametrein‰ annetaan vain ne tiedot, mitk‰ n‰kyv‰t UI:ssa + ID (jos sit‰ tarvitaan)
-        // Taskia hyv‰ksyess‰ (TaskOnClick()) tehd‰‰n erilaiset tarkistukset serverin kanssa
 
-        // PUUTTUU: Osa tarvittavista tiedoista t‰ytyy antaa eri muodossa parametrein‰
-        //          (esim. taskin tekij‰n nimi tulee profiilista? ja date on nyt vain string testin‰)
-        //          Tarvittaessa t‰ytyy lis‰t‰ muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
-        //          Ei viel‰ tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
+    public void ShowTaskElement(int taskId, string displayName, string title, string desc, float reward, float points, int quantity, string expiryDate, int creatorID=0, int avatarID)
+    {
+        // Parametrein√§ annetaan vain ne tiedot, mitk√§ n√§kyv√§t UI:ssa + ID (jos sit√§ tarvitaan)
+        // Taskia hyv√§ksyess√§ (TaskOnClick()) tehd√§√§n erilaiset tarkistukset serverin kanssa
+
+        // PUUTTUU: Osa tarvittavista tiedoista t√§ytyy antaa eri muodossa parametrein√§
+        //          (esim. taskin tekij√§n nimi tulee profiilista? ja date on nyt vain string testin√§)
+        //          Tarvittaessa t√§ytyy lis√§t√§ muita tietoja (tarvitaanko esim. Target (Item.Guid)?)
+        //          Ei viel√§ tietoa, tuleeko social pointsit lopulliseen appiin, mutta niille on UI:ssa nyt paikka
         if(expiryDate.Equals("0000-00-00"))
         {
             expiryDate = "Never";
         }
 
         _taskId = taskId;
+        _creatorId = creatorID;
         _taskQuantity = quantity;
 
         taskTitleText.text = title;
         taskExpiryText.text = "Expires on\n" + expiryDate;
         taskDescriptionText.text = desc;
-        taskRewardText.text = reward.ToString(); // t‰ytyy ehk‰ pyˆrist‰‰
-        taskPointsText.text = points.ToString(); // t‰ytyy ehk‰ pyˆrist‰‰
+        taskRewardText.text = reward.ToString(); // t√§ytyy ehk√§ py√∂rist√§√§
+        taskPointsText.text = points.ToString(); // t√§ytyy ehk√§ py√∂rist√§√§
         taskIssuerText.text = displayName;
         taskQuantityText.text = _taskQuantity.ToString();
         taskAvatarPicture.sprite = avatarList[avatarID];
@@ -131,12 +134,12 @@ public class TaskUIElement : MonoBehaviour
             
         }
         // PUUTTUU: Serverin kanssa kommunikointi. 
-        // T‰ytyy tarkistaa, ett‰ kukaan muu ei ole ottanut taskia samaan aikaan
-        // tai l‰hett‰‰ tieto serverille, ett‰ yksi task on otettu (jos useampi samasta on saatavilla)
-        // Lis‰ksi pit‰‰ tarkistaa, ettei task ole vanhentunut
-        // _taskId-muuttujaa voi k‰ytt‰‰ ehk‰ t‰ss‰ hyˆdyksi?
+        // T√§ytyy tarkistaa, ett√§ kukaan muu ei ole ottanut taskia samaan aikaan
+        // tai l√§hett√§√§ tieto serverille, ett√§ yksi task on otettu (jos useampi samasta on saatavilla)
+        // Lis√§ksi pit√§√§ tarkistaa, ettei task ole vanhentunut
+        // _taskId-muuttujaa voi k√§ytt√§√§ ehk√§ t√§ss√§ hy√∂dyksi?
 
-        // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alasp‰in ja task katoaa kun quantity = 0
+        // TESTAUSTA VARTEN: Nyt nappia painamalla quantity vain menee alasp√§in ja task katoaa kun quantity = 0
         
     }
 

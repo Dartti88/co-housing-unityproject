@@ -12,7 +12,7 @@ public class Task
     public int creatorID;
     //Name for the task
     public string taskName;
-    //The target objects ID where the task is located
+    //The target item ID where the task is located
     public int targetID;
     //The displayed text with the task description
     public string description;

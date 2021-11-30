@@ -174,6 +174,7 @@ public class AvatarController : MonoBehaviour
         if (direction == -3) { direction = 1; }
 
         avatarList[direction].SetActive(true);
+        if (playerController.animator != avatarList[direction].GetComponentInChildren<Animator>()) playerController.animator = avatarList[direction].GetComponentInChildren<Animator>();
 
         for (int i = 0; i < avatarList.Count; i++)
         {

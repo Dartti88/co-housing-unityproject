@@ -53,9 +53,7 @@ public class CalendarController : MonoBehaviour
         // TEST BOOKINGS
         MakeTestBookings();
 
-        // TEST DATES
-        MakeTestDates();
-
+        InitDates();
         ShowBookings();
     }
 
@@ -139,10 +137,6 @@ public class CalendarController : MonoBehaviour
             roomsShownOffset = roomsShownOffset + 1 > roomsList.Length - panelAmount ? roomsList.Length - panelAmount : roomsShownOffset + 1;
             UpdateRoomNames();
         } 
-        else
-        {
-            Debug.Log("No more Next");
-        }
     }
 
     private void PrevRoom()
@@ -152,23 +146,32 @@ public class CalendarController : MonoBehaviour
             roomsShownOffset = roomsShownOffset - 1 < 0 ? 0 : roomsShownOffset - 1;
             UpdateRoomNames();
         }
-        else
-        {
-            Debug.Log("No more Prev");
-        }
     }
 
     // ----------- DAY BUTTONS -----------
 
     private void NextDay()
     {
-        // DateTime tomorrow = DateTime.Today.AddDays(1);
-        Debug.Log("Next Day");
+        DateHelper dh = new DateHelper();
+
+        datesShownList.RemoveAt(0);
+        datesShownList.Add(dh.GetNextDay(datesShownList[datesShownList.Count - 1]));
+
+        ShowBookings();
+
+        //Debug.Log("Next Day");
     }
 
     private void PrevDay()
     {
-        Debug.Log("Prev Day");
+        DateHelper dh = new DateHelper();
+
+        datesShownList.RemoveAt(datesShownList.Count - 1);
+        datesShownList.Insert(0, dh.GetPreviousDay(datesShownList[0]));
+
+        ShowBookings();
+
+        //Debug.Log("Prev Day");
     }
 
     // Which rooms are currently displayed at the top
@@ -312,7 +315,7 @@ public class CalendarController : MonoBehaviour
     {
         // Tehdään serverin kautta
 
-        Debug.Log("Room booking canceled");
+        //Debug.Log("Room booking canceled");
         ShowBookings();
         bookingWindow.SetActive(false);
     }
@@ -337,35 +340,40 @@ public class CalendarController : MonoBehaviour
     private void RoomButtonOnClick(int i)
     {
         selectedRoom = i;
-        Debug.Log("Clicked button " + i);
+        //Debug.Log("Clicked button " + i);
         ShowBookings();
     }
 
-    // ----------- TEST FUNCTIONS -----------
-
-    private void MakeTestDates()
+    // Show the first 5 dates starting from today
+    private void InitDates()
     {
+        DateHelper dh = new DateHelper();
+        string currentDay = dh.GetDateString();
+
         for (int i = 0; i < panelAmount; i++)
         {
-            int x = 23 + i;
-            datesShownList.Add("2021-11-" + x.ToString());
+            datesShownList.Add(currentDay);
+
+            currentDay = dh.GetNextDay(currentDay);
         }
     }
+
+    // ----------- TEST FUNCTION -----------
 
     private void MakeTestBookings()
     {
         bookingsListPerRoom.Clear();
 
-        bookingsListPerRoom.Add(new Booking(9, "2021-11-23", "JJ", 0));
-        bookingsListPerRoom.Add(new Booking(12, "2021-11-24", "Jds", 0));
-        bookingsListPerRoom.Add(new Booking(11, "2021-11-25", "Jrw", 1));
-        bookingsListPerRoom.Add(new Booking(4, "2021-11-23", "Jn", 2));
-        bookingsListPerRoom.Add(new Booking(22, "2021-11-23", "Jhgj", 0));
-        bookingsListPerRoom.Add(new Booking(10, "2021-11-24", "JJ", 1));
-        bookingsListPerRoom.Add(new Booking(14, "2021-11-24", "Jds", 2));
-        bookingsListPerRoom.Add(new Booking(15, "2021-11-25", "Jrw", 0));
-        bookingsListPerRoom.Add(new Booking(7, "2021-11-23", "Jn", 0));
-        bookingsListPerRoom.Add(new Booking(13, "2021-11-24", "Jhgj", 3));
+        bookingsListPerRoom.Add(new Booking(9, "2021-11-30", "JJ", 0));
+        bookingsListPerRoom.Add(new Booking(12, "2021-11-30", "Jds", 0));
+        bookingsListPerRoom.Add(new Booking(11, "2021-11-30", "Jrw", 0));
+        bookingsListPerRoom.Add(new Booking(4, "2021-12-2", "Jn", 0));
+        bookingsListPerRoom.Add(new Booking(22, "2021-12-1", "Jhgj", 0));
+        bookingsListPerRoom.Add(new Booking(10, "2021-11-30", "JJ", 0));
+        bookingsListPerRoom.Add(new Booking(14, "2021-12-2", "Jds", 0));
+        bookingsListPerRoom.Add(new Booking(15, "2021-12-3", "Jrw", 0));
+        bookingsListPerRoom.Add(new Booking(7, "2021-12-10", "Jn", 0));
+        bookingsListPerRoom.Add(new Booking(13, "2021-12-1", "Jhgj", 0));
     }
 
 }

@@ -72,13 +72,14 @@ public class CalendarController : MonoBehaviour
             calendarElement.date.text = datesShownList[i];
 
             // Add booking times
-            AddTimeButtons(roomPanel);
+            AddTimeButtons(roomPanel, datesShownList[i]);
             calendarElement.scrollContent.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 750.0f, 0);
         }
 
     }
 
-    private void AddTimeButtons(GameObject calendarElement)
+    // Adds booking times to the calendar
+    private void AddTimeButtons(GameObject calendarElement, string panelDate)
     {
         CalendarElement elementScript = calendarElement.GetComponent<CalendarElement>();
         
@@ -95,24 +96,38 @@ public class CalendarController : MonoBehaviour
             newTimeButton.transform.GetChild(0).GetComponent<Text>().text = i.ToString() + ":00";
             BookingElement bookingElement = newTimeButton.AddComponent<BookingElement>();
 
-            //if (bookingHelperList[i]._boolBooked) { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = "Booked"; }
-            //else { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = ""; }
+            string bookerNameTmp = "-";
+
+            foreach (Booking b in bookingsListPerRoom)
+            {
+                if (b._startingTime == i && b._date == panelDate && b._roomID == selectedRoom)
+                {
+                    bookingElement.booked = true;
+                    bookerNameTmp = b._bookerName;
+                    break;
+                } else
+                {
+                    bookingElement.booked = false;
+                }
+            }
+
+            bookingElement.bookingInfo = new Booking(
+                i,
+                panelDate,
+                bookerNameTmp,
+                selectedRoom);
+
+            if (bookingElement.booked) { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = "Booked"; }
+            else { newTimeButton.transform.GetChild(1).GetComponent<Text>().text = ""; }
 
             int startTime = i;
             int endTime = i + 1;
 
-            newTimeButton.GetComponent<Button>().onClick.AddListener(delegate { 
-                OpenBookingWindow(new BWContainer(
-                    roomsList[selectedRoom].roomName,
-                    startTime.ToString() + ":00 - " + endTime.ToString() + ":00",
-                    "2021-1-3",
-                    roomsList[selectedRoom].creditPerHour,
-                    roomsList[selectedRoom].size,
-                    "-",
-                    selectedRoom)); 
-            });
+            newTimeButton.GetComponent<Button>().onClick.AddListener(delegate { OpenBookingWindow(bookingElement); });
         }
     }
+
+    // ----------- ROOM BUTTONS -----------
 
     private void NextRoom()
     {
@@ -140,6 +155,8 @@ public class CalendarController : MonoBehaviour
         }
     }
 
+    // ----------- DAY BUTTONS -----------
+
     private void NextDay()
     {
         Debug.Log("Next Day");
@@ -150,6 +167,7 @@ public class CalendarController : MonoBehaviour
         Debug.Log("Prev Day");
     }
 
+    // Which rooms are currently displayed at the top
     private void MakeRoomNameList()
     {
         int tmpRoom = roomsShownOffset < 0 ? 0 : roomsShownOffset;
@@ -173,6 +191,7 @@ public class CalendarController : MonoBehaviour
         //Debug.Log("Showing rooms: " + roomsShownList[0] + ", " + roomsShownList[1] + ", " + roomsShownList[2] + ", " + roomsShownList[3] + ", " + roomsShownList[4]);
     }
 
+    // Update rooms displayed
     private void UpdateRoomNames()
     {
         MakeRoomNameList();
@@ -225,19 +244,26 @@ public class CalendarController : MonoBehaviour
         AddRoomButtonFunctionality();
     }
 
-    private void OpenBookingWindow(BWContainer bwContainer)
+    // Opens the screen to make or view a booking
+    private void OpenBookingWindow(BookingElement booking)
     {
         bookingWindow.SetActive(true);
+
         BookingWindow bw = bookingWindow.GetComponent<BookingWindow>();
 
-        bw.roomName.text = bwContainer.roomName;
-        bw.bookingTime.text = bwContainer.bookingTime;
-        bw.bookingDate.text = bwContainer.bookingDate;
-        bw.bookingCost.text = bwContainer.bookingCost.ToString() + " credits";
-        bw.roomSize.text = bwContainer.roomSize.ToString() + "m²";
-        bw.bookerName.text = bwContainer.bookerName;
-        bw.roomImage.sprite = roomsList[bwContainer.pictureID].roomPicture;
+        int startTime = booking.bookingInfo._startingTime;
+        int endTime = startTime + 1;
+
+        bw.roomName.text = roomsList[selectedRoom].roomName;
+        bw.bookingTime.text = startTime.ToString() + ":00 - " + endTime.ToString() + ":00";
+        bw.bookingDate.text = booking.bookingInfo._date;
+        bw.bookingCost.text = roomsList[selectedRoom].creditPerHour.ToString() + " credits";
+        bw.roomSize.text = roomsList[selectedRoom].size.ToString() + "m²";
+        bw.bookerName.text = booking.bookingInfo._bookerName;
+        bw.roomImage.sprite = roomsList[selectedRoom].roomPicture;
     }
+
+    // ----------- BOOKING WINDOW BUTTONS -----------
 
     private void BookRoom()
     {
@@ -273,6 +299,8 @@ public class CalendarController : MonoBehaviour
         ShowBookings();
     }
 
+    // ----------- TEST FUNCTIONS -----------
+
     private void MakeTestDates()
     {
         for (int i = 0; i < panelAmount; i++)
@@ -286,49 +314,28 @@ public class CalendarController : MonoBehaviour
     {
         bookingsListPerRoom.Clear();
 
-        bookingsListPerRoom.Add(new Booking("Möm", "2022-12-10", 9, "JJ"));
-        bookingsListPerRoom.Add(new Booking("Mdasm", "2022-12-11", 12, "Jds"));
-        bookingsListPerRoom.Add(new Booking("Mhffm", "2022-12-10", 11, "Jrw"));
-        bookingsListPerRoom.Add(new Booking("Mkmytm", "2022-12-12", 4, "Jn"));
-        bookingsListPerRoom.Add(new Booking("Msada", "2022-12-13", 22, "Jhgj"));
+        bookingsListPerRoom.Add(new Booking(9, "2022-12-10", "JJ", 0));
+        bookingsListPerRoom.Add(new Booking(12, "2022-12-11", "Jds", 0));
+        bookingsListPerRoom.Add(new Booking(11, "2022-12-10", "Jrw", 1));
+        bookingsListPerRoom.Add(new Booking(4, "2022-12-12", "Jn", 2));
+        bookingsListPerRoom.Add(new Booking(22, "2022-12-13", "Jhgj", 0));
     }
 
 }
 
 public class Booking
 {
-    public string roomName;
-    public string date;
-    public int startingTime;
-    public string bookerName;
+    public int _startingTime;
+    public string _date;
+    public string _bookerName;
+    public int _roomID;
 
-    public Booking(string rn, string d, int st, string bn)
+
+    public Booking(int startTime, string date, string bookerName, int roomID)
     {
-        roomName = rn;
-        date = d;
-        startingTime = st;
-        bookerName = bn;
-    }
-}
-
-public class BWContainer
-{
-    public string roomName;
-    public string bookingTime;
-    public string bookingDate;
-    public float bookingCost;
-    public float roomSize;
-    public string bookerName;
-    public int pictureID;
-
-    public BWContainer (string roomname, string booktime, string bookdate, float bookingcost, float roomsize, string bookername, int picID)
-    {
-        roomName = roomname;
-        bookingTime = booktime;
-        bookingDate = bookdate;
-        bookingCost = bookingcost;
-        roomSize = roomsize;
-        bookerName = bookername;
-        pictureID = picID;
+        _startingTime = startTime;
+        _date = date;
+        _bookerName = bookerName;
+        _roomID = roomID;
     }
 }

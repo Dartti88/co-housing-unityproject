@@ -28,6 +28,8 @@ public class WebRequests
     public const string URL_GET_GetChatMessages = "https://gcdata.000webhostapp.com/GetChatMessages.php";
     public const string URL_POST_SubmitChatMessage = "https://gcdata.000webhostapp.com/SubmitChatMessage.php";
 
+    public const string URL_POST_GetRoomBookings = "https://gcdata.000webhostapp.com/GetRoomBookings.php";
+    public const string URL_POST_MakeRoomBooking = "https://gcdata.000webhostapp.com/MakeRoomBooking.php";
 
 
     public static UnityWebRequest CreateWebRequest_GET(string url, string contentType = "text/plain")

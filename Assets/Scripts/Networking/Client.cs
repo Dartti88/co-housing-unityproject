@@ -85,7 +85,20 @@ public class Client : MonoBehaviour
         public Profile[] profiles;
     }
 
-    
+    // *Needed an "intermediary" to convert the downloaded data into a suitable format..
+    [Serializable]
+    class TempBookingData
+    {
+        public int startTime;
+        public string date;
+        public string bookerName;
+    }
+    class TempBookingsContainer
+    {
+        public TempBookingData[] bookings;
+    }
+
+
     public ProfilesContainer profile_list = new ProfilesContainer();
 
     public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
@@ -162,12 +175,16 @@ public class Client : MonoBehaviour
         */
     }
     // Update is called once per frame
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        /*if (roomBookingTest)
         {
-            BeginRequest_UpdateLocalProfileData(null);
+            BeginRequest_GetRoomBookings("ConcertDanceHall", null);
+            BeginRequest_MakeRoomBooking("Bookings_ConcertDanceHall", 6, "2021-12-24", "IsStillWorkingTest", null);
+            roomBookingTest = false;
         }
+        */
     }
     
     public string GetDisplayNameById(int id)
@@ -348,6 +365,27 @@ public class Client : MonoBehaviour
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CompleteTaskComplete));
     }
 
+    // PUBLIC ROOM BOOKING STUFF ------------------------- PUBLIC ROOM BOOKING STUFF ------------------------- PUBLIC ROOM BOOKING STUFF
+    public void BeginRequest_GetRoomBookings(string roomName, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_roomName", roomName));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetRoomBookings, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
+    }
+    public void BeginRequest_MakeRoomBooking(string roomName, int startTime, string date, string bookerName, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_roomName", roomName));
+        form.Add(new MultipartFormDataSection("key_startTime", startTime.ToString()));
+        form.Add(new MultipartFormDataSection("key_date", "\"" + date + "\""));
+        form.Add(new MultipartFormDataSection("key_bookerName", "\"" + bookerName + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_MakeRoomBooking, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_MakeRoomBookingComplete));
+    }
+
     // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
     public void BeginRequest_GetCharacterDestinations(System.Action<string> onCompletionCallback)
     {
@@ -501,10 +539,33 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
-
     void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL ROOM BOOKING STUFF ------------------------- INTERNAL ROOM BOOKING STUFF ------------------------- INTERNAL ROOM BOOKING STUFF
+    // *NOTE! copy this into the calendar system, so we can actually store the booking list somewhere..
+    void Custom_OnCompletion_GetRoomBookings(string response)
+    {
+        List<TempBookingData> testList;
+
+        string json = "{\"bookings\": " + response + "}";
+        TempBookingsContainer bookingContainer = new TempBookingsContainer();
+        try
+        {
+            bookingContainer = JsonUtility.FromJson<TempBookingsContainer>(json);
+            testList = new List<TempBookingData>(bookingContainer.bookings);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No bookings found for requested room");
+        }
+    }
+
+    void Internal_OnCompletion_MakeRoomBookingComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_MakeRoomBookingComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 
     // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF

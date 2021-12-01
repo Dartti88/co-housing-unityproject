@@ -12,6 +12,7 @@ public class Taskmanager : MonoBehaviour
     public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
     public int chosenTaskList;
+    [SerializeField]
     bool firstUpdateDone = false;
     public GameObject taskContainer;
     public GameObject loadingOverlay;
@@ -46,6 +47,8 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> createdTasks_list;
     public Dictionary<int, Task> availableTasks_list;
     public Dictionary<int, Task> itemTasks_list;
+
+    public GameObject showTasksButton;
 
     // Start is called before the first frame update
     void Start()
@@ -159,6 +162,10 @@ public class Taskmanager : MonoBehaviour
                     newTaskElement.GetComponent<TaskUIElement>().taskButtonText.text = "Delete Task";
                     break;
             }
+            Profile creatorProfile = Array.Find(Client.Instance.profile_list.profiles, e => e.profileID == task.creatorID);
+            
+            int avatarID = (creatorProfile != null) ? creatorProfile.avatarID : 0;
+
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
                 task.taskID,
                 Client.Instance.GetDisplayNameById(task.creatorID),
@@ -168,9 +175,9 @@ public class Taskmanager : MonoBehaviour
                 task.points,
                 quantity,
                 task.expirationDate,
+                avatarID,
                 task.creatorID);
             
-
         }
         LoadingOverlay();
     }

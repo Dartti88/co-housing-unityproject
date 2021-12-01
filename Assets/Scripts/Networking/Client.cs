@@ -473,6 +473,16 @@ public class Client : MonoBehaviour
             {
                 pHandler.userProfile.credits = float.Parse(data[0]);
                 pHandler.userProfile.socialScore = float.Parse(data[1]);
+
+                GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+                if (profile != null)
+                    {
+                    profile.GetComponent<LevelManager>().UpdateLevels();
+                    }
+                else
+                    {
+                    Debug.Log("ERROR >> Profile not ready for level update");
+                    }
             }
             else
             {
@@ -541,6 +551,17 @@ public class Client : MonoBehaviour
     }
     void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
     {
+        GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+        if (profile != null)
+        {
+            BeginRequest_UpdateLocalProfileData(null);
+            profile.GetComponent<LevelManager>().UpdateLevels();
+        }
+        else
+        {
+            Debug.Log("ERROR >> Profile not ready for level update");
+        }
+
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 

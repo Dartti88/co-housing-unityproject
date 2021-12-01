@@ -16,7 +16,36 @@ public class ProfileUIController : MonoBehaviour
     public Image profilePics; //this is the grid
     public GameObject currentProfilePic;
     public GameObject ProfilePicture;
+    [SerializeField]
+    [NamedArrayAttribute(new string[] {
+        "Dino"      ,
+        "Penguin"   ,
+        "Astronaut" ,
+        "Ghost"     ,
+        "Griffin"   ,
+        "LadyBug"   ,
+        "Cone"      ,
+        "Potato"    ,
+        "Slime"     ,
+        "Sheep"     ,
+        "Robot"     ,
+        "Dragon"    })]
     public Image[] profilePictures;
+    [SerializeField]
+    [NamedArrayAttribute(new string[] {
+        "Loading..."         ,
+        "Common Squirrel"    ,
+        "Fine Stoat"         ,
+        "Silver Fox"         ,
+        "Golden Hare"        ,
+        "Guardian Bear"      ,
+        "Ruby Swan"          ,
+        "Diamond Ringed Seal",
+        "Legendary Lynx"     ,
+        "Divine Snowy Owl"   ,
+        "Mythical Moose",
+        "God Mode"})]
+    public Sprite[] levelPictures;
 
     public InputField profileName;
     public InputField profileDescription;
@@ -48,11 +77,9 @@ public class ProfileUIController : MonoBehaviour
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
-        taskCanvas.gameObject.SetActive(false);
-        addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
-
+        addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
 
         profileName.characterLimit = 20;
@@ -156,7 +183,7 @@ public class ProfileUIController : MonoBehaviour
     {
         taskCanvas.gameObject.SetActive(true);
     }
-
+    
     public void OpenAddTask()
     {
         taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
@@ -165,7 +192,7 @@ public class ProfileUIController : MonoBehaviour
     {
         taskCanvas.gameObject.SetActive(false);
     }
-
+    
     private void AvatarButtonOnClick(int i)
     {
         playerController.ChangePlayerAvatar(i);

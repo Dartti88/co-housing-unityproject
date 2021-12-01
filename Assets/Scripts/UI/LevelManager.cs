@@ -38,25 +38,15 @@ public class LevelManager : MonoBehaviour
     private Text level_text;
     private Text progress_text;
     public ProfileUIController UI_controller;
+    private string slider_text = "";
 
-    //[SerializeField]
-    //[NamedArrayAttribute(new string[] {
-    //    "Loading..."         ,
-    //    "Common Squirrel"    ,
-    //    "Fine Stoat"         ,
-    //    "Silver Fox"         ,
-    //    "Golden Hare"        ,
-    //    "Guardian Bear"      ,
-    //    "Ruby Swan"          ,
-    //    "Diamond Ringed Seal",
-    //    "Legendary Lynx"     ,
-    //    "Divine Snowy Owl"   ,
-    //    "Mythical Moose",
-    //    "God Mode"})]
+
 
     // Start is called before the first frame update
     void Start()
     {
+        profileHandler = FindObjectOfType<ProfileHandler>();
+
         foreach (Transform child in transform)
         {
             //LEVEL IMAGE & SLIDER
@@ -105,49 +95,13 @@ public class LevelManager : MonoBehaviour
         if (userProfile == null)
         {
             UpdateLevels();
-
-            /*
-            switch (level)
-            {
-                case 1:
-                    sprite = Resources.Load<Sprite>("squirrel_level1");
-                    break;
-                case 2:
-                    sprite = Resources.Load<Sprite>("stoat_level2");
-                    break;
-                case 3:
-                    sprite = Resources.Load<Sprite>("fox_level3");
-                    break;
-                case 4:
-                    sprite = Resources.Load<Sprite>("rabbit_level4");
-                    break;
-                case 5:
-                    sprite = Resources.Load<Sprite>("bear_level5");
-                    break;
-                case 6:
-                    sprite = Resources.Load<Sprite>("swan_level6");
-                    break;
-                case 7:
-                    sprite = Resources.Load<Sprite>("squirrel_level1");
-                    break;
-                case 8:
-                    sprite = Resources.Load<Sprite>("squirrel_level1");
-                    break;
-                case 9:
-                    sprite = Resources.Load<Sprite>("squirrel_level1");
-                    break;
-                default:
-                    sprite = Resources.Load<Sprite>("squirrel_level1");
-                    break;
-            }
-            */
         }
         else if (timer<=0)
         {
             if (slider.GetComponent<RectTransform>().rect.width > 0)
             {
                 //slider.GetComponent<RectTransform>().rect.width;
-                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width - 1);
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width - 5);
             }
             else
             {
@@ -163,10 +117,10 @@ public class LevelManager : MonoBehaviour
         {
             if (slider.GetComponent<RectTransform>().rect.width < 200)
             {
-                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+1);
+                slider.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 180, slider.GetComponent<RectTransform>().rect.width+5);
             }
 
-            progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+            progress_text.text = (slider.GetComponent<RectTransform>().rect.width < 75) ? "" : slider_text;
 
             timer -= Time.deltaTime;
         }
@@ -179,9 +133,11 @@ public class LevelManager : MonoBehaviour
         int i = 100;
         while (i <= userProfile.socialScore)
         {
+            if (level + 1 > 10) { break; }
             level++;
             i *= 2;
         }
+
         int[] array_return = { level, i };
         Debug.Log("Level: " + level + "- Scores: " + userProfile.socialScore);
         return array_return;
@@ -201,15 +157,17 @@ public class LevelManager : MonoBehaviour
         int old_level = arr_level[0];
         userProfile = profileHandler.userProfile;
         arr_level = GetProfileLevel();
-        new_sprite = UI_controller.profilePictures[arr_level[(int)level_data.level]].sprite;
+        new_sprite = UI_controller.levelPictures[arr_level[(int)level_data.level]];
 
         image.sprite = new_sprite;
         slider.value = userProfile.socialScore;
         slider.minValue = (arr_level[(int)level_data.level] <= 1) ? 0 : arr_level[(int)level_data.next_level]/2;
         slider.maxValue = arr_level[(int)level_data.next_level];
-        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
-        progress_text.text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+        slider_text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+        progress_text.text = slider_text;
         level_text.text = level_texts[arr_level[(int)level_data.level]];
+
+        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
         timer = 7;
 
         if (arr_level[(int)level_data.level] > old_level)

@@ -19,9 +19,13 @@ public class ClickableObject : MonoBehaviour
 
     public ItemGameObject itemGameObject;
 
+    Taskmanager taskManager;
+
     private void Start()
     {
-        if(!TargetGroup.Contains(this))TargetGroup.Add(this);
+        taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
+
+        if (!TargetGroup.Contains(this))TargetGroup.Add(this);
         if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
@@ -49,11 +53,13 @@ public class ClickableObject : MonoBehaviour
         if (itemGameObject != null) itemGameObject.ChooseItem();
         StartCoroutine(WaitForPlayer());
         ToggleGroupOutline(true);
+        ShowButton();
     }
 
     // another object is clicked or this unselected for some other reason
     public void Unselect()
     {
+        HideButton();
         if (itemGameObject != null) itemGameObject.UnchooseItem();
         ToggleGroupOutline(false);
     }
@@ -77,7 +83,6 @@ public class ClickableObject : MonoBehaviour
     // wait for player to walk close to this object before activating it
     IEnumerator WaitForPlayer()
     {
-
         while (HouseObjectController.Instance.CurrentSelectedObject == TargetGroup)
         {
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < 1.5f)
@@ -87,5 +92,15 @@ public class ClickableObject : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void ShowButton()
+    {
+        taskManager.showTasksButton.SetActive(true);
+    }
+
+    void HideButton()
+    {
+        taskManager.showTasksButton.SetActive(false);
     }
 }

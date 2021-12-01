@@ -19,10 +19,15 @@ public class CharacterController : MonoBehaviour
     private bool walking = false;
 
     // character animator
+    [SerializeField]
     private Animator animator;
 
     private Vector3 initialPosition;
 
+    private Vector3 previousPosition;
+    public float currentSpeed;
+    public float currentTime;
+    public bool animWalking;
     // run once when scene is loaded
     public void Init(int avatarID)
     {
@@ -83,7 +88,28 @@ public class CharacterController : MonoBehaviour
     // run every frame of the game
     private void Update()
     {
-        if(agent.isOnNavMesh)
+        animator = GetComponentInChildren<Animator>();
+        if (!animator.GetBool("always move"))
+        {
+            Vector3 curMove = transform.position - previousPosition;
+            currentSpeed = curMove.magnitude / Time.deltaTime;
+            previousPosition = transform.position;
+
+            AnimatorStateInfo animState = animator.GetCurrentAnimatorStateInfo(0);
+            currentTime = animState.normalizedTime % 1;
+            //Debug.Log(currentTime);
+            if (currentTime <= 0.1f && currentSpeed <= 0.1f)
+            {
+                animWalking = false;
+                animator.speed = 0;
+            }
+            else
+            {
+                animWalking = true;
+                animator.speed = 1;//Mathf.Clamp(currentSpeed, 0.5f, 1);
+            }
+        }
+        if (agent.isOnNavMesh)
         {
             if (agent.remainingDistance < 0.1f && walking)
             {

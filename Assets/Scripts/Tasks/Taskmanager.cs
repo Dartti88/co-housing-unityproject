@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -95,9 +96,9 @@ public class Taskmanager : MonoBehaviour
         });
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        ExecuteOnFirstUpdate();   
+        ExecuteOnFirstUpdate();
     }
 
     //Used for displaying the tasks in the list ingame. Called every time new content is loaded from server
@@ -110,31 +111,31 @@ public class Taskmanager : MonoBehaviour
         GetAvailableTasks();
 
         //Empties the current list
-        for (int i = 0; i<taskContainer.transform.childCount; i++)
+        for (int i = 0; i < taskContainer.transform.childCount; i++)
         {
             Destroy(taskContainer.transform.GetChild(i).gameObject);
         }
         Dictionary<int, Task> tempList = taskList;
         GameObject tempPrefab = taskElementPrefab;
-        if (chosenTaskList==1)
+        if (chosenTaskList == 1)
         {
             tempPrefab = acceptedTaskElementPrefab;
             tempList = acceptedTasks_list;
             tempTaskState = 1;
         }
-        else if(chosenTaskList==2)
+        else if (chosenTaskList == 2)
         {
             tempPrefab = createdTaskElementPrefab;
             tempList = createdTasks_list;
             tempTaskState = 2;
         }
-        else if(chosenTaskList==3)
+        else if (chosenTaskList == 3)
         {
             tempPrefab = availableTaskElementPrefab;
             tempList = availableTasks_list;
             tempTaskState = 0;
         }
-        else if(chosenTaskList==4)
+        else if (chosenTaskList == 4)
         {
             tempPrefab = availableTaskElementPrefab;
             tempList = itemTasks_list;
@@ -163,7 +164,7 @@ public class Taskmanager : MonoBehaviour
                     break;
             }
             Profile creatorProfile = Array.Find(Client.Instance.profile_list.profiles, e => e.profileID == task.creatorID);
-            
+
             int avatarID = (creatorProfile != null) ? creatorProfile.avatarID : 0;
 
             newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(
@@ -177,7 +178,7 @@ public class Taskmanager : MonoBehaviour
                 task.expirationDate,
                 avatarID,
                 task.creatorID);
-            
+
         }
         LoadingOverlay();
     }
@@ -208,7 +209,7 @@ public class Taskmanager : MonoBehaviour
                 Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                 break;
             default:
-                switch(chosenTaskList)
+                switch (chosenTaskList)
                 {
                     case 1:
                         Client.Instance.BeginRequest_GetAcceptedTasks(userID, DisplayTasks);
@@ -223,8 +224,8 @@ public class Taskmanager : MonoBehaviour
                 }
                 break;
         }
-        
-        
+
+
 
         Debug.Log("New task list length: " + taskList.Count());
     }
@@ -235,11 +236,11 @@ public class Taskmanager : MonoBehaviour
         Client.Instance.BeginRequest_AddNewTask(newTask, null);
         //taskList.Add(newTask.taskID, newTask);
     }
-    
+
     public void RemoveTask(int taskId)
     {
         userID = profileHandler.userProfile.profileID;
-        if(!createdTasks_list.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
+        if (!createdTasks_list.TryGetValue(taskId, out Task tmp)) { Debug.LogWarning("Task ID not valid!"); return; }
         if (tmp.creatorID != userID) { Debug.LogWarning("Cannot delete a task you do not own!"); return; }
         Client.Instance.BeginRequest_RemoveTask(profileHandler.userProfile.userName, profileHandler.userProfile.password, taskId, null);
     }
@@ -265,7 +266,7 @@ public class Taskmanager : MonoBehaviour
         {
             Debug.LogWarning("Insufficient Credits!");
         }
-        
+
     }
 
     public void GetAvailableTasks()
@@ -279,7 +280,7 @@ public class Taskmanager : MonoBehaviour
             if (task.creatorID != userID)
             {
                 tempList.Add(task.taskID, task);
-                if(task.targetID == itemID)
+                if (task.targetID == itemID)
                 {
                     tempItemList.Add(task.taskID, task);
                 }
@@ -321,17 +322,18 @@ public class Taskmanager : MonoBehaviour
         itemID = taskboard._itemID;
     }
     // Create new task and add it to the Task List, retuns true if successful, false if not
-    public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity,  int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
+    public bool CreateTask(string taskName, string taskText, float taskCost, int taskQuantity, int taskUniqueQ, int taskPoints, int taskTarget, string taskExpireDate)
     {
         //Get the users ID
         userID = profileHandler.userProfile.profileID;
         taskTarget = itemID;
-        if(DebugAdd)
+        if (DebugAdd)
         {
             userID = 999;
         }
 
-        Task task = new Task() { 
+        Task task = new Task()
+        {
             creatorID = userID,                      //Placeholder until profiles are implemented
             taskID = newId(),
             cost = taskCost,
@@ -354,7 +356,7 @@ public class Taskmanager : MonoBehaviour
 
     public void DebugButtonPressed()
     {
-        if(DebugAdd)
+        if (DebugAdd)
         {
             DebugAdd = false;
         }
@@ -362,7 +364,7 @@ public class Taskmanager : MonoBehaviour
         {
             DebugAdd = true;
         }
-        
+
     }
     //-----------------------------TARPEELLINEN?------------------------------------------------------
 
@@ -408,10 +410,10 @@ public class Taskmanager : MonoBehaviour
         List<Task> tasks = taskList.Values.ToList();
 
         //Temporary list for 
-        List<Task> tmp  = new List<Task>();
+        List<Task> tmp = new List<Task>();
 
 
-        if(!string.IsNullOrWhiteSpace(searchTerm))
+        if (!string.IsNullOrWhiteSpace(searchTerm))
         {
             tmp = tasks.Where(task => task.description.Contains(searchTerm)).ToList();
         }
@@ -477,16 +479,19 @@ public class Taskmanager : MonoBehaviour
 
     void ExecuteOnFirstUpdate()
     {
-        if(!firstUpdateDone)
+        if (!firstUpdateDone)
         {
+
             addTaskUI.gameObject.SetActive(false);
             firstUpdateDone = true;
+
+
         }
     }
 
     public void LoadingOverlay()
     {
-        if(loadingOverlay != null)
+        if (loadingOverlay != null)
         {
             switch (loadingOverlay.activeSelf)
             {

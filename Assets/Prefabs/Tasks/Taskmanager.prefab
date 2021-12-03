@@ -43,15 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b300da3c9fb845bd045b71405857a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskboard: {fileID: 0}
+  DebugAdd: 0
   chosenTaskList: 0
+  firstUpdateDone: 0
   taskContainer: {fileID: 0}
+  loadingOverlay: {fileID: 0}
+  taskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
+    type: 3}
   availableTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
     type: 3}
   acceptedTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
     type: 3}
   createdTaskElementPrefab: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
     type: 3}
+  addTaskUI: {fileID: 0}
+  profileHandler: {fileID: 0}
+  level_manager: {fileID: 0}
+  DefaultTaskDescription: No description
   profileObject: {fileID: 0}
+  itemID: 0
   inputFields:
   - {fileID: 0}
   - {fileID: 0}
@@ -61,3 +72,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   createTaskButton: {fileID: 0}
+  showTasksButton: {fileID: 0}

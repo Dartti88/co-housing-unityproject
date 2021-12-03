@@ -47,6 +47,16 @@ public class ProfileUIController : MonoBehaviour
         "God Mode"})]
     public Sprite[] levelPictures;
 
+    [SerializeField]
+    [NamedArrayAttribute(new string[]{
+        "winter",
+        "spring",
+        "summer",
+        "autumn"})]
+    public Sprite[] seasons;
+
+
+
     public InputField profileName;
     public InputField profileDescription;
     public Text nameText;
@@ -62,9 +72,9 @@ public class ProfileUIController : MonoBehaviour
     public GameObject info;
     
     //level
-    public Slider slider; 
     public Button level; //also has image
     public LevelManager level_manager;
+    public GameObject levelUpIcon;
 
     //logOut
     public Button btn;
@@ -96,7 +106,29 @@ public class ProfileUIController : MonoBehaviour
         descriptionText.text = pHandler.GetUserProfile().description;
         credits.text = pHandler.GetUserProfile().credits.ToString();
         UpdateCredits();
-        for(int i = 0; i < 12; i++)
+        DateHelper dh = new DateHelper();
+        string seasonName = dh.GetSeasonName();
+        switch (seasonName)
+        {
+            case "winter":
+                profileBackground.sprite = seasons[0]; //we want this to be winter, must check still
+                break;
+            case "spring":
+                profileBackground.sprite = seasons[1]; //we want this to be spring
+                break;
+            case "summer":
+                profileBackground.sprite = seasons[2]; //we want this to be summer
+                break;
+            case "autumn":
+                profileBackground.sprite = seasons[3]; //we want this to be autumn
+                break;
+
+            default:
+                profileBackground.sprite = seasons[0]; //we want this to be winter, must check still
+                break;
+
+        }
+        for (int i = 0; i < 12; i++)
         {
             if (i == pHandler.GetUserProfile().avatarID)
             {
@@ -105,7 +137,11 @@ public class ProfileUIController : MonoBehaviour
                 break;
             }
             else Debug.Log("avatarID not 0-11 ");
-
+        }
+        //so after new user opens changecanvas
+        if (pHandler.GetUserProfile().displayName == "No Name")
+        {
+             ChangeProfileInfo();
         }
     }
 
@@ -178,19 +214,10 @@ public class ProfileUIController : MonoBehaviour
     public void OpenProfileChoosingS(){
         profilePics.gameObject.SetActive(true);
     }
-
-    public void OpenTaskCreationCanvas()
-    {
-        taskCanvas.gameObject.SetActive(true);
-    }
     
     public void OpenAddTask()
     {
         taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
-    }
-    public void CloseAddTask()
-    {
-        taskCanvas.gameObject.SetActive(false);
     }
     
     private void AvatarButtonOnClick(int i)
@@ -198,6 +225,7 @@ public class ProfileUIController : MonoBehaviour
         playerController.ChangePlayerAvatar(i);
     }
 
+    //siirrä eri skriptiin
     public void InfoButtonClick()
     {
         info.SetActive(!info.activeSelf);
@@ -206,15 +234,30 @@ public class ProfileUIController : MonoBehaviour
     public void LevelSlider()
     {
         //so this has to check max and current exp from server / use another func to set them up probably
-        //slider.maxValue = 100;
-        //slider.value = 50;
-        //Debug.Log(slider.value);
-        //slider.gameObject.SetActive(!slider.gameObject.activeSelf);
         level_manager.UpdateLevels();
     }
-    
+
+    public void levelUp()
+    {
+        //emoteGO.GetComponent<EmoteBillboard>().UseEmote(4);
+        //levelUpIcon.SetActive(true);
+        StartCoroutine(FadeImage());
+    }
+
     public void UpdateCredits()
     {
         credits.text = pHandler.GetUserProfile().credits.ToString();
+    }
+
+    IEnumerator FadeImage()
+    {
+        // loop over 1 second backwards
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        {
+            // set color with i as alpha
+            levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+
     }
 }

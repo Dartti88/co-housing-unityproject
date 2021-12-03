@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1321933548476503049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321933548476503050}
+  - component: {fileID: 1321933548476503051}
+  m_Layer: 5
+  m_Name: ProfUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1321933548476503050
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321933548476503049}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1321933548476503051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321933548476503049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f32c258fafa935409855f42e7147327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pHandler: {fileID: 0}
+  profileBackground: {fileID: 0}
+  profileChangeCanvas: {fileID: 0}
+  closeProfileBtn: {fileID: 0}
+  profilePics: {fileID: 0}
+  currentProfilePic: {fileID: 0}
+  ProfilePicture: {fileID: 0}
+  profilePictures:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levelPictures:
+  - {fileID: 21300000, guid: 13a08aa89ce051243ae76caae0eafc01, type: 3}
+  - {fileID: 21300000, guid: 13a08aa89ce051243ae76caae0eafc01, type: 3}
+  - {fileID: 21300000, guid: 6cedf78eec5baf445822ab41c980abac, type: 3}
+  - {fileID: 21300000, guid: fd03ab725123c5149b81e073af2cba54, type: 3}
+  - {fileID: 21300000, guid: 32b0758a4c9cb4a4794a0b52c28d486f, type: 3}
+  - {fileID: 21300000, guid: 58195a86fdb804941bee3d6fcaede441, type: 3}
+  - {fileID: 21300000, guid: b18587aaaced982489e9e19fe0b63cc9, type: 3}
+  - {fileID: 21300000, guid: fab648265b1447d479c1d1a869cd9aa3, type: 3}
+  - {fileID: 21300000, guid: 665be96545cc8774394fd799c0e249f0, type: 3}
+  - {fileID: 21300000, guid: f980d29e3e66b4e419a02f8ecf03218b, type: 3}
+  - {fileID: 21300000, guid: 7d14fa6956a37c0469b746fff4ee5918, type: 3}
+  profileName: {fileID: 0}
+  profileDescription: {fileID: 0}
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  credits: {fileID: 0}
+  CancelTask: {fileID: 0}
+  addTask: {fileID: 0}
+  taskCanvas: {fileID: 0}
+  info: {fileID: 0}
+  slider: {fileID: 0}
+  level: {fileID: 0}
+  level_manager: {fileID: 0}
+  btn: {fileID: 0}

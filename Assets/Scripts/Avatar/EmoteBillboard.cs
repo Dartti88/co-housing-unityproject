@@ -36,7 +36,6 @@ public class EmoteBillboard : MonoBehaviour
 		gameObject.SetActive(true);
 
 		animator.SetTrigger(hashEmoteTrigger);
-
 		particleSystems[i].GetComponent<ParticleSystem>().Play();
 
 		showPlaying = true;

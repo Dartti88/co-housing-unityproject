@@ -12,6 +12,7 @@ enum level_data
 public class LevelManager : MonoBehaviour
 {
     public ProfileHandler profileHandler;
+    public ProfileUIController profUIcontroller;
     private Profile userProfile = null;
     public int[] arr_level = { 1, 100 };
     
@@ -200,6 +201,7 @@ public class LevelManager : MonoBehaviour
         if (arr_level[(int)level_data.level] > old_level)
         {
             //ToDo - Trigger levelup event
+            profUIcontroller.levelUp();
         }
 
         //Debug.Log(userProfile.socialScore.ToString());

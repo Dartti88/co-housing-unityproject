@@ -1843,17 +1843,6 @@ PrefabInstance:
       objectReference: {fileID: 1448718710}
     - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
         type: 3}
-      propertyPath: taskElementPrefab
-      value: 
-      objectReference: {fileID: 8069896271952596941, guid: 1936cca6794bf3f4fb073a98ffe35ea8,
-        type: 3}
-    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
-        type: 3}
-      propertyPath: DefaultTaskDescription
-      value: No description
-      objectReference: {fileID: 0}
-    - target: {fileID: 1184336019625664824, guid: 592758cda24c74241a86cf13a7771417,
-        type: 3}
       propertyPath: inputFields.Array.data[0]
       value: 
       objectReference: {fileID: 1631451659}
@@ -4249,7 +4238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 350, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597445089

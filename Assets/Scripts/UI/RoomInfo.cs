@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomInfo : MonoBehaviour
 {
+    public string databaseRoomName;
     public string roomName;
     public float size;
     public float creditPerHour;

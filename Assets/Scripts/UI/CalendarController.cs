@@ -38,8 +38,7 @@ public class CalendarController : MonoBehaviour
     private void Start()
     {
         roomsList = roomsInfo.GetComponentsInChildren<RoomInfo>();
-        roomsShownOffset = selectedRoom > roomsList.Length - panelAmount ? roomsList.Length - panelAmount : selectedRoom;
-
+        
         buttonNextRoom.GetComponent<Button>().onClick.AddListener(NextRoom);
         buttonPrevRoom.GetComponent<Button>().onClick.AddListener(PrevRoom);
 
@@ -50,11 +49,7 @@ public class CalendarController : MonoBehaviour
         bwCancel.onClick.AddListener(CancelBooking);
         bwClose.onClick.AddListener(CloseBooking);
 
-        // TEST BOOKINGS
-        MakeTestBookings();
-
-        InitDates();
-        ShowBookings();
+        InitializeCalendar(selectedRoom);
     }
 
     // Show bookings for active room
@@ -374,6 +369,20 @@ public class CalendarController : MonoBehaviour
         bookingsListPerRoom.Add(new Booking(15, "2021-12-3", "Jrw", 0));
         bookingsListPerRoom.Add(new Booking(7, "2021-12-10", "Jn", 0));
         bookingsListPerRoom.Add(new Booking(13, "2021-12-1", "Jhgj", 0));
+    }
+
+    // ----------- INITIALIZE -----------
+
+    public void InitializeCalendar(int roomID)
+    {
+        selectedRoom = roomID;
+        roomsShownOffset = selectedRoom > roomsList.Length - panelAmount ? roomsList.Length - panelAmount : selectedRoom;
+
+        // TEST BOOKINGS
+        MakeTestBookings();
+
+        InitDates();
+        ShowBookings();
     }
 
 }

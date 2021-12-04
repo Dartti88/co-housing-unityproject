@@ -54,6 +54,17 @@ public class DateHelper
         return _year.ToString() + "-" + _month.ToString() + "-" + _day.ToString();
     }
 
+    // Get next day from parameter currentDay, returns yyyy-mm-dd
+    public string GetNextDay(string currentDay)
+    {
+        return DateTime.Parse(currentDay).AddDays(1).ToString("yyyy-M-d");
+    }
+
+    // Get previous day from parameter currentDay, returns yyyy-mm-dd
+    public string GetPreviousDay(string currentDay)
+    {
+        return DateTime.Parse(currentDay).AddDays(-1).ToString("yyyy-M-d");
+    }
 
     public string GetSeasonName()
     {

@@ -47,18 +47,31 @@ public class TaskUIElement : MonoBehaviour
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
         taskAcceptButton.GetComponent<Button>().onClick.AddListener(TaskOnClick); 
 
-        // NEW COLORS (Order: Title, background, field, button
-        // Red
-        colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
-        // Orange
-        colorList.Add(new ColorSchemer(new Color32(251, 187, 141, 255), new Color32(236, 167, 117, 255), new Color32(251, 187, 141, 255), new Color32(218, 148, 97, 255)));
-        // Green
-        colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
-        // Turquoise
-        colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
+        // SEASON COLORS (Order: Title, background, field, button)
+        // Spring
+        colorList.Add(new ColorSchemer(new Color32(137, 170, 63, 255), new Color32(209, 255, 99, 255), new Color32(255, 255, 255, 255), new Color32(137, 170, 63, 255)));
+        // Summer
+        colorList.Add(new ColorSchemer(new Color32(100, 155, 63, 255), new Color32(143, 223, 49, 255), new Color32(255, 255, 255, 255), new Color32(100, 155, 63, 255)));
+        // Autumn
+        colorList.Add(new ColorSchemer(new Color32(165, 105, 46, 255), new Color32(255, 167, 71, 255), new Color32(255, 255, 255, 255), new Color32(165, 105, 46, 255)));
+        // Winter
+        colorList.Add(new ColorSchemer(new Color32(110, 187, 211, 255), new Color32(140, 231, 247, 255), new Color32(255, 255, 255, 255), new Color32(110, 187, 211, 255)));
+
+        DateHelper dh = new DateHelper();
+        SeasonColor(dh.GetSeasonInt());
+
+        //// NEW COLORS (Order: Title, background, field, button)
+        //// Red
+        //colorList.Add(new ColorSchemer(new Color32(246, 136, 129, 255), new Color32(228, 116, 110, 255), new Color32(246, 136, 129, 255), new Color32(214, 102, 96, 255)));
+        //// Orange
+        //colorList.Add(new ColorSchemer(new Color32(251, 187, 141, 255), new Color32(236, 167, 117, 255), new Color32(251, 187, 141, 255), new Color32(218, 148, 97, 255)));
+        //// Green
+        //colorList.Add(new ColorSchemer(new Color32(171, 196, 131, 255), new Color32(148, 177, 104, 255), new Color32(171, 196, 131, 255), new Color32(123, 152, 79, 255)));
+        //// Turquoise
+        //colorList.Add(new ColorSchemer(new Color32(127, 212, 179, 255), new Color32(108, 192, 159, 255), new Color32(127, 212, 179, 255), new Color32(90, 172, 140, 255)));
 
         // TESTI: Random väriteema taskille, voi ottaa pois käytöstä
-        RandomizeColor(Random.Range(0, colorList.Count));
+        //RandomizeColor(Random.Range(0, colorList.Count));
     }
 
     /// <summary>
@@ -91,6 +104,12 @@ public class TaskUIElement : MonoBehaviour
         _taskId = taskId;
         _creatorId = creatorID;
         _taskQuantity = quantity;
+
+        if(expiryDate != "Never")
+        {
+            DateHelper dh = new DateHelper(expiryDate);
+            expiryDate = dh.GetNormalDateFormat();
+        }
 
         taskTitleText.text = title;
         taskExpiryText.text = "Expires on\n" + expiryDate;
@@ -152,6 +171,22 @@ public class TaskUIElement : MonoBehaviour
         {
             taskManager.RemoveTask(_taskId);
         }
+    }
+
+    /// <summary>
+    /// Gives a color scheme according to the season to the task element.
+    /// </summary>
+    private void SeasonColor(int seasonInt)
+    {
+        taskTitleImage.color = colorList[seasonInt].titleColor;
+        taskBackgroundImage.color = colorList[seasonInt].backgroundColor;
+        taskDescImage.color = colorList[seasonInt].fieldColor;
+        taskRewardImage.color = colorList[seasonInt].fieldColor;
+        taskPointsImage.color = colorList[seasonInt].fieldColor;
+        taskIssuerImage.color = colorList[seasonInt].fieldColor;
+        taskQuantityImage.color = colorList[seasonInt].fieldColor;
+        taskButtonImage.color = colorList[seasonInt].buttonColor;
+        taskAvatarImage.color = colorList[seasonInt].backgroundColor;
     }
 
     /// <summary>

@@ -86,7 +86,7 @@ public class DateHelper
             seasonName = "autumn";
         }
         // 1.12. - 28.2. (joulu - helmi)
-        else if (_month >= 12 && _month < 3)
+        else if (_month >= 12 || _month < 3)
         {
             seasonName = "winter";
         }
@@ -115,7 +115,7 @@ public class DateHelper
             seasonInt = 2;
         }
         // 1.12. - 28.2. (joulu - helmi)
-        else if (_month >= 12 && _month < 3)
+        else if (_month >= 12 || _month < 3)
         {
             seasonInt = 3;
         }

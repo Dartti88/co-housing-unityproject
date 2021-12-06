@@ -80,6 +80,9 @@ public class ProfileUIController : MonoBehaviour
     //logOut
     public Button btn;
 
+    //chat
+    public GameObject chat;
+
 
 
     public void Start()
@@ -87,6 +90,7 @@ public class ProfileUIController : MonoBehaviour
         pHandler = FindObjectOfType<ProfileHandler>();
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
+        levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         nameText.text = pHandler.GetUserProfile().userName;
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
@@ -236,6 +240,10 @@ public class ProfileUIController : MonoBehaviour
     {
         creditboard.SetActive(!creditboard.activeSelf);
     }
+    public void ChatButtonClick()
+    {
+        chat.SetActive(!chat.activeSelf);
+    }
 
     public void LevelSlider()
     {
@@ -257,6 +265,8 @@ public class ProfileUIController : MonoBehaviour
 
     IEnumerator FadeImage()
     {
+        levelUpIcon.gameObject.SetActive(true);
+
         // loop over 1 second backwards
         for (float i = 1; i >= 0; i -= Time.deltaTime)
         {

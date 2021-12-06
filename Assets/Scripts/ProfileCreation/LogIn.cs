@@ -10,10 +10,11 @@ public class LogIn : MonoBehaviour
 {
     ProfileHandler pHandler;
 
+    public PopupManager popupManager;
     public InputField input_userName;
     public InputField input_password;
     public InputField input_passwordAgain;
-    public bool clearPrefs;
+    public bool rememberMe;
 
     string userName;
     string password;
@@ -22,7 +23,13 @@ public class LogIn : MonoBehaviour
     private void Start()
     {
         pHandler = FindObjectOfType<ProfileHandler>();
-        if (clearPrefs)
+        if (PlayerPrefs.HasKey("RememberMe"))
+        {
+            rememberMe = IntToBool(PlayerPrefs.GetInt("RememberMe"));
+            transform.GetChild(0).Find("Remember Me").GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("RememberMe"));
+        }
+            
+        if (!rememberMe)
         {
             PlayerPrefs.DeleteKey(Profile.USERNAME_TAG);
             PlayerPrefs.DeleteKey(Profile.PASSWORD_TAG);
@@ -66,8 +73,16 @@ public class LogIn : MonoBehaviour
             Debug.Log("New profile was created successfully");
             Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
         }
-        else
+        else if (response == "InvalidUsername1")
+        {
+            popupManager.Show("Username already taken.");
             Debug.Log("Failed to create profile: Response from server >> " + response);
+        }
+        else
+        {
+            popupManager.Show("Server error");
+            Debug.Log("Failed to create profile: Response from server >> " + response);
+        }
     }
 
     public void OnClick_LogIn()
@@ -90,8 +105,16 @@ public class LogIn : MonoBehaviour
             FindObjectOfType<ProfileHandler>().userProfile.password = password;
             SceneManager.LoadScene("ProfileScene");
         }
-        else
+        else if (response == "Failed")
+        {
+            popupManager.Show("Invalid username or password");
             Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);
+        }
+        else
+        {
+            popupManager.Show("Server error");
+            Debug.Log("Failed to create profile: Response from server >> " + response);
+        }
     }
     void OnGetProfilesForLoginRequestComplete(string response)
     {
@@ -106,4 +129,24 @@ public class LogIn : MonoBehaviour
         }
     }
 
+    public void ClearPrefs(bool state)
+    {
+        PlayerPrefs.SetInt("RememberMe", BoolToInt(state));
+    }
+
+    int BoolToInt(bool state)
+    {
+        if (state)
+            return 1;
+        else
+            return 0;
+    }
+
+    bool IntToBool(int state)
+    {
+        if (state == 0)
+            return false;
+        else
+            return true;
+    }
 }

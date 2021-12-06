@@ -70,6 +70,7 @@ public class ProfileUIController : MonoBehaviour
     
     //info
     public GameObject info;
+    public GameObject creditboard;
     
     //level
     public Button level; //also has image
@@ -96,6 +97,7 @@ public class ProfileUIController : MonoBehaviour
         profileDescription.characterLimit = 144;
 
         LoadOnLogin();
+        profileBackground.gameObject.SetActive(true);
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
@@ -229,6 +231,10 @@ public class ProfileUIController : MonoBehaviour
     public void InfoButtonClick()
     {
         info.SetActive(!info.activeSelf);
+    }
+    public void CreditButtonClick()
+    {
+        creditboard.SetActive(!creditboard.activeSelf);
     }
 
     public void LevelSlider()

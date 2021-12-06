@@ -32,7 +32,7 @@ public class Chat : MonoBehaviour
     Font font;
 
     int messageCount = 0;
-    float messageFontSize = 14.0f;
+    float messageFontSize = 30.0f;
     const float chatBoxWidth = 0.0f;
 
     float updateCooldown = 0.0f;

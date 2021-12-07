@@ -65,8 +65,9 @@ public class ProfileUIController : MonoBehaviour
     
     //tasks
     public Button CancelTask;
-    public Button addTask;
-    public Canvas taskCanvas;
+    public Button addTaskBtn;
+    public Canvas addTaskCanvas;
+    public Canvas CanvasTaskUI;
     
     //info
     public GameObject info;
@@ -94,14 +95,14 @@ public class ProfileUIController : MonoBehaviour
         nameText.text = pHandler.GetUserProfile().userName;
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
-        addTask.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
+        addTaskBtn.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
 
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
-
-        LoadOnLogin();
         profileBackground.gameObject.SetActive(true);
+        LoadOnLogin();
+        
     }
 
     //I need a one function to update the data from Profile Handler to the Profile UI. Also I didn't understand how the Avatar images should work. Notice I took the lines for this function from the ConfirmChangesToServer() function. Joel
@@ -131,19 +132,22 @@ public class ProfileUIController : MonoBehaviour
 
             default:
                 profileBackground.sprite = seasons[0]; //we want this to be winter, must check still
+                Debug.Log("season not loading");
                 break;
 
         }
         for (int i = 0; i < 12; i++)
         {
-            if (i == pHandler.GetUserProfile().avatarID)
+            if (pHandler.GetUserProfile().avatarID == i)
             {
                 ProfilePicture.GetComponent<Image>().sprite = profilePictures[i].sprite;
                 playerController.ChangePlayerAvatar(i);
                 break;
             }
-            else Debug.Log("avatarID not 0-11 ");
+            else Debug.Log("avatarID not " + i + ", avatarID is" + pHandler.GetUserProfile().avatarID);
         }
+
+        CanvasTaskUI.gameObject.SetActive(false);
         //so after new user opens changecanvas
         if (pHandler.GetUserProfile().displayName == "No Name")
         {
@@ -223,7 +227,7 @@ public class ProfileUIController : MonoBehaviour
     
     public void OpenAddTask()
     {
-        taskCanvas.gameObject.SetActive(!taskCanvas.gameObject.activeSelf);
+        addTaskCanvas.gameObject.SetActive(!addTaskCanvas.gameObject.activeSelf);
     }
     
     private void AvatarButtonOnClick(int i)
@@ -254,7 +258,7 @@ public class ProfileUIController : MonoBehaviour
     public void levelUp()
     {
         //emoteGO.GetComponent<EmoteBillboard>().UseEmote(4);
-        //levelUpIcon.SetActive(true);
+        levelUpIcon.SetActive(true);
         StartCoroutine(FadeImage());
     }
 
@@ -265,11 +269,10 @@ public class ProfileUIController : MonoBehaviour
 
     IEnumerator FadeImage()
     {
-        levelUpIcon.gameObject.SetActive(true);
-
         // loop over 1 second backwards
         for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
+            Debug.Log("fade");
             // set color with i as alpha
             levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
             yield return null;

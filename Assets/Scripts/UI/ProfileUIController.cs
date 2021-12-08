@@ -77,6 +77,8 @@ public class ProfileUIController : MonoBehaviour
     public Button level; //also has image
     public LevelManager level_manager;
     public GameObject levelUpIcon;
+    public GameObject emoteGO;
+    public GameObject levelUpText;
 
     //logOut
     public Button btn;
@@ -92,12 +94,13 @@ public class ProfileUIController : MonoBehaviour
         profileChangeCanvas.gameObject.SetActive(false);
         profilePics.gameObject.SetActive(false);
         levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        levelUpIcon.gameObject.SetActive(false);
         nameText.text = pHandler.GetUserProfile().userName;
         level.gameObject.GetComponent<Button>().onClick.AddListener(LevelSlider);
         playerController = PlayerController.Instance;
         addTaskBtn.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
-
+        chat.gameObject.SetActive(false);
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
         profileBackground.gameObject.SetActive(true);
@@ -251,17 +254,17 @@ public class ProfileUIController : MonoBehaviour
 
     public void LevelSlider()
     {
-        //so this has to check max and current exp from server / use another func to set them up probably
         level_manager.UpdateLevels();
     }
 
     public void levelUp()
     {
-        //emoteGO.GetComponent<EmoteBillboard>().UseEmote(4);
         Debug.Log("level gained");
         levelUpIcon.SetActive(true);
         CanvasTaskUI.gameObject.SetActive(false);
-        StartCoroutine(FadeImage());
+        emoteGO.GetComponent<EmoteBillboard>().UseEmote(6);
+        StartCoroutine(ShowImage());
+        //StartCoroutine(FadeImage());
     }
 
     public void UpdateCredits()
@@ -271,13 +274,29 @@ public class ProfileUIController : MonoBehaviour
 
     IEnumerator FadeImage()
     {
+        // loop over 3 seconds backwards
+        for (float i = 1; i >= 0; i -= Time.deltaTime/5)
+        {
+            // set color with i as alpha
+            levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
+            levelUpText.gameObject.GetComponent<Text>().color = new Color(0, 0, 0, i);
+            foreach(Transform child in levelUpText.transform)
+            {
+                child.gameObject.GetComponent<Text>().color = new Color(0, 0, 0, i);
+            }
+            yield return null;
+        }
+        levelUpIcon.SetActive(false);
+        levelUpText.SetActive(false);
+
+    }
+    IEnumerator ShowImage()
+    {
         // loop over 1 second backwards
         for (float i = 1; i >= 0; i -= Time.deltaTime/2)
         {
-            Debug.Log("fade");
-            // set color with i as alpha
-            levelUpIcon.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
             yield return null;
+            StartCoroutine(FadeImage());
         }
 
     }

@@ -173,7 +173,9 @@ public class LevelManager : MonoBehaviour
         if (arr_level[(int)level_data.level] > old_level)
         {
             //ToDo - Trigger levelup event
-            UI_controller.levelUp();
+
+            //kommentoitu pois kunnes ei triggeröidy startissa
+            //UI_controller.levelUp();
         }
 
         //Debug.Log(userProfile.socialScore.ToString());

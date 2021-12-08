@@ -32,7 +32,7 @@ public class Chat : MonoBehaviour
     Font font;
 
     int messageCount = 0;
-    float messageFontSize = 30.0f;
+    int messageFontSize = 40;
     const float chatBoxWidth = 0.0f;
 
     float updateCooldown = 0.0f;
@@ -157,6 +157,7 @@ public class Chat : MonoBehaviour
         newTextObj.transform.localPosition = position;
 
         Text textComponent = newTextObj.AddComponent<Text>();
+        textComponent.fontSize = messageFontSize;
 
         textComponent.font = font;
         textComponent.text = displayName + ": " + message;

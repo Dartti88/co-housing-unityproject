@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CalendarController : MonoBehaviour
 {
@@ -35,8 +36,43 @@ public class CalendarController : MonoBehaviour
 
     private Booking currentBooker;
 
+
+
+    // If this is true -> block any attempt to trigger a "new update" until this goes back to false (made false by our OnCompletionCallback passed to the Client's funcs..)
+    bool bookingUpdateInProgress = false;
+    // Contains room id - name mapping (how they are named in the database!)
+    Dictionary<int, string> roomNameMapping_database;
+
+    // *Needed an "intermediary" to convert the downloaded data into a suitable format..
+    [Serializable]
+    class TempBookingData
+    {
+        public int startTime;
+        public string date;
+        public string bookerName;
+    }
+    class TempBookingsContainer
+    {
+        public TempBookingData[] bookings;
+    }
+    // This will end up containing booking data of the currently selected room.
+    TempBookingsContainer fetchedBookings;
+
     private void Start()
     {
+        roomNameMapping_database = new Dictionary<int, string>()
+        {
+            { 0, "Bookings_ConcertDanceHall"},
+            { 1, "Bookings_MultipurposeHall"},
+            { 2, "Bookings_SummerHall"},
+            { 3, "Bookings_SteamWorkshop"},
+            { 4, "Bookings_TraditionalSauna"},
+            { 5, "Bookings_SummerHall2"},
+            { 6, "Bookings_Bedroom2"},
+            { 7, "Bookings_Bedroom"},
+            { 8, "Bookings_MultipurposeConferenceHall"}
+        };
+
         roomsList = roomsInfo.GetComponentsInChildren<RoomInfo>();
         
         buttonNextRoom.GetComponent<Button>().onClick.AddListener(NextRoom);
@@ -53,7 +89,7 @@ public class CalendarController : MonoBehaviour
     }
 
     // Show bookings for active room
-    private void ShowBookings()
+    private void ShowBookings_LOCAL_VISUAL()
     {
         UpdateRoomNames();
 
@@ -77,6 +113,8 @@ public class CalendarController : MonoBehaviour
     // Adds booking times to the calendar
     private void AddTimeButtons(GameObject calendarElement, string panelDate)
     {
+        DateHelper dh = new DateHelper();
+
         CalendarElement elementScript = calendarElement.GetComponent<CalendarElement>();
         
         // Destroy old children
@@ -96,7 +134,7 @@ public class CalendarController : MonoBehaviour
 
             foreach (Booking b in bookingsListPerRoom)
             {
-                if (b._startingTime == i && b._date == panelDate && b._roomID == selectedRoom)
+                if (b._startingTime == i && dh.DatesEqual(b._date, panelDate)/*b._date == panelDate*/ && b._roomID == selectedRoom)
                 {
                     bookingElement.booked = true;
                     bookerNameTmp = b._bookerName;
@@ -152,7 +190,7 @@ public class CalendarController : MonoBehaviour
         datesShownList.RemoveAt(0);
         datesShownList.Add(dh.GetNextDay(datesShownList[datesShownList.Count - 1]));
 
-        ShowBookings();
+        BeginRoomBookingUpdate();
 
         //Debug.Log("Next Day");
     }
@@ -164,7 +202,7 @@ public class CalendarController : MonoBehaviour
         datesShownList.RemoveAt(datesShownList.Count - 1);
         datesShownList.Insert(0, dh.GetPreviousDay(datesShownList[0]));
 
-        ShowBookings();
+        BeginRoomBookingUpdate();
 
         //Debug.Log("Prev Day");
     }
@@ -250,7 +288,7 @@ public class CalendarController : MonoBehaviour
     private void OpenBookingWindow(BookingElement booking)
     {
         // TEST USER
-        string currentUser = "JJ";
+        string currentUser = "UnityTestUser";
 
         currentBooker = new Booking(
             booking.bookingInfo._startingTime,
@@ -299,25 +337,36 @@ public class CalendarController : MonoBehaviour
     private void BookRoom()
     {
         // Aika, p‰iv‰m‰‰r‰, varaajan nimi, huoneen ID
-        bookingsListPerRoom.Add(new Booking(currentBooker._startingTime, currentBooker._date, currentBooker._bookerName, currentBooker._roomID));
+        //bookingsListPerRoom.Add(new Booking(currentBooker._startingTime, currentBooker._date, currentBooker._bookerName, currentBooker._roomID));
 
-        Debug.Log("Room booked: " + selectedRoom + ", " + roomsList[selectedRoom].roomName);
-        ShowBookings();
-        bookingWindow.SetActive(false);
+        Client.Instance.BeginRequest_MakeRoomBooking(
+            roomNameMapping_database[currentBooker._roomID], 
+            currentBooker._startingTime, 
+            currentBooker._date, 
+            currentBooker._bookerName, 
+            CloseBookingWindow
+        );
     }
-
     private void CancelBooking()
     {
-        // Tehd‰‰n serverin kautta
+        Client.Instance.BeginRequest_CancelRoomBooking(
+            roomNameMapping_database[currentBooker._roomID],
+            currentBooker._startingTime,
+            currentBooker._date,
+            currentBooker._bookerName,
+            CloseBookingWindow
+        );
+    }
 
-        //Debug.Log("Room booking canceled");
-        ShowBookings();
+    void CloseBookingWindow(string serverResponse)
+    {
+        BeginRoomBookingUpdate();
         bookingWindow.SetActive(false);
     }
 
     private void CloseBooking()
     {
-        ShowBookings();
+        BeginRoomBookingUpdate();
         bookingWindow.SetActive(false);
     }
 
@@ -336,7 +385,7 @@ public class CalendarController : MonoBehaviour
     {
         selectedRoom = i;
         //Debug.Log("Clicked button " + i);
-        ShowBookings();
+        BeginRoomBookingUpdate();
     }
 
     // Show the first 5 dates starting from today
@@ -352,23 +401,37 @@ public class CalendarController : MonoBehaviour
             currentDay = dh.GetNextDay(currentDay);
         }
     }
+    
 
-    // ----------- TEST FUNCTION -----------
 
-    private void MakeTestBookings()
+    private void UpdateBookingsFromDatabase(string serverResponse)
     {
+        // Remember to clear the prev list
         bookingsListPerRoom.Clear();
 
-        bookingsListPerRoom.Add(new Booking(9, "2021-11-30", "JJ", 0));
-        bookingsListPerRoom.Add(new Booking(12, "2021-11-30", "Jds", 0));
-        bookingsListPerRoom.Add(new Booking(11, "2021-11-30", "Jrw", 0));
-        bookingsListPerRoom.Add(new Booking(4, "2021-12-2", "Jn", 0));
-        bookingsListPerRoom.Add(new Booking(22, "2021-12-1", "Jhgj", 0));
-        bookingsListPerRoom.Add(new Booking(10, "2021-11-30", "JJ", 0));
-        bookingsListPerRoom.Add(new Booking(14, "2021-12-2", "Jds", 0));
-        bookingsListPerRoom.Add(new Booking(15, "2021-12-3", "Jrw", 0));
-        bookingsListPerRoom.Add(new Booking(7, "2021-12-10", "Jn", 0));
-        bookingsListPerRoom.Add(new Booking(13, "2021-12-1", "Jhgj", 0));
+        string json = "{\"bookings\": " + serverResponse + "}";
+        fetchedBookings = new TempBookingsContainer();
+        try
+        {
+            fetchedBookings = JsonUtility.FromJson<TempBookingsContainer>(json);
+
+            if (fetchedBookings.bookings != null)
+            {
+                if (fetchedBookings.bookings.Length > 0)
+                {
+                    // Make the actual booking to the calendar obj
+                    foreach(TempBookingData tbd in fetchedBookings.bookings)
+                        bookingsListPerRoom.Add(new Booking(tbd.startTime, tbd.date, tbd.bookerName, selectedRoom));
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No bookings found for requested room");
+        }
+        
+        ShowBookings_LOCAL_VISUAL();
+        bookingUpdateInProgress = false;
     }
 
     // ----------- INITIALIZE -----------
@@ -379,12 +442,21 @@ public class CalendarController : MonoBehaviour
         roomsShownOffset = selectedRoom > roomsList.Length - panelAmount ? roomsList.Length - panelAmount : selectedRoom;
 
         // TEST BOOKINGS
-        MakeTestBookings();
+        /*MakeTestBookings();
 
         InitDates();
-        ShowBookings();
+        ShowBookings();*/
+
+        InitDates();
+        BeginRoomBookingUpdate();
     }
 
+    // Begins the attempt to fetch room bookings from the database (DOESN'T IMMEDIATELY DO ANY LOCAL CHANGES)
+    void BeginRoomBookingUpdate()
+    {
+        bookingUpdateInProgress = true;
+        Client.Instance.BeginRequest_GetRoomBookings(roomNameMapping_database[selectedRoom], UpdateBookingsFromDatabase);
+    }
 }
 
 public class Booking

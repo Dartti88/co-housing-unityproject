@@ -16,8 +16,8 @@ public class ProfileHandler : MonoBehaviour
     {
         if (Instance == null)
         {
-            if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LogIn"))
-                SceneManager.LoadScene("LogIn");
+            //if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LogIn"))
+            //    SceneManager.LoadScene("LogIn");
             Instance = this;
             DontDestroyOnLoad(Instance);
         }

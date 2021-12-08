@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 public class DateHelper
 {
@@ -7,6 +8,9 @@ public class DateHelper
     public int _year;
 
     private string _originalDateString;
+
+    // For formatting strings to DateTime - structs
+    private CultureInfo cultureInfo_dates = new CultureInfo("en-US");
 
     // Default constructor, uses current day to initialize
     public DateHelper()
@@ -222,4 +226,12 @@ public class DateHelper
         return monthName;
     }
 
+
+    public bool DatesEqual(string t1, string t2)
+    {
+        DateTime dt1 = DateTime.Parse(t1, cultureInfo_dates);
+        DateTime dt2 = DateTime.Parse(t2, cultureInfo_dates);
+
+        return dt1 == dt2;
+    }
 }

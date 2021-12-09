@@ -2916,8 +2916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   networkPlayerPrefab: {fileID: 2949324193717299332, guid: 45dec495f2437084b881e74cca07a9b8,
     type: 3}
-  destinationsContainer:
-    destinations: []
   localPlayer: {fileID: 1349633256}
 --- !u!4 &276207991
 Transform:
@@ -3594,6 +3592,7 @@ MonoBehaviour:
   profileHandler: {fileID: 544111369}
   pHandler: {fileID: 544111370}
   isLoggedIn: 0
+  initLocalPlayerPos: {x: 0, y: 0, z: 0}
 --- !u!4 &334296272
 Transform:
   m_ObjectHideFlags: 0
@@ -5104,9 +5103,9 @@ RectTransform:
   m_Father: {fileID: 1542342390}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -519.6667}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597445089
@@ -9984,7 +9983,7 @@ PrefabInstance:
     - target: {fileID: 4254280839180773274, guid: fb5c06cfc658bc3409aac6f53a431def,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4254280839180773278, guid: fb5c06cfc658bc3409aac6f53a431def,
         type: 3}
@@ -20130,6 +20129,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3126850097594360791, guid: ba3a421c024e5194c9ae99770acacb37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8284528517075735250, guid: ba3a421c024e5194c9ae99770acacb37,
         type: 3}
       propertyPath: m_RootOrder
@@ -21227,7 +21231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563820412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23, y: 0, z: 0.59}
+  m_LocalPosition: {x: 0.23, y: 7.48, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534669905}
@@ -28328,22 +28332,22 @@ PrefabInstance:
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: MaxCameraPosition.x
-      value: 3.5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: MaxCameraPosition.z
-      value: 10.3
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: MinCameraPosition.x
-      value: -4.9
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: MinCameraPosition.z
-      value: -1.05
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}

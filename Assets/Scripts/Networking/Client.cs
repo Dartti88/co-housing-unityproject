@@ -84,10 +84,7 @@ public class Client : MonoBehaviour
     {
         public Profile[] profiles;
     }
-
     
-
-
     public ProfilesContainer profile_list = new ProfilesContainer();
 
     public Dictionary<int, Task> task_list =            new Dictionary<int, Task>();
@@ -99,9 +96,17 @@ public class Client : MonoBehaviour
     public ProfileHandler pHandler;
 
     public bool isLoggedIn = false;
+    // omg this so fukin dumb.. but necessary..
+    public Vector3 initLocalPlayerPos = new Vector3(0, 0, 0);
 
     const string MESSAGE_ERROR_IDENTIFIER = "Error";
     const char MESSAGE_CUSTOM_DATA_SEPARATOR = ';';
+
+    public enum RequestName
+    {
+        GetAllProfiles
+    }
+    public Dictionary<RequestName, bool> RequestInProgress { get; private set; }
 
     private void Awake()
     {
@@ -109,6 +114,7 @@ public class Client : MonoBehaviour
         {
             Instance = this;
             pHandler = profileHandler.GetComponent<ProfileHandler>();
+            RequestInProgress = new Dictionary<RequestName, bool>();
             DontDestroyOnLoad(Instance);
         }
         else
@@ -192,15 +198,13 @@ public class Client : MonoBehaviour
     {
         return Array.Find(profile_list.profiles, e => e.displayName == displayName).profileID;
     }
-
-    void Test(string a)
-    {
-        Debug.Log("Login TEST: " + a);
-    }
+    
     
     // PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF
     public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {
+        RequestInProgress[RequestName.GetAllProfiles] = true;
+
         UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_Profiles, "application/json");
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfilesFromDatabase));
     }
@@ -245,6 +249,24 @@ public class Client : MonoBehaviour
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_ValidatePassword, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_ValidatePasswordComplete));
+    }
+    public void BeginRequest_LogOut(System.Action<string> onCompletionCallback)
+    {
+        // Need handle to the local player's transform, to save its' last pos..
+        Vector3 lastPlayerPos = FindObjectOfType<RealTimeController>().localPlayer.transform.position;
+        
+        string lastX_str = lastPlayerPos.x.ToString().Replace(',', '.');
+        string lastY_str = lastPlayerPos.y.ToString().Replace(',', '.');
+        string lastZ_str = lastPlayerPos.z.ToString().Replace(',', '.');
+
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", pHandler.userProfile.profileID.ToString()));
+        form.Add(new MultipartFormDataSection("key_x", lastX_str));
+        form.Add(new MultipartFormDataSection("key_y", lastY_str));
+        form.Add(new MultipartFormDataSection("key_z", lastZ_str));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_LogOut, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_LogOutComplete));
     }
 
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
@@ -388,28 +410,27 @@ public class Client : MonoBehaviour
     }
 
     // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
-    public void BeginRequest_GetCharacterDestinations(System.Action<string> onCompletionCallback)
+    public void BeginRequest_GetProfileStatuses(System.Action<string> onCompletionCallback)
     {
-        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetCharacterDestinations, "application/json");
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetCharacterDestinations));
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetProfileStatuses, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetProfileStatuses));
     }
-
-    public void BeginRequest_SendCharacterDestination(int profileID, Vector3 destination, System.Action<string> onCompletionCallback)
+    public void BeginRequest_UpdateProfileStatus(int profileID, int status, Vector3 destination, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
-
+        form.Add(new MultipartFormDataSection("key_profileID", profileID.ToString()));
+        form.Add(new MultipartFormDataSection("key_status", status.ToString()));
 
         string destX_str = destination.x.ToString().Replace(',', '.');
         string destY_str = destination.y.ToString().Replace(',', '.');
         string destZ_str = destination.z.ToString().Replace(',', '.');
-        
-        form.Add(new MultipartFormDataSection("key_x", "\"" + destX_str + "\""));
-        form.Add(new MultipartFormDataSection("key_y", "\"" + destY_str + "\""));
-        form.Add(new MultipartFormDataSection("key_z", "\"" + destZ_str + "\""));
 
-        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SendCharacterDestination, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_SendCharacterDestination));
+        form.Add(new MultipartFormDataSection("key_x", destX_str));
+        form.Add(new MultipartFormDataSection("key_y", destY_str));
+        form.Add(new MultipartFormDataSection("key_z", destZ_str));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfileStatus, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileStatus));
     }
 
     // PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF
@@ -435,6 +456,8 @@ public class Client : MonoBehaviour
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
         profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
+
+        RequestInProgress[RequestName.GetAllProfiles] = false;
     }
 
     // This is called when server responds to post new profile request
@@ -451,6 +474,11 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
         isLoggedIn = req.downloadHandler.text == "Success";
+    }
+    void Internal_OnCompletion_LogOutComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_LogOutComplete(UnityWebRequest req) " + req.downloadHandler.text);
+        isLoggedIn = !(req.downloadHandler.text == "Success");
     }
 
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
@@ -595,13 +623,13 @@ public class Client : MonoBehaviour
     }
 
     // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
-    void Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)
+    void Internal_OnCompletion_GetProfileStatuses(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)");
+        Debug.Log("Internal_OnCompletion_GetProfileStatuses(UnityWebRequest req)");
     }
-    void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
+    void Internal_OnCompletion_UpdateProfileStatus(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
+        Debug.Log("Internal_OnCompletion_UpadteProfileStatus(UnityWebRequest req)");
     }
 
     // INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF

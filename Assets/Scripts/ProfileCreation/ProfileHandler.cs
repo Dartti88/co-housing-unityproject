@@ -16,8 +16,8 @@ public class ProfileHandler : MonoBehaviour
     {
         if (Instance == null)
         {
-            //if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LogIn"))
-            //    SceneManager.LoadScene("LogIn");
+            if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LogIn"))
+                SceneManager.LoadScene("LogIn");
             Instance = this;
             DontDestroyOnLoad(Instance);
         }
@@ -49,8 +49,13 @@ public class ProfileHandler : MonoBehaviour
 
     public void LogOut()
     {
-        loggedOut = true;
-        userProfile = null;
-        SceneManager.LoadScene("LogIn");
+        Client.Instance.BeginRequest_LogOut(
+            response =>
+            {
+                loggedOut = true;
+                userProfile = null;
+                SceneManager.LoadScene("LogIn");
+            }
+        );
     }
 }

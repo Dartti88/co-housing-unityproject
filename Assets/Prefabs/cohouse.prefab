@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 9159312990779455035}
   - component: {fileID: 5249462516733343200}
   - component: {fileID: 1525652800033044296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Banditilatuoli
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -110,11 +110,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10412616937336045}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.058816526, y: -0.12202736, z: 0.0024513672}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.058816534, y: -0.12202738, z: 0.0024513626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
+  m_Father: {fileID: 5546569346247652083}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3244412156279752715
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 35
   groupName: Audience chairs
   location: 
   itemText: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 2207433416523889534}
   - component: {fileID: 4580926492771085112}
   - component: {fileID: 4248298658971991038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Banditilatuoli.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -1624,11 +1624,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157605469895643385}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08811533, y: -0.12202736, z: 0.0024513672}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08811536, y: -0.12202738, z: 0.0024513626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
+  m_Father: {fileID: 5546569346247652083}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &260307136410479562
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 35
   groupName: Audience chairs
   location: 
   itemText: {fileID: 0}
@@ -1764,7 +1764,7 @@ GameObject:
   - component: {fileID: 6739935167028279130}
   - component: {fileID: 8157307492979073555}
   - component: {fileID: 2819627171973501943}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sanky.016
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -1778,13 +1778,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160494248587012733}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011025962, y: 0.23181827, z: 0.005317669}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.011025953, y: 0.23181827, z: 0.005317669}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8240142336699159722}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 21
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5930595346296976547
 MeshFilter:
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 53
   groupName: Bed
   location: 
   itemText: {fileID: 0}
@@ -2662,6 +2662,36 @@ Transform:
   m_Father: {fileID: 7540661502591796490}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &238299268162535607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5295234765950149227}
+  m_Layer: 10
+  m_Name: PathfinderTarget (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &5295234765950149227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238299268162535607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.0087, z: -0.00392}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5305471395410791401}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &238399578486032950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,7 +3456,7 @@ Transform:
   - {fileID: 3551406571127291186}
   - {fileID: 8229161952511490394}
   m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288983103019485283
 GameObject:
@@ -3718,7 +3748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308659143144266948}
   m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025, y: 0.0827, z: 0.00698}
+  m_LocalPosition: {x: 0.024999985, y: 0.08269998, z: 0.0069799996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9095744207064069649}
@@ -3741,8 +3771,8 @@ Transform:
   - {fileID: 7436653400739342130}
   - {fileID: 4890467214918199560}
   - {fileID: 1798652232994531760}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 24
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309474655591143522
 GameObject:
@@ -4971,7 +5001,7 @@ GameObject:
   - component: {fileID: 6969331541068636846}
   - component: {fileID: 3034370817795750688}
   - component: {fileID: 948870532316062478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poyta.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -5081,7 +5111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -5944,7 +5974,7 @@ GameObject:
   - component: {fileID: 4331568952404847049}
   - component: {fileID: 5782082217975533435}
   - component: {fileID: 4615791890723407827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.009
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -6053,7 +6083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -6347,7 +6377,7 @@ GameObject:
   - component: {fileID: 3569281448619694632}
   - component: {fileID: 2787803086370718738}
   - component: {fileID: 7233868855468756637}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.005
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -6457,7 +6487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -6913,7 +6943,7 @@ GameObject:
   - component: {fileID: 7073911055217153453}
   - component: {fileID: 1345369775547098830}
   - component: {fileID: 2551063343749953732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tuolivalkoinen
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -7034,7 +7064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -7083,7 +7113,7 @@ GameObject:
   - component: {fileID: 4416529040114780478}
   - component: {fileID: 408781183205543625}
   - component: {fileID: 2122822481522815585}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistopoyta.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -7206,7 +7236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -7255,7 +7285,7 @@ GameObject:
   - component: {fileID: 6082480313455148709}
   - component: {fileID: 8113060475465430852}
   - component: {fileID: 7864054411726151117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.005
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -7364,7 +7394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -7413,7 +7443,7 @@ GameObject:
   - component: {fileID: 9007765535330385551}
   - component: {fileID: 3946151621534871174}
   - component: {fileID: 8876884287810409984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.011
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -7522,7 +7552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -7652,7 +7682,7 @@ GameObject:
   - component: {fileID: 3208885605948925167}
   - component: {fileID: 1008487521548891441}
   - component: {fileID: 2861272542007314388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kaksitasoinenpoyta.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -7666,12 +7696,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719209115986403089}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.042431403, y: -0.062022015, z: 0.0034756612}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.042431425, y: -0.06202203, z: 0.0034756612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 7
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3041893405754810295
 MeshFilter:
@@ -7753,7 +7783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 39
   groupName: Couchtable
   location: 
   itemText: {fileID: 0}
@@ -8406,7 +8436,7 @@ GameObject:
   - component: {fileID: 7716933206254517272}
   - component: {fileID: 5213840283117941397}
   - component: {fileID: 4806989137361202032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poytamakuuhuone
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -8509,7 +8539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 84
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -8812,13 +8842,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936840317523939788}
   m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05674133, y: -0.040070686, z: 0.07143392}
+  m_LocalPosition: {x: 0.056741312, y: -0.040070686, z: 0.07143392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6567773759083764206}
   - {fileID: 7540661502591796490}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 26
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946216610651818689
 GameObject:
@@ -9156,9 +9186,13 @@ GameObject:
   - component: {fileID: 543486750595266159}
   - component: {fileID: 1437205361259300549}
   - component: {fileID: 2804441577668388142}
-  m_Layer: 0
+  - component: {fileID: 8064584606067557978}
+  - component: {fileID: 4899823993394333862}
+  - component: {fileID: 2205356262425481735}
+  - component: {fileID: 3257767846561221}
+  m_Layer: 10
   m_Name: Ulkotuoli.001
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9170,12 +9204,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967852272993430284}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003989372, y: -0.030795401, z: 0.007333984}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.0054072393, y: -0.034428537, z: 0.004318979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 18
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1437205361259300549
 MeshFilter:
@@ -9226,6 +9260,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8064584606067557978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967852272993430284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &4899823993394333862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967852272993430284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &2205356262425481735
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967852272993430284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008475982, y: 0.010578326, z: 0.016100226}
+  m_Center: {x: 0.000043047203, y: 0.0012659358, z: 0.00012628172}
+--- !u!208 &3257767846561221
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967852272993430284}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.004, y: 0.0050000004, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &974919180022658370
 GameObject:
   m_ObjectHideFlags: 0
@@ -10486,9 +10602,13 @@ GameObject:
   - component: {fileID: 5832874302742432718}
   - component: {fileID: 7884365637736757551}
   - component: {fileID: 61756213432322627}
-  m_Layer: 0
+  - component: {fileID: 7683323900419985785}
+  - component: {fileID: 8335510621819477286}
+  - component: {fileID: 966745479169946585}
+  - component: {fileID: 2051583786456486003}
+  m_Layer: 10
   m_Name: Betonipalkki.003
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10500,12 +10620,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108722436382639203}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01244019, y: -0.012504978, z: -0.00042577743}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.021836776, y: -0.016138133, z: -0.0034407817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 3
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7884365637736757551
 MeshFilter:
@@ -10556,6 +10676,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7683323900419985785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108722436382639203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &8335510621819477286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108722436382639203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &966745479169946585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108722436382639203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.004141847, y: 0.0068292227, z: 0.003468279}
+  m_Center: {x: -0.000010432074, y: 0.00032271264, z: 0.00031681772}
+--- !u!208 &2051583786456486003
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108722436382639203}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.003, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1133015781570968847
 GameObject:
   m_ObjectHideFlags: 0
@@ -10652,7 +10854,7 @@ GameObject:
   - component: {fileID: 1385475246221970653}
   - component: {fileID: 4661403547080940727}
   - component: {fileID: 8130548671723728600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lava
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -10666,13 +10868,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140915030693056848}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.078984566, y: -0.15475821, z: 0.0029381514}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07898453, y: -0.15475832, z: 0.0029381465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2650233042369705089}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 36
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8655597494389426202
 MeshFilter:
@@ -10760,7 +10962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 118
   groupName: Performance Stage
   location: 
   itemText: {fileID: 0}
@@ -11462,7 +11664,7 @@ GameObject:
   - component: {fileID: 3550151360137784984}
   - component: {fileID: 5434276812143259356}
   - component: {fileID: 4136267900622504625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.008
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -11571,7 +11773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -12270,7 +12472,7 @@ GameObject:
   - component: {fileID: 1191037504712554837}
   - component: {fileID: 2569149594072829984}
   - component: {fileID: 5858805021907074705}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistopoyta.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -12393,7 +12595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -12442,7 +12644,7 @@ GameObject:
   - component: {fileID: 8222882093332220940}
   - component: {fileID: 3518260964705940898}
   - component: {fileID: 4495736703709840735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.007
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -12552,7 +12754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -12801,7 +13003,7 @@ GameObject:
   - component: {fileID: 2287651021246644467}
   - component: {fileID: 2021492019321938367}
   - component: {fileID: 6235758002160720665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sanky.015
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -12815,13 +13017,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379517117136282757}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.049379893, y: -0.13500564, z: 0.06818546}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.049379878, y: -0.13500562, z: 0.06818546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454447473458653523}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 20
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3103294991252014816
 MeshFilter:
@@ -12903,7 +13105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 52
   groupName: Bed
   location: 
   itemText: {fileID: 0}
@@ -14027,9 +14229,13 @@ GameObject:
   - component: {fileID: 1250238549357936215}
   - component: {fileID: 60977872303933058}
   - component: {fileID: 4264582317240993975}
-  m_Layer: 0
+  - component: {fileID: 7452933256564212604}
+  - component: {fileID: 4828996349796232764}
+  - component: {fileID: 7928779804042829366}
+  - component: {fileID: 3877488001545618597}
+  m_Layer: 10
   m_Name: Lipputangonnuppi
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14097,6 +14303,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7452933256564212604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577472458254992378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 140
+  groupName: Flagpole
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &4828996349796232764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577472458254992378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup: []
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &7928779804042829366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577472458254992378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0025788168, y: 0.0027115243, z: 0.0032712356}
+  m_Center: {x: 0.000000022060703, y: -0.000000053027172, z: 0.00016805527}
+--- !u!208 &3877488001545618597
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577472458254992378}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.001, y: 0.001, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1578897368439143799
 GameObject:
   m_ObjectHideFlags: 0
@@ -14853,14 +15124,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672953267821827837}
   m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02158, y: -0.09067, z: 0.07349}
+  m_LocalPosition: {x: 0.021579951, y: -0.09066998, z: 0.07348999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1300046525404187478}
   - {fileID: 8190748249343121639}
   - {fileID: 8458352820783996716}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 25
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673641498342803025
 GameObject:
@@ -15447,7 +15718,7 @@ GameObject:
   - component: {fileID: 6373897505510433215}
   - component: {fileID: 7424202890196651164}
   - component: {fileID: 5174568606341820401}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -15461,12 +15732,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728547404327648032}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020691723, y: 0.05731815, z: 0.025014734}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.020691736, y: 0.057318114, z: 0.025014734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 9
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1559690399979705846
 MeshFilter:
@@ -15548,7 +15819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 41
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -15593,9 +15864,13 @@ GameObject:
   - component: {fileID: 2637588454378921207}
   - component: {fileID: 3551005469719485867}
   - component: {fileID: 1339300017582152403}
-  m_Layer: 0
+  - component: {fileID: 3358395193634694009}
+  - component: {fileID: 6362702395902257571}
+  - component: {fileID: 890147307997091827}
+  - component: {fileID: 2840675905250178595}
+  m_Layer: 10
   m_Name: keksit
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15607,12 +15882,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743948131397927778}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003036611, y: -0.018828068, z: 0.00034296513}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.012433215, y: -0.022461202, z: -0.0026720366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 5
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3551005469719485867
 MeshFilter:
@@ -15663,6 +15938,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3358395193634694009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743948131397927778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &6362702395902257571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743948131397927778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &890147307997091827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743948131397927778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0034440113, y: 0.003282928, z: 0.0007134436}
+  m_Center: {x: -0.000043257478, y: 0.00020984649, z: 0.000107612585}
+--- !u!208 &2840675905250178595
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743948131397927778}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.002, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1748150365548269336
 GameObject:
   m_ObjectHideFlags: 0
@@ -15678,7 +16035,7 @@ GameObject:
   - component: {fileID: 1540581282496502310}
   - component: {fileID: 3438830257267642476}
   - component: {fileID: 4163651664829901433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -15781,7 +16138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 113
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -16075,7 +16432,7 @@ GameObject:
   - component: {fileID: 2851392724892224534}
   - component: {fileID: 5706493344318838791}
   - component: {fileID: 6499575319875871577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.004
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -16089,13 +16446,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813966650037186346}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027634153, y: -0.1119326, z: 0.02248272}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027634166, y: -0.11193271, z: 0.02248272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1278769865221811360}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 12
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9081651705495395007
 MeshFilter:
@@ -16177,7 +16534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 44
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -18954,7 +19311,7 @@ GameObject:
   - component: {fileID: 3309356241854163693}
   - component: {fileID: 4841662910799495836}
   - component: {fileID: 594081217011278362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.005
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -19060,7 +19417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 98
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -20120,8 +20477,8 @@ Transform:
   - {fileID: 2996786981450370127}
   - {fileID: 887910511012720918}
   - {fileID: 4906609611383706040}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 27
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2219964588350381155
 GameObject:
@@ -20137,7 +20494,7 @@ GameObject:
   - component: {fileID: 5144058651346069060}
   - component: {fileID: 8253952725057473117}
   - component: {fileID: 4455395824208988389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.006
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -20243,7 +20600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 103
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -20442,7 +20799,7 @@ GameObject:
   - component: {fileID: 5906025488604682445}
   - component: {fileID: 5116556184190214156}
   - component: {fileID: 7646461826793966430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -20552,7 +20909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -21092,7 +21449,7 @@ GameObject:
   - component: {fileID: 2016191304244928323}
   - component: {fileID: 2006859946708554389}
   - component: {fileID: 4186646300640935835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -21202,7 +21559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -22844,6 +23201,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2469003330284119201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3591102872125329031}
+  m_Layer: 10
+  m_Name: PathfinderTarget (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &3591102872125329031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469003330284119201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.034, y: -0.0243, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2475194577392033310
 GameObject:
   m_ObjectHideFlags: 0
@@ -23104,7 +23491,7 @@ GameObject:
   - component: {fileID: 2076774883365596363}
   - component: {fileID: 8619313957654731614}
   - component: {fileID: 3524149157987737327}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.010
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -23225,7 +23612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -23438,7 +23825,7 @@ GameObject:
   - component: {fileID: 3635314627860314748}
   - component: {fileID: 2223916821134913297}
   - component: {fileID: 7810791555626616639}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tuolivalkoinen.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -23542,7 +23929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 82
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -23591,7 +23978,7 @@ GameObject:
   - component: {fileID: 5495981662627508859}
   - component: {fileID: 5131774404183639368}
   - component: {fileID: 4457408542770363092}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistopoyta
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -23714,7 +24101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -24088,7 +24475,7 @@ GameObject:
   - component: {fileID: 1409420993954462477}
   - component: {fileID: 1548657447794828031}
   - component: {fileID: 772105641216712793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -24209,7 +24596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -24858,7 +25245,7 @@ GameObject:
   - component: {fileID: 7551642951666055527}
   - component: {fileID: 5311731636251866308}
   - component: {fileID: 3494987233833369094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.008
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -24979,7 +25366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -25466,7 +25853,7 @@ GameObject:
   - component: {fileID: 2794972727663265177}
   - component: {fileID: 6041056845795051222}
   - component: {fileID: 1003027716295688960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.015
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -25572,7 +25959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 58
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -25620,7 +26007,7 @@ GameObject:
   - component: {fileID: 6408815051587326372}
   - component: {fileID: 3937651223266102022}
   - component: {fileID: 7481222108246359436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.011
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -25726,7 +26113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 98
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -26165,9 +26552,13 @@ GameObject:
   - component: {fileID: 3744408641129146205}
   - component: {fileID: 3779139826904420970}
   - component: {fileID: 2623784266407097475}
-  m_Layer: 0
+  - component: {fileID: 4697517126436286404}
+  - component: {fileID: 643642991540197291}
+  - component: {fileID: 2008304763805561421}
+  - component: {fileID: 8544654577388799310}
+  m_Layer: 10
   m_Name: "P\xF6lli"
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26179,12 +26570,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2830242626788100928}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.013807616, y: 0.028810881, z: 0.005282998}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.0044110017, y: 0.025177762, z: 0.0022679938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 13
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3779139826904420970
 MeshFilter:
@@ -26235,6 +26626,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4697517126436286404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830242626788100928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &643642991540197291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830242626788100928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &2008304763805561421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830242626788100928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0039009482, y: 0.011822356, z: 0.003957099}
+  m_Center: {x: 0.00005574803, y: -0.0001204449, z: 0.00006337643}
+--- !u!208 &8544654577388799310
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830242626788100928}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.006, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2839804463152031352
 GameObject:
   m_ObjectHideFlags: 0
@@ -26849,7 +27322,7 @@ GameObject:
   - component: {fileID: 3667283515977114014}
   - component: {fileID: 2128273230223689679}
   - component: {fileID: 1669710994134807297}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.006
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -26970,7 +27443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -27181,7 +27654,7 @@ GameObject:
   - component: {fileID: 7497408495642807458}
   - component: {fileID: 8330041539383496984}
   - component: {fileID: 4246285140014262261}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.012
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -27287,7 +27760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 98
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -27675,9 +28148,13 @@ GameObject:
   - component: {fileID: 1653863143698061135}
   - component: {fileID: 8353917572096799276}
   - component: {fileID: 8210021673151504289}
-  m_Layer: 0
+  - component: {fileID: 2783060034431768564}
+  - component: {fileID: 9061560148600609350}
+  - component: {fileID: 8065077634761913928}
+  - component: {fileID: 5715719145540073129}
+  m_Layer: 10
   m_Name: Ulkotuoli.005
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27689,12 +28166,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008197154665705719}
-  m_LocalRotation: {x: 0, y: 0, z: 0.22529083, w: 0.97429156}
-  m_LocalPosition: {x: 0.030504445, y: -0.0094174, z: 0.007239666}
+  m_LocalRotation: {x: 0.0000000337838, y: 0.000000006366891, z: 0.2252908, w: 0.97429156}
+  m_LocalPosition: {x: 0.021107836, y: -0.013050518, z: 0.004224659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 21
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8353917572096799276
 MeshFilter:
@@ -27745,6 +28222,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2783060034431768564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008197154665705719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &9061560148600609350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008197154665705719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &8065077634761913928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008197154665705719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012849293, y: 0.012592676, z: 0.016100226}
+  m_Center: {x: -0.0012461911, y: 0.001197108, z: 0.00022059675}
+--- !u!208 &5715719145540073129
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008197154665705719}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.006, y: 0.006, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0.001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3013126339884342978
 GameObject:
   m_ObjectHideFlags: 0
@@ -28536,7 +29095,7 @@ GameObject:
   - component: {fileID: 548366643801885346}
   - component: {fileID: 7673157249896236745}
   - component: {fileID: 8741981795272654717}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane.015
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -28550,13 +29109,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3118241189074364343}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.024364995, y: 0.13175339, z: 0.0036177586}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.024364972, y: 0.13175341, z: 0.003617754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8907412215565002949}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 19
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5473989294680335768
 MeshFilter:
@@ -28638,7 +29197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 51
   groupName: Board
   location: 
   itemText: {fileID: 0}
@@ -28714,7 +29273,7 @@ GameObject:
   - component: {fileID: 6782675520280026632}
   - component: {fileID: 5306138349635575748}
   - component: {fileID: 1180741889033964816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AdditionalCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28941,7 +29500,7 @@ GameObject:
   - component: {fileID: 7164955579139418518}
   - component: {fileID: 3525484299597509934}
   - component: {fileID: 5600218091579290862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkotaulu
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -28955,13 +29514,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141994641147261687}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03791745, y: -0.032311592, z: 0.017438164}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.037917424, y: -0.032311562, z: 0.017438168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4886329458493071929}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 38
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2684221691717646423
 MeshFilter:
@@ -29043,7 +29602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 120
   groupName: Whiteboard
   location: 
   itemText: {fileID: 0}
@@ -29486,7 +30045,7 @@ GameObject:
   - component: {fileID: 1014565459325477144}
   - component: {fileID: 5791187500461673876}
   - component: {fileID: 1602706727702794234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.009
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -29596,7 +30155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -30374,9 +30933,13 @@ GameObject:
   - component: {fileID: 5268686062941846370}
   - component: {fileID: 6467392786245638560}
   - component: {fileID: 3738311316398752702}
-  m_Layer: 0
+  - component: {fileID: 7333224320066080041}
+  - component: {fileID: 4661003411434502724}
+  - component: {fileID: 3208781603085212034}
+  - component: {fileID: 2085598014104453001}
+  m_Layer: 10
   m_Name: Roskis
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30388,12 +30951,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3315276263263569186}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0046860906, y: -0.008876304, z: 0.0023390246}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.014082699, y: -0.0125094205, z: -0.00067597994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 17
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6467392786245638560
 MeshFilter:
@@ -30444,6 +31007,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7333224320066080041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315276263263569186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &4661003411434502724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315276263263569186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &3208781603085212034
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315276263263569186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0050000004, y: 0.0049999994, z: 0.004999999}
+  m_Center: {x: 0.00012276463, y: 0.00012773504, z: -0.00030868518}
+--- !u!208 &2085598014104453001
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315276263263569186}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.003, y: 0.002, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3324410878670339790
 GameObject:
   m_ObjectHideFlags: 0
@@ -31414,7 +32059,7 @@ GameObject:
   - component: {fileID: 847752600532617155}
   - component: {fileID: 7454673690668466983}
   - component: {fileID: 1786453941490485467}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistopoyta.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -31537,7 +32182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -31816,6 +32461,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3519707647890953174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3987485338493585455}
+  m_Layer: 0
+  m_Name: "Yl\xE4kerta"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3987485338493585455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519707647890953174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6626614542549515347}
+  - {fileID: 2827974153271908087}
+  - {fileID: 2089504198572155435}
+  - {fileID: 5089915652846364583}
+  - {fileID: 4181055865594080031}
+  - {fileID: 8449038051842718571}
+  - {fileID: 3654961532028155113}
+  - {fileID: 1936650695317311783}
+  - {fileID: 4493706399437164930}
+  - {fileID: 863727409704855765}
+  m_Father: {fileID: 2193346015182268189}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3524640650677011072
 GameObject:
   m_ObjectHideFlags: 0
@@ -32481,7 +33166,7 @@ GameObject:
   - component: {fileID: 923827684751878997}
   - component: {fileID: 6675022139849625574}
   - component: {fileID: 5005112305314487755}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -32602,7 +33287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -33506,7 +34191,7 @@ GameObject:
   - component: {fileID: 7952286680647106796}
   - component: {fileID: 878040389500127165}
   - component: {fileID: 272932473517315974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.012
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -33612,7 +34297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 58
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -34559,7 +35244,7 @@ GameObject:
   - component: {fileID: 7289552689974498002}
   - component: {fileID: 5796798236042837388}
   - component: {fileID: 7036089289024443429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -34669,7 +35354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -34946,6 +35631,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3985458798706910793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759660260983364138}
+  m_Layer: 0
+  m_Name: fireplace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759660260983364138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985458798706910793}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000021073426, z: 0.000000021073422,
+    w: 1}
+  m_LocalPosition: {x: 0.009396605, y: 0.0036331362, z: 0.0030150032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7290062958198017599}
+  - {fileID: 607488546579050024}
+  - {fileID: 6934611656992369838}
+  - {fileID: 4263129391281310574}
+  - {fileID: 2178710685720094883}
+  - {fileID: 5832874302742432718}
+  - {fileID: 2637588454378921207}
+  - {fileID: 5132630041229574914}
+  - {fileID: 3744408641129146205}
+  - {fileID: 4199130455427255240}
+  - {fileID: 8514361223371544946}
+  - {fileID: 4799829140807971251}
+  - {fileID: 5268686062941846370}
+  - {fileID: 543486750595266159}
+  - {fileID: 7786441133430038493}
+  - {fileID: 3781722500131467090}
+  - {fileID: 1653863143698061135}
+  - {fileID: 3591102872125329031}
+  m_Father: {fileID: 6487460992091286437}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3989220316827350432
 GameObject:
   m_ObjectHideFlags: 0
@@ -35727,7 +36461,7 @@ GameObject:
   - component: {fileID: 5754212481642301607}
   - component: {fileID: 4530446123799225052}
   - component: {fileID: 365375504514418129}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tuolivalkoinen.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -35831,7 +36565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 84
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -36853,9 +37587,13 @@ GameObject:
   - component: {fileID: 4799829140807971251}
   - component: {fileID: 8210021745221863702}
   - component: {fileID: 5162471937238809395}
-  m_Layer: 0
+  - component: {fileID: 3091522074440043508}
+  - component: {fileID: 6726330611224121248}
+  - component: {fileID: 8075652396504389300}
+  - component: {fileID: 8583347344898355722}
+  m_Layer: 10
   m_Name: "p\xF6lli.002"
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36867,12 +37605,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4159689006950632214}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0045809457, y: 0.022044448, z: 0.0031104898}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.013977545, y: 0.01841131, z: 0.000095486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 16
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8210021745221863702
 MeshFilter:
@@ -36923,6 +37661,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3091522074440043508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159689006950632214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &6726330611224121248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159689006950632214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &8075652396504389300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159689006950632214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00461484, y: 0.004496765, z: 0.0065566194}
+  m_Center: {x: 0.000057629197, y: 0.00008139071, z: -0.00007091659}
+--- !u!208 &8583347344898355722
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159689006950632214}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.002, z: 0.003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4182214021511645796
 GameObject:
   m_ObjectHideFlags: 0
@@ -37702,7 +38522,7 @@ GameObject:
   - component: {fileID: 7173054341701578646}
   - component: {fileID: 9179410146319881370}
   - component: {fileID: 1563216761338563403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.014
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -37808,7 +38628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 58
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -38632,46 +39452,8 @@ Transform:
   m_LocalPosition: {x: 9.109478, y: 7.127945, z: 60.327744}
   m_LocalScale: {x: 100, y: 99.999985, z: 100}
   m_Children:
-  - {fileID: 3198603243982511032}
-  - {fileID: 609746369536526547}
-  - {fileID: 8536787414908382030}
-  - {fileID: 4199535710496493785}
-  - {fileID: 2058545351201287289}
-  - {fileID: 6626614542549515347}
-  - {fileID: 2827974153271908087}
-  - {fileID: 46794246015202209}
-  - {fileID: 2089504198572155435}
-  - {fileID: 923113706918414992}
-  - {fileID: 33826913243477533}
-  - {fileID: 4916486371530924829}
-  - {fileID: 2207625880891847718}
-  - {fileID: 4807397426399279186}
-  - {fileID: 5089915652846364583}
-  - {fileID: 4181055865594080031}
-  - {fileID: 8449038051842718571}
-  - {fileID: 1062305353589427966}
-  - {fileID: 4668424362378568288}
-  - {fileID: 7928241267999776262}
-  - {fileID: 3654961532028155113}
-  - {fileID: 8259762161054433376}
-  - {fileID: 8085624728668684107}
-  - {fileID: 1936650695317311783}
-  - {fileID: 5581570088449345606}
-  - {fileID: 4493706399437164930}
-  - {fileID: 863727409704855765}
-  - {fileID: 8604648910125591732}
-  - {fileID: 1463549612744383780}
-  - {fileID: 9100509081423246089}
-  - {fileID: 7816112384585366134}
-  - {fileID: 6212994044289971088}
-  - {fileID: 2499615499374922640}
-  - {fileID: 683211025796803482}
-  - {fileID: 3315320503630183803}
-  - {fileID: 4084700511786922192}
-  - {fileID: 1143612083195699323}
-  - {fileID: 7073206617406470327}
-  - {fileID: 3530236350921970662}
-  - {fileID: 3403799058409819052}
+  - {fileID: 5546569346247652083}
+  - {fileID: 3987485338493585455}
   m_Father: {fileID: 661721140270140826}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38852,7 +39634,7 @@ GameObject:
   - component: {fileID: 5414684602893710071}
   - component: {fileID: 516918212840143701}
   - component: {fileID: 2165654840274757587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.006
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -38973,7 +39755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -40127,7 +40909,7 @@ GameObject:
   - component: {fileID: 5257541324025318240}
   - component: {fileID: 44602486870233646}
   - component: {fileID: 2107004175249661137}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Banditilatuoli.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -40141,11 +40923,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4511634828572869281}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.100721635, y: -0.12202736, z: 0.0024513672}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.10072156, y: -0.12202746, z: 0.0024513626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
+  m_Father: {fileID: 5546569346247652083}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9063558381735407230
@@ -40232,7 +41014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 35
   groupName: Audience chairs
   location: 
   itemText: {fileID: 0}
@@ -41126,8 +41908,8 @@ Transform:
   - {fileID: 2634985031569821672}
   - {fileID: 9196795688842375480}
   - {fileID: 7917436224183562512}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 30
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4623564665513602901
 GameObject:
@@ -41388,7 +42170,7 @@ GameObject:
   - component: {fileID: 679450897680241462}
   - component: {fileID: 851707596089483009}
   - component: {fileID: 5458453148144645977}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -41402,12 +42184,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4648915064900182786}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027634153, y: -0.10298965, z: 0.02248272}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027634164, y: -0.102989756, z: 0.02248272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 11
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &831909785709411248
 MeshFilter:
@@ -41489,7 +42271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 43
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -41523,6 +42305,36 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -0.0050000004}
   m_TimeToStationary: 0.5
+--- !u!1 &4649381879593627125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8173032607784641364}
+  m_Layer: 10
+  m_Name: PathfinderTarget (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &8173032607784641364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649381879593627125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4533, y: 0.0637, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4930497949067002918}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4659856068243285530
 GameObject:
   m_ObjectHideFlags: 0
@@ -41534,9 +42346,13 @@ GameObject:
   - component: {fileID: 2178710685720094883}
   - component: {fileID: 1814944399214214868}
   - component: {fileID: 5256282974360235820}
-  m_Layer: 0
+  - component: {fileID: 2789238793151433499}
+  - component: {fileID: 2951675579196451566}
+  - component: {fileID: 798730628525706639}
+  - component: {fileID: 6119867327520904719}
+  m_Layer: 10
   m_Name: Betonipalkki.002
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41548,12 +42364,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4659856068243285530}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013706863, y: 0.0023880387, z: 0.0036932563}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.023103464, y: -0.001245097, z: 0.00067825406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 2
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1814944399214214868
 MeshFilter:
@@ -41604,6 +42420,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2789238793151433499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659856068243285530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &2951675579196451566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659856068243285530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &798730628525706639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659856068243285530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0034682802, y: 0.006368579, z: 0.003274073}
+  m_Center: {x: 0.00031681053, y: 0.0003320639, z: 0.000039970844}
+--- !u!208 &6119867327520904719
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659856068243285530}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.003, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4664620152446458124
 GameObject:
   m_ObjectHideFlags: 0
@@ -41783,7 +42681,7 @@ GameObject:
   - component: {fileID: 6232175634334815539}
   - component: {fileID: 7107252904297262951}
   - component: {fileID: 7453211615432151080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.004
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -41887,7 +42785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 113
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -44019,7 +44917,7 @@ GameObject:
   - component: {fileID: 7885520586622554872}
   - component: {fileID: 2890830637348353530}
   - component: {fileID: 6794220520719977735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Basso
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -44033,12 +44931,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4868670992833718165}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08362656, y: -0.15974441, z: 0.015292472}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08362656, y: -0.15974446, z: 0.015292463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 34
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5813648976307176950
 MeshFilter:
@@ -44122,7 +45020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 7
   groupName: Bass
   location: 
   itemText: {fileID: 0}
@@ -44758,7 +45656,7 @@ GameObject:
   - component: {fileID: 4976066794407693143}
   - component: {fileID: 5969151171280129995}
   - component: {fileID: 5624042619078759148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kitara
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -44772,12 +45670,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4953000390001769688}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.092474185, y: -0.15898177, z: 0.01346818}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09247414, y: -0.15898173, z: 0.013468189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 32
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8288286009080317900
 MeshFilter:
@@ -44861,7 +45759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 116
   groupName: Guitar
   location: 
   itemText: {fileID: 0}
@@ -45053,8 +45951,8 @@ Transform:
   - {fileID: 9127998361464603452}
   - {fileID: 8946239642759742586}
   - {fileID: 261811193403471629}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 29
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5015756228306480530
 GameObject:
@@ -45152,7 +46050,7 @@ GameObject:
   - component: {fileID: 227515483426305125}
   - component: {fileID: 8584601705698937622}
   - component: {fileID: 9157802944688110201}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rumpusetti
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -45166,12 +46064,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5032402763837253437}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06053521, y: -0.1559796, z: 0.010032969}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.060535204, y: -0.15597963, z: 0.010032978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 37
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1722760262609318241
 MeshFilter:
@@ -45253,7 +46151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 119
   groupName: Drumset
   location: 
   itemText: {fileID: 0}
@@ -45424,13 +46322,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048616616622422608}
   m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
-  m_LocalPosition: {x: -0.028967213, y: -0.13186397, z: 0.0131987}
+  m_LocalPosition: {x: -0.028967252, y: -0.13186404, z: 0.0131987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3162491942275855613}
   - {fileID: 2627467948650287414}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 31
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5074710062227420766
 GameObject:
@@ -45723,7 +46621,7 @@ GameObject:
   - component: {fileID: 6103203808442531987}
   - component: {fileID: 5372707688310895555}
   - component: {fileID: 6232970557631849720}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.008
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -45829,7 +46727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 103
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -45865,7 +46763,7 @@ GameObject:
   - component: {fileID: 3160982303428517639}
   - component: {fileID: 2979049555440515272}
   - component: {fileID: 6087351703958581281}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Standi
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -45879,12 +46777,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5126546841428796562}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08367637, y: -0.15661475, z: 0.0075289486}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.083676346, y: -0.15661478, z: 0.0075289533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 35
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5152274456040252060
 MeshFilter:
@@ -45968,7 +46866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 117
   groupName: Bass
   location: 
   itemText: {fileID: 0}
@@ -47183,9 +48081,13 @@ GameObject:
   - component: {fileID: 4930497949067002918}
   - component: {fileID: 2511681711770153880}
   - component: {fileID: 7452982514354790491}
-  m_Layer: 0
+  - component: {fileID: 1790831147899882738}
+  - component: {fileID: 8799977431879860946}
+  - component: {fileID: 7179052296758144070}
+  - component: {fileID: 5097080083740470216}
+  m_Layer: 10
   m_Name: Punainnepostilaatikko
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47197,12 +48099,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5283467787647416906}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.030560955, y: 0.2447519, z: -0.052040365}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 11
+  m_Children:
+  - {fileID: 8173032607784641364}
+  m_Father: {fileID: 5139571295236647617}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2511681711770153880
 MeshFilter:
@@ -47253,6 +48156,74 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1790831147899882738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283467787647416906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 135
+  groupName: Mailbox
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &8799977431879860946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283467787647416906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 4072276505387876609}
+  - {fileID: 6779939970954482241}
+  - {fileID: 8799977431879860946}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &7179052296758144070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283467787647416906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0076430445, y: 0.0063452455, z: 0.020511737}
+  m_Center: {x: 0.43602037, y: 0.059956145, z: 0.0077572204}
+--- !u!208 &5097080083740470216
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283467787647416906}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.004, y: 0.003, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.43600002, y: 0.060000002, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &5293688257020533771
 GameObject:
   m_ObjectHideFlags: 0
@@ -47901,7 +48872,7 @@ GameObject:
   - component: {fileID: 4978328688762091786}
   - component: {fileID: 7413447873289999166}
   - component: {fileID: 2419357482397986849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.013
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -48007,7 +48978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 58
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -48952,7 +49923,7 @@ GameObject:
   - component: {fileID: 1277976323562095194}
   - component: {fileID: 6480303221144141523}
   - component: {fileID: 4902528869950223746}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.011
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -48971,8 +49942,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6596763784492325693}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 23
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1707083425070351407
 MeshFilter:
@@ -49054,7 +50025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 59
   groupName: Chair
   location: 
   itemText: {fileID: 0}
@@ -49624,7 +50595,7 @@ GameObject:
   - component: {fileID: 8725105567847524821}
   - component: {fileID: 292391409566007471}
   - component: {fileID: 8190441913171059403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Standi.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -49638,12 +50609,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5556582562065487984}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.092542514, y: -0.15661475, z: 0.0075289486}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09254251, y: -0.1566147, z: 0.0075289533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 33
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6211521426853651764
 MeshFilter:
@@ -49727,7 +50698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 6
   groupName: Guitar
   location: 
   itemText: {fileID: 0}
@@ -49857,7 +50828,7 @@ GameObject:
   - component: {fileID: 4760302779516326302}
   - component: {fileID: 1358656332151280645}
   - component: {fileID: 5599661826426637329}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane.014
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -49871,13 +50842,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5571672175548300675}
-  m_LocalRotation: {x: -0.000000057601167, y: -0.000000057601174, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: -0.022309136, y: 0.097942695, z: 0.0029550218}
+  m_LocalRotation: {x: 0.000000029802319, y: -0.000000119209275, z: 0.7071069, w: 0.7071067}
+  m_LocalPosition: {x: -0.022309108, y: 0.097942635, z: 0.002955017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8846681674533722846}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 18
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7791883818254269467
 MeshFilter:
@@ -49959,7 +50930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 50
   groupName: Board
   location: 
   itemText: {fileID: 0}
@@ -50251,7 +51222,7 @@ GameObject:
   - component: {fileID: 8888748996304061478}
   - component: {fileID: 8160989210752566693}
   - component: {fileID: 4479586747919542948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.009
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -50357,7 +51328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 103
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -50389,9 +51360,13 @@ GameObject:
   - component: {fileID: 7786441133430038493}
   - component: {fileID: 6534406211301653517}
   - component: {fileID: 1352534358933359195}
-  m_Layer: 0
+  - component: {fileID: 7133450364241092668}
+  - component: {fileID: 1517142140958055810}
+  - component: {fileID: 150678116628166395}
+  - component: {fileID: 4603447642415514559}
+  m_Layer: 10
   m_Name: Ulkotuoli.002
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50403,12 +51378,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5643638304189030808}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03391105, y: 0.008023529, z: 0.007333984}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.024514437, y: 0.00439039, z: 0.0043189805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 19
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6534406211301653517
 MeshFilter:
@@ -50459,6 +51434,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7133450364241092668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643638304189030808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &1517142140958055810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643638304189030808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &150678116628166395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643638304189030808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010782476, y: 0.008734435, z: 0.016100226}
+  m_Center: {x: -0.0012802489, y: -0.000007983219, z: 0.000126278}
+--- !u!208 &4603447642415514559
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643638304189030808}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0050000004, y: 0.004, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5659039738596463881
 GameObject:
   m_ObjectHideFlags: 0
@@ -50912,7 +51969,7 @@ GameObject:
   - component: {fileID: 8961668847701678544}
   - component: {fileID: 7880167614621224121}
   - component: {fileID: 1813185232558177034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -51021,7 +52078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -52857,7 +53914,7 @@ GameObject:
   - component: {fileID: 7295733182264456739}
   - component: {fileID: 6217028056067517623}
   - component: {fileID: 1476226634066889998}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.007
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -52966,7 +54023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -53015,7 +54072,7 @@ GameObject:
   - component: {fileID: 405759299272042514}
   - component: {fileID: 33342561171600875}
   - component: {fileID: 3777900461893701591}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.010
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -53124,7 +54181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 111
   groupName: Shelves
   location: 
   itemText: {fileID: 0}
@@ -54231,7 +55288,7 @@ GameObject:
   - component: {fileID: 9213606102180041815}
   - component: {fileID: 7760235514192675226}
   - component: {fileID: 1906939197492876509}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Taskitaulu
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -54245,13 +55302,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6133193005732316709}
-  m_LocalRotation: {x: -0.000000059604638, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0055460334, y: 0.03333328, z: 0.01952424}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0055460143, y: 0.03333332, z: 0.01952424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4933154847581142358}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 39
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4613262396647782482
 MeshFilter:
@@ -54333,7 +55390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 121
   groupName: Taskboard
   location: 
   itemText: {fileID: 0}
@@ -55180,9 +56237,13 @@ GameObject:
   - component: {fileID: 6934611656992369838}
   - component: {fileID: 9175443115963099690}
   - component: {fileID: 817548115416885206}
-  m_Layer: 0
+  - component: {fileID: 5610687671786171839}
+  - component: {fileID: 6004963379885685101}
+  - component: {fileID: 5160505215981122663}
+  - component: {fileID: 5542325920347411048}
+  m_Layer: 10
   m_Name: Betonipalkki
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55194,12 +56255,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6308334638838289108}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008712718, y: 0.017393418, z: 0.0010186577}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.01810933, y: 0.013760281, z: -0.0019963414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 0
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9175443115963099690
 MeshFilter:
@@ -55250,6 +56311,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5610687671786171839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308334638838289108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &6004963379885685101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308334638838289108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &5160505215981122663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308334638838289108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0067720176, y: 0.006368617, z: 0.00417827}
+  m_Center: {x: -0.00016100015, y: 0.00050410675, z: 0.00005984538}
+--- !u!208 &5542325920347411048
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308334638838289108}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.003, y: 0.003, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6309344011780673354
 GameObject:
   m_ObjectHideFlags: 0
@@ -55347,7 +56490,7 @@ GameObject:
   - component: {fileID: 2485863389007268883}
   - component: {fileID: 3538163166105161585}
   - component: {fileID: 5124681603478302016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.009
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -55468,7 +56611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -55599,7 +56742,7 @@ GameObject:
   - component: {fileID: 8848445561770760489}
   - component: {fileID: 3826707245955619002}
   - component: {fileID: 5220307546750486026}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poyta.004
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -55705,7 +56848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 58
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -56109,9 +57252,13 @@ GameObject:
   - component: {fileID: 3781722500131467090}
   - component: {fileID: 7512284362177570459}
   - component: {fileID: 4760207720533252653}
-  m_Layer: 0
+  - component: {fileID: 8170370589469453283}
+  - component: {fileID: 1119743041284077746}
+  - component: {fileID: 2929241102622176186}
+  - component: {fileID: 4614287636436300929}
+  m_Layer: 10
   m_Name: Ulkotuoli.004
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56123,12 +57270,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6418960854437243933}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.021842817, y: -0.02348526, z: 0.007333984}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.012446211, y: -0.027118392, z: 0.004318977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 20
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7512284362177570459
 MeshFilter:
@@ -56179,6 +57326,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8170370589469453283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418960854437243933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &1119743041284077746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418960854437243933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &2929241102622176186
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418960854437243933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012849294, y: 0.012592677, z: 0.016100226}
+  m_Center: {x: -0.0012791659, y: 0.0012266253, z: 0.00012627427}
+--- !u!208 &4614287636436300929
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418960854437243933}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.006, y: 0.006, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0.001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6436529260042141731
 GameObject:
   m_ObjectHideFlags: 0
@@ -56435,9 +57664,13 @@ GameObject:
   - component: {fileID: 607488546579050024}
   - component: {fileID: 2603972539253590198}
   - component: {fileID: 5573292442727445189}
-  m_Layer: 0
+  - component: {fileID: 2361158528921487520}
+  - component: {fileID: 160061982318452405}
+  - component: {fileID: 4257827171697687394}
+  - component: {fileID: 1753164923875149474}
+  m_Layer: 10
   m_Name: nuotio
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56449,12 +57682,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6464731422756173425}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0097096395, y: 0.0034217262, z: 0.00018195152}
-  m_LocalScale: {x: 0.9744162, y: 0.9744162, z: 0.9744162}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.00031304348, y: -0.00021142916, z: -0.0028330514}
+  m_LocalScale: {x: 0.9744162, y: 0.9744162, z: 0.97441626}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 9
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2603972539253590198
 MeshFilter:
@@ -56505,6 +57738,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2361158528921487520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464731422756173425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &160061982318452405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464731422756173425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &4257827171697687394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464731422756173425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016140997, y: 0.015966736, z: 0.002993855}
+  m_Center: {x: -0.00012865191, y: 0.00033079452, z: -0.000084153595}
+--- !u!208 &1753164923875149474
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464731422756173425}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.008, y: 0.008, z: 0.001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6501984610950890986
 GameObject:
   m_ObjectHideFlags: 0
@@ -56763,7 +58078,7 @@ GameObject:
   - component: {fileID: 4289602360915908445}
   - component: {fileID: 7680790541771842078}
   - component: {fileID: 7857578388649074490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kaksoissanky
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -56777,12 +58092,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6547871290920747925}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012537279, y: -0.1380603, z: 0.076213636}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.012537272, y: -0.13806029, z: 0.076213636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 8
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4533573148990908507
 MeshFilter:
@@ -56864,7 +58179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 40
   groupName: Bed
   location: 
   itemText: {fileID: 0}
@@ -57499,6 +58814,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6629950346714704784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5139571295236647617}
+  m_Layer: 0
+  m_Name: Mailbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5139571295236647617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629950346714704784}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000021073426, z: 0.000000021073422,
+    w: 1}
+  m_LocalPosition: {x: -0.030560955, y: 0.24475186, z: -0.052040365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7511919405477429661}
+  - {fileID: 6456107067728685776}
+  - {fileID: 4930497949067002918}
+  m_Father: {fileID: 6487460992091286437}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6629997725607262657
 GameObject:
   m_ObjectHideFlags: 0
@@ -57510,9 +58859,13 @@ GameObject:
   - component: {fileID: 7290062958198017599}
   - component: {fileID: 4087296429057069585}
   - component: {fileID: 1466303524295855355}
-  m_Layer: 0
+  - component: {fileID: 7617067463386028659}
+  - component: {fileID: 743346090860367027}
+  - component: {fileID: 2973304602845695047}
+  - component: {fileID: 7728724469762431291}
+  m_Layer: 10
   m_Name: Puupalikka.001
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57524,12 +58877,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6629997725607262657}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.009396605, y: 0.0036331366, z: 0.0030150032}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 12
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4087296429057069585
 MeshFilter:
@@ -57580,6 +58933,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7617067463386028659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629997725607262657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &743346090860367027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629997725607262657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &2973304602845695047
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629997725607262657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0053605656, y: 0.0053404993, z: 0.006316337}
+  m_Center: {x: 0.00020907076, y: 0.0002012718, z: -0.00029952993}
+--- !u!208 &7728724469762431291
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629997725607262657}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.003, y: 0.003, z: 0.003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6630678214988068010
 GameObject:
   m_ObjectHideFlags: 0
@@ -57765,9 +59200,13 @@ GameObject:
   - component: {fileID: 4199130455427255240}
   - component: {fileID: 7653132460700913177}
   - component: {fileID: 7515565739840457125}
-  m_Layer: 0
+  - component: {fileID: 5710506294473898098}
+  - component: {fileID: 2468722900642916823}
+  - component: {fileID: 2364742832133450732}
+  - component: {fileID: 3861229870921806}
+  m_Layer: 10
   m_Name: "p\xF6lli"
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57779,12 +59218,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6644043470923541610}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.016122293, y: 0.028818568, z: 0.0022281408}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.0067257034, y: 0.025185412, z: -0.00078686344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 14
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7653132460700913177
 MeshFilter:
@@ -57835,6 +59274,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5710506294473898098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644043470923541610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &2468722900642916823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644043470923541610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &2364742832133450732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644043470923541610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0045493515, y: 0.012393129, z: 0.0046148384}
+  m_Center: {x: 0.000064998625, y: -0.00012621048, z: 0.00007390497}
+--- !u!208 &3861229870921806
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644043470923541610}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.006, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6645326332152251781
 GameObject:
   m_ObjectHideFlags: 0
@@ -58695,7 +60216,7 @@ GameObject:
   - component: {fileID: 5011603026515361696}
   - component: {fileID: 8781569640151000705}
   - component: {fileID: 5043693632973381217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lavuaari
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -58709,13 +60230,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6752443881968653239}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002624235, y: -0.03411751, z: 0.014325619}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0026242246, y: -0.034117557, z: 0.014325625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5886138150717264501}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 17
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3802547239163658700
 MeshFilter:
@@ -58797,7 +60318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 49
   groupName: Sink
   location: 
   itemText: {fileID: 0}
@@ -59577,7 +61098,7 @@ GameObject:
   - component: {fileID: 8589369001158061563}
   - component: {fileID: 7190437673532536769}
   - component: {fileID: 4043055638354797676}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poyta
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -59682,7 +61203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 82
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -60691,7 +62212,7 @@ GameObject:
   - component: {fileID: 3161573629267090726}
   - component: {fileID: 1639871136247755005}
   - component: {fileID: 7073677105824170735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kaappi
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -60705,13 +62226,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929059961696283050}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03762186, y: -0.019599074, z: 0.07515376}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.037621878, y: -0.019599108, z: 0.07515375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5620852914072296869}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 5
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1359444331417354031
 MeshFilter:
@@ -60793,7 +62314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 37
   groupName: Cupboard
   location: 
   itemText: {fileID: 0}
@@ -61362,7 +62883,7 @@ GameObject:
   - component: {fileID: 3179847283268724249}
   - component: {fileID: 5572493858194600859}
   - component: {fileID: 4787120513619923156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.008
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -61376,14 +62897,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7006468454685137382}
-  m_LocalRotation: {x: -0.000000119209275, y: -0.000000021073422, z: 0.00000002107342,
+  m_LocalRotation: {x: -0.000000059604638, y: -0.000000021073424, z: 0.00000002107342,
     w: 1}
-  m_LocalPosition: {x: -0.18757086, y: -0.109607354, z: 0.086251944}
+  m_LocalPosition: {x: -0.18757086, y: -0.10960728, z: 0.086251944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8310801238288527397}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 16
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6777147788483652579
 MeshFilter:
@@ -61465,7 +62986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 48
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -61608,30 +63129,72 @@ Transform:
   m_LocalPosition: {x: 3.0560956, y: 5.2040367, z: 24.47519}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
-  - {fileID: 6934611656992369838}
-  - {fileID: 4263129391281310574}
-  - {fileID: 2178710685720094883}
-  - {fileID: 5832874302742432718}
   - {fileID: 5305471395410791401}
-  - {fileID: 2637588454378921207}
-  - {fileID: 5132630041229574914}
   - {fileID: 2429261455488279892}
-  - {fileID: 7511919405477429661}
-  - {fileID: 607488546579050024}
-  - {fileID: 6456107067728685776}
-  - {fileID: 4930497949067002918}
-  - {fileID: 7290062958198017599}
-  - {fileID: 3744408641129146205}
-  - {fileID: 4199130455427255240}
-  - {fileID: 8514361223371544946}
-  - {fileID: 4799829140807971251}
-  - {fileID: 5268686062941846370}
-  - {fileID: 543486750595266159}
-  - {fileID: 7786441133430038493}
-  - {fileID: 3781722500131467090}
-  - {fileID: 1653863143698061135}
+  - {fileID: 5139571295236647617}
+  - {fileID: 759660260983364138}
   m_Father: {fileID: 8284528517075735250}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7049829640488869324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5546569346247652083}
+  m_Layer: 0
+  m_Name: Alakerta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5546569346247652083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049829640488869324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3198603243982511032}
+  - {fileID: 609746369536526547}
+  - {fileID: 8536787414908382030}
+  - {fileID: 4199535710496493785}
+  - {fileID: 2058545351201287289}
+  - {fileID: 46794246015202209}
+  - {fileID: 923113706918414992}
+  - {fileID: 33826913243477533}
+  - {fileID: 4916486371530924829}
+  - {fileID: 2207625880891847718}
+  - {fileID: 4807397426399279186}
+  - {fileID: 1062305353589427966}
+  - {fileID: 4668424362378568288}
+  - {fileID: 7928241267999776262}
+  - {fileID: 8259762161054433376}
+  - {fileID: 8085624728668684107}
+  - {fileID: 5581570088449345606}
+  - {fileID: 8604648910125591732}
+  - {fileID: 1463549612744383780}
+  - {fileID: 9100509081423246089}
+  - {fileID: 7816112384585366134}
+  - {fileID: 6212994044289971088}
+  - {fileID: 2499615499374922640}
+  - {fileID: 683211025796803482}
+  - {fileID: 3315320503630183803}
+  - {fileID: 4084700511786922192}
+  - {fileID: 1143612083195699323}
+  - {fileID: 7073206617406470327}
+  - {fileID: 3530236350921970662}
+  - {fileID: 3403799058409819052}
+  m_Father: {fileID: 2193346015182268189}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7061721633193486213
 GameObject:
@@ -61893,7 +63456,7 @@ GameObject:
   - component: {fileID: 2234993433793767089}
   - component: {fileID: 230533117506827496}
   - component: {fileID: 4610317764288867109}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tuolivalkoinen.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -61997,7 +63560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 82
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -62366,9 +63929,13 @@ GameObject:
   - component: {fileID: 7511919405477429661}
   - component: {fileID: 2272423335984321192}
   - component: {fileID: 202800898666895254}
-  m_Layer: 0
+  - component: {fileID: 2277779671376874123}
+  - component: {fileID: 4072276505387876609}
+  - component: {fileID: 4332569179487561973}
+  - component: {fileID: 5876863799344894019}
+  m_Layer: 10
   m_Name: Numerokyltti
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62380,12 +63947,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7189068742226160543}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.030560955, y: 0.2447519, z: -0.052040365}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 8
+  m_Father: {fileID: 5139571295236647617}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2272423335984321192
 MeshFilter:
@@ -62436,6 +64003,74 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2277779671376874123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189068742226160543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 135
+  groupName: Mailbox
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &4072276505387876609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189068742226160543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 4072276505387876609}
+  - {fileID: 6779939970954482241}
+  - {fileID: 8799977431879860946}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &4332569179487561973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189068742226160543}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0014829044, y: 0.0077760243, z: 0.04902634}
+  m_Center: {x: 0.43986174, y: 0.049634285, z: 0.019003784}
+--- !u!208 &5876863799344894019
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189068742226160543}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.001, y: 0.004, z: 0.025}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.44000003, y: 0.05, z: 0.019000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &7218976438839207243
 GameObject:
   m_ObjectHideFlags: 0
@@ -62451,7 +64086,7 @@ GameObject:
   - component: {fileID: 2839853402963490405}
   - component: {fileID: 4057742848867349518}
   - component: {fileID: 7321027500695689814}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poyta.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -62561,7 +64196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -62774,7 +64409,7 @@ GameObject:
   - component: {fileID: 7035827725545439617}
   - component: {fileID: 2676436890967289171}
   - component: {fileID: 3260875831116821375}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -62884,7 +64519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -63014,7 +64649,7 @@ GameObject:
   - component: {fileID: 1511455397978005927}
   - component: {fileID: 6370897629712496632}
   - component: {fileID: 9043331436364120593}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.005
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -63028,13 +64663,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7259947169278964203}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1894047, y: -0.11280807, z: 0.023786115}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1894047, y: -0.11280809, z: 0.023786115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3043912712259999126}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 13
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3251823221981949233
 MeshFilter:
@@ -63116,7 +64751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 45
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -63165,7 +64800,7 @@ GameObject:
   - component: {fileID: 2054543891870793330}
   - component: {fileID: 314526690632768951}
   - component: {fileID: 6440659539624780772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.006
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -63179,14 +64814,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7273299576929577703}
-  m_LocalRotation: {x: -0.000000119209275, y: -0.000000021073422, z: 0.00000002107342,
+  m_LocalRotation: {x: -0.000000059604638, y: -0.000000021073424, z: 0.00000002107342,
     w: 1}
   m_LocalPosition: {x: -0.046095464, y: -0.095964484, z: 0.086251944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6627991848729686220}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 14
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4306317958125525322
 MeshFilter:
@@ -63268,7 +64903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 46
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -63806,7 +65441,7 @@ GameObject:
   - component: {fileID: 8988948602359034656}
   - component: {fileID: 1311621659669033569}
   - component: {fileID: 8195728857313983688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.005
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -63927,7 +65562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -64999,7 +66634,7 @@ GameObject:
   - component: {fileID: 6579129219366061054}
   - component: {fileID: 4713514653559520036}
   - component: {fileID: 4300780735725536622}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohva.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -65106,7 +66741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 103
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -65837,7 +67472,7 @@ GameObject:
   - component: {fileID: 8665489408596550793}
   - component: {fileID: 8885749863727013137}
   - component: {fileID: 4262673195600365311}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hylly.006
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -65851,12 +67486,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7467522135902262721}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07259733, y: -0.04157501, z: 0.013198824}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07259735, y: -0.041575104, z: 0.013198824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7542943471214110425}
-  m_Father: {fileID: 2193346015182268189}
+  m_Father: {fileID: 5546569346247652083}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4760319184907503580
@@ -65939,7 +67574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 36
   groupName: Shelf
   location: 
   itemText: {fileID: 0}
@@ -66635,9 +68270,13 @@ GameObject:
   - component: {fileID: 4263129391281310574}
   - component: {fileID: 5708810016950067381}
   - component: {fileID: 368839085890144028}
-  m_Layer: 0
+  - component: {fileID: 8220049781563148179}
+  - component: {fileID: 2059043426607600455}
+  - component: {fileID: 665283094625953245}
+  - component: {fileID: 7215094793493972364}
+  m_Layer: 10
   m_Name: Betonipalkki.001
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66649,12 +68288,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7648266125667558667}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013229753, y: 0.0011829757, z: 0.0008535003}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.022626352, y: -0.0024501595, z: -0.0021615021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 1
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5708810016950067381
 MeshFilter:
@@ -66705,6 +68344,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8220049781563148179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648266125667558667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &2059043426607600455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648266125667558667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &665283094625953245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648266125667558667}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0032462268, y: 0.008772733, z: 0.003468279}
+  m_Center: {x: 0.000020892794, y: 0.00046036593, z: -0.0002636122}
+--- !u!208 &7215094793493972364
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648266125667558667}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.004, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7652493071875809729
 GameObject:
   m_ObjectHideFlags: 0
@@ -68899,7 +70620,7 @@ GameObject:
   - component: {fileID: 5367753405043070912}
   - component: {fileID: 2963859282582603330}
   - component: {fileID: 302364053391195370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.007
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -69020,7 +70741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -69472,9 +71193,13 @@ GameObject:
   - component: {fileID: 6456107067728685776}
   - component: {fileID: 3570486316720543214}
   - component: {fileID: 6851921764301847513}
-  m_Layer: 0
+  - component: {fileID: 5107792379614570317}
+  - component: {fileID: 6779939970954482241}
+  - component: {fileID: 7564019012799815910}
+  - component: {fileID: 2214631353018109491}
+  m_Layer: 10
   m_Name: Postilaatikkovihrea
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69486,12 +71211,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7993619270995482724}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.030560955, y: 0.2447519, z: -0.052040365}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 10
+  m_Father: {fileID: 5139571295236647617}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3570486316720543214
 MeshFilter:
@@ -69542,6 +71267,74 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5107792379614570317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993619270995482724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 135
+  groupName: Mailbox
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &6779939970954482241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993619270995482724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 4072276505387876609}
+  - {fileID: 6779939970954482241}
+  - {fileID: 8799977431879860946}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &7564019012799815910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993619270995482724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0035736864, y: 0.006321694, z: 0.008449854}
+  m_Center: {x: 0.4422167, y: 0.052741934, z: 0.0088767}
+--- !u!208 &2214631353018109491
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993619270995482724}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.003, z: 0.004}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.44200003, y: 0.053000003, z: 0.009000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &7993660679251300508
 GameObject:
   m_ObjectHideFlags: 0
@@ -69882,7 +71675,7 @@ GameObject:
   - component: {fileID: 7465556153801470290}
   - component: {fileID: 153259507445689626}
   - component: {fileID: 8633603586365254019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kaappi.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -69896,12 +71689,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8021232491903640361}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06803403, y: -0.09538811, z: 0.07783401}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: 0.068034016, y: -0.095388085, z: 0.07783401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 6
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8610764314747637791
 MeshFilter:
@@ -69983,7 +71776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 38
   groupName: Cupboard
   location: 
   itemText: {fileID: 0}
@@ -70028,9 +71821,13 @@ GameObject:
   - component: {fileID: 3551406571127291186}
   - component: {fileID: 8260416026222800153}
   - component: {fileID: 6180027861854987621}
-  m_Layer: 0
+  - component: {fileID: 7619304999215827616}
+  - component: {fileID: 5974130292118422292}
+  - component: {fileID: 2968529744327503369}
+  - component: {fileID: 5324468227903416990}
+  m_Layer: 10
   m_Name: Lipputangonpohja
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70098,6 +71895,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7619304999215827616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029086823748674500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 140
+  groupName: Flagpole
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &5974130292118422292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029086823748674500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup: []
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &2968529744327503369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029086823748674500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010638854, y: 0.010638845, z: 0.0016220852}
+  m_Center: {x: 2.3283064e-10, y: -0.00000001909211, z: -0.00024355987}
+--- !u!208 &5324468227903416990
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029086823748674500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0050000004, y: 0.0050000004, z: 0.001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8033747852260267572
 GameObject:
   m_ObjectHideFlags: 0
@@ -70275,7 +72137,7 @@ GameObject:
   - component: {fileID: 8712894435318797533}
   - component: {fileID: 4579563731463621017}
   - component: {fileID: 8558206519819292944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -70396,7 +72258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -70555,7 +72417,7 @@ GameObject:
   - component: {fileID: 2808550258999329616}
   - component: {fileID: 2056694610249093701}
   - component: {fileID: 4276524059204012297}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.007
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -70661,7 +72523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 103
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -71188,7 +73050,7 @@ GameObject:
   - component: {fileID: 8670891258184356611}
   - component: {fileID: 5719680005713952989}
   - component: {fileID: 4940956792890150357}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -71309,7 +73171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -71456,8 +73318,8 @@ Transform:
   - {fileID: 8084768454550143034}
   - {fileID: 4785926923712163204}
   - {fileID: 1869255022365124788}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 28
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8211782329982410871
 GameObject:
@@ -72165,7 +74027,7 @@ GameObject:
   - component: {fileID: 8733889054617859408}
   - component: {fileID: 2993043475809253844}
   - component: {fileID: 627863584206404631}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Poyta.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -72276,7 +74138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 93
   groupName: Tableset
   location: 
   itemText: {fileID: 0}
@@ -72483,9 +74345,13 @@ GameObject:
   - component: {fileID: 8514361223371544946}
   - component: {fileID: 8816021278765582617}
   - component: {fileID: 5934078365078586129}
-  m_Layer: 0
+  - component: {fileID: 7439548404905030839}
+  - component: {fileID: 598269603734238373}
+  - component: {fileID: 4769639755864436871}
+  - component: {fileID: 8191262922580696052}
+  m_Layer: 10
   m_Name: "p\xF6lli.001"
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72497,12 +74363,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8349581915517793216}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.011539592, y: 0.028211212, z: 0.0020602988}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: 0.0021429928, y: 0.024578074, z: -0.00095470046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 15
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8816021278765582617
 MeshFilter:
@@ -72553,6 +74419,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7439548404905030839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349581915517793216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &598269603734238373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349581915517793216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &4769639755864436871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349581915517793216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00461484, y: 0.010862387, z: 0.0045699775}
+  m_Center: {x: 0.00005812746, y: 0.00015827591, z: 0.000042562482}
+--- !u!208 &8191262922580696052
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349581915517793216}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.0050000004, z: 0.002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8356432516414016910
 GameObject:
   m_ObjectHideFlags: 0
@@ -72731,7 +74679,7 @@ GameObject:
   - component: {fileID: 1796468126343316189}
   - component: {fileID: 4915892866037184012}
   - component: {fileID: 6133886024068410287}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.007
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -72745,14 +74693,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419538880479851524}
-  m_LocalRotation: {x: -0.000000119209275, y: -0.000000021073422, z: 0.00000002107342,
+  m_LocalRotation: {x: -0.000000059604638, y: -0.000000021073424, z: 0.00000002107342,
     w: 1}
   m_LocalPosition: {x: -0.06832195, y: -0.09596456, z: 0.086251944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4065292578355340878}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 15
+  m_Father: {fileID: 3987485338493585455}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4405060905677173994
 MeshFilter:
@@ -72834,7 +74782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 47
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -73697,7 +75645,7 @@ GameObject:
   - component: {fileID: 5452967659194082586}
   - component: {fileID: 3562945501722487237}
   - component: {fileID: 7004983872906627360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.010
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -73818,7 +75766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -73867,7 +75815,7 @@ GameObject:
   - component: {fileID: 5620032715306447726}
   - component: {fileID: 2633338895032559576}
   - component: {fileID: 4768797572031124320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Banditilatuoli.003
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -73881,11 +75829,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8491098538006730178}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07255305, y: -0.12202736, z: 0.0024513672}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07255295, y: -0.12202738, z: 0.0024513626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2193346015182268189}
+  m_Father: {fileID: 5546569346247652083}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5600780724818094236
@@ -73972,7 +75920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 35
   groupName: Audience chairs
   location: 
   itemText: {fileID: 0}
@@ -74535,6 +76483,10 @@ GameObject:
   - component: {fileID: 5305471395410791401}
   - component: {fileID: 8854528707467676501}
   - component: {fileID: 526200970127787056}
+  - component: {fileID: 4313357998243821773}
+  - component: {fileID: 7302727487502486269}
+  - component: {fileID: 1590635295323607647}
+  - component: {fileID: 352146142974539762}
   m_Layer: 0
   m_Name: Bunkkeripiippu
   m_TagString: Untagged
@@ -74552,9 +76504,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.32406873, y: -0.20336244, z: 0.028319158}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5295234765950149227}
   m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8854528707467676501
 MeshFilter:
@@ -74605,6 +76558,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4313357998243821773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552769186978314276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 5295234765950149227}
+  TargetMesh: {fileID: 0}
+  TargetGroup: []
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &7302727487502486269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552769186978314276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 145
+  groupName: Bunker
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!208 &1590635295323607647
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552769186978314276}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.003, y: 0.003, z: 0.006}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -0.003}
+  m_TimeToStationary: 0.5
+--- !u!65 &352146142974539762
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552769186978314276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0064206887, y: 0.005447463, z: 0.01148073}
+  m_Center: {x: -0.00013303885, y: 0.00010001297, z: -0.0030325768}
 --- !u!1 &8573965807799852289
 GameObject:
   m_ObjectHideFlags: 0
@@ -74865,7 +76883,7 @@ GameObject:
   - component: {fileID: 6288399540736001384}
   - component: {fileID: 3994550666295709919}
   - component: {fileID: 8293824515366168971}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toimistotuoli.008
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -74986,7 +77004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -75246,9 +77264,13 @@ GameObject:
   - component: {fileID: 8229161952511490394}
   - component: {fileID: 8280058780587247408}
   - component: {fileID: 7539993601944678806}
-  m_Layer: 0
+  - component: {fileID: 4574567086361901943}
+  - component: {fileID: 5525103881682807250}
+  - component: {fileID: 4073640196884455716}
+  - component: {fileID: 6330269244811974244}
+  m_Layer: 10
   m_Name: Lipputanko
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75316,6 +77338,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4574567086361901943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649923170984981432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 140
+  groupName: Flagpole
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!114 &5525103881682807250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649923170984981432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 8173032607784641364}
+  TargetMesh: {fileID: 0}
+  TargetGroup: []
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!65 &4073640196884455716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649923170984981432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0037652794, y: 0.0035810273, z: 0.14704205}
+  m_Center: {x: 8.731149e-10, y: 0.0001890701, z: -0.000000007450581}
+--- !u!208 &6330269244811974244
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649923170984981432}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.002, y: 0.002, z: 0.074}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8650068741959399965
 GameObject:
   m_ObjectHideFlags: 0
@@ -75665,7 +77752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663638195904074735}
   m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04048125, y: 0.16380416, z: 0.008313179}
+  m_LocalPosition: {x: 0.04048125, y: 0.16380411, z: 0.008313179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2908638135188643455}
@@ -75674,8 +77761,8 @@ Transform:
   - {fileID: 8242418233487974576}
   - {fileID: 206902954672243933}
   - {fileID: 1191893898299838839}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 22
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8671943301059935138
 GameObject:
@@ -75851,9 +77938,13 @@ GameObject:
   - component: {fileID: 5132630041229574914}
   - component: {fileID: 1576306824581807133}
   - component: {fileID: 7797132111969819462}
-  m_Layer: 0
+  - component: {fileID: 8936703833523571881}
+  - component: {fileID: 2990778976877423385}
+  - component: {fileID: 8310151745512230451}
+  - component: {fileID: 4023789658837246689}
+  m_Layer: 10
   m_Name: Lautanen
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75865,12 +77956,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8729213461040038795}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0032265019, y: -0.018963221, z: 0.00015421867}
+  m_LocalRotation: {x: -0, y: -0, z: -6.28037e-16, w: 1}
+  m_LocalPosition: {x: -0.012623091, y: -0.022596357, z: -0.0028607878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6487460992091286437}
-  m_RootOrder: 6
+  m_Father: {fileID: 759660260983364138}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1576306824581807133
 MeshFilter:
@@ -75921,6 +78012,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8936703833523571881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729213461040038795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NaviTarget: {fileID: 3591102872125329031}
+  TargetMesh: {fileID: 0}
+  TargetGroup:
+  - {fileID: 7617067463386028659}
+  - {fileID: 2361158528921487520}
+  - {fileID: 5610687671786171839}
+  - {fileID: 8220049781563148179}
+  - {fileID: 2789238793151433499}
+  - {fileID: 7683323900419985785}
+  - {fileID: 3358395193634694009}
+  - {fileID: 8936703833523571881}
+  - {fileID: 4697517126436286404}
+  - {fileID: 5710506294473898098}
+  - {fileID: 7439548404905030839}
+  - {fileID: 3091522074440043508}
+  - {fileID: 7333224320066080041}
+  - {fileID: 8064584606067557978}
+  - {fileID: 7133450364241092668}
+  - {fileID: 8170370589469453283}
+  - {fileID: 2783060034431768564}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  itemGameObject: {fileID: 0}
+--- !u!114 &2990778976877423385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729213461040038795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemID: 130
+  groupName: Fireplace
+  location: 
+  itemText: {fileID: 0}
+  taskManager: {fileID: 0}
+--- !u!65 &8310151745512230451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729213461040038795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0059999996, y: 0.005999984, z: 0.0003481864}
+  m_Center: {x: -0.000000008731149, y: -1.4643919e-16, z: -0.000050835602}
+--- !u!208 &4023789658837246689
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729213461040038795}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.003, y: 0.003, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8733989067351487264
 GameObject:
   m_ObjectHideFlags: 0
@@ -77029,7 +79202,7 @@ GameObject:
   - component: {fileID: 5505546354810961107}
   - component: {fileID: 6767773672086684349}
   - component: {fileID: 1013412400296336578}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tulisija.001
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -77043,13 +79216,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8821591917187904722}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02069199, y: 0.04386196, z: 0.025014734}
+  m_LocalRotation: {x: -0.000000059604638, y: 1.7763566e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.020691983, y: 0.043861922, z: 0.025014738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4623026545239222303}
-  m_Father: {fileID: 2193346015182268189}
-  m_RootOrder: 10
+  m_Father: {fileID: 5546569346247652083}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3017938282697454195
 MeshFilter:
@@ -77131,7 +79304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 42
   groupName: Fireplace
   location: 
   itemText: {fileID: 0}
@@ -77378,7 +79551,7 @@ GameObject:
   - component: {fileID: 8225727130993396186}
   - component: {fileID: 5787510517890422536}
   - component: {fileID: 7036259891460228353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohva.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -77485,7 +79658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 98
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -77859,7 +80032,7 @@ GameObject:
   - component: {fileID: 3892343545370618857}
   - component: {fileID: 2647012118027901486}
   - component: {fileID: 9114880486231977889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.004
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -77980,7 +80153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}
@@ -78632,7 +80805,7 @@ GameObject:
   - component: {fileID: 5933483193751979937}
   - component: {fileID: 3436835825957544588}
   - component: {fileID: 7841367364525169220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sohvatyynyt.010
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -78738,7 +80911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 98
   groupName: Couch
   location: 
   itemText: {fileID: 0}
@@ -79510,7 +81683,7 @@ GameObject:
   - component: {fileID: 7149553592705116273}
   - component: {fileID: 343695279401898965}
   - component: {fileID: 201075411925268698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Valkoinentuoli.002
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -79631,7 +81804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc458cd0fde84141a72bb0e87fd0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemID: 0
+  _itemID: 79
   groupName: Classroom tables
   location: 
   itemText: {fileID: 0}

@@ -150,7 +150,6 @@ public class ProfileUIController : MonoBehaviour
             else Debug.Log("avatarID not " + i + ", avatarID is" + pHandler.GetUserProfile().avatarID);
         }
 
-        CanvasTaskUI.gameObject.SetActive(false);
         //so after new user opens changecanvas
         if (pHandler.GetUserProfile().displayName == "No Name")
         {

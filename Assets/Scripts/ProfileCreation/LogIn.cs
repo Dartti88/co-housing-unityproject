@@ -123,7 +123,7 @@ public class LogIn : MonoBehaviour
             if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
                 FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
             FindObjectOfType<ProfileHandler>().userProfile.password = password;
-            SceneManager.LoadScene("SpawningTesting");
+            SceneManager.LoadScene("ProfileScene");
         }
     }
     void OnGetProfilesForLoginRequestComplete(string response)

@@ -100,7 +100,7 @@ public class ProfileUIController : MonoBehaviour
         playerController = PlayerController.Instance;
         addTaskBtn.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
-        chat.gameObject.SetActive(false);
+        ChatButtonClick();
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
         profileBackground.gameObject.SetActive(true);
@@ -248,7 +248,18 @@ public class ProfileUIController : MonoBehaviour
     }
     public void ChatButtonClick()
     {
-        chat.SetActive(!chat.activeSelf);
+        //tODO: mesh if this doesnt work
+        foreach(Transform child in chat.transform) //canvas
+        {
+            foreach (Transform child_2 in child.transform)//chatUI
+            {
+                foreach (Transform child_3 in child_2.transform)//input and chatbox
+                {
+                    child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
+                    Debug.Log(child_3.name);
+                }
+            }
+        }
     }
 
     public void LevelSlider()

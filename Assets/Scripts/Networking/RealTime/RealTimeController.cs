@@ -96,7 +96,7 @@ public class RealTimeController : MonoBehaviour
             List<KeyValuePair<int, Vector3>> playersToSpawn = new List<KeyValuePair<int, Vector3>>();
             List<int> playersToDespawn = new List<int>();
             
-            // Spawning and DEspawning
+            // Spawning
             foreach (ProfileStatus pStatus in newStatusesContainer.statuses)
             {
                 // *Skip the current local player completely!
@@ -114,23 +114,27 @@ public class RealTimeController : MonoBehaviour
                         UpdatePlayer(existingPlayer, pStatus);
                         break;
                     }
-                    // If this player doesn't exist on server side anymore, but it does locally -> destroy it
-                    // *We have to search for match again for each "server side player", we just fetched..
-                    bool deletedPlayerFound = true; // Again we assume here that we DID find a "deleted/logged out" player...
-                    foreach (ProfileStatus pStatus2 in newStatusesContainer.statuses)
-                    {
-                        // If this player still does exists -> block its' despawning
-                        if (pStatus2.profileID == existingPlayer.Key)
-                        {
-                            deletedPlayerFound = false;
-                            break;
-                        }
-                    }
-                    // If we got here, its safe to assume, we can despawn this player..
-                    if (deletedPlayerFound) playersToDespawn.Add(existingPlayer.Key);
                 }
-                if (newPlayerFound)
-                    playersToSpawn.Add(new KeyValuePair<int, Vector3>(pStatus.profileID, new Vector3(pStatus.x, pStatus.y, pStatus.z)));
+                if (newPlayerFound) playersToSpawn.Add(new KeyValuePair<int, Vector3>(pStatus.profileID, new Vector3(pStatus.x, pStatus.y, pStatus.z)));
+            }
+
+            // Despawning
+            foreach (KeyValuePair<int, GameObject> existingPlayer in otherPlayers)
+            {
+                // If this player doesn't exist on server side anymore, but it does locally -> destroy it
+                // *We have to search for match again for each "server side player", we just fetched..
+                bool deletedPlayerFound = true; // Again we assume here that we DID find a "deleted/logged out" player...
+                foreach (ProfileStatus pStatus2 in newStatusesContainer.statuses)
+                {
+                    // If this player still does exists -> block its' despawning
+                    if (pStatus2.profileID == existingPlayer.Key)
+                    {
+                        deletedPlayerFound = false;
+                        break;
+                    }
+                }
+                // If we got here, its safe to assume, we can despawn this player..
+                if (deletedPlayerFound) playersToDespawn.Add(existingPlayer.Key);
             }
 
             // First DEspawn all logged out players...
@@ -178,6 +182,7 @@ public class RealTimeController : MonoBehaviour
                     SpawnPlayer(profileID, pos);
                 }
             );
+            return;
         }
 
         GameObject spawnedPlayer = GameObject.Instantiate(networkPlayerPrefab, pos, Quaternion.identity, Client.Instance.transform);

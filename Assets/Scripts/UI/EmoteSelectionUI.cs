@@ -15,15 +15,13 @@ public class EmoteSelectionUI : MonoBehaviour
     public GameObject emoteGO;
 
     // For that weird chat command sending stuff..
-    Chat chatHandle;
+    public Chat chatHandle;
 
     private void Start()
     {
-        // Find handle of the chat in the scene...
-        chatHandle = FindObjectOfType<Chat>();
         if (chatHandle == null)
-            Debug.Log("ERROR >> Theres no Chat game object in the scene!(There always has to be Chat game object in the in-game scene)");
-
+            Debug.LogError("No Chat object specified for the EmoteSelectionUI! (You need to explicitly specify the scene's Chat object for the EmoteSelectionUI)");
+        
         selectEmoteButton.onClick.AddListener(OpenSelectionScreen);
 
         FillSelectionGrid();

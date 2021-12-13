@@ -110,8 +110,8 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    ledgeDropHeight: 10
+    maxJumpAcrossDistance: 1
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.05333333
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 74896ea2594739a45a2a2d112f51c257, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 672781c14f7267f46aa35f60f01e4bf8, type: 2}
 --- !u!1 &1929347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6590227423869929064, guid: 001f75989d6bf744c9f55ea756d88b8e,
@@ -32463,7 +32463,7 @@ PrefabInstance:
     - target: {fileID: 2949324193717299331, guid: 978ed000ee952e44bb1e9ec9b894657f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.35
+      value: 5.21
       objectReference: {fileID: 0}
     - target: {fileID: 2949324193717299331, guid: 978ed000ee952e44bb1e9ec9b894657f,
         type: 3}
@@ -34489,6 +34489,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44553599418851961, guid: b4cd299a02297f5468062135cb9c6dbe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5913954500918184361, guid: b4cd299a02297f5468062135cb9c6dbe,
         type: 3}
       propertyPath: m_RootOrder

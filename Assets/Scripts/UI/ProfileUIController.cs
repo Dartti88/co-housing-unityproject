@@ -100,7 +100,7 @@ public class ProfileUIController : MonoBehaviour
         playerController = PlayerController.Instance;
         addTaskBtn.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
-        ChatButtonClick();
+        
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
         profileBackground.gameObject.SetActive(true);
@@ -255,8 +255,14 @@ public class ProfileUIController : MonoBehaviour
             {
                 foreach (Transform child_3 in child_2.transform)//input and chatbox
                 {
-                    child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
-                    Debug.Log(child_3.name);
+                    if (child_3.name == "InputField_EnterMessage") { 
+                        child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
+                        Debug.Log("chatt" + child_3.name);
+                    }
+                    else if(child_3.name == "ChatBox"){
+                        child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
+                        Debug.Log("chatt" + child_3.name);
+                    }
                 }
             }
         }

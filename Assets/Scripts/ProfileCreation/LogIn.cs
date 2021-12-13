@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System;
+using System.Globalization;
 
 public class LogIn : MonoBehaviour
 {
@@ -95,8 +96,27 @@ public class LogIn : MonoBehaviour
 
     void OnLogInRequestComplete(string response)
     {
-        if (response == "Success")
+        if (response == "Failed")
         {
+            popupManager.Show("Invalid username or password");
+            Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);
+        }
+        else if (response.Contains("Error occured"))
+        {
+            popupManager.Show("Server error");
+            Debug.Log("Failed to create profile: Response from server >> " + response);
+        }
+        else // !!!IF SUCCESS!!!
+        {
+            // We got the player's initial position as response(formatted as "x;y;z" <- ';' being delim)
+            string[] responseData = response.Split(';');
+            // Fukin weird globalization issue with these, if this specific kind of conversion wasnt used...
+            float px = Single.Parse(responseData[0], CultureInfo.InvariantCulture); 
+            float py = Single.Parse(responseData[1], CultureInfo.InvariantCulture);
+            float pz = Single.Parse(responseData[2], CultureInfo.InvariantCulture);
+
+            Client.Instance.initLocalPlayerPos = new Vector3(px, py, pz);
+
             Debug.Log("Log in was successful");
             PlayerPrefs.SetString(Profile.USERNAME_TAG, userName);
             PlayerPrefs.SetString(Profile.PASSWORD_TAG, password);
@@ -104,16 +124,6 @@ public class LogIn : MonoBehaviour
                 FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
             FindObjectOfType<ProfileHandler>().userProfile.password = password;
             SceneManager.LoadScene("ProfileScene");
-        }
-        else if (response == "Failed")
-        {
-            popupManager.Show("Invalid username or password");
-            Debug.Log("Log in Failed. Invalid username or password: Response from server >> " + response);
-        }
-        else
-        {
-            popupManager.Show("Server error");
-            Debug.Log("Failed to create profile: Response from server >> " + response);
         }
     }
     void OnGetProfilesForLoginRequestComplete(string response)

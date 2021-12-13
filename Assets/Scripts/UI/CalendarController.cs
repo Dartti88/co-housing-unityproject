@@ -19,6 +19,7 @@ public class CalendarController : MonoBehaviour
     public GameObject buttonPrevRoom;
 
     public GameObject bookingWindow;
+    public GameObject loadingOverlay;
     public Button bwBook;
     public Button bwCancel;
     public Button bwClose;
@@ -128,6 +129,12 @@ public class CalendarController : MonoBehaviour
             GameObject newTimeButton = Instantiate(buttonTimePrefab, buttonTimePrefab.transform.position, buttonTimePrefab.transform.rotation);
             newTimeButton.transform.SetParent(elementScript.scrollContent.transform, false);
             newTimeButton.transform.GetChild(0).GetComponent<Text>().text = i.ToString() + ":00";
+
+            if (i % 2 == 0)
+            {
+                newTimeButton.gameObject.GetComponent<Image>().color = new Color32(229, 222, 193, 255);
+            }
+
             BookingElement bookingElement = newTimeButton.AddComponent<BookingElement>();
 
             string bookerNameTmp = "-";
@@ -198,6 +205,13 @@ public class CalendarController : MonoBehaviour
     private void PrevDay()
     {
         DateHelper dh = new DateHelper();
+
+        // Check if first shown date is today
+        if(dh.GetDateString() == datesShownList[0])
+        {
+            Debug.Log("Time travel module initiated... ERROR: Cannot find time travel module.");
+            return;
+        }
 
         datesShownList.RemoveAt(datesShownList.Count - 1);
         datesShownList.Insert(0, dh.GetPreviousDay(datesShownList[0]));
@@ -273,11 +287,11 @@ public class CalendarController : MonoBehaviour
 
             if (selectedRoom == roomsShownList[i])
             {
-                calendarElement.roomSelectButton.gameObject.GetComponent<Image>().color = new Color32(170, 170, 170, 255);
+                calendarElement.roomSelectButton.gameObject.GetComponent<Image>().color = new Color32(173, 193, 120, 255);
             }
             else
             {
-                calendarElement.roomSelectButton.gameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+                calendarElement.roomSelectButton.gameObject.GetComponent<Image>().color = new Color32(221, 229, 182, 255);
             }
         }
 
@@ -288,7 +302,7 @@ public class CalendarController : MonoBehaviour
     private void OpenBookingWindow(BookingElement booking)
     {
         // TEST USER
-        string currentUser = "UnityTestUser";
+        string currentUser = Client.Instance.pHandler.userProfile.displayName;
 
         currentBooker = new Booking(
             booking.bookingInfo._startingTime,

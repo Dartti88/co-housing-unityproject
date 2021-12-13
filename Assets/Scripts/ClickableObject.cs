@@ -29,8 +29,18 @@ public class ClickableObject : MonoBehaviour
         if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
-            var child = GetComponentInChildren<MeshRenderer>();
-            outline = child.gameObject.AddComponent<Outline>();
+            if (GetComponent<MeshRenderer>())
+            {
+                Debug.Log("not in child object");
+                TargetMesh = GetComponent<MeshRenderer>();
+            }
+            else
+            {
+                Debug.Log("in child object");
+                TargetMesh = GetComponentInChildren<MeshRenderer>();
+            }
+            
+            outline = TargetMesh.gameObject.AddComponent<Outline>();
         }
         else
         {

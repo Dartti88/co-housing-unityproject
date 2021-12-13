@@ -436,7 +436,7 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
-        isLoggedIn = req.downloadHandler.text == "Success";
+        isLoggedIn = !(req.downloadHandler.text == "Failed" || req.downloadHandler.text.Contains("Error"));
     }
     void Internal_OnCompletion_LogOutComplete(UnityWebRequest req)
     {

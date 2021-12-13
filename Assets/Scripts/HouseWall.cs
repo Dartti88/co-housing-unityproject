@@ -18,15 +18,15 @@ public class HouseWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TopRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
-        TopCollider = GetComponent<Collider>();
+        TopRenderer = transform.GetComponent<MeshRenderer>();
+        TopCollider= gameObject.AddComponent<Collider>();
         WallController.Instance.RegisterWall(this);
     }
 
     public void SetVisibility(bool state)
     {
         TopRenderer.enabled = state;
-        if (!Door) TopCollider.enabled = state;
+        //if (!Door) TopCollider.enabled = state;
     }
 
     // if this wall is set to be hidden during current camera rotation, hide it

@@ -206,6 +206,7 @@ public class Taskmanager : MonoBehaviour
                 break;
             case "item":
                 chosenTaskList = 4;
+                if (itemID == taskboard._itemID) chosenTaskList = 3;
                 Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                 break;
             default:

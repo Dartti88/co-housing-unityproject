@@ -50,6 +50,7 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> itemTasks_list;
 
     public GameObject showTasksButton;
+    public GameObject changeFloorButton;
 
     // Start is called before the first frame update
     void Start()

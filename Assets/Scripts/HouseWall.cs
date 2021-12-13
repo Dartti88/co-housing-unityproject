@@ -19,7 +19,6 @@ public class HouseWall : MonoBehaviour
     void Start()
     {
         TopRenderer = transform.GetComponent<MeshRenderer>();
-        TopCollider= gameObject.AddComponent<Collider>();
         WallController.Instance.RegisterWall(this);
     }
 

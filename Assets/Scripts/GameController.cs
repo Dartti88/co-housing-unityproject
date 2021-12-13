@@ -186,6 +186,15 @@ public class GameController : Singleton<GameController>
         return newPos;
     }
 
+    public void GoDownstairs()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void GoUpstairs()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void Quit()
     {
         Application.Quit();

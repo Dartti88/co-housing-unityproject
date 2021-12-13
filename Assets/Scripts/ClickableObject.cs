@@ -6,6 +6,7 @@ using UnityEngine.Events;
 // used for objects in the house that can be clicked/tapped
 public class ClickableObject : MonoBehaviour
 {
+    public bool stairs;
     // when this object is selected, player will walk to this transform location
     public Transform NaviTarget;
     // 3d object to outline when selected
@@ -106,11 +107,13 @@ public class ClickableObject : MonoBehaviour
 
     void ShowButton()
     {
-        taskManager.showTasksButton.SetActive(true);
+        if (stairs) taskManager.changeFloorButton.SetActive(true);
+        else taskManager.showTasksButton.SetActive(true);
     }
 
     void HideButton()
     {
         taskManager.showTasksButton.SetActive(false);
+        taskManager.changeFloorButton.SetActive(false);
     }
 }

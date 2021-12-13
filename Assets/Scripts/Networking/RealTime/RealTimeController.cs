@@ -38,12 +38,13 @@ public class RealTimeController : MonoBehaviour
     bool othersSpawned = false;
 
     ProfileHandler profileHandler;
-    public GameObject localPlayer;
+    [HideInInspector] public GameObject localPlayer;
     NavMeshAgent localNavMeshAgent;
     
     private void Start()
     {
         profileHandler = FindObjectOfType<ProfileHandler>();
+        localPlayer = PlayerController.Instance.gameObject;
         localNavMeshAgent = localPlayer.GetComponent<NavMeshAgent>();
         localNavMeshAgent.Warp(Client.Instance.initLocalPlayerPos); // Need to warp that fucker here.. ..that fucking time wasting problem, in the "local player" spawning
         Rotator.Instance.transform.position = Client.Instance.initLocalPlayerPos;

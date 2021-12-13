@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using System;
 using System.Globalization;
+using System.Security.Cryptography;
 
 public class LogIn : MonoBehaviour
 {
@@ -58,9 +59,11 @@ public class LogIn : MonoBehaviour
             return;
         }
 
+        password = PasswordToHexString(password);
+
         Profile newProfile = new Profile(
             1, 2,
-            userName, "No Name", password, "No Description",
+            userName, "No Name",password , "No Description",
             3, 0, 0, Profile.ProfileType.Guest,
             DateTime.Now
         );
@@ -89,7 +92,7 @@ public class LogIn : MonoBehaviour
     public void OnClick_LogIn()
     {
         userName = input_userName.text;
-        password = input_password.text;
+        password = PasswordToHexString(input_password.text);
         Client.Instance.BeginRequest_GetAllProfiles(OnGetProfilesForLoginRequestComplete);
         //profUIController.LoadOnLogin();
     }
@@ -158,5 +161,14 @@ public class LogIn : MonoBehaviour
             return false;
         else
             return true;
+    }
+
+    string PasswordToHexString(string password)
+    {
+        byte[] array = SHA256.Create().ComputeHash(System.Text.Encoding.ASCII.GetBytes(password));
+        string text = "";
+        for (int i = 0; i < array.Length; i++)
+            text += $"{array[i]:X2}";
+        return text;
     }
 }

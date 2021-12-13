@@ -259,7 +259,8 @@ public class ProfileUIController : MonoBehaviour
                         child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
                         Debug.Log("chatt" + child_3.name);
                     }
-                    else if(child_3.name == "ChatBox"){
+                    
+                    if(child_3.name == "ChatBox"){
                         child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
                         Debug.Log("chatt" + child_3.name);
                     }

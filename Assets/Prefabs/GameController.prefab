@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RayLayers:
     serializedVersion: 2
-    m_Bits: 1568
+    m_Bits: 1536
   NaviGroundLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -55,10 +55,7 @@ MonoBehaviour:
   WallLayer:
     serializedVersion: 2
     m_Bits: 2048
-  SpherecastFrequency: 0.15
-  SpherecastRadius: 1.5
-  SpherecastPlayerOffset: 0.7
   TouchTimeThreshold: 0.15
-  ScrollSpeedMultiplier: -0.005
-  MinCameraPosition: {x: -4.25, y: 0, z: -3.75}
-  MaxCameraPosition: {x: 6.2, y: 0, z: 9.6}
+  ScrollSpeedMultiplier: -0.015
+  MinCameraPosition: {x: -70, y: 0, z: -70}
+  MaxCameraPosition: {x: 30, y: 0, z: 60}

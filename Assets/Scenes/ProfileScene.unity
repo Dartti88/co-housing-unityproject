@@ -3760,6 +3760,7 @@ MonoBehaviour:
   profileHandler: {fileID: 544111369}
   pHandler: {fileID: 544111370}
   isLoggedIn: 0
+  floor: 0
   initLocalPlayerPos: {x: 22, y: 1, z: 18}
 --- !u!4 &334296272
 Transform:
@@ -6021,6 +6022,7 @@ MonoBehaviour:
     profileType: 0
     creationDate: 
     description: 
+  debugButtonBool: 0
   loggedOut: 0
 --- !u!4 &544111371
 Transform:
@@ -31502,7 +31504,7 @@ PrefabInstance:
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: ScrollSpeedMultiplier
-      value: -0.015
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527678, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}

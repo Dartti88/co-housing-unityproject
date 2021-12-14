@@ -174,10 +174,10 @@ public class WeatherData : MonoBehaviour
                 break;
             case (int)weather.rain:
                 particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
-                particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.thunderstorm:
                 particle_effects[(int)weather_particle_effect.thunder_strom].GetComponent<ParticleSystem>().Play();
+                particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.snow:
                 particle_effects[(int)weather_particle_effect.snow].GetComponent<ParticleSystem>().Play();

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    public CalendarController calendarController;
     public ItemGameObject taskboard;
     public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
@@ -51,6 +52,9 @@ public class Taskmanager : MonoBehaviour
 
     public GameObject showTasksButton;
     public GameObject changeFloorButton;
+    public GameObject bookRoomButton;
+
+    public int doorID;
 
     // Start is called before the first frame update
     void Start()
@@ -507,7 +511,14 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
+    public void InitializeCalendar()
+    {
+        calendarController.InitializeCalendar(doorID);
+    }
+
 }
+
+
 
 public class NamedArrayAttribute : PropertyAttribute
 {

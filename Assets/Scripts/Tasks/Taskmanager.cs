@@ -88,16 +88,18 @@ public class Taskmanager : MonoBehaviour
             {
                 if (!string.IsNullOrWhiteSpace(inputFields[2].text))
                 {
-                    cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float); 
+                    cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float);
                     //Check if the variable is empty and then parse the value from the input
                     if (!string.IsNullOrWhiteSpace(inputFields[1].text)) { description = inputFields[1].text; }
-                    
+
                     if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
                     //if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
                     if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
                     if (!string.IsNullOrWhiteSpace(inputFields[6].text)) { expiryDate = inputFields[6].text; }
 
-                    CreateTask(
+                    if (profileHandler.userProfile.credits - cost >= 0)
+                    {
+                        CreateTask(
                         inputFields[0].text,
                         description,
                         cost,
@@ -106,7 +108,12 @@ public class Taskmanager : MonoBehaviour
                         points,
                         target,
                         expiryDate);
-                    closeAddCanvas = true;
+                        closeAddCanvas = true;
+                    }
+                    else
+                    {
+                        taskCreationFailedEvent.Invoke("Not enough credits!");
+                    }
                 }
                 else
                 {
@@ -120,6 +127,7 @@ public class Taskmanager : MonoBehaviour
                 taskCreationFailedEvent.Invoke("Cannot Create Task Without Name!");
             }
             if (closeAddCanvas) CloseAddTaskCanvas();
+
         });
     }
 

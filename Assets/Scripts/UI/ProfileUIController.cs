@@ -100,7 +100,7 @@ public class ProfileUIController : MonoBehaviour
         playerController = PlayerController.Instance;
         addTaskBtn.gameObject.GetComponent<Button>().onClick.AddListener(OpenAddTask);
         btn.GetComponent<Button>().onClick.AddListener(delegate { FindObjectOfType<ProfileHandler>().LogOut(); });
-        chat.gameObject.SetActive(false);
+        
         profileName.characterLimit = 20;
         profileDescription.characterLimit = 144;
         profileBackground.gameObject.SetActive(true);
@@ -144,13 +144,12 @@ public class ProfileUIController : MonoBehaviour
             if (pHandler.GetUserProfile().avatarID == i)
             {
                 ProfilePicture.GetComponent<Image>().sprite = profilePictures[i].sprite;
-                playerController.ChangePlayerAvatar(i);
+                //playerController.ChangePlayerAvatar(i);
                 break;
             }
             else Debug.Log("avatarID not " + i + ", avatarID is" + pHandler.GetUserProfile().avatarID);
         }
 
-        CanvasTaskUI.gameObject.SetActive(false);
         //so after new user opens changecanvas
         if (pHandler.GetUserProfile().displayName == "No Name")
         {
@@ -249,7 +248,25 @@ public class ProfileUIController : MonoBehaviour
     }
     public void ChatButtonClick()
     {
-        chat.SetActive(!chat.activeSelf);
+        //tODO: mesh if this doesnt work
+        foreach(Transform child in chat.transform) //canvas
+        {
+            foreach (Transform child_2 in child.transform)//chatUI
+            {
+                foreach (Transform child_3 in child_2.transform)//input and chatbox
+                {
+                    if (child_3.name == "InputField_EnterMessage") { 
+                        child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
+                        Debug.Log("chatt" + child_3.name);
+                    }
+                    
+                    if(child_3.name == "ChatBox"){
+                        child_3.gameObject.SetActive(!child_3.gameObject.activeSelf);
+                        Debug.Log("chatt" + child_3.name);
+                    }
+                }
+            }
+        }
     }
 
     public void LevelSlider()

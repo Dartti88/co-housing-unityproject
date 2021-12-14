@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class Taskmanager : MonoBehaviour
 {
+    public bool closeAddCanvas = false;
+    public CalendarController calendarController;
     public ItemGameObject taskboard;
     public bool DebugAdd;
     //0=taskList, 1=acceptedTasks_list, 2=createdTasks_list, 2=availableTasks_list, 3=itemTasks_list
@@ -49,7 +53,14 @@ public class Taskmanager : MonoBehaviour
     public Dictionary<int, Task> availableTasks_list;
     public Dictionary<int, Task> itemTasks_list;
 
+
+    public PopupEvent taskCreationFailedEvent;
     public GameObject showTasksButton;
+    public GameObject changeFloorButton;
+    public GameObject bookRoomButton;
+
+    public int doorID;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,12 +69,16 @@ public class Taskmanager : MonoBehaviour
         //Format the local taskList
         taskList = Client.Instance.task_list;
 
+        //Make sure event is created and ready for use
+        if (taskCreationFailedEvent == null) { taskCreationFailedEvent = new PopupEvent(); }
+
         //When the button to create a task is pressed we parse the input from the user to the CreateTask function
         createTaskButton.onClick.AddListener(() =>
         {
             //Set the default values for creating the task
-            int quantity, uniqueQuantity, points;
-            float cost = quantity = uniqueQuantity = points = 0;
+            int uniqueQuantity, points;
+            int quantity = 1;
+            float cost = uniqueQuantity = points = 0;
             int target = taskboard._itemID;
             string description = DefaultTaskDescription;
             string expiryDate = "0000-00-00";
@@ -71,28 +86,48 @@ public class Taskmanager : MonoBehaviour
             // First check if the name is set. If not, do not create the task
             if (!string.IsNullOrWhiteSpace(inputFields[0].text))
             {
-                //Check if the variable is empty and then parse the value from the input
-                if (!string.IsNullOrWhiteSpace(inputFields[1].text)) { description = inputFields[1].text; }
-                if (!string.IsNullOrWhiteSpace(inputFields[2].text)) { cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float); }
-                if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
-                if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
-                if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
-                if (!string.IsNullOrWhiteSpace(inputFields[6].text)) { expiryDate = inputFields[6].text; }
+                if (!string.IsNullOrWhiteSpace(inputFields[2].text))
+                {
+                    cost = float.Parse(inputFields[2].text, System.Globalization.NumberStyles.Float);
+                    //Check if the variable is empty and then parse the value from the input
+                    if (!string.IsNullOrWhiteSpace(inputFields[1].text)) { description = inputFields[1].text; }
 
-                CreateTask(
-                    inputFields[0].text,
-                    description,
-                    cost,
-                    quantity,
-                    uniqueQuantity,
-                    points,
-                    target,
-                    expiryDate);
+                    if (!string.IsNullOrWhiteSpace(inputFields[3].text)) { quantity = int.Parse(inputFields[3].text, System.Globalization.NumberStyles.Integer); }
+                    //if (!string.IsNullOrWhiteSpace(inputFields[4].text)) { uniqueQuantity = int.Parse(inputFields[4].text, System.Globalization.NumberStyles.Integer); }
+                    if (!string.IsNullOrWhiteSpace(inputFields[5].text)) { points = int.Parse(inputFields[5].text, System.Globalization.NumberStyles.Integer); }
+                    if (!string.IsNullOrWhiteSpace(inputFields[6].text)) { expiryDate = inputFields[6].text; }
+
+                    if (profileHandler.userProfile.credits - cost >= 0)
+                    {
+                        CreateTask(
+                        inputFields[0].text,
+                        description,
+                        cost,
+                        quantity,
+                        uniqueQuantity,
+                        points,
+                        target,
+                        expiryDate);
+                        closeAddCanvas = true;
+                    }
+                    else
+                    {
+                        taskCreationFailedEvent.Invoke("Not enough credits!");
+                    }
+                }
+                else
+                {
+                    closeAddCanvas = false;
+                    taskCreationFailedEvent.Invoke("Cannot Create Task Without Cost!");
+                }
             }
             else
             {
-                Debug.LogWarning("Cannot Create Task Without Name!");
+                closeAddCanvas = false;
+                taskCreationFailedEvent.Invoke("Cannot Create Task Without Name!");
             }
+            if (closeAddCanvas) CloseAddTaskCanvas();
+
         });
     }
 
@@ -206,6 +241,7 @@ public class Taskmanager : MonoBehaviour
                 break;
             case "item":
                 chosenTaskList = 4;
+                if (itemID == taskboard._itemID) chosenTaskList = 3;
                 Client.Instance.BeginRequest_GetAvailableTasks(DisplayTasks);
                 break;
             default:
@@ -505,7 +541,19 @@ public class Taskmanager : MonoBehaviour
         }
     }
 
+    public void InitializeCalendar()
+    {
+        calendarController.InitializeCalendar(doorID);
+    }
+
+    public void CloseAddTaskCanvas()
+    {
+        addTaskUI.SetActive(false);
+    }
+
 }
+
+
 
 public class NamedArrayAttribute : PropertyAttribute
 {
@@ -513,3 +561,8 @@ public class NamedArrayAttribute : PropertyAttribute
     public NamedArrayAttribute(string[] names) { this.names = names; }
 }
 
+[System.Serializable]
+public class PopupEvent : UnityEvent<string>
+{
+
+}

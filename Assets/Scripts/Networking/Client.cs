@@ -131,43 +131,6 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        testProfile = new Profile(0, 0, "UnityTestUser", "UrpoPetteri", "1234", "Test user", 1, 0, 0, Profile.ProfileType.Resident, DateTime.Now);
-        
-        newTestTask = new Task();
-        newTestTask.creatorID = 22;
-        newTestTask.taskName = "Another Task";
-        newTestTask.targetID = 2;
-        newTestTask.description = "Testing does task names and points work..";
-        newTestTask.cost = 1;
-        newTestTask.points = 420;
-        newTestTask.quantity = 5;
-        newTestTask.uniqueQuantity = 5;
-        newTestTask.expirationDate = "2025-09-12";
-
-        newTestTask2 = new Task();
-        newTestTask2.creatorID = 22;
-        newTestTask2.taskName = "Testingtask2";
-        newTestTask2.targetID = 2;
-        newTestTask2.description = "Testing GetCreatedTasks.php";
-        newTestTask2.cost = 1;
-        newTestTask2.points = 1;
-        newTestTask2.quantity = 2;
-        newTestTask2.uniqueQuantity = 0;
-        newTestTask2.expirationDate = "2025-09-12";
-        
-
-        newTestTask3 = new Task();
-        newTestTask3.creatorID = 23;
-        newTestTask3.taskName = "TESTINGTESTINGASD123";
-        newTestTask3.targetID = 0;
-        newTestTask3.description = "tesging";
-        newTestTask3.cost = 1;
-        newTestTask3.points = 1;
-        newTestTask3.quantity = 1;
-        newTestTask3.uniqueQuantity = 0;
-        newTestTask3.expirationDate = "2025-09-12";
-        */
     }
     // Update is called once per frame
 
@@ -473,7 +436,7 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
-        isLoggedIn = req.downloadHandler.text == "Success";
+        isLoggedIn = !(req.downloadHandler.text == "Failed" || req.downloadHandler.text.Contains("Error"));
     }
     void Internal_OnCompletion_LogOutComplete(UnityWebRequest req)
     {

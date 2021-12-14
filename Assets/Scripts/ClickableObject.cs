@@ -6,6 +6,9 @@ using UnityEngine.Events;
 // used for objects in the house that can be clicked/tapped
 public class ClickableObject : MonoBehaviour
 {
+    public int doorID;
+    public bool stairs;
+    public bool door;
     // when this object is selected, player will walk to this transform location
     public Transform NaviTarget;
     // 3d object to outline when selected
@@ -29,8 +32,18 @@ public class ClickableObject : MonoBehaviour
         if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
-            var child = GetComponentInChildren<MeshRenderer>();
-            outline = child.gameObject.AddComponent<Outline>();
+            if (GetComponent<MeshRenderer>())
+            {
+                Debug.Log("not in child object");
+                TargetMesh = GetComponent<MeshRenderer>();
+            }
+            else
+            {
+                Debug.Log("in child object");
+                TargetMesh = GetComponentInChildren<MeshRenderer>();
+            }
+            
+            outline = TargetMesh.gameObject.AddComponent<Outline>();
         }
         else
         {
@@ -96,11 +109,19 @@ public class ClickableObject : MonoBehaviour
 
     void ShowButton()
     {
-        taskManager.showTasksButton.SetActive(true);
+        if (stairs) taskManager.changeFloorButton.SetActive(true);
+        else if (door)
+        {
+            taskManager.bookRoomButton.SetActive(true);
+            taskManager.doorID = doorID;
+        }
+        else taskManager.showTasksButton.SetActive(true);
     }
 
     void HideButton()
     {
         taskManager.showTasksButton.SetActive(false);
+        taskManager.changeFloorButton.SetActive(false);
+        taskManager.bookRoomButton.SetActive(false);
     }
 }

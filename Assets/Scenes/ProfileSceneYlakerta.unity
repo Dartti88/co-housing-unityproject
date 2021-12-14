@@ -10304,7 +10304,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.02
+  near clip plane: 0.05
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -16325,6 +16325,26 @@ MonoBehaviour:
   location: 
   itemText: {fileID: 0}
   taskManager: {fileID: 0}
+--- !u!1 &1095010931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7916697771902571881, guid: b4cd299a02297f5468062135cb9c6dbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 8507803446251512684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1095010932
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095010931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8430117291254505411, guid: 4fb970cc886b58c40adef636a5e4f248, type: 3}
 --- !u!1 &1102008797
 GameObject:
   m_ObjectHideFlags: 0
@@ -36742,7 +36762,7 @@ PrefabInstance:
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: RayLayers.m_Bits
-      value: 1536
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
@@ -36767,7 +36787,7 @@ PrefabInstance:
     - target: {fileID: 6592000892502527676, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}
       propertyPath: ScrollSpeedMultiplier
-      value: -0.015
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6592000892502527678, guid: 94be4a9e42ccdd945be5057caba150af,
         type: 3}

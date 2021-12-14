@@ -124,6 +124,7 @@ public class GameController : Singleton<GameController>
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 100.0f, RayLayers))
                 {
+                    
                     if ((NaviGroundLayer & 1 << hit.collider.gameObject.layer) == 1 << hit.collider.gameObject.layer)
                     {
                         PlayerController.Instance.SetGoal(hit.point);

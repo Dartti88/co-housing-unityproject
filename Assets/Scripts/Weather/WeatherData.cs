@@ -174,10 +174,16 @@ public class WeatherData : MonoBehaviour
             case (int)weather.broken_clouds:
                 break;
             case (int)weather.shower_rain:
+                ParticleSystem particleSystem = particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>();
+                var emission = particleSystem.emission;
+                emission.rateOverTime = 330;
                 particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
                 particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.rain:
+                ParticleSystem particleSystem2 = particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>();
+                var emission2 = particleSystem2.emission;
+                emission.rateOverTime = 130;
                 particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.thunderstorm:

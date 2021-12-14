@@ -77,13 +77,4 @@ public class ProfileHandler : MonoBehaviour
             debugButtonBool = true;
         }
     }
-
-    public void OnDestroy()
-    {
-        if (pauseState)
-        {
-            LogOut();
-            debugButtonBool = true;
-        }
-    }
 }

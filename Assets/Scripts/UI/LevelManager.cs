@@ -156,28 +156,31 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateLevels()
     {
-        int old_level = arr_level[0];
-        userProfile = profileHandler.userProfile;
-        arr_level = GetProfileLevel();
-        new_sprite = UI_controller.levelPictures[arr_level[(int)level_data.level]];
-
-        image.sprite = new_sprite;
-        slider.value = userProfile.socialScore;
-        slider.minValue = (arr_level[(int)level_data.level] <= 1) ? 0 : arr_level[(int)level_data.next_level]/2;
-        slider.maxValue = arr_level[(int)level_data.next_level];
-        slider_text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
-        progress_text.text = slider_text;
-        level_text.text = level_texts[arr_level[(int)level_data.level]];
-
-        slider.gameObject.SetActive(!slider.gameObject.activeSelf);
-        timer = 7;
-
-        if (arr_level[(int)level_data.level] > old_level)
+        if (start_up == false)
         {
-            //ToDo - Trigger levelup event
-            UI_controller.levelUp();
-        }
 
+            int old_level = arr_level[0];
+            userProfile = profileHandler.userProfile;
+            arr_level = GetProfileLevel();
+            new_sprite = UI_controller.levelPictures[arr_level[(int)level_data.level]];
+
+            image.sprite = new_sprite;
+            slider.value = userProfile.socialScore;
+            slider.minValue = (arr_level[(int)level_data.level] <= 1) ? 0 : arr_level[(int)level_data.next_level] / 2;
+            slider.maxValue = arr_level[(int)level_data.next_level];
+            slider_text = userProfile.socialScore.ToString() + "/" + arr_level[(int)level_data.next_level].ToString();
+            progress_text.text = slider_text;
+            level_text.text = level_texts[arr_level[(int)level_data.level]];
+
+            slider.gameObject.SetActive(!slider.gameObject.activeSelf);
+            timer = 7;
+
+            if (arr_level[(int)level_data.level] > old_level)
+            {
+                //ToDo - Trigger levelup event
+                UI_controller.levelUp();
+            }
+        }
         //Debug.Log(userProfile.socialScore.ToString());
         /*
         foreach (Transform child in transform)

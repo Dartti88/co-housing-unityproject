@@ -278,6 +278,7 @@ public class ProfileUIController : MonoBehaviour
     {
         Debug.Log("level gained");
         levelUpIcon.SetActive(true);
+        levelUpText.SetActive(true);
         CanvasTaskUI.gameObject.SetActive(false);
         emoteGO.GetComponent<EmoteBillboard>().UseEmote(6);
         StartCoroutine(ShowImage());
@@ -291,7 +292,7 @@ public class ProfileUIController : MonoBehaviour
 
     IEnumerator FadeImage()
     {
-        // loop over 3 seconds backwards
+        // loop over 5 seconds backwards
         for (float i = 1; i >= 0; i -= Time.deltaTime/5)
         {
             // set color with i as alpha

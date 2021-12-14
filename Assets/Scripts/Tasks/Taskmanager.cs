@@ -35,7 +35,7 @@ public class Taskmanager : MonoBehaviour
     private string DefaultTaskDescription = "";
 
     [SerializeField]
-    private GameObject profileObject;
+    private ProfileUIController profileUIController;
 
     private int userID;
     public int itemID;
@@ -143,6 +143,7 @@ public class Taskmanager : MonoBehaviour
         taskList = Client.Instance.task_list;
         acceptedTasks_list = Client.Instance.acceptedTasks_list;
         createdTasks_list = Client.Instance.createdTasks_list;
+        UpdateCredits("");
         GetAvailableTasks();
 
         //Empties the current list
@@ -551,6 +552,10 @@ public class Taskmanager : MonoBehaviour
         addTaskUI.SetActive(false);
     }
 
+    public void UpdateCredits(string nullstr)
+    {
+        profileUIController.UpdateCredits();
+    }
 }
 
 

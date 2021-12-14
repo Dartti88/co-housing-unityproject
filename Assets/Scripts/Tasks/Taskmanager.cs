@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class Taskmanager : MonoBehaviour
 {
+    public bool closeAddCanvas = false;
     public CalendarController calendarController;
     public ItemGameObject taskboard;
     public bool DebugAdd;
@@ -105,16 +106,20 @@ public class Taskmanager : MonoBehaviour
                         points,
                         target,
                         expiryDate);
+                    closeAddCanvas = true;
                 }
                 else
                 {
+                    closeAddCanvas = false;
                     taskCreationFailedEvent.Invoke("Cannot Create Task Without Cost!");
                 }
             }
             else
             {
+                closeAddCanvas = false;
                 taskCreationFailedEvent.Invoke("Cannot Create Task Without Name!");
             }
+            if (closeAddCanvas) CloseAddTaskCanvas();
         });
     }
 
@@ -531,6 +536,11 @@ public class Taskmanager : MonoBehaviour
     public void InitializeCalendar()
     {
         calendarController.InitializeCalendar(doorID);
+    }
+
+    public void CloseAddTaskCanvas()
+    {
+        addTaskUI.SetActive(false);
     }
 
 }

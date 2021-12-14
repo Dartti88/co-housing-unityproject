@@ -87,6 +87,11 @@ public class WeatherData : MonoBehaviour
                 timer -= Time.deltaTime;
             }
         }
+
+        if (overwrite_weather != -1)
+        {
+            GetWeatherInfo();
+        }
     }
     private IEnumerator GetWeatherInfo()
     {

@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     private Text progress_text;
     public ProfileUIController UI_controller;
     private string slider_text = "";
+    private bool start_up = true;
 
 
 
@@ -95,6 +96,7 @@ public class LevelManager : MonoBehaviour
         if (userProfile == null)
         {
             UpdateLevels();
+            start_up = false;
         }
         else if (timer<=0)
         {
@@ -173,9 +175,7 @@ public class LevelManager : MonoBehaviour
         if (arr_level[(int)level_data.level] > old_level)
         {
             //ToDo - Trigger levelup event
-
-            //kommentoitu pois kunnes ei triggeröidy startissa
-            //UI_controller.levelUp();
+            UI_controller.levelUp();
         }
 
         //Debug.Log(userProfile.socialScore.ToString());

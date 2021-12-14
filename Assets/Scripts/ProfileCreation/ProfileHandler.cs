@@ -10,7 +10,6 @@ public class ProfileHandler : MonoBehaviour
 
     public Profile userProfile;
 
-    public bool debugButtonBool;
     [HideInInspector] public bool loggedOut = false;
 
     private void Awake()
@@ -53,28 +52,25 @@ public class ProfileHandler : MonoBehaviour
         Client.Instance.BeginRequest_LogOut(
             response =>
             {
-                if(!debugButtonBool) loggedOut = true;
+                loggedOut = true;
                 userProfile = null;
                 SceneManager.LoadScene("LogIn");
-                debugButtonBool = false;
             }
         );
     }
-
+#if UNITY_ANDROID
     private void OnApplicationPause(bool pauseState)
     {
         if (pauseState)
         {
-            LogOut();
-            debugButtonBool = true;
+            Client.Instance.BeginRequest_LogOut(
+            response =>
+            {
+                userProfile = null;
+                SceneManager.LoadScene("LogIn");
+            }
+        );
         }
     }
-    public void DebugPause(bool pauseState)
-    {
-        if (pauseState)
-        {
-            LogOut();
-            debugButtonBool = true;
-        }
-    }
+#endif
 }

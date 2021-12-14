@@ -126,6 +126,7 @@ public class LogIn : MonoBehaviour
             if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
                 FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
             FindObjectOfType<ProfileHandler>().userProfile.password = password;
+            FindObjectOfType<ProfileHandler>().loggedOut = false;
 
             // Determine which floor we s
             Client.Instance.floor = py > 9.0f? 1 : 0;

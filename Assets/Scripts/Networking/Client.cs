@@ -452,6 +452,9 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+        // Quite hard to notice, but we also trigger avatar change for all other players through chat
+
+        GameObject.Find("Chat").SendMessage("func_changeAvatar(" + pHandler.userProfile.avatarID + ")");
     }
 
     void Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)

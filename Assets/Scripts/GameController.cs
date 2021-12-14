@@ -204,7 +204,7 @@ public class GameController : Singleton<GameController>
     }
     public void GoUpstairs()
     {
-        Vector3 upstairsBegin = new Vector3(-37.9362717f, 9.15999985f, 50.4520721f);
+        Vector3 upstairsBegin = new Vector3(4.61000013f, 13.8800001f, 72.4199982f);
         Client.Instance.BeginRequest_UpdateProfileStatus(
             Client.Instance.pHandler.userProfile.profileID,
             1,

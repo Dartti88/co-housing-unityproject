@@ -53,6 +53,7 @@ public class Chat : MonoBehaviour
         realTimeController = FindObjectOfType<RealTimeController>();
         commands = new Dictionary<string, System.Action<int, string>>();
         commands.Add("emote", Command_Emote);
+        commands.Add("changeAvatar", Command_ChangeAvatar);
 
         rect_chatBoxContent = obj_chatBoxContent.GetComponent<RectTransform>();
         font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
@@ -124,8 +125,15 @@ public class Chat : MonoBehaviour
         string json = "{\"messages\": " + response + "}";
         if (response.Length > 0)
         {
-            messagesContainer = JsonUtility.FromJson<ChatMessagesContainer>(json);
-            UpdateChatBoxMessages();
+            try
+            {
+                messagesContainer = JsonUtility.FromJson<ChatMessagesContainer>(json);
+                UpdateChatBoxMessages();
+            }
+            catch (ArgumentException e)
+            {
+                Debug.LogError(e.Message);
+            }
         }
     }
 
@@ -218,9 +226,10 @@ public class Chat : MonoBehaviour
                 continue;
             }
             ChatMessage m = messagesContainer.messages[i];
-            AddMessageToChatBox(m.displayName, m.message);
-
-            if (m.message.Contains(command_funcIdentifier))
+            
+            if (!m.message.Contains(command_funcIdentifier))
+                AddMessageToChatBox(m.displayName, m.message);
+            else
                 ParseAndExecuteCommandMessage(m.displayName, m.message);
         }
 
@@ -257,7 +266,22 @@ public class Chat : MonoBehaviour
             Debug.Log("ERROR >> Chat commands @Command_Emote : invalid parameters");
             return;
         }
-        int emoteID = Int32.Parse(parameters);
-        realTimeController.TriggerEmote(profileID, emoteID);
+        realTimeController.TriggerEmote(profileID, Int32.Parse(parameters));
+    }
+
+    void Command_ChangeAvatar(int profileID, string parameters)
+    {
+        // Currently this can be used only for non local users!
+        //  -> ignore, if local profileID
+        if (profileID == profileHandler.userProfile.profileID)
+            return;
+
+        // make sure the params are correct
+        if (parameters.Contains(","))
+        {
+            Debug.Log("ERROR >> Chat commands @Command_Emote : invalid parameters");
+            return;
+        }
+        realTimeController.TriggerAvatarSwitch(profileID, Int32.Parse(parameters));
     }
 }

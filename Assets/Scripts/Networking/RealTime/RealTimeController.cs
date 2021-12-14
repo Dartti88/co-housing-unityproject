@@ -79,12 +79,30 @@ public class RealTimeController : MonoBehaviour
     // Triggers a "visual emote" for a local (other)player object
     public void TriggerEmote(int profileID, int emoteID)
     {
-        GameObject obj = otherPlayers[profileID].transform.Find("Emotecontainer").transform.Find("EmotePicture").gameObject;
-        if (obj)
+        try
         {
-            obj.SetActive(true);
-            EmoteBillboard component = obj.GetComponent<EmoteBillboard>();
-            component.UseEmote(emoteID);
+            GameObject obj = otherPlayers[profileID].transform.Find("Emotecontainer").transform.Find("EmotePicture").gameObject;
+            if (obj)
+            {
+                obj.SetActive(true);
+                EmoteBillboard component = obj.GetComponent<EmoteBillboard>();
+                component.UseEmote(emoteID);
+            }
+        }
+        catch (KeyNotFoundException e)
+        {
+        }
+    }
+    // Triggers a "visual avatar switch" for a local (other)player object
+    public void TriggerAvatarSwitch(int profileID, int avatarID)
+    {
+        try
+        {
+            CharacterController charController = otherPlayers[profileID].GetComponent<CharacterController>();
+            if (charController) charController.ChangePlayerAvatar(avatarID);
+        }
+        catch(KeyNotFoundException e)
+        {
         }
     }
 

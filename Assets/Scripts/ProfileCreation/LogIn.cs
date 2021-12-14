@@ -126,7 +126,13 @@ public class LogIn : MonoBehaviour
             if (Client.Instance.profile_list.profiles != null && Client.Instance.profile_list.profiles.Length > 0)
                 FindObjectOfType<ProfileHandler>().userProfile = Client.Instance.profile_list.profiles.Where(x => x.userName == userName).First();
             FindObjectOfType<ProfileHandler>().userProfile.password = password;
-            SceneManager.LoadScene("ProfileScene");
+
+            // Determine which floor we s
+            Client.Instance.floor = py > 9.0f? 1 : 0;
+            if(Client.Instance.floor == 0)
+                SceneManager.LoadScene("ProfileScene");
+            if (Client.Instance.floor == 1)
+                SceneManager.LoadScene("ProfileSceneYlakerta");
         }
     }
     void OnGetProfilesForLoginRequestComplete(string response)

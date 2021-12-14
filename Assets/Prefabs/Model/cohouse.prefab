@@ -1431,12 +1431,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133586095691083532}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.015453805, y: -0.0766333, z: -0.0066748713}
+  m_LocalRotation: {x: -0.00000011898992, y: 0.000000007231284, z: -0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: -0.010159991, y: 0, z: -0.0022299984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 2
+  m_Father: {fileID: 9078652552986459942}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4297362942833322045
 MeshFilter:
@@ -1584,7 +1584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5260604566476575370}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -1740,7 +1742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3125833800740663481}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -2075,7 +2079,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3125833800740663481}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -2799,7 +2805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5655140315169889072}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -3371,7 +3379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5899571350638770945}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -4028,7 +4038,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2052020574840776537}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -4694,7 +4706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -4837,7 +4851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7393713252767230985}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -5185,7 +5201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -5564,7 +5582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -6001,7 +6021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7832233295093793363}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -6560,7 +6582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -7379,7 +7403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3881664074019659591}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -8266,7 +8292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -8702,7 +8730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3907294949480633697}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -9846,7 +9876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -10193,7 +10225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2052020574840776537}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -10673,6 +10707,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1169380281087017502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3475691277052931328}
+  - component: {fileID: 7933436813376199760}
+  - component: {fileID: 8372447337671547413}
+  - component: {fileID: 3600846407615411657}
+  m_Layer: 0
+  m_Name: Door1
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3475691277052931328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169380281087017502}
+  m_LocalRotation: {x: -0, y: 0.00000005215406, z: 0.7071067, w: -0.7071068}
+  m_LocalPosition: {x: 0.046769653, y: -0.03882012, z: -0.0044447477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4961256468143988503}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!135 &7933436813376199760
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169380281087017502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &8372447337671547413
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169380281087017502}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3600846407615411657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169380281087017502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1184628729244120380
 GameObject:
   m_ObjectHideFlags: 0
@@ -11156,7 +11265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7832233295093793363}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -11831,6 +11942,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1357703767745372339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5821774346699608949}
+  - component: {fileID: 8590920575643487059}
+  - component: {fileID: 4348077409834028313}
+  - component: {fileID: 4768646714649784430}
+  m_Layer: 0
+  m_Name: Door5
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5821774346699608949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357703767745372339}
+  m_LocalRotation: {x: -0.000000029802315, y: 0.000000096857526, z: 0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: -0.08879081, y: -0.12613961, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5578292064640717072}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!135 &8590920575643487059
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357703767745372339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &4348077409834028313
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357703767745372339}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4768646714649784430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357703767745372339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365938126563056660
 GameObject:
   m_ObjectHideFlags: 0
@@ -12473,7 +12659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3308616650749660594}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -12625,7 +12813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6642787821551249640}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -13214,7 +13404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7393713252767230985}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -14213,7 +14405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 379480605857385819}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -14722,7 +14916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -16210,7 +16406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 0}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -16779,7 +16977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -17094,6 +17294,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1857974874393943512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049366443352417717}
+  - component: {fileID: 5324890414042591143}
+  m_Layer: 0
+  m_Name: Door7Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2049366443352417717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857974874393943512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3451317537935625392}
+  m_Father: {fileID: 6887463792444700640}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &5324890414042591143
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857974874393943512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1867038628212080432
 GameObject:
   m_ObjectHideFlags: 0
@@ -18698,7 +18947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7393713252767230985}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -18935,7 +19186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5899571350638770945}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -19284,6 +19537,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2077143314233746856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7101991871320681137}
+  - component: {fileID: 1793860168358163264}
+  m_Layer: 0
+  m_Name: Door4Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7101991871320681137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077143314233746856}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2476732362481447516}
+  m_Father: {fileID: 4683335654679869417}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1793860168358163264
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077143314233746856}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2107859953305472744
 GameObject:
   m_ObjectHideFlags: 0
@@ -20050,7 +20352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -21471,7 +21775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -22705,7 +23011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -22861,7 +23169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 309367268193315284}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -23630,6 +23940,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2565613624902168627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932199849447672114}
+  - component: {fileID: 7608203177519792851}
+  - component: {fileID: 4698054903034029255}
+  - component: {fileID: 4130251099184485086}
+  m_Layer: 0
+  m_Name: Door3
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932199849447672114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565613624902168627}
+  m_LocalRotation: {x: -0.000000029802315, y: 0.000000096857526, z: 0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: 0.015453807, y: -0.06647332, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9078652552986459942}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!135 &7608203177519792851
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565613624902168627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &4698054903034029255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565613624902168627}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4130251099184485086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565613624902168627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2565880477901632248
 GameObject:
   m_ObjectHideFlags: 0
@@ -25622,7 +26007,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -26354,7 +26741,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -27334,7 +27723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -27576,7 +27967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -27735,7 +28128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -27894,7 +28289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -28209,7 +28606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5899571350638770945}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -28461,7 +28860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2052020574840776537}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -29170,6 +29571,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3087360991257951049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3336285820297471730}
+  - component: {fileID: 1919942151013804184}
+  - component: {fileID: 291715552995975354}
+  - component: {fileID: 5032248959846186254}
+  m_Layer: 0
+  m_Name: Door11
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3336285820297471730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087360991257951049}
+  m_LocalRotation: {x: -0.000000031610124, y: 0.00000017881389, z: 1, w: 0.00000001053671}
+  m_LocalPosition: {x: 0.011078721, y: 0.013178178, z: -0.0044448758}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9067028580990325069}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!135 &1919942151013804184
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087360991257951049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &291715552995975354
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087360991257951049}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5032248959846186254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087360991257951049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3090765000953644294
 GameObject:
   m_ObjectHideFlags: 0
@@ -29485,6 +29961,82 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3148268956669987886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7411230434678248961}
+  - component: {fileID: 8303687194780399863}
+  - component: {fileID: 7745633935813687798}
+  - component: {fileID: 6860653455240543014}
+  m_Layer: 0
+  m_Name: Door9
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7411230434678248961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148268956669987886}
+  m_LocalRotation: {x: -0.00000017881389, y: -0.000000031610124, z: -0.00000001053671,
+    w: 1}
+  m_LocalPosition: {x: -0.17151073, y: -0.076877505, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7506622281365947673}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8303687194780399863
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148268956669987886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &7745633935813687798
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148268956669987886}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6860653455240543014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148268956669987886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3151741975313324528
 GameObject:
   m_ObjectHideFlags: 0
@@ -29512,17 +30064,17 @@ Transform:
   m_LocalPosition: {x: 5.459997, y: 15.26, z: 62.82}
   m_LocalScale: {x: 100, y: 100, z: 99.999985}
   m_Children:
-  - {fileID: 3302260700232910853}
-  - {fileID: 1885436776720358877}
-  - {fileID: 2416583940618275204}
-  - {fileID: 2476732362481447516}
-  - {fileID: 2223120674779863532}
-  - {fileID: 2736415470911954474}
-  - {fileID: 3451317537935625392}
-  - {fileID: 1448680204428792768}
-  - {fileID: 2657707161991342117}
+  - {fileID: 3475691277052931328}
+  - {fileID: 2200816097840901341}
+  - {fileID: 1932199849447672114}
+  - {fileID: 4683335654679869417}
+  - {fileID: 5821774346699608949}
+  - {fileID: 2752494679946566145}
+  - {fileID: 6887463792444700640}
+  - {fileID: 4255354893015735333}
+  - {fileID: 7411230434678248961}
   - {fileID: 7551761232838920337}
-  - {fileID: 5155288539272136836}
+  - {fileID: 3336285820297471730}
   - {fileID: 5678229163006454833}
   - {fileID: 5304215920225208363}
   - {fileID: 4521084844049936600}
@@ -29967,7 +30519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 0}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -30510,7 +31064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -31789,7 +32345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -33364,7 +33922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -33834,7 +34394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -33996,7 +34558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7832233295093793363}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -34607,7 +35171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8097278314793948205}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -35053,12 +35619,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3813838739009127296}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13039345, y: -0.07687744, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -3.2325988e-16, w: 1}
+  m_LocalPosition: {x: -0.010240011, y: 0, z: -0.0022299958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 6
+  m_Father: {fileID: 2049366443352417717}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &56899928891082570
 MeshFilter:
@@ -35304,7 +35870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -36546,6 +37114,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3975469410970380387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9078652552986459942}
+  - component: {fileID: 76745195841422888}
+  m_Layer: 0
+  m_Name: Door3Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9078652552986459942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975469410970380387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2416583940618275204}
+  m_Father: {fileID: 1932199849447672114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &76745195841422888
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975469410970380387}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3989320420412305248
 GameObject:
   m_ObjectHideFlags: 0
@@ -36816,12 +37433,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003933007578005801}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03241338, y: -0.091069184, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: -3.2325988e-16}
+  m_LocalPosition: {x: -0.009949971, y: 0, z: -0.0022299972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 1
+  m_Father: {fileID: 8844277147622672769}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3652425001209881350
 MeshFilter:
@@ -37537,7 +38154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7471137817739055582}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -38124,7 +38743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 315689883077670125}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -38323,7 +38944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -38830,6 +39453,157 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4168455887206170534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4255354893015735333}
+  - component: {fileID: 4927566157070409322}
+  - component: {fileID: 3808819208519899945}
+  - component: {fileID: 3814192735289699500}
+  m_Layer: 0
+  m_Name: Door8
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4255354893015735333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168455887206170534}
+  m_LocalRotation: {x: -0.00000017881389, y: -0.000000031610124, z: -0.00000001053671,
+    w: 1}
+  m_LocalPosition: {x: -0.12015343, y: -0.035885837, z: -0.0044448716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4623634165811040867}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4927566157070409322
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168455887206170534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &3808819208519899945
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168455887206170534}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3814192735289699500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168455887206170534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4173587860016835707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2200816097840901341}
+  - component: {fileID: 8811887398505950112}
+  - component: {fileID: 289975149675861189}
+  - component: {fileID: 1484290999780480724}
+  m_Layer: 0
+  m_Name: Door2
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2200816097840901341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173587860016835707}
+  m_LocalRotation: {x: -0.000000031610124, y: 0.00000017881389, z: 1, w: 0.00000001053671}
+  m_LocalPosition: {x: 0.022463385, y: -0.091069266, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8844277147622672769}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!135 &8811887398505950112
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173587860016835707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &289975149675861189
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173587860016835707}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1484290999780480724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173587860016835707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4187757430249179863
 GameObject:
   m_ObjectHideFlags: 0
@@ -39091,7 +39865,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 924487193699657632}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -39642,7 +40418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 1
+  door: 0
   NaviTarget: {fileID: 4708978595224652109}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -40464,6 +41242,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4298694342788456872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4961256468143988503}
+  - component: {fileID: 3763466195290688990}
+  m_Layer: 0
+  m_Name: Door1Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4961256468143988503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298694342788456872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3302260700232910853}
+  m_Father: {fileID: 3475691277052931328}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &3763466195290688990
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298694342788456872}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4298867577112884672
 GameObject:
   m_ObjectHideFlags: 0
@@ -42299,7 +43126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -42798,7 +43627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -42957,7 +43788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7324223683257799730}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -43848,7 +44681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -44022,6 +44857,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisabledDirection: 00000000
   Door: 0
+--- !u!1 &4581126426486920334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9067028580990325069}
+  - component: {fileID: 3348493268168954247}
+  m_Layer: 0
+  m_Name: Door11Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9067028580990325069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4581126426486920334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5155288539272136836}
+  m_Father: {fileID: 3336285820297471730}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &3348493268168954247
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4581126426486920334}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4586818178043256663
 GameObject:
   m_ObjectHideFlags: 0
@@ -44541,6 +45425,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4644657305705983385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4683335654679869417}
+  - component: {fileID: 331179427276790528}
+  - component: {fileID: 247056079560189321}
+  - component: {fileID: 4989706031447794830}
+  m_Layer: 0
+  m_Name: Door4
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4683335654679869417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644657305705983385}
+  m_LocalRotation: {x: -0.000000029802315, y: 0.000000096857526, z: 0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: -0.01417, y: -0.02029, z: -0.00444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7101991871320681137}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!135 &331179427276790528
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644657305705983385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &247056079560189321
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644657305705983385}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4989706031447794830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644657305705983385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4650906446641583451
 GameObject:
   m_ObjectHideFlags: 0
@@ -44818,7 +45777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 4039884833154425051}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -45408,7 +46369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5260604566476575370}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -45897,12 +46860,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4792107181237972453}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.021158732, y: 0.013178176, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: -3.2325988e-16}
+  m_LocalPosition: {x: -0.010079976, y: 0, z: -0.0022299967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 10
+  m_Father: {fileID: 9067028580990325069}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2789947911715742321
 MeshFilter:
@@ -46484,7 +47447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -47005,7 +47970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -47165,7 +48132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -48479,7 +49448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2052020574840776537}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -48731,6 +49702,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5036787725585809283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7506622281365947673}
+  - component: {fileID: 1789674394555231519}
+  m_Layer: 0
+  m_Name: Door9Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7506622281365947673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036787725585809283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2657707161991342117}
+  m_Father: {fileID: 7411230434678248961}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1789674394555231519
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036787725585809283}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5036988454046351676
 GameObject:
   m_ObjectHideFlags: 0
@@ -49170,7 +50190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7324223683257799730}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -49612,7 +50634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2214681638255090599}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -50677,6 +51701,55 @@ Transform:
   m_Father: {fileID: 1535901511334812639}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5276616211670146262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4079278761970981474}
+  - component: {fileID: 5819113419218472496}
+  m_Layer: 0
+  m_Name: Door6Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4079278761970981474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276616211670146262}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2736415470911954474}
+  m_Father: {fileID: 2752494679946566145}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &5819113419218472496
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276616211670146262}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5286749324562397411
 GameObject:
   m_ObjectHideFlags: 0
@@ -51812,7 +52885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -53793,7 +54868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -54009,7 +55086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 1
+  door: 0
   NaviTarget: {fileID: 7293547623575856708}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -54630,7 +55709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5899571350638770945}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -55045,7 +56126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2052020574840776537}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -55395,7 +56478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -55772,7 +56857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5260604566476575370}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -56019,7 +57106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7324223683257799730}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -56703,7 +57792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7832233295093793363}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -56802,12 +57893,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5923263848438823153}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.014172559, y: -0.030510558, z: -0.0066748713}
+  m_LocalRotation: {x: -0.00000011898992, y: 0.000000007231284, z: -0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: -0.01022056, y: 0, z: -0.0022348696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 3
+  m_Father: {fileID: 7101991871320681137}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9187327510833486564
 MeshFilter:
@@ -57201,12 +58292,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5973092154226712028}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.102279834, y: -0.091029815, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -3.2325988e-16, w: 1}
+  m_LocalPosition: {x: -0.007810019, y: 0, z: -0.002229996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 5
+  m_Father: {fileID: 4079278761970981474}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6192297689454524558
 MeshFilter:
@@ -57864,7 +58955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -58033,7 +59126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5391626332509462632}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -58942,7 +60037,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -59097,7 +60194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3125833800740663481}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -60258,7 +61357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 4570513564188942101}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -60720,7 +61821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5899571350638770945}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -61307,7 +62410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -62266,7 +63371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -63205,7 +64312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -63768,7 +64877,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 976355464850560443}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -64001,7 +65112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3125833800740663481}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -65034,7 +66147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 6610508112522734551}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -65402,7 +66517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3125833800740663481}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -66146,7 +67263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 315689883077670125}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -66299,7 +67418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -66630,7 +67751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3907294949480633697}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -67891,6 +69014,82 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7028280633027778725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2752494679946566145}
+  - component: {fileID: 6251767017925305207}
+  - component: {fileID: 8171808264295193199}
+  - component: {fileID: 4507201923683806137}
+  m_Layer: 0
+  m_Name: Door6
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2752494679946566145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028280633027778725}
+  m_LocalRotation: {x: -0.00000017881389, y: -0.000000031610124, z: -0.00000001053671,
+    w: 1}
+  m_LocalPosition: {x: -0.09446982, y: -0.09102989, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4079278761970981474}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6251767017925305207
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028280633027778725}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &8171808264295193199
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028280633027778725}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4507201923683806137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028280633027778725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7033168812586671376
 GameObject:
   m_ObjectHideFlags: 0
@@ -69209,7 +70408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -69718,7 +70919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -70298,7 +71501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -70529,7 +71734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7324223683257799730}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -71575,7 +72782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -71923,6 +73132,82 @@ Transform:
   m_Father: {fileID: 315752351639074373}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7528869447846246078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6887463792444700640}
+  - component: {fileID: 5160516239311767334}
+  - component: {fileID: 7155456713204308614}
+  - component: {fileID: 414205351366443828}
+  m_Layer: 0
+  m_Name: Door7
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6887463792444700640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528869447846246078}
+  m_LocalRotation: {x: -0.00000017881389, y: -0.000000031610124, z: -0.00000001053671,
+    w: 1}
+  m_LocalPosition: {x: -0.12015345, y: -0.07687744, z: -0.004444876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2049366443352417717}
+  m_Father: {fileID: 2375345390381515594}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5160516239311767334
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528869447846246078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.012
+  m_Center: {x: -0.009, y: 0, z: -0.002}
+--- !u!54 &7155456713204308614
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528869447846246078}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &414205351366443828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528869447846246078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b71e16132ae14e98344ff8046325d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7533186709336015444
 GameObject:
   m_ObjectHideFlags: 0
@@ -72417,6 +73702,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7607320168808570701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5578292064640717072}
+  - component: {fileID: 1922875425675431084}
+  m_Layer: 0
+  m_Name: Door5Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5578292064640717072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607320168808570701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2223120674779863532}
+  m_Father: {fileID: 5821774346699608949}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1922875425675431084
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607320168808570701}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7608441786855215619
 GameObject:
   m_ObjectHideFlags: 0
@@ -72776,7 +74110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 539794180774813226}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -73218,7 +74554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7393713252767230985}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -73553,7 +74891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3286963201404855875}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -74841,6 +76181,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7826358940755334743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8844277147622672769}
+  - component: {fileID: 7335889624936529023}
+  m_Layer: 0
+  m_Name: Door2Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8844277147622672769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826358940755334743}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1885436776720358877}
+  m_Father: {fileID: 2200816097840901341}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &7335889624936529023
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826358940755334743}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7833664397076428411
 GameObject:
   m_ObjectHideFlags: 0
@@ -74866,11 +76255,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7833664397076428411}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.046769626, y: -0.028330078, z: -0.0066747474}
+  m_LocalRotation: {x: 0.0000001040888, y: 0.00000009663819, z: -0.7071067, w: -0.7071068}
+  m_LocalPosition: {x: -0.010490033, y: 0, z: -0.0022300028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
+  m_Father: {fileID: 4961256468143988503}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8790037228232490565
@@ -75514,7 +76903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2733851903386247218}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -75911,7 +77302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7471137817739055582}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -76072,12 +77465,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7967008560712588729}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18172076, y: -0.07687744, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -3.2325988e-16, w: 1}
+  m_LocalPosition: {x: -0.010210037, y: 0, z: -0.0022299958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 8
+  m_Father: {fileID: 7506622281365947673}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1701078856687458254
 MeshFilter:
@@ -76225,7 +77618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -76392,7 +77787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7324223683257799730}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -77002,7 +78399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -78637,7 +80036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -78796,7 +80197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 8219990110781368761}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -80846,12 +82249,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8472926940610248943}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13039345, y: -0.035885848, z: -0.0066748713}
+  m_LocalRotation: {x: -0, y: -0, z: -3.2325988e-16, w: 1}
+  m_LocalPosition: {x: -0.010240018, y: 0, z: -0.0022299953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 7
+  m_Father: {fileID: 4623634165811040867}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1481516020428058141
 MeshFilter:
@@ -81081,7 +82484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3632113629937401896}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -81836,7 +83241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7832233295093793363}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -82088,7 +83495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -82509,12 +83918,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8641988837621284295}
-  m_LocalRotation: {x: -0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.088790834, y: -0.13664947, z: -0.0066748713}
+  m_LocalRotation: {x: -0.00000011898992, y: 0.000000007231284, z: -0.7071069, w: 0.70710665}
+  m_LocalPosition: {x: -0.010509863, y: 0, z: -0.0022299984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2375345390381515594}
-  m_RootOrder: 4
+  m_Father: {fileID: 5578292064640717072}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1945025516113015947
 MeshFilter:
@@ -83116,7 +84525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 7393713252767230985}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -83353,7 +84764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -83766,7 +85179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -84096,7 +85511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 3286963201404855875}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -84312,6 +85729,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8846264328364849387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4623634165811040867}
+  - component: {fileID: 283040183755283770}
+  m_Layer: 0
+  m_Name: Door8Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4623634165811040867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846264328364849387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1448680204428792768}
+  m_Father: {fileID: 4255354893015735333}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &283040183755283770
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846264328364849387}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1315c9a0571fc4b4f81e1a42a5de163b, type: 2}
+  - {fileID: 7400000, guid: 7b5b2bd9c6f2ea2479a25095ed8d57b2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8863580883012132532
 GameObject:
   m_ObjectHideFlags: 0
@@ -85245,7 +86711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -85413,7 +86881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5172352428011271161}
   TargetMesh: {fileID: 0}
   TargetGroup:
@@ -86068,7 +87538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 2863736714067144459}
   TargetMesh: {fileID: 0}
   TargetGroup: []
@@ -86641,7 +88113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3984de6d6c7e122479da0d8d6e3235fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorID: 0
   stairs: 0
+  door: 0
   NaviTarget: {fileID: 5260604566476575370}
   TargetMesh: {fileID: 0}
   TargetGroup:

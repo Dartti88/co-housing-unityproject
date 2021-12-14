@@ -28568,7 +28568,7 @@ PrefabInstance:
     - target: {fileID: 2335113904361152699, guid: e954842393dbe1546a4f4db1177bd5a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.916668
+      value: 60.916626
       objectReference: {fileID: 0}
     - target: {fileID: 2335113904361152699, guid: e954842393dbe1546a4f4db1177bd5a0,
         type: 3}
@@ -31913,11 +31913,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8522253057116812619, guid: 98dacd42ab9ec7b40adcca9ab99cb9dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 694d3794fc8e0a740969d65f5dd89588, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98dacd42ab9ec7b40adcca9ab99cb9dc, type: 3}
 --- !u!4 &1854501428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6741669748936766453, guid: 98dacd42ab9ec7b40adcca9ab99cb9dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1854501427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1854501429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6741669748936766452, guid: 98dacd42ab9ec7b40adcca9ab99cb9dc,
     type: 3}
   m_PrefabInstance: {fileID: 1854501427}
   m_PrefabAsset: {fileID: 0}
@@ -34858,7 +34869,7 @@ MonoBehaviour:
   - {fileID: 691074071}
   - {fileID: 1430542148}
   - {fileID: 1897196203}
-  emoteGO: {fileID: 476144557}
+  emoteGO: {fileID: 1854501429}
   chatHandle: {fileID: 5854724059384765380}
 --- !u!1 &2099766911 stripped
 GameObject:

@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class ProfileStatus
 {
     public int profileID;
-    public int loginStatus;
+    public int floor;
     public float x;
     public float y;
     public float z;

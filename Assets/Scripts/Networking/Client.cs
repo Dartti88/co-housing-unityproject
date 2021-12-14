@@ -96,6 +96,7 @@ public class Client : MonoBehaviour
     public ProfileHandler pHandler;
 
     public bool isLoggedIn = false;
+    public int floor = 0;
     // omg this so fukin dumb.. but necessary..
     public Vector3 initLocalPlayerPos = new Vector3(0, 0, 0);
 
@@ -375,7 +376,11 @@ public class Client : MonoBehaviour
     // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
     public void BeginRequest_GetProfileStatuses(System.Action<string> onCompletionCallback)
     {
-        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetProfileStatuses, "application/json");
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_floor", floor.ToString()));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetProfileStatuses, form);
+        
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetProfileStatuses));
     }
     public void BeginRequest_UpdateProfileStatus(int profileID, int status, Vector3 destination, System.Action<string> onCompletionCallback)

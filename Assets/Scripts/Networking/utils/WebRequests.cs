@@ -23,7 +23,7 @@ public class WebRequests
     public const string URL_POST_AcceptTask = "https://gcdata.000webhostapp.com/AcceptTask.php";
     public const string URL_POST_CompleteTask = "https://gcdata.000webhostapp.com/CompleteTask.php";
     
-    public const string URL_GET_GetProfileStatuses = "https://gcdata.000webhostapp.com/GetProfileStatuses.php";
+    public const string URL_POST_GetProfileStatuses = "https://gcdata.000webhostapp.com/GetProfileStatuses.php";
     public const string URL_POST_UpdateProfileStatus = "https://gcdata.000webhostapp.com/UpdateProfileStatus.php";
 
     public const string URL_GET_GetChatMessages = "https://gcdata.000webhostapp.com/GetChatMessages.php";

@@ -58,4 +58,9 @@ public class ProfileHandler : MonoBehaviour
             }
         );
     }
+
+    private void OnApplicationQuit()
+    {
+        LogOut();
+    }
 }

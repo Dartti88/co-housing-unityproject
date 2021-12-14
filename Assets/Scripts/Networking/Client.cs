@@ -423,8 +423,14 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_UpdateProfilesFromDatabase(UnityWebRequest req)
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
-        profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
-
+        try
+        {
+            profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError(e.Message);
+        }
         RequestInProgress[RequestName.GetAllProfiles] = false;
     }
 

@@ -11,7 +11,7 @@ public class HouseDoor : MonoBehaviour
     // when player walks into proximity of the door
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Door"))
+        if (other.gameObject.CompareTag("Door") || other.gameObject.CompareTag("Item"))
             return;
 
         SetDoorState(1);
@@ -20,7 +20,7 @@ public class HouseDoor : MonoBehaviour
     // when player walks out of proximity of the door
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Door"))
+        if (other.gameObject.CompareTag("Door") || other.gameObject.CompareTag("Item"))
             return;
 
         SetDoorState(-1);

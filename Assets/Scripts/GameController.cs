@@ -188,11 +188,31 @@ public class GameController : Singleton<GameController>
 
     public void GoDownstairs()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Vector3 upstairsBegin = new Vector3(-31.0480003f, 2.91499996f, 53.1790009f);
+        Client.Instance.BeginRequest_UpdateProfileStatus(
+            Client.Instance.pHandler.userProfile.profileID,
+            1,
+            upstairsBegin,
+            response =>
+            {
+                Client.Instance.initLocalPlayerPos = upstairsBegin;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+        );
     }
     public void GoUpstairs()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Vector3 upstairsBegin = new Vector3(-37.9362717f, 9.15999985f, 50.4520721f);
+        Client.Instance.BeginRequest_UpdateProfileStatus(
+            Client.Instance.pHandler.userProfile.profileID,
+            1,
+            upstairsBegin,
+            response =>
+            {
+                Client.Instance.initLocalPlayerPos = upstairsBegin;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        );
     }
 
     public void Quit()

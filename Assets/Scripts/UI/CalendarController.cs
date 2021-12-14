@@ -87,6 +87,7 @@ public class CalendarController : MonoBehaviour
         bwClose.onClick.AddListener(CloseBooking);
 
         InitializeCalendar(selectedRoom);
+
     }
 
     // Show bookings for active room
@@ -452,6 +453,7 @@ public class CalendarController : MonoBehaviour
 
     public void InitializeCalendar(int roomID)
     {
+       // bookingWindow.SetActive(false);
         selectedRoom = roomID;
         roomsShownOffset = selectedRoom > roomsList.Length - panelAmount ? roomsList.Length - panelAmount : selectedRoom;
 

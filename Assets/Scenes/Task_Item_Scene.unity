@@ -2872,6 +2872,7 @@ MonoBehaviour:
   profileHandler: {fileID: 544111369}
   pHandler: {fileID: 0}
   isLoggedIn: 0
+  initLocalPlayerPos: {x: 0, y: 0, z: 0}
 --- !u!4 &334296272
 Transform:
   m_ObjectHideFlags: 0
@@ -2924,12 +2925,6 @@ MonoBehaviour:
 --- !u!1 &349616491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4254280839180773274, guid: fb5c06cfc658bc3409aac6f53a431def,
-    type: 3}
-  m_PrefabInstance: {fileID: 4254280838990552817}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &349616494 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 4254280839180773279, guid: fb5c06cfc658bc3409aac6f53a431def,
     type: 3}
   m_PrefabInstance: {fileID: 4254280838990552817}
   m_PrefabAsset: {fileID: 0}
@@ -9811,19 +9806,25 @@ MonoBehaviour:
   - {fileID: 1252284090}
   - {fileID: 72573792}
   levelPictures: []
+  seasons: []
   profileName: {fileID: 710707628}
   profileDescription: {fileID: 1154104832}
   nameText: {fileID: 832468298}
   descriptionText: {fileID: 2021482501}
   credits: {fileID: 0}
   CancelTask: {fileID: 579787138}
-  addTask: {fileID: 0}
-  taskCanvas: {fileID: 349616494}
+  addTaskBtn: {fileID: 0}
+  addTaskCanvas: {fileID: 0}
+  CanvasTaskUI: {fileID: 0}
   info: {fileID: 0}
-  slider: {fileID: 0}
+  creditboard: {fileID: 0}
   level: {fileID: 0}
   level_manager: {fileID: 0}
+  levelUpIcon: {fileID: 0}
+  emoteGO: {fileID: 0}
+  levelUpText: {fileID: 0}
   btn: {fileID: 0}
+  chat: {fileID: 0}
 --- !u!1 &1370491091 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1737774806639956871, guid: 001f75989d6bf744c9f55ea756d88b8e,
@@ -14463,6 +14464,7 @@ MonoBehaviour:
   - {fileID: 691074071}
   - {fileID: 1430542148}
   emoteGO: {fileID: 0}
+  chatHandle: {fileID: 0}
 --- !u!222 &471365598166106309
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15818,16 +15820,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 306519992}
-    - target: {fileID: 4254280839188225825, guid: fb5c06cfc658bc3409aac6f53a431def,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Target
-      value: 
-      objectReference: {fileID: 1669309716}
-    - target: {fileID: 4254280839188225825, guid: fb5c06cfc658bc3409aac6f53a431def,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Target
-      value: 
-      objectReference: {fileID: 1659928946}
     - target: {fileID: 4254280839870822523, guid: fb5c06cfc658bc3409aac6f53a431def,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

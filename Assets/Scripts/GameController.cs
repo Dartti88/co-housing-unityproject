@@ -196,6 +196,7 @@ public class GameController : Singleton<GameController>
             upstairsBegin,
             response =>
             {
+                Client.Instance.floor = 0;
                 Client.Instance.initLocalPlayerPos = upstairsBegin;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
@@ -210,6 +211,7 @@ public class GameController : Singleton<GameController>
             upstairsBegin,
             response =>
             {
+                Client.Instance.floor = 1;
                 Client.Instance.initLocalPlayerPos = upstairsBegin;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }

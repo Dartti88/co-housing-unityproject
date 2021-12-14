@@ -3121,6 +3121,7 @@ MonoBehaviour:
   profileHandler: {fileID: 1508620588}
   pHandler: {fileID: 1508620589}
   isLoggedIn: 0
+  floor: 0
   initLocalPlayerPos: {x: 22, y: 1, z: 18}
 --- !u!4 &1435179697
 Transform:
@@ -3179,6 +3180,7 @@ MonoBehaviour:
     profileType: 0
     creationDate: 
     description: 
+  debugButtonBool: 0
   loggedOut: 0
 --- !u!4 &1508620590
 Transform:
@@ -4905,7 +4907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2136110368
 RectTransform:
   m_ObjectHideFlags: 0

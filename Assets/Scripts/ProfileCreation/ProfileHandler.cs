@@ -49,8 +49,18 @@ public class ProfileHandler : MonoBehaviour
 
     public void LogOut()
     {
-        loggedOut = true;
-        userProfile = null;
-        SceneManager.LoadScene("LogIn");
+        Client.Instance.BeginRequest_LogOut(
+            response =>
+            {
+                loggedOut = true;
+                userProfile = null;
+                SceneManager.LoadScene("LogIn");
+            }
+        );
+    }
+
+    private void OnApplicationQuit()
+    {
+        LogOut();
     }
 }

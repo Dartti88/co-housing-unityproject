@@ -60,7 +60,8 @@ public class TaskUIController : MonoBehaviour
                 taskList[i].reward,
                 taskList[i].points,
                 taskList[i].quantity,
-                taskList[i].expiry);
+                taskList[i].expiry,
+                0);
         }
     }
 
@@ -69,7 +70,7 @@ public class TaskUIController : MonoBehaviour
     {
         GameObject newTaskElement = Instantiate(taskElementPrefab, taskElementPrefab.transform.position, taskElementPrefab.transform.rotation);
         newTaskElement.transform.SetParent(taskContainer.transform, false);
-        newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(1, "Potato", "Test task", "Description", 100, 40, 3, "10.10.2021");
+        newTaskElement.GetComponent<TaskUIElement>().ShowTaskElement(1, "Potato", "Test task", "Description", 100, 40, 3, "10.10.2021", 0);
     }
 
     // Testikäyttöön tehty funktio, joka randomisoi muutaman taskin valmiiksi listaan

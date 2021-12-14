@@ -40,6 +40,7 @@ public class EmoteBillboard : MonoBehaviour
 		particleSystems[i].GetComponent<ParticleSystem>().Play();
 
 		showPlaying = true;
+		Debug.Log("should see particles now");
     }
 
 	public void HideEmote()

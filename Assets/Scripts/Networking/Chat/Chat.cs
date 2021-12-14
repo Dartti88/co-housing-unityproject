@@ -32,7 +32,7 @@ public class Chat : MonoBehaviour
     Font font;
 
     int messageCount = 0;
-    float messageFontSize = 14.0f;
+    int messageFontSize = 40;
     const float chatBoxWidth = 0.0f;
 
     float updateCooldown = 0.0f;
@@ -48,16 +48,12 @@ public class Chat : MonoBehaviour
     Dictionary<string, System.Action<int, string>> commands;
     const string command_funcIdentifier = "func_";
 
-    private void Awake()
+    private void OnEnable()
     {
         realTimeController = FindObjectOfType<RealTimeController>();
         commands = new Dictionary<string, System.Action<int, string>>();
         commands.Add("emote", Command_Emote);
-        
-    }
 
-    void Start()
-    {
         rect_chatBoxContent = obj_chatBoxContent.GetComponent<RectTransform>();
         font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 
@@ -66,7 +62,16 @@ public class Chat : MonoBehaviour
         inputField_enterMessage.onEndEdit = se;
 
         profileHandler = Client.Instance.profileHandler.GetComponent<ProfileHandler>();
+    }
 
+    private void Awake()
+    {
+        
+    }
+
+    void Start()
+    {
+        
         /*AddMessageToChatBox("TestUser", "Test spam message");
         AddMessageToChatBox("TestUser", "Test spam message");
         AddMessageToChatBox("TestUser", "Test spam message");
@@ -157,6 +162,7 @@ public class Chat : MonoBehaviour
         newTextObj.transform.localPosition = position;
 
         Text textComponent = newTextObj.AddComponent<Text>();
+        textComponent.fontSize = messageFontSize;
 
         textComponent.font = font;
         textComponent.text = displayName + ": " + message;

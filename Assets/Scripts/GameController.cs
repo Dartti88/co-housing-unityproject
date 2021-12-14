@@ -148,7 +148,6 @@ public class GameController : Singleton<GameController>
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        Debug.Log(results.Count > 0);
         return results.Count > 0;
     }
 
@@ -185,6 +184,35 @@ public class GameController : Singleton<GameController>
         newPos.x = Mathf.Clamp(newPos.x, MinCameraPosition.x, MaxCameraPosition.x);
         newPos.z = Mathf.Clamp(newPos.z, MinCameraPosition.z, MaxCameraPosition.z);
         return newPos;
+    }
+
+    public void GoDownstairs()
+    {
+        Vector3 upstairsBegin = new Vector3(-31.0480003f, 2.91499996f, 53.1790009f);
+        Client.Instance.BeginRequest_UpdateProfileStatus(
+            Client.Instance.pHandler.userProfile.profileID,
+            1,
+            upstairsBegin,
+            response =>
+            {
+                Client.Instance.initLocalPlayerPos = upstairsBegin;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+        );
+    }
+    public void GoUpstairs()
+    {
+        Vector3 upstairsBegin = new Vector3(-37.9362717f, 9.15999985f, 50.4520721f);
+        Client.Instance.BeginRequest_UpdateProfileStatus(
+            Client.Instance.pHandler.userProfile.profileID,
+            1,
+            upstairsBegin,
+            response =>
+            {
+                Client.Instance.initLocalPlayerPos = upstairsBegin;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        );
     }
 
     public void Quit()

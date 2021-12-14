@@ -84,7 +84,6 @@ public class Client : MonoBehaviour
     {
         public Profile[] profiles;
     }
-
     
     public ProfilesContainer profile_list = new ProfilesContainer();
 
@@ -94,14 +93,28 @@ public class Client : MonoBehaviour
 
     // Prefab for all the other players except for the local player (Need this to spawn other players)
     public GameObject profileHandler;
+    public ProfileHandler pHandler;
 
     public bool isLoggedIn = false;
+    // omg this so fukin dumb.. but necessary..
+    public Vector3 initLocalPlayerPos = new Vector3(0, 0, 0);
+
+    const string MESSAGE_ERROR_IDENTIFIER = "Error";
+    const char MESSAGE_CUSTOM_DATA_SEPARATOR = ';';
+
+    public enum RequestName
+    {
+        GetAllProfiles
+    }
+    public Dictionary<RequestName, bool> RequestInProgress { get; private set; }
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            pHandler = profileHandler.GetComponent<ProfileHandler>();
+            RequestInProgress = new Dictionary<RequestName, bool>();
             DontDestroyOnLoad(Instance);
         }
         else
@@ -118,48 +131,18 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        testProfile = new Profile(0, 0, "UnityTestUser", "UrpoPetteri", "1234", "Test user", 1, 0, 0, Profile.ProfileType.Resident, DateTime.Now);
-        
-        newTestTask = new Task();
-        newTestTask.creatorID = 22;
-        newTestTask.taskName = "Another Task";
-        newTestTask.targetID = 2;
-        newTestTask.description = "Testing does task names and points work..";
-        newTestTask.cost = 1;
-        newTestTask.points = 420;
-        newTestTask.quantity = 5;
-        newTestTask.uniqueQuantity = 5;
-        newTestTask.expirationDate = "2025-09-12";
-
-        newTestTask2 = new Task();
-        newTestTask2.creatorID = 22;
-        newTestTask2.taskName = "Testingtask2";
-        newTestTask2.targetID = 2;
-        newTestTask2.description = "Testing GetCreatedTasks.php";
-        newTestTask2.cost = 1;
-        newTestTask2.points = 1;
-        newTestTask2.quantity = 2;
-        newTestTask2.uniqueQuantity = 0;
-        newTestTask2.expirationDate = "2025-09-12";
-        
-
-        newTestTask3 = new Task();
-        newTestTask3.creatorID = 23;
-        newTestTask3.taskName = "TESTINGTESTINGASD123";
-        newTestTask3.targetID = 0;
-        newTestTask3.description = "tesging";
-        newTestTask3.cost = 1;
-        newTestTask3.points = 1;
-        newTestTask3.quantity = 1;
-        newTestTask3.uniqueQuantity = 0;
-        newTestTask3.expirationDate = "2025-09-12";
-        */
     }
     // Update is called once per frame
+
     void Update()
     {
-
+        /*if (roomBookingTest)
+        {
+            BeginRequest_GetRoomBookings("ConcertDanceHall", null);
+            BeginRequest_MakeRoomBooking("Bookings_ConcertDanceHall", 6, "2021-12-24", "IsStillWorkingTest", null);
+            roomBookingTest = false;
+        }
+        */
     }
     
     public string GetDisplayNameById(int id)
@@ -178,15 +161,13 @@ public class Client : MonoBehaviour
     {
         return Array.Find(profile_list.profiles, e => e.displayName == displayName).profileID;
     }
-
-    void Test(string a)
-    {
-        Debug.Log("Login TEST: " + a);
-    }
+    
     
     // PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF ------------------------- PUBLIC PROFILE STUFF
     public void BeginRequest_GetAllProfiles(System.Action<string> onCompletionCallback)
     {
+        RequestInProgress[RequestName.GetAllProfiles] = true;
+
         UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_Profiles, "application/json");
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfilesFromDatabase));
     }
@@ -232,6 +213,24 @@ public class Client : MonoBehaviour
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_ValidatePassword, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_ValidatePasswordComplete));
     }
+    public void BeginRequest_LogOut(System.Action<string> onCompletionCallback)
+    {
+        // Need handle to the local player's transform, to save its' last pos..
+        Vector3 lastPlayerPos = FindObjectOfType<RealTimeController>().localPlayer.transform.position;
+        
+        string lastX_str = lastPlayerPos.x.ToString().Replace(',', '.');
+        string lastY_str = lastPlayerPos.y.ToString().Replace(',', '.');
+        string lastZ_str = lastPlayerPos.z.ToString().Replace(',', '.');
+
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", pHandler.userProfile.profileID.ToString()));
+        form.Add(new MultipartFormDataSection("key_x", lastX_str));
+        form.Add(new MultipartFormDataSection("key_y", lastY_str));
+        form.Add(new MultipartFormDataSection("key_z", lastZ_str));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_LogOut, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_LogOutComplete));
+    }
 
     public void BeginRequest_UpdateProfile(Profile profileToUpdate, System.Action<string> onCompletionCallback)
     {
@@ -244,6 +243,17 @@ public class Client : MonoBehaviour
 
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfile, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileComplete));
+    }
+
+    // Updates currently logged in user's data from server (gets social score(xp), credits, etc to match values from server)
+    // *NOTE! Unlike most of the other "BeginRequests" here, this returns the data from server as plain text, formatted as following(';' as entry separator):
+    //      "credits(float);socialScore(float)"
+    public void BeginRequest_UpdateLocalProfileData(System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", pHandler.userProfile.profileID.ToString()));
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateLocalProfileData, form, "text/plain");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateLocalProfileDataComplete));
     }
 
     // PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF ------------------------- PUBLIC TASKS STUFF
@@ -328,30 +338,62 @@ public class Client : MonoBehaviour
         UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CompleteTask, form);
         StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CompleteTaskComplete));
     }
+    
 
-    // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
-    public void BeginRequest_GetCharacterDestinations(System.Action<string> onCompletionCallback)
-    {
-        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetCharacterDestinations, "application/json");
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetCharacterDestinations));
-    }
-
-    public void BeginRequest_SendCharacterDestination(int profileID, Vector3 destination, System.Action<string> onCompletionCallback)
+    // PUBLIC ROOM BOOKING STUFF ------------------------- PUBLIC ROOM BOOKING STUFF ------------------------- PUBLIC ROOM BOOKING STUFF
+    public void BeginRequest_GetRoomBookings(string roomName, System.Action<string> onCompletionCallback)
     {
         List<IMultipartFormSection> form = new List<IMultipartFormSection>();
-        form.Add(new MultipartFormDataSection("key_profileID", "\"" + profileID.ToString() + "\""));
+        form.Add(new MultipartFormDataSection("key_roomName", roomName));
+        
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_GetRoomBookings, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, null));
+    }
+    public void BeginRequest_MakeRoomBooking(string roomName, int startTime, string date, string bookerName, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_roomName", roomName));
+        form.Add(new MultipartFormDataSection("key_startTime", startTime.ToString()));
+        form.Add(new MultipartFormDataSection("key_date", "\"" + date + "\""));
+        form.Add(new MultipartFormDataSection("key_bookerName", "\"" + bookerName + "\""));
 
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_MakeRoomBooking, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_MakeRoomBookingComplete));
+    }
+    public void BeginRequest_CancelRoomBooking(string roomName, int startTime, string date, string bookerName, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_roomName", roomName));
+        form.Add(new MultipartFormDataSection("key_startTime", startTime.ToString()));
+        form.Add(new MultipartFormDataSection("key_date", "\"" + date + "\""));
+        form.Add(new MultipartFormDataSection("key_bookerName", "\"" + bookerName + "\""));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_CancelRoomBooking, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_CancelRoomBookingComplete));
+    }
+
+    // PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF ------------------------- PUBLIC REAL TIME STUFF
+    public void BeginRequest_GetProfileStatuses(System.Action<string> onCompletionCallback)
+    {
+        UnityWebRequest req = WebRequests.CreateWebRequest_GET(WebRequests.URL_GET_GetProfileStatuses, "application/json");
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_GetProfileStatuses));
+    }
+    public void BeginRequest_UpdateProfileStatus(int profileID, int status, Vector3 destination, System.Action<string> onCompletionCallback)
+    {
+        List<IMultipartFormSection> form = new List<IMultipartFormSection>();
+        form.Add(new MultipartFormDataSection("key_profileID", profileID.ToString()));
+        form.Add(new MultipartFormDataSection("key_status", status.ToString()));
 
         string destX_str = destination.x.ToString().Replace(',', '.');
         string destY_str = destination.y.ToString().Replace(',', '.');
         string destZ_str = destination.z.ToString().Replace(',', '.');
-        
-        form.Add(new MultipartFormDataSection("key_x", "\"" + destX_str + "\""));
-        form.Add(new MultipartFormDataSection("key_y", "\"" + destY_str + "\""));
-        form.Add(new MultipartFormDataSection("key_z", "\"" + destZ_str + "\""));
 
-        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_SendCharacterDestination, form);
-        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_SendCharacterDestination));
+        form.Add(new MultipartFormDataSection("key_x", destX_str));
+        form.Add(new MultipartFormDataSection("key_y", destY_str));
+        form.Add(new MultipartFormDataSection("key_z", destZ_str));
+
+        UnityWebRequest req = WebRequests.CreateWebRequest_POST_FORM(WebRequests.URL_POST_UpdateProfileStatus, form);
+        StartCoroutine(SendWebRequest(req, onCompletionCallback, Internal_OnCompletion_UpdateProfileStatus));
     }
 
     // PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF ------------------------- PUBLIC CHAT STUFF
@@ -377,6 +419,8 @@ public class Client : MonoBehaviour
     {
         string json = "{\"profiles\": " + req.downloadHandler.text + "}";
         profile_list = JsonUtility.FromJson<ProfilesContainer>(json);
+
+        RequestInProgress[RequestName.GetAllProfiles] = false;
     }
 
     // This is called when server responds to post new profile request
@@ -392,12 +436,52 @@ public class Client : MonoBehaviour
     void Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_ValidatePasswordComplete(UnityWebRequest req)");
-        isLoggedIn = req.downloadHandler.text == "Success";
+        isLoggedIn = !(req.downloadHandler.text == "Failed" || req.downloadHandler.text.Contains("Error"));
+    }
+    void Internal_OnCompletion_LogOutComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_LogOutComplete(UnityWebRequest req) " + req.downloadHandler.text);
+        isLoggedIn = !(req.downloadHandler.text == "Success");
     }
 
     void Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)
     {
         Debug.Log("Internal_OnCompletion_UpdateProfileComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    void Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)
+    {
+        string response = req.downloadHandler.text;
+        // Check, if error..
+        if (response.Contains(MESSAGE_ERROR_IDENTIFIER))
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)\n" + response);
+        }
+        else // If no error..
+        {
+            Debug.Log("Internal_OnCompletion_UpdateLocalProfileDataComplete(UnityWebRequest req)");
+            string[] data = response.Split(MESSAGE_CUSTOM_DATA_SEPARATOR);
+            if (data.Length >= 2)
+            {
+                pHandler.userProfile.credits = float.Parse(data[0]);
+                pHandler.userProfile.socialScore = float.Parse(data[1]);
+
+                GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+                if (profile != null)
+                    {
+                    profile.GetComponent<LevelManager>().UpdateLevels();
+                    }
+                else
+                    {
+                    Debug.Log("ERROR >> Profile not ready for level update");
+                    }
+            }
+            else
+            {
+                Debug.Log("     ERROR >> invalid data length! Response from server was: " + response);
+            }
+        }
+
     }
 
     // INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF ------------------------- INTERNAL TASKS STUFF
@@ -457,20 +541,58 @@ public class Client : MonoBehaviour
     {
         Debug.Log("Internal_OnCompletion_AcceptTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
-
     void Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)
     {
+        GameObject profile = GameObject.FindGameObjectWithTag("Profile");
+        if (profile != null)
+        {
+            BeginRequest_UpdateLocalProfileData(null);
+            profile.GetComponent<LevelManager>().UpdateLevels();
+        }
+        else
+        {
+            Debug.Log("ERROR >> Profile not ready for level update");
+        }
+
         Debug.Log("Internal_OnCompletion_CompleteTaskComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
 
-    // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
-    void Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)
+    // INTERNAL ROOM BOOKING STUFF ------------------------- INTERNAL ROOM BOOKING STUFF ------------------------- INTERNAL ROOM BOOKING STUFF
+    // *NOTE! copy this into the calendar system, so we can actually store the booking list somewhere..
+    /*void Custom_OnCompletion_GetRoomBookings(string response)
     {
-        Debug.Log("Internal_OnCompletion_GetCharacterDestinations(UnityWebRequest req)");
+        List<TempBookingData> testList;
+
+        string json = "{\"bookings\": " + response + "}";
+        TempBookingsContainer bookingContainer = new TempBookingsContainer();
+        try
+        {
+            bookingContainer = JsonUtility.FromJson<TempBookingsContainer>(json);
+            testList = new List<TempBookingData>(bookingContainer.bookings);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No bookings found for requested room");
+        }
+    }*/
+
+    void Internal_OnCompletion_MakeRoomBookingComplete(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_MakeRoomBookingComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
     }
-    void Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)
+    void Internal_OnCompletion_CancelRoomBookingComplete(UnityWebRequest req)
     {
-        Debug.Log("Internal_OnCompletion_SendCharacterDestination(UnityWebRequest req)\n" + req.downloadHandler.text);
+        Debug.Log("Internal_OnCompletion_CancelRoomBookingComplete(UnityWebRequest req)\n" + req.downloadHandler.text);
+    }
+
+    // INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF ------------------------- INTERNAL REAL TIME STUFF
+    void Internal_OnCompletion_GetProfileStatuses(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_GetProfileStatuses(UnityWebRequest req)");
+    }
+    void Internal_OnCompletion_UpdateProfileStatus(UnityWebRequest req)
+    {
+        Debug.Log("Internal_OnCompletion_UpadteProfileStatus(UnityWebRequest req)");
     }
 
     // INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF ------------------------- INTERNAL CHAT STUFF

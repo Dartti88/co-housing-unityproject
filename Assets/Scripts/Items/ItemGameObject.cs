@@ -21,7 +21,7 @@ public class ItemGameObject : MonoBehaviour
     void Start()
     {
         if (GameObject.FindWithTag("ItemText") != null) itemText = GameObject.FindWithTag("ItemText").GetComponent<InputField>();
-        else Debug.Log("error");
+        else Debug.LogError("ItemText error");
         if (groupName == "") groupName = this.name;
         taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
     }

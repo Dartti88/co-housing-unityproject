@@ -6,6 +6,7 @@ using UnityEngine.Events;
 // used for objects in the house that can be clicked/tapped
 public class ClickableObject : MonoBehaviour
 {
+    public bool stairs;
     // when this object is selected, player will walk to this transform location
     public Transform NaviTarget;
     // 3d object to outline when selected
@@ -19,14 +20,28 @@ public class ClickableObject : MonoBehaviour
 
     public ItemGameObject itemGameObject;
 
+    Taskmanager taskManager;
+
     private void Start()
     {
-        if(!TargetGroup.Contains(this))TargetGroup.Add(this);
+        taskManager = GameObject.FindWithTag("Taskmanager").GetComponent<Taskmanager>();
+
+        if (!TargetGroup.Contains(this))TargetGroup.Add(this);
         if (GetComponent<ItemGameObject>() != null) itemGameObject = GetComponent<ItemGameObject>();
         if (TargetMesh == null)
         {
-            var child = GetComponentInChildren<MeshRenderer>();
-            outline = child.gameObject.AddComponent<Outline>();
+            if (GetComponent<MeshRenderer>())
+            {
+                Debug.Log("not in child object");
+                TargetMesh = GetComponent<MeshRenderer>();
+            }
+            else
+            {
+                Debug.Log("in child object");
+                TargetMesh = GetComponentInChildren<MeshRenderer>();
+            }
+            
+            outline = TargetMesh.gameObject.AddComponent<Outline>();
         }
         else
         {
@@ -49,11 +64,13 @@ public class ClickableObject : MonoBehaviour
         if (itemGameObject != null) itemGameObject.ChooseItem();
         StartCoroutine(WaitForPlayer());
         ToggleGroupOutline(true);
+        ShowButton();
     }
 
     // another object is clicked or this unselected for some other reason
     public void Unselect()
     {
+        HideButton();
         if (itemGameObject != null) itemGameObject.UnchooseItem();
         ToggleGroupOutline(false);
     }
@@ -77,7 +94,6 @@ public class ClickableObject : MonoBehaviour
     // wait for player to walk close to this object before activating it
     IEnumerator WaitForPlayer()
     {
-
         while (HouseObjectController.Instance.CurrentSelectedObject == TargetGroup)
         {
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < 1.5f)
@@ -87,5 +103,17 @@ public class ClickableObject : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void ShowButton()
+    {
+        if (stairs) taskManager.changeFloorButton.SetActive(true);
+        else taskManager.showTasksButton.SetActive(true);
+    }
+
+    void HideButton()
+    {
+        taskManager.showTasksButton.SetActive(false);
+        taskManager.changeFloorButton.SetActive(false);
     }
 }

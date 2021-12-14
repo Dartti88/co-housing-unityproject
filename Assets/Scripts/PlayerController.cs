@@ -28,12 +28,12 @@ public class PlayerController : Singleton<PlayerController>
     // run once when scene is loaded
     void Start()
     {
-        initialPosition = transform.position;
+        initialPosition = Client.Instance.initLocalPlayerPos;
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         activeAvatar = avatars[0];
         animator.logWarnings = false;
-    }    
+    }
 
     // reset player position to starting position
     public void ResetPosition()
@@ -47,7 +47,9 @@ public class PlayerController : Singleton<PlayerController>
     public void SetGoal(Vector3 goal)
     {
         agent.SetDestination(goal);
-        Client.Instance.BeginRequest_SendCharacterDestination(Client.Instance.profileHandler.GetComponent<ProfileHandler>().userProfile.profileID, goal, null);
+        Client.Instance.BeginRequest_UpdateProfileStatus(Client.Instance.profileHandler.GetComponent<ProfileHandler>().userProfile.profileID, 1, goal, null);
+
+        Debug.Log("<GOAL>: " + goal);
     }
 
     public Vector3 GetNextPosition()
@@ -92,7 +94,7 @@ public class PlayerController : Singleton<PlayerController>
 
             AnimatorStateInfo animState = animator.GetCurrentAnimatorStateInfo(0);
             float currentTime = animState.normalizedTime % 1;
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
             if (currentTime <= 0.1f && currentSpeed <= 0.1f)
             {
                 animator.speed = 0;

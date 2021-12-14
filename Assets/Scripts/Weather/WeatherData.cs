@@ -87,6 +87,11 @@ public class WeatherData : MonoBehaviour
                 timer -= Time.deltaTime;
             }
         }
+
+        if (overwrite_weather != -1)
+        {
+            GetWeatherInfo();
+        }
     }
     private IEnumerator GetWeatherInfo()
     {
@@ -170,14 +175,20 @@ public class WeatherData : MonoBehaviour
                 break;
             case (int)weather.shower_rain:
                 particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
-                particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
+                ParticleSystem particleSystem = particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>();
+                //var emission = particleSystem.emission;
+                //emission.rateOverTime = 330;
+                //particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.rain:
                 particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
-                particle_effects[(int)weather_particle_effect.mist].GetComponent<ParticleSystem>().Play();
+                //ParticleSystem particleSystem2 = particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>();
+                //var emission2 = particleSystem2.emission;
+                //emission.rateOverTime = 130;
                 break;
             case (int)weather.thunderstorm:
                 particle_effects[(int)weather_particle_effect.thunder_strom].GetComponent<ParticleSystem>().Play();
+                particle_effects[(int)weather_particle_effect.rain].GetComponent<ParticleSystem>().Play();
                 break;
             case (int)weather.snow:
                 particle_effects[(int)weather_particle_effect.snow].GetComponent<ParticleSystem>().Play();

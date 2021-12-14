@@ -270,7 +270,7 @@ public class Taskmanager : MonoBehaviour
     public void AddTask(Task newTask)
     {
         if (newTask.quantity == 0) newTask.quantity = 1;
-        Client.Instance.BeginRequest_AddNewTask(newTask, null);
+        Client.Instance.BeginRequest_AddNewTask(newTask, UpdateCredits);
         //taskList.Add(newTask.taskID, newTask);
     }
 
@@ -553,6 +553,11 @@ public class Taskmanager : MonoBehaviour
     }
 
     public void UpdateCredits(string nullstr)
+    {
+        Client.Instance.BeginRequest_UpdateLocalProfileData(CallUpdateCreditsFromUI);
+        
+    }
+    public void CallUpdateCreditsFromUI(string nullstr)
     {
         profileUIController.UpdateCredits();
     }

@@ -144,7 +144,7 @@ public class ProfileUIController : MonoBehaviour
             if (pHandler.GetUserProfile().avatarID == i)
             {
                 ProfilePicture.GetComponent<Image>().sprite = profilePictures[i].sprite;
-                playerController.ChangePlayerAvatar(i);
+                //playerController.ChangePlayerAvatar(i);
                 break;
             }
             else Debug.Log("avatarID not " + i + ", avatarID is" + pHandler.GetUserProfile().avatarID);

@@ -32,6 +32,7 @@ public class PlayerController : Singleton<PlayerController>
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         activeAvatar = avatars[0];
+        ChangePlayerAvatar(Client.Instance.pHandler.userProfile.avatarID);
         animator.logWarnings = false;
     }
 

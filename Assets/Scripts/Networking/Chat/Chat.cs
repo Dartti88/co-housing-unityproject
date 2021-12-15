@@ -226,11 +226,8 @@ public class Chat : MonoBehaviour
                 continue;
             }
             ChatMessage m = messagesContainer.messages[i];
-            
-            if (!m.message.Contains(command_funcIdentifier))
-                AddMessageToChatBox(m.displayName, m.message);
-            else
-                ParseAndExecuteCommandMessage(m.displayName, m.message);
+            AddMessageToChatBox(m.displayName, m.message);
+            ParseAndExecuteCommandMessage(m.displayName, m.message);
         }
 
         forceScrolling = true;

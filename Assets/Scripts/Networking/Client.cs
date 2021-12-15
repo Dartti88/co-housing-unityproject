@@ -137,6 +137,7 @@ public class Client : MonoBehaviour
 
     void Update()
     {
+
         /*if (roomBookingTest)
         {
             BeginRequest_GetRoomBookings("ConcertDanceHall", null);

@@ -5,32 +5,33 @@ using UnityEngine.Networking;
 
 public class WebRequests
 {
+    public const string URL_BASE = "GamifiedCohousing-32854.portmap.host:32854/gcSite/";
+
+    public const string URL_GET_Profiles =                  URL_BASE + "GetProfiles.php";
+    public const string URL_POST_CreateNewProfile =         URL_BASE + "AddNewProfileTEST.php";
+    public const string URL_POST_ValidatePassword =         URL_BASE + "ValidatePassword.php";
+    public const string URL_POST_LogOut =                   URL_BASE + "LogOut.php";
+    public const string URL_POST_UpdateProfile =            URL_BASE + "UpdateProfile.php";
+    public const string URL_POST_UpdateLocalProfileData =   URL_BASE + "GetProfileData.php";
+
+    public const string URL_POST_CreateNewTask =       URL_BASE + "AddNewTask.php";
+    public const string URL_POST_RemoveTask =          URL_BASE + "RemoveTask.php";
+    public const string URL_GET_AvailableTasks =       URL_BASE + "GetAvailableTasks.php";
+    public const string URL_POST_GetAcceptedTasks =    URL_BASE + "GetAcceptedTasks.php";
+    public const string URL_POST_GetCreatedTasks =     URL_BASE + "GetCreatedTasks.php";
+
+    public const string URL_POST_AcceptTask =           URL_BASE + "AcceptTask.php";
+    public const string URL_POST_CompleteTask =         URL_BASE + "CompleteTask.php";
     
-    public const string URL_GET_Profiles = "https://gamifiedcohousingapp.000webhostapp.com/GetProfiles.php";
-    public const string URL_POST_CreateNewProfile = "https://gamifiedcohousingapp.000webhostapp.com/AddNewProfileTEST.php";
-    public const string URL_POST_ValidatePassword = "https://gamifiedcohousingapp.000webhostapp.com/ValidatePassword.php";
-    public const string URL_POST_LogOut = "https://gamifiedcohousingapp.000webhostapp.com/LogOut.php";
-    public const string URL_POST_UpdateProfile = "https://gamifiedcohousingapp.000webhostapp.com/UpdateProfile.php";
-    public const string URL_POST_UpdateLocalProfileData = "https://gamifiedcohousingapp.000webhostapp.com/GetProfileData.php";
+    public const string URL_POST_GetProfileStatuses =   URL_BASE + "GetProfileStatuses.php";
+    public const string URL_POST_UpdateProfileStatus =  URL_BASE + "UpdateProfileStatus.php";
 
-    public const string URL_POST_CreateNewTask = "https://gamifiedcohousingapp.000webhostapp.com/AddNewTask.php";
-    public const string URL_POST_RemoveTask = "https://gamifiedcohousingapp.000webhostapp.com/RemoveTask.php";
-    public const string URL_GET_AvailableTasks = "https://gamifiedcohousingapp.000webhostapp.com/GetAvailableTasks.php";
-    public const string URL_POST_GetAcceptedTasks = "https://gamifiedcohousingapp.000webhostapp.com/GetAcceptedTasks.php";
-    public const string URL_POST_GetCreatedTasks= "https://gamifiedcohousingapp.000webhostapp.com/GetCreatedTasks.php";
+    public const string URL_GET_GetChatMessages =       URL_BASE + "GetChatMessages.php";
+    public const string URL_POST_SubmitChatMessage =    URL_BASE + "SubmitChatMessage.php";
 
-    public const string URL_POST_AcceptTask = "https://gamifiedcohousingapp.000webhostapp.com/AcceptTask.php";
-    public const string URL_POST_CompleteTask = "https://gamifiedcohousingapp.000webhostapp.com/CompleteTask.php";
-    
-    public const string URL_POST_GetProfileStatuses = "https://gamifiedcohousingapp.000webhostapp.com/GetProfileStatuses.php";
-    public const string URL_POST_UpdateProfileStatus = "https://gamifiedcohousingapp.000webhostapp.com/UpdateProfileStatus.php";
-
-    public const string URL_GET_GetChatMessages = "https://gamifiedcohousingapp.000webhostapp.com/GetChatMessages.php";
-    public const string URL_POST_SubmitChatMessage = "https://gamifiedcohousingapp.000webhostapp.com/SubmitChatMessage.php";
-
-    public const string URL_POST_GetRoomBookings = "https://gamifiedcohousingapp.000webhostapp.com/GetRoomBookings.php";
-    public const string URL_POST_MakeRoomBooking = "https://gamifiedcohousingapp.000webhostapp.com/MakeRoomBooking.php";
-    public const string URL_POST_CancelRoomBooking = "https://gamifiedcohousingapp.000webhostapp.com/CancelRoomBooking.php";
+    public const string URL_POST_GetRoomBookings =      URL_BASE + "GetRoomBookings.php";
+    public const string URL_POST_MakeRoomBooking =      URL_BASE + "MakeRoomBooking.php";
+    public const string URL_POST_CancelRoomBooking =    URL_BASE + "CancelRoomBooking.php";
 
 
     public static UnityWebRequest CreateWebRequest_GET(string url, string contentType = "text/plain")

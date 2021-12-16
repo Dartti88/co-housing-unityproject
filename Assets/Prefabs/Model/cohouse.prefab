@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 810839524381021717}
   - component: {fileID: 3185710883099585783}
   - component: {fileID: 7619354722993958120}
+  - component: {fileID: 8155276215937722294}
   m_Layer: 9
   m_Name: Maa
   m_TagString: Untagged
@@ -511,6 +512,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8155276215937722294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44553599418851961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8275ebc56636ffe4eacb102820d2fda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  change: {fileID: 44553599418851961}
+  textures:
+  - {fileID: 2800000, guid: a7754e051568e7f429a11f89d0485937, type: 3}
+  - {fileID: 2800000, guid: f643f35580d1da94ea9fe74d842889aa, type: 3}
+  - {fileID: 2800000, guid: c1052c7bcbdcc3e419a71c7c95bdd74a, type: 3}
+  - {fileID: 2800000, guid: 00ad6ed2fe002ad40bf3c0072df1f157, type: 3}
+  currentTexture: 0
+  currentSeason: 0
 --- !u!1 &45686605526397793
 GameObject:
   m_ObjectHideFlags: 0
@@ -14748,6 +14769,7 @@ GameObject:
   - component: {fileID: 6912372933635556584}
   - component: {fileID: 666433781958749793}
   - component: {fileID: 4291268107262806807}
+  - component: {fileID: 870036650669026488}
   m_Layer: 0
   m_Name: Tuuheakoivu.044
   m_TagString: Untagged
@@ -14819,6 +14841,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &870036650669026488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640014089011838185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8275ebc56636ffe4eacb102820d2fda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  change: {fileID: 1640014089011838185}
+  textures:
+  - {fileID: 2800000, guid: a1e7ffc593db94d438905184b6b595b7, type: 3}
+  - {fileID: 2800000, guid: 44dcc515cfa678b4995f60d58ada4b06, type: 3}
+  - {fileID: 2800000, guid: 44b19c5c73a8db9448afa9444553e697, type: 3}
+  - {fileID: 2800000, guid: cf20869bc47a79d45b624a04733ecdd2, type: 3}
+  currentTexture: 0
+  currentSeason: 0
 --- !u!1 &1646763632924735886
 GameObject:
   m_ObjectHideFlags: 0
